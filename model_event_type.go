@@ -16,14 +16,17 @@ import (
 	"fmt"
 )
 
-// EventType Type of events.
+// EventType Type of webhook events.
 type EventType string
 
 // List of EventType
 const (
-	EMAIL_DELIVERY_UPDATED EventType = "email.delivery.updated"
-	SMS_MESSAGE_UPDATED EventType = "sms.message.updated"
-	VOICE_MESSAGE_UPDATED EventType = "voice.message.updated"
+	EVENTTYPE_EMAIL_DELIVERY_UPDATED EventType = "email.delivery.updated"
+	EVENTTYPE_SMS_MESSAGE_UPDATED EventType = "sms.message.updated"
+	EVENTTYPE_VOICE_MESSAGE_UPDATED EventType = "voice.message.updated"
+	EVENTTYPE_WHATSAPP_INBOUND_MESSAGE_RECEIVED EventType = "whatsapp.inbound_message.received"
+	EVENTTYPE_WHATSAPP_MESSAGE_UPDATED EventType = "whatsapp.message.updated"
+	EVENTTYPE_WHATSAPP_TEMPLATE_REVIEWED EventType = "whatsapp.template.reviewed"
 )
 
 // All allowed values of EventType enum
@@ -31,6 +34,9 @@ var AllowedEventTypeEnumValues = []EventType{
 	"email.delivery.updated",
 	"sms.message.updated",
 	"voice.message.updated",
+	"whatsapp.inbound_message.received",
+	"whatsapp.message.updated",
+	"whatsapp.template.reviewed",
 }
 
 func (v *EventType) UnmarshalJSON(src []byte) error {

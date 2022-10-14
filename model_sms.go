@@ -20,7 +20,7 @@ import (
 type Sms struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
-	// The recipient's phone number in E.164 format.
+	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To string `json:"to"`
 	// The text of this message.
 	Text *string `json:"text,omitempty"`

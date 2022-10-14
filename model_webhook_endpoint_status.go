@@ -21,8 +21,8 @@ type WebhookEndpointStatus string
 
 // List of WebhookEndpointStatus
 const (
-	ACTIVE WebhookEndpointStatus = "active"
-	DISABLED WebhookEndpointStatus = "disabled"
+	WEBHOOKENDPOINTSTATUS_ACTIVE WebhookEndpointStatus = "active"
+	WEBHOOKENDPOINTSTATUS_DISABLED WebhookEndpointStatus = "disabled"
 )
 
 // All allowed values of WebhookEndpointStatus enum

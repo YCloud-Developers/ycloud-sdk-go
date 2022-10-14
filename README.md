@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.0.0
+- Package version: 1.1.0
 
 ## Installation
 
@@ -33,6 +33,8 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**Send**](docs/EmailsApi.md#send) | **Post** /emails | Send an email
 *SmsApi* | [**List**](docs/SmsApi.md#list) | **Get** /sms | List SMS records
 *SmsApi* | [**Send**](docs/SmsApi.md#send) | **Post** /sms | Send an SMS
+*VerifyApi* | [**Check**](docs/VerifyApi.md#check) | **Post** /verify/verificationChecks | Check a verification
+*VerifyApi* | [**Send**](docs/VerifyApi.md#send) | **Post** /verify/verifications | Start a verification
 *VoicesApi* | [**List**](docs/VoicesApi.md#list) | **Get** /voices | List voice records
 *VoicesApi* | [**Send**](docs/VoicesApi.md#send) | **Post** /voices | Send a voice code
 *WebhookEndpointsApi* | [**Create**](docs/WebhookEndpointsApi.md#create) | **Post** /webhookEndpoints | Create a webhook endpoint
@@ -41,6 +43,7 @@ Class | Method | HTTP request | Description
 *WebhookEndpointsApi* | [**Retrieve**](docs/WebhookEndpointsApi.md#retrieve) | **Get** /webhookEndpoints/{id} | Retrieve a webhook endpoint
 *WebhookEndpointsApi* | [**RotateSecret**](docs/WebhookEndpointsApi.md#rotatesecret) | **Post** /webhookEndpoints/{id}/rotateSecret | Rotate a webhook endpoint secret
 *WebhookEndpointsApi* | [**Update**](docs/WebhookEndpointsApi.md#update) | **Patch** /webhookEndpoints/{id} | Update a webhook endpoint
+*WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Send a WhatsApp message
 
 
 ## Documentation For Models
@@ -59,6 +62,12 @@ Class | Method | HTTP request | Description
  - [Sms](docs/Sms.md)
  - [SmsPage](docs/SmsPage.md)
  - [SmsSendRequest](docs/SmsSendRequest.md)
+ - [Verification](docs/Verification.md)
+ - [VerificationChannel](docs/VerificationChannel.md)
+ - [VerificationCheck](docs/VerificationCheck.md)
+ - [VerificationCheckRequest](docs/VerificationCheckRequest.md)
+ - [VerificationSendRequest](docs/VerificationSendRequest.md)
+ - [VerificationStatus](docs/VerificationStatus.md)
  - [Voice](docs/Voice.md)
  - [VoicePage](docs/VoicePage.md)
  - [VoiceSendRequest](docs/VoiceSendRequest.md)
@@ -67,6 +76,50 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WhatsappInboundMessage](docs/WhatsappInboundMessage.md)
+ - [WhatsappInboundMessageButton](docs/WhatsappInboundMessageButton.md)
+ - [WhatsappInboundMessageInteractive](docs/WhatsappInboundMessageInteractive.md)
+ - [WhatsappInboundMessageInteractiveButtonReply](docs/WhatsappInboundMessageInteractiveButtonReply.md)
+ - [WhatsappInboundMessageInteractiveListReply](docs/WhatsappInboundMessageInteractiveListReply.md)
+ - [WhatsappInboundMessageLocation](docs/WhatsappInboundMessageLocation.md)
+ - [WhatsappInboundMessageMedia](docs/WhatsappInboundMessageMedia.md)
+ - [WhatsappInboundMessageText](docs/WhatsappInboundMessageText.md)
+ - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
+ - [WhatsappMessage](docs/WhatsappMessage.md)
+ - [WhatsappMessageContact](docs/WhatsappMessageContact.md)
+ - [WhatsappMessageContactAddressesInner](docs/WhatsappMessageContactAddressesInner.md)
+ - [WhatsappMessageContactEmailsInner](docs/WhatsappMessageContactEmailsInner.md)
+ - [WhatsappMessageContactName](docs/WhatsappMessageContactName.md)
+ - [WhatsappMessageContactOrg](docs/WhatsappMessageContactOrg.md)
+ - [WhatsappMessageContactPhonesInner](docs/WhatsappMessageContactPhonesInner.md)
+ - [WhatsappMessageContactUrlsInner](docs/WhatsappMessageContactUrlsInner.md)
+ - [WhatsappMessageInteractive](docs/WhatsappMessageInteractive.md)
+ - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
+ - [WhatsappMessageInteractiveActionButtonsInner](docs/WhatsappMessageInteractiveActionButtonsInner.md)
+ - [WhatsappMessageInteractiveActionButtonsInnerReply](docs/WhatsappMessageInteractiveActionButtonsInnerReply.md)
+ - [WhatsappMessageInteractiveActionSectionsInner](docs/WhatsappMessageInteractiveActionSectionsInner.md)
+ - [WhatsappMessageInteractiveActionSectionsInnerRowsInner](docs/WhatsappMessageInteractiveActionSectionsInnerRowsInner.md)
+ - [WhatsappMessageInteractiveBody](docs/WhatsappMessageInteractiveBody.md)
+ - [WhatsappMessageInteractiveFooter](docs/WhatsappMessageInteractiveFooter.md)
+ - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
+ - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
+ - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
+ - [WhatsappMessageSendRequest](docs/WhatsappMessageSendRequest.md)
+ - [WhatsappMessageTemplate](docs/WhatsappMessageTemplate.md)
+ - [WhatsappMessageTemplateComponentsInner](docs/WhatsappMessageTemplateComponentsInner.md)
+ - [WhatsappMessageTemplateComponentsInnerParametersInner](docs/WhatsappMessageTemplateComponentsInnerParametersInner.md)
+ - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
+ - [WhatsappMessageText](docs/WhatsappMessageText.md)
+ - [WhatsappMessageType](docs/WhatsappMessageType.md)
+ - [WhatsappTemplate](docs/WhatsappTemplate.md)
+ - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
+ - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
+ - [WhatsappTemplateComponentButton](docs/WhatsappTemplateComponentButton.md)
+ - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
+ - [WhatsappTemplateComponentExample](docs/WhatsappTemplateComponentExample.md)
+ - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)
+ - [WhatsappTemplatePage](docs/WhatsappTemplatePage.md)
+ - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
 
 
 ## Documentation For Authorization

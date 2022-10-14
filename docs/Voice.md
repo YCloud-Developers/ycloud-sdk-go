@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
-**To** | **string** | The recipient&#39;s phone number in E.164 format. | 
+**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **VerificationCode** | Pointer to **string** | The verification code to be sent, 4 to 6 digits. | [optional] 
 **Language** | Pointer to **string** | [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). | [optional] 
 **RegionCode** | Pointer to **string** | [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 

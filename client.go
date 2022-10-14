@@ -56,9 +56,13 @@ type APIClient struct {
 
 	SmsApi *SmsApiService
 
+	VerifyApi *VerifyApiService
+
 	VoicesApi *VoicesApiService
 
 	WebhookEndpointsApi *WebhookEndpointsApiService
+
+	WhatsappMessagesApi *WhatsappMessagesApiService
 }
 
 type service struct {
@@ -80,8 +84,10 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BalanceApi = (*BalanceApiService)(&c.common)
 	c.EmailsApi = (*EmailsApiService)(&c.common)
 	c.SmsApi = (*SmsApiService)(&c.common)
+	c.VerifyApi = (*VerifyApiService)(&c.common)
 	c.VoicesApi = (*VoicesApiService)(&c.common)
 	c.WebhookEndpointsApi = (*WebhookEndpointsApiService)(&c.common)
+	c.WhatsappMessagesApi = (*WhatsappMessagesApiService)(&c.common)
 
 	return c
 }

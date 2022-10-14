@@ -1,4 +1,4 @@
-# \BalanceApi
+# BalanceApi
 
 All URIs are relative to *https://api.ycloud.com/v2*
 

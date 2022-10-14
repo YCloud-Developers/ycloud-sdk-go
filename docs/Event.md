@@ -5,18 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
-**Type** | **string** | Type of this event. | 
+**Type** | [**EventType**](EventType.md) |  | 
 **ApiVersion** | **string** | The API version used to render this event. | 
 **CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | 
 **EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional] 
 **Sms** | Pointer to [**Sms**](Sms.md) |  | [optional] 
 **Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
+**WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
+**WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
+**WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
 
 ## Methods
 
 ### NewEvent
 
-`func NewEvent(id string, type_ string, apiVersion string, createTime time.Time, ) *Event`
+`func NewEvent(id string, type_ EventType, apiVersion string, createTime time.Time, ) *Event`
 
 NewEvent instantiates a new Event object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +56,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *Event) GetType() string`
+`func (o *Event) GetType() EventType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *Event) GetTypeOk() (*string, bool)`
+`func (o *Event) GetTypeOk() (*EventType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *Event) SetType(v string)`
+`func (o *Event) SetType(v EventType)`
 
 SetType sets Type field to given value.
 
@@ -185,6 +188,81 @@ SetVoice sets Voice field to given value.
 `func (o *Event) HasVoice() bool`
 
 HasVoice returns a boolean if a field has been set.
+
+### GetWhatsappInboundMessage
+
+`func (o *Event) GetWhatsappInboundMessage() WhatsappInboundMessage`
+
+GetWhatsappInboundMessage returns the WhatsappInboundMessage field if non-nil, zero value otherwise.
+
+### GetWhatsappInboundMessageOk
+
+`func (o *Event) GetWhatsappInboundMessageOk() (*WhatsappInboundMessage, bool)`
+
+GetWhatsappInboundMessageOk returns a tuple with the WhatsappInboundMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappInboundMessage
+
+`func (o *Event) SetWhatsappInboundMessage(v WhatsappInboundMessage)`
+
+SetWhatsappInboundMessage sets WhatsappInboundMessage field to given value.
+
+### HasWhatsappInboundMessage
+
+`func (o *Event) HasWhatsappInboundMessage() bool`
+
+HasWhatsappInboundMessage returns a boolean if a field has been set.
+
+### GetWhatsappMessage
+
+`func (o *Event) GetWhatsappMessage() WhatsappMessage`
+
+GetWhatsappMessage returns the WhatsappMessage field if non-nil, zero value otherwise.
+
+### GetWhatsappMessageOk
+
+`func (o *Event) GetWhatsappMessageOk() (*WhatsappMessage, bool)`
+
+GetWhatsappMessageOk returns a tuple with the WhatsappMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappMessage
+
+`func (o *Event) SetWhatsappMessage(v WhatsappMessage)`
+
+SetWhatsappMessage sets WhatsappMessage field to given value.
+
+### HasWhatsappMessage
+
+`func (o *Event) HasWhatsappMessage() bool`
+
+HasWhatsappMessage returns a boolean if a field has been set.
+
+### GetWhatsappTemplate
+
+`func (o *Event) GetWhatsappTemplate() WhatsappTemplate`
+
+GetWhatsappTemplate returns the WhatsappTemplate field if non-nil, zero value otherwise.
+
+### GetWhatsappTemplateOk
+
+`func (o *Event) GetWhatsappTemplateOk() (*WhatsappTemplate, bool)`
+
+GetWhatsappTemplateOk returns a tuple with the WhatsappTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappTemplate
+
+`func (o *Event) SetWhatsappTemplate(v WhatsappTemplate)`
+
+SetWhatsappTemplate sets WhatsappTemplate field to given value.
+
+### HasWhatsappTemplate
+
+`func (o *Event) HasWhatsappTemplate() bool`
+
+HasWhatsappTemplate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

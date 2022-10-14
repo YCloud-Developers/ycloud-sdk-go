@@ -20,7 +20,7 @@ import (
 type Voice struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
-	// The recipient's phone number in E.164 format.
+	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To string `json:"to"`
 	// The verification code to be sent, 4 to 6 digits.
 	VerificationCode *string `json:"verificationCode,omitempty"`

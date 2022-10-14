@@ -21,8 +21,8 @@ type EmailContentType string
 
 // List of EmailContentType
 const (
-	TEXT_HTML EmailContentType = "text/html"
-	TEXT_PLAIN EmailContentType = "text/plain"
+	EMAILCONTENTTYPE_TEXT_HTML EmailContentType = "text/html"
+	EMAILCONTENTTYPE_TEXT_PLAIN EmailContentType = "text/plain"
 )
 
 // All allowed values of EmailContentType enum

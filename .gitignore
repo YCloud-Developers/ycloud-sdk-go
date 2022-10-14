@@ -22,3 +22,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# misc
+.idea
+.openapi-generator
+.openapi-generator-ignore
+git_push.sh

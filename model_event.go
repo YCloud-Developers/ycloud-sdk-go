@@ -20,8 +20,7 @@ import (
 type Event struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
-	// Type of this event.
-	Type string `json:"type"`
+	Type EventType `json:"type"`
 	// The API version used to render this event.
 	ApiVersion string `json:"apiVersion"`
 	// The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
@@ -29,13 +28,16 @@ type Event struct {
 	EmailDelivery *EmailDelivery `json:"emailDelivery,omitempty"`
 	Sms *Sms `json:"sms,omitempty"`
 	Voice *Voice `json:"voice,omitempty"`
+	WhatsappInboundMessage *WhatsappInboundMessage `json:"whatsappInboundMessage,omitempty"`
+	WhatsappMessage *WhatsappMessage `json:"whatsappMessage,omitempty"`
+	WhatsappTemplate *WhatsappTemplate `json:"whatsappTemplate,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEvent(id string, type_ string, apiVersion string, createTime time.Time) *Event {
+func NewEvent(id string, type_ EventType, apiVersion string, createTime time.Time) *Event {
 	this := Event{}
 	this.Id = id
 	this.Type = type_
@@ -77,9 +79,9 @@ func (o *Event) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *Event) GetType() string {
+func (o *Event) GetType() EventType {
 	if o == nil {
-		var ret string
+		var ret EventType
 		return ret
 	}
 
@@ -88,7 +90,7 @@ func (o *Event) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *Event) GetTypeOk() (*string, bool) {
+func (o *Event) GetTypeOk() (*EventType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +98,7 @@ func (o *Event) GetTypeOk() (*string, bool) {
 }
 
 // SetType sets field value
-func (o *Event) SetType(v string) {
+func (o *Event) SetType(v EventType) {
 	o.Type = v
 }
 
@@ -244,6 +246,102 @@ func (o *Event) SetVoice(v Voice) {
 	o.Voice = &v
 }
 
+// GetWhatsappInboundMessage returns the WhatsappInboundMessage field value if set, zero value otherwise.
+func (o *Event) GetWhatsappInboundMessage() WhatsappInboundMessage {
+	if o == nil || o.WhatsappInboundMessage == nil {
+		var ret WhatsappInboundMessage
+		return ret
+	}
+	return *o.WhatsappInboundMessage
+}
+
+// GetWhatsappInboundMessageOk returns a tuple with the WhatsappInboundMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappInboundMessageOk() (*WhatsappInboundMessage, bool) {
+	if o == nil || o.WhatsappInboundMessage == nil {
+		return nil, false
+	}
+	return o.WhatsappInboundMessage, true
+}
+
+// HasWhatsappInboundMessage returns a boolean if a field has been set.
+func (o *Event) HasWhatsappInboundMessage() bool {
+	if o != nil && o.WhatsappInboundMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappInboundMessage gets a reference to the given WhatsappInboundMessage and assigns it to the WhatsappInboundMessage field.
+func (o *Event) SetWhatsappInboundMessage(v WhatsappInboundMessage) {
+	o.WhatsappInboundMessage = &v
+}
+
+// GetWhatsappMessage returns the WhatsappMessage field value if set, zero value otherwise.
+func (o *Event) GetWhatsappMessage() WhatsappMessage {
+	if o == nil || o.WhatsappMessage == nil {
+		var ret WhatsappMessage
+		return ret
+	}
+	return *o.WhatsappMessage
+}
+
+// GetWhatsappMessageOk returns a tuple with the WhatsappMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappMessageOk() (*WhatsappMessage, bool) {
+	if o == nil || o.WhatsappMessage == nil {
+		return nil, false
+	}
+	return o.WhatsappMessage, true
+}
+
+// HasWhatsappMessage returns a boolean if a field has been set.
+func (o *Event) HasWhatsappMessage() bool {
+	if o != nil && o.WhatsappMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappMessage gets a reference to the given WhatsappMessage and assigns it to the WhatsappMessage field.
+func (o *Event) SetWhatsappMessage(v WhatsappMessage) {
+	o.WhatsappMessage = &v
+}
+
+// GetWhatsappTemplate returns the WhatsappTemplate field value if set, zero value otherwise.
+func (o *Event) GetWhatsappTemplate() WhatsappTemplate {
+	if o == nil || o.WhatsappTemplate == nil {
+		var ret WhatsappTemplate
+		return ret
+	}
+	return *o.WhatsappTemplate
+}
+
+// GetWhatsappTemplateOk returns a tuple with the WhatsappTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappTemplateOk() (*WhatsappTemplate, bool) {
+	if o == nil || o.WhatsappTemplate == nil {
+		return nil, false
+	}
+	return o.WhatsappTemplate, true
+}
+
+// HasWhatsappTemplate returns a boolean if a field has been set.
+func (o *Event) HasWhatsappTemplate() bool {
+	if o != nil && o.WhatsappTemplate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappTemplate gets a reference to the given WhatsappTemplate and assigns it to the WhatsappTemplate field.
+func (o *Event) SetWhatsappTemplate(v WhatsappTemplate) {
+	o.WhatsappTemplate = &v
+}
+
 func (o Event) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -266,6 +364,15 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.Voice != nil {
 		toSerialize["voice"] = o.Voice
+	}
+	if o.WhatsappInboundMessage != nil {
+		toSerialize["whatsappInboundMessage"] = o.WhatsappInboundMessage
+	}
+	if o.WhatsappMessage != nil {
+		toSerialize["whatsappMessage"] = o.WhatsappMessage
+	}
+	if o.WhatsappTemplate != nil {
+		toSerialize["whatsappTemplate"] = o.WhatsappTemplate
 	}
 	return json.Marshal(toSerialize)
 }
