@@ -21,58 +21,94 @@ import (
 )
 
 
-// WhatsappMessagesApiService WhatsappMessagesApi service
-type WhatsappMessagesApiService service
+// WhatsappPhoneNumbersApiService WhatsappPhoneNumbersApi service
+type WhatsappPhoneNumbersApiService service
 
-type WhatsappMessagesApiRetrieveRequest struct {
+type WhatsappPhoneNumbersApiListRequest struct {
 	ctx context.Context
-	ApiService *WhatsappMessagesApiService
-	id string
+	ApiService *WhatsappPhoneNumbersApiService
+	page *int32
+	limit *int32
+	includeTotal *bool
+	filterWabaId *string
 }
 
-func (r WhatsappMessagesApiRetrieveRequest) Execute() (*WhatsappMessage, *http.Response, error) {
-	return r.ApiService.RetrieveExecute(r)
+// Page number of the results to be returned, 1-based.
+func (r WhatsappPhoneNumbersApiListRequest) Page(page int32) WhatsappPhoneNumbersApiListRequest {
+	r.page = &page
+	return r
+}
+
+// A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
+func (r WhatsappPhoneNumbersApiListRequest) Limit(limit int32) WhatsappPhoneNumbersApiListRequest {
+	r.limit = &limit
+	return r
+}
+
+// Return results inside an object that contains the total result count or not.
+func (r WhatsappPhoneNumbersApiListRequest) IncludeTotal(includeTotal bool) WhatsappPhoneNumbersApiListRequest {
+	r.includeTotal = &includeTotal
+	return r
+}
+
+// WhatsApp Business Account ID.
+func (r WhatsappPhoneNumbersApiListRequest) FilterWabaId(filterWabaId string) WhatsappPhoneNumbersApiListRequest {
+	r.filterWabaId = &filterWabaId
+	return r
+}
+
+func (r WhatsappPhoneNumbersApiListRequest) Execute() (*WhatsappPhoneNumberPage, *http.Response, error) {
+	return r.ApiService.ListExecute(r)
 }
 
 /*
-Retrieve Retrieve a WhatsApp message
+List List WhatsApp phone numbers
 
-Retrieves a WhatsApp message you've previously sent.
+Returns a paginated list of WhatsApp business account phone numbers you've registered on YCloud.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the object.
- @return WhatsappMessagesApiRetrieveRequest
+ @return WhatsappPhoneNumbersApiListRequest
 */
-func (a *WhatsappMessagesApiService) Retrieve(ctx context.Context, id string) WhatsappMessagesApiRetrieveRequest {
-	return WhatsappMessagesApiRetrieveRequest{
+func (a *WhatsappPhoneNumbersApiService) List(ctx context.Context) WhatsappPhoneNumbersApiListRequest {
+	return WhatsappPhoneNumbersApiListRequest{
 		ApiService: a,
 		ctx: ctx,
-		id: id,
 	}
 }
 
 // Execute executes the request
-//  @return WhatsappMessage
-func (a *WhatsappMessagesApiService) RetrieveExecute(r WhatsappMessagesApiRetrieveRequest) (*WhatsappMessage, *http.Response, error) {
+//  @return WhatsappPhoneNumberPage
+func (a *WhatsappPhoneNumbersApiService) ListExecute(r WhatsappPhoneNumbersApiListRequest) (*WhatsappPhoneNumberPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WhatsappMessage
+		localVarReturnValue  *WhatsappPhoneNumberPage
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappMessagesApiService.Retrieve")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.List")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/whatsapp/messages/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath := localBasePath + "/whatsapp/phoneNumbers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.includeTotal != nil {
+		localVarQueryParams.Add("includeTotal", parameterToString(*r.includeTotal, ""))
+	}
+	if r.filterWabaId != nil {
+		localVarQueryParams.Add("filter.wabaId", parameterToString(*r.filterWabaId, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -141,62 +177,61 @@ func (a *WhatsappMessagesApiService) RetrieveExecute(r WhatsappMessagesApiRetrie
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type WhatsappMessagesApiSendRequest struct {
+type WhatsappPhoneNumbersApiRetrieveRequest struct {
 	ctx context.Context
-	ApiService *WhatsappMessagesApiService
-	whatsappMessageSendRequest *WhatsappMessageSendRequest
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
 }
 
-func (r WhatsappMessagesApiSendRequest) WhatsappMessageSendRequest(whatsappMessageSendRequest WhatsappMessageSendRequest) WhatsappMessagesApiSendRequest {
-	r.whatsappMessageSendRequest = &whatsappMessageSendRequest
-	return r
-}
-
-func (r WhatsappMessagesApiSendRequest) Execute() (*WhatsappMessage, *http.Response, error) {
-	return r.ApiService.SendExecute(r)
+func (r WhatsappPhoneNumbersApiRetrieveRequest) Execute() (*WhatsappPhoneNumber, *http.Response, error) {
+	return r.ApiService.RetrieveExecute(r)
 }
 
 /*
-Send Send a WhatsApp message
+Retrieve Retrieve a WhatsApp phone number
 
-Sends an outbound WhatsApp message.
+Retrieves a WhatsApp business account phone number you've registered on YCloud.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return WhatsappMessagesApiSendRequest
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiRetrieveRequest
 */
-func (a *WhatsappMessagesApiService) Send(ctx context.Context) WhatsappMessagesApiSendRequest {
-	return WhatsappMessagesApiSendRequest{
+func (a *WhatsappPhoneNumbersApiService) Retrieve(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRetrieveRequest {
+	return WhatsappPhoneNumbersApiRetrieveRequest{
 		ApiService: a,
 		ctx: ctx,
+		wabaId: wabaId,
+		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//  @return WhatsappMessage
-func (a *WhatsappMessagesApiService) SendExecute(r WhatsappMessagesApiSendRequest) (*WhatsappMessage, *http.Response, error) {
+//  @return WhatsappPhoneNumber
+func (a *WhatsappPhoneNumbersApiService) RetrieveExecute(r WhatsappPhoneNumbersApiRetrieveRequest) (*WhatsappPhoneNumber, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WhatsappMessage
+		localVarReturnValue  *WhatsappPhoneNumber
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappMessagesApiService.Send")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.Retrieve")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/whatsapp/messages"
+	localVarPath := localBasePath + "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"phoneNumber"+"}", url.PathEscape(parameterToString(r.phoneNumber, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.whatsappMessageSendRequest == nil {
-		return localVarReturnValue, nil, reportError("whatsappMessageSendRequest is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -212,8 +247,6 @@ func (a *WhatsappMessagesApiService) SendExecute(r WhatsappMessagesApiSendReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.whatsappMessageSendRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

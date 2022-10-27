@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **Type** | [**WhatsappMessageType**](WhatsappMessageType.md) |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional] 
 **Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
-**Status** | Pointer to **string** | One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;failed&#x60;, &#x60;delivered&#x60;, &#x60;read&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;sent&#x60;: A message sent by your business is in transit within WhatsApp&#39;s systems. - &#x60;failed&#x60;: A message sent by your business failed to send. - &#x60;delivered&#x60;: A message sent by your business was delivered to the user&#39;s device. - &#x60;read&#x60;: A message sent by your business was read by the user. | [optional] 
+**Status** | Pointer to [**WhatsappMessageStatus**](WhatsappMessageStatus.md) |  | [optional] 
 **ErrorCode** | Pointer to **string** | Error code when the message status is &#x60;failed&#x60;. | [optional] 
 **ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
@@ -62,6 +63,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetWabaId
+
+`func (o *WhatsappMessage) GetWabaId() string`
+
+GetWabaId returns the WabaId field if non-nil, zero value otherwise.
+
+### GetWabaIdOk
+
+`func (o *WhatsappMessage) GetWabaIdOk() (*string, bool)`
+
+GetWabaIdOk returns a tuple with the WabaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWabaId
+
+`func (o *WhatsappMessage) SetWabaId(v string)`
+
+SetWabaId sets WabaId field to given value.
+
+### HasWabaId
+
+`func (o *WhatsappMessage) HasWabaId() bool`
+
+HasWabaId returns a boolean if a field has been set.
 
 ### GetFrom
 
@@ -375,20 +401,20 @@ HasExternalId returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *WhatsappMessage) GetStatus() string`
+`func (o *WhatsappMessage) GetStatus() WhatsappMessageStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WhatsappMessage) GetStatusOk() (*string, bool)`
+`func (o *WhatsappMessage) GetStatusOk() (*WhatsappMessageStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WhatsappMessage) SetStatus(v string)`
+`func (o *WhatsappMessage) SetStatus(v WhatsappMessageStatus)`
 
 SetStatus sets Status field to given value.
 

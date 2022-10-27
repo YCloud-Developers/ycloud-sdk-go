@@ -18,9 +18,11 @@ import (
 
 // WhatsappTemplate See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).
 type WhatsappTemplate struct {
+	// WhatsApp Business Account ID.
+	WabaId *string `json:"wabaId,omitempty"`
 	// Name of the template.
 	Name string `json:"name"`
-	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
 	Components []WhatsappTemplateComponent `json:"components"`
@@ -52,6 +54,38 @@ func NewWhatsappTemplate(name string, language string, category WhatsappTemplate
 func NewWhatsappTemplateWithDefaults() *WhatsappTemplate {
 	this := WhatsappTemplate{}
 	return &this
+}
+
+// GetWabaId returns the WabaId field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetWabaId() string {
+	if o == nil || o.WabaId == nil {
+		var ret string
+		return ret
+	}
+	return *o.WabaId
+}
+
+// GetWabaIdOk returns a tuple with the WabaId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetWabaIdOk() (*string, bool) {
+	if o == nil || o.WabaId == nil {
+		return nil, false
+	}
+	return o.WabaId, true
+}
+
+// HasWabaId returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasWabaId() bool {
+	if o != nil && o.WabaId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWabaId gets a reference to the given string and assigns it to the WabaId field.
+func (o *WhatsappTemplate) SetWabaId(v string) {
+	o.WabaId = &v
 }
 
 // GetName returns the Name field value
@@ -280,6 +314,9 @@ func (o *WhatsappTemplate) SetUpdateTime(v time.Time) {
 
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.WabaId != nil {
+		toSerialize["wabaId"] = o.WabaId
+	}
 	if true {
 		toSerialize["name"] = o.Name
 	}

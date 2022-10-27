@@ -102,7 +102,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ycloud-sdk-go/1.1.0",
+		UserAgent:        "ycloud-sdk-go/1.2.0",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

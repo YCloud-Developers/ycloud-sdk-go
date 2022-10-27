@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Latitude** | **float64** | Latitude of the location. | 
 **Longitude** | **float64** | Longitude of the location. | 
-**Name** | **string** | Name of the location. | 
-**Address** | **string** | Address of the location. | 
+**Name** | Pointer to **string** | Name of the location. | [optional] 
+**Address** | Pointer to **string** | Address of the location. Only displayed if &#x60;name&#x60; is present. | [optional] 
 
 ## Methods
 
 ### NewWhatsappMessageLocation
 
-`func NewWhatsappMessageLocation(latitude float64, longitude float64, name string, address string, ) *WhatsappMessageLocation`
+`func NewWhatsappMessageLocation(latitude float64, longitude float64, ) *WhatsappMessageLocation`
 
 NewWhatsappMessageLocation instantiates a new WhatsappMessageLocation object
 This constructor will assign default values to properties that have it defined,
@@ -87,6 +87,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *WhatsappMessageLocation) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetAddress
 
@@ -107,6 +112,11 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+### HasAddress
+
+`func (o *WhatsappMessageLocation) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

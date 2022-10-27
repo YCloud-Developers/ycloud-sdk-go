@@ -20,6 +20,8 @@ import (
 type WhatsappMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
+	// WhatsApp Business Account ID.
+	WabaId *string `json:"wabaId,omitempty"`
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -36,8 +38,7 @@ type WhatsappMessage struct {
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
-	// One of `accepted`, `sent`, `failed`, `delivered`, `read`. - `accepted`: The messaging request is accepted by our system. - `sent`: A message sent by your business is in transit within WhatsApp's systems. - `failed`: A message sent by your business failed to send. - `delivered`: A message sent by your business was delivered to the user's device. - `read`: A message sent by your business was read by the user.
-	Status *string `json:"status,omitempty"`
+	Status *WhatsappMessageStatus `json:"status,omitempty"`
 	// Error code when the message status is `failed`.
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Error message when the message status is `failed`.
@@ -91,6 +92,38 @@ func (o *WhatsappMessage) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *WhatsappMessage) SetId(v string) {
 	o.Id = v
+}
+
+// GetWabaId returns the WabaId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetWabaId() string {
+	if o == nil || o.WabaId == nil {
+		var ret string
+		return ret
+	}
+	return *o.WabaId
+}
+
+// GetWabaIdOk returns a tuple with the WabaId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetWabaIdOk() (*string, bool) {
+	if o == nil || o.WabaId == nil {
+		return nil, false
+	}
+	return o.WabaId, true
+}
+
+// HasWabaId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasWabaId() bool {
+	if o != nil && o.WabaId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWabaId gets a reference to the given string and assigns it to the WabaId field.
+func (o *WhatsappMessage) SetWabaId(v string) {
+	o.WabaId = &v
 }
 
 // GetFrom returns the From field value
@@ -486,9 +519,9 @@ func (o *WhatsappMessage) SetExternalId(v string) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *WhatsappMessage) GetStatus() string {
+func (o *WhatsappMessage) GetStatus() WhatsappMessageStatus {
 	if o == nil || o.Status == nil {
-		var ret string
+		var ret WhatsappMessageStatus
 		return ret
 	}
 	return *o.Status
@@ -496,7 +529,7 @@ func (o *WhatsappMessage) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessage) GetStatusOk() (*string, bool) {
+func (o *WhatsappMessage) GetStatusOk() (*WhatsappMessageStatus, bool) {
 	if o == nil || o.Status == nil {
 		return nil, false
 	}
@@ -512,8 +545,8 @@ func (o *WhatsappMessage) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *WhatsappMessage) SetStatus(v string) {
+// SetStatus gets a reference to the given WhatsappMessageStatus and assigns it to the Status field.
+func (o *WhatsappMessage) SetStatus(v WhatsappMessageStatus) {
 	o.Status = &v
 }
 
@@ -649,6 +682,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if o.WabaId != nil {
+		toSerialize["wabaId"] = o.WabaId
 	}
 	if true {
 		toSerialize["from"] = o.From

@@ -74,6 +74,9 @@ func (a *VerifyApiService) CheckExecute(r VerifyApiCheckRequest) (*VerificationC
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.verificationCheckRequest == nil {
+		return localVarReturnValue, nil, reportError("verificationCheckRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

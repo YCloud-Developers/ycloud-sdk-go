@@ -17,9 +17,11 @@ import (
 
 // WhatsappTemplateCreateRequest See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).
 type WhatsappTemplateCreateRequest struct {
+	// WhatsApp Business Account ID.
+	WabaId string `json:"wabaId"`
 	// Name of the template.
 	Name string `json:"name"`
-	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
 	Components []WhatsappTemplateComponent `json:"components"`
@@ -29,8 +31,9 @@ type WhatsappTemplateCreateRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappTemplateCreateRequest(name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent) *WhatsappTemplateCreateRequest {
+func NewWhatsappTemplateCreateRequest(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent) *WhatsappTemplateCreateRequest {
 	this := WhatsappTemplateCreateRequest{}
+	this.WabaId = wabaId
 	this.Name = name
 	this.Language = language
 	this.Category = category
@@ -44,6 +47,30 @@ func NewWhatsappTemplateCreateRequest(name string, language string, category Wha
 func NewWhatsappTemplateCreateRequestWithDefaults() *WhatsappTemplateCreateRequest {
 	this := WhatsappTemplateCreateRequest{}
 	return &this
+}
+
+// GetWabaId returns the WabaId field value
+func (o *WhatsappTemplateCreateRequest) GetWabaId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WabaId
+}
+
+// GetWabaIdOk returns a tuple with the WabaId field value
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateCreateRequest) GetWabaIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WabaId, true
+}
+
+// SetWabaId sets field value
+func (o *WhatsappTemplateCreateRequest) SetWabaId(v string) {
+	o.WabaId = v
 }
 
 // GetName returns the Name field value
@@ -144,6 +171,9 @@ func (o *WhatsappTemplateCreateRequest) SetComponents(v []WhatsappTemplateCompon
 
 func (o WhatsappTemplateCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["wabaId"] = o.WabaId
+	}
 	if true {
 		toSerialize["name"] = o.Name
 	}

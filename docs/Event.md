@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
 **WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
 **WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
+**WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
 **WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
 
 ## Methods
@@ -238,6 +239,31 @@ SetWhatsappMessage sets WhatsappMessage field to given value.
 `func (o *Event) HasWhatsappMessage() bool`
 
 HasWhatsappMessage returns a boolean if a field has been set.
+
+### GetWhatsappPhoneNumber
+
+`func (o *Event) GetWhatsappPhoneNumber() WhatsappPhoneNumber`
+
+GetWhatsappPhoneNumber returns the WhatsappPhoneNumber field if non-nil, zero value otherwise.
+
+### GetWhatsappPhoneNumberOk
+
+`func (o *Event) GetWhatsappPhoneNumberOk() (*WhatsappPhoneNumber, bool)`
+
+GetWhatsappPhoneNumberOk returns a tuple with the WhatsappPhoneNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappPhoneNumber
+
+`func (o *Event) SetWhatsappPhoneNumber(v WhatsappPhoneNumber)`
+
+SetWhatsappPhoneNumber sets WhatsappPhoneNumber field to given value.
+
+### HasWhatsappPhoneNumber
+
+`func (o *Event) HasWhatsappPhoneNumber() bool`
+
+HasWhatsappPhoneNumber returns a boolean if a field has been set.
 
 ### GetWhatsappTemplate
 

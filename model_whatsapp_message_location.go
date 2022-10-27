@@ -22,21 +22,19 @@ type WhatsappMessageLocation struct {
 	// Longitude of the location.
 	Longitude float64 `json:"longitude"`
 	// Name of the location.
-	Name string `json:"name"`
-	// Address of the location.
-	Address string `json:"address"`
+	Name *string `json:"name,omitempty"`
+	// Address of the location. Only displayed if `name` is present.
+	Address *string `json:"address,omitempty"`
 }
 
 // NewWhatsappMessageLocation instantiates a new WhatsappMessageLocation object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageLocation(latitude float64, longitude float64, name string, address string) *WhatsappMessageLocation {
+func NewWhatsappMessageLocation(latitude float64, longitude float64) *WhatsappMessageLocation {
 	this := WhatsappMessageLocation{}
 	this.Latitude = latitude
 	this.Longitude = longitude
-	this.Name = name
-	this.Address = address
 	return &this
 }
 
@@ -96,52 +94,68 @@ func (o *WhatsappMessageLocation) SetLongitude(v float64) {
 	o.Longitude = v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *WhatsappMessageLocation) GetName() string {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageLocation) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *WhatsappMessageLocation) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *WhatsappMessageLocation) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetAddress returns the Address field value
+// GetAddress returns the Address field value if set, zero value otherwise.
 func (o *WhatsappMessageLocation) GetAddress() string {
-	if o == nil {
+	if o == nil || o.Address == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Address
+	return *o.Address
 }
 
-// GetAddressOk returns a tuple with the Address field value
+// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageLocation) GetAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Address == nil {
 		return nil, false
 	}
-	return &o.Address, true
+	return o.Address, true
 }
 
-// SetAddress sets field value
+// HasAddress returns a boolean if a field has been set.
+func (o *WhatsappMessageLocation) HasAddress() bool {
+	if o != nil && o.Address != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress gets a reference to the given string and assigns it to the Address field.
 func (o *WhatsappMessageLocation) SetAddress(v string) {
-	o.Address = v
+	o.Address = &v
 }
 
 func (o WhatsappMessageLocation) MarshalJSON() ([]byte, error) {
@@ -152,10 +166,10 @@ func (o WhatsappMessageLocation) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["longitude"] = o.Longitude
 	}
-	if true {
+	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-	if true {
+	if o.Address != nil {
 		toSerialize["address"] = o.Address
 	}
 	return json.Marshal(toSerialize)

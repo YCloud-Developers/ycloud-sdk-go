@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**WabaId** | **string** | WhatsApp Business Account ID. | 
 **Name** | **string** | Name of the template. | 
-**Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+**Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
 **Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) |  | 
 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappTemplateCreateRequest
 
-`func NewWhatsappTemplateCreateRequest(name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent, ) *WhatsappTemplateCreateRequest`
+`func NewWhatsappTemplateCreateRequest(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent, ) *WhatsappTemplateCreateRequest`
 
 NewWhatsappTemplateCreateRequest instantiates a new WhatsappTemplateCreateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewWhatsappTemplateCreateRequestWithDefaults instantiates a new WhatsappTemplateCreateRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetWabaId
+
+`func (o *WhatsappTemplateCreateRequest) GetWabaId() string`
+
+GetWabaId returns the WabaId field if non-nil, zero value otherwise.
+
+### GetWabaIdOk
+
+`func (o *WhatsappTemplateCreateRequest) GetWabaIdOk() (*string, bool)`
+
+GetWabaIdOk returns a tuple with the WabaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWabaId
+
+`func (o *WhatsappTemplateCreateRequest) SetWabaId(v string)`
+
+SetWabaId sets WabaId field to given value.
+
 
 ### GetName
 

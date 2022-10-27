@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **From** | Pointer to **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **SendTime** | Pointer to **time.Time** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
@@ -58,6 +59,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetWabaId
+
+`func (o *WhatsappInboundMessage) GetWabaId() string`
+
+GetWabaId returns the WabaId field if non-nil, zero value otherwise.
+
+### GetWabaIdOk
+
+`func (o *WhatsappInboundMessage) GetWabaIdOk() (*string, bool)`
+
+GetWabaIdOk returns a tuple with the WabaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWabaId
+
+`func (o *WhatsappInboundMessage) SetWabaId(v string)`
+
+SetWabaId sets WabaId field to given value.
+
+### HasWabaId
+
+`func (o *WhatsappInboundMessage) HasWabaId() bool`
+
+HasWabaId returns a boolean if a field has been set.
 
 ### GetFrom
 

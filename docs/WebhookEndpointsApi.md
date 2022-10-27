@@ -381,7 +381,7 @@ import (
 
 func main() {
     id := "wh627c8640675de8fc689ab9d9" // string | ID of the webhook endpoint.
-    webhookEndpointUpdateRequest := *ycloud.NewWebhookEndpointUpdateRequest() // WebhookEndpointUpdateRequest |  (optional)
+    webhookEndpointUpdateRequest := *ycloud.NewWebhookEndpointUpdateRequest() // WebhookEndpointUpdateRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

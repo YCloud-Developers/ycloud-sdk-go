@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **Name** | **string** | Name of the template. | 
-**Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+**Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
 **Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) |  | 
 **Status** | Pointer to [**WhatsappTemplateStatus**](WhatsappTemplateStatus.md) |  | [optional] 
@@ -31,6 +32,31 @@ will change when the set of required properties is changed
 NewWhatsappTemplateWithDefaults instantiates a new WhatsappTemplate object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetWabaId
+
+`func (o *WhatsappTemplate) GetWabaId() string`
+
+GetWabaId returns the WabaId field if non-nil, zero value otherwise.
+
+### GetWabaIdOk
+
+`func (o *WhatsappTemplate) GetWabaIdOk() (*string, bool)`
+
+GetWabaIdOk returns a tuple with the WabaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWabaId
+
+`func (o *WhatsappTemplate) SetWabaId(v string)`
+
+SetWabaId sets WabaId field to given value.
+
+### HasWabaId
+
+`func (o *WhatsappTemplate) HasWabaId() bool`
+
+HasWabaId returns a boolean if a field has been set.
 
 ### GetName
 

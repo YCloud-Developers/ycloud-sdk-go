@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.1.0
+- Package version: 1.2.0
 
 ## Installation
 
@@ -43,7 +43,14 @@ Class | Method | HTTP request | Description
 *WebhookEndpointsApi* | [**Retrieve**](docs/WebhookEndpointsApi.md#retrieve) | **Get** /webhookEndpoints/{id} | Retrieve a webhook endpoint
 *WebhookEndpointsApi* | [**RotateSecret**](docs/WebhookEndpointsApi.md#rotatesecret) | **Post** /webhookEndpoints/{id}/rotateSecret | Rotate a webhook endpoint secret
 *WebhookEndpointsApi* | [**Update**](docs/WebhookEndpointsApi.md#update) | **Patch** /webhookEndpoints/{id} | Update a webhook endpoint
+*WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a WhatsApp message
 *WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Send a WhatsApp message
+*WhatsappPhoneNumbersApi* | [**List**](docs/WhatsappPhoneNumbersApi.md#list) | **Get** /whatsapp/phoneNumbers | List WhatsApp phone numbers
+*WhatsappPhoneNumbersApi* | [**Retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
+*WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a WhatsApp template
+*WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
+*WhatsappTemplatesApi* | [**List**](docs/WhatsappTemplatesApi.md#list) | **Get** /whatsapp/templates | List WhatsApp templates
+*WhatsappTemplatesApi* | [**RetrieveByNameAndLanguage**](docs/WhatsappTemplatesApi.md#retrievebynameandlanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template
 
 
 ## Documentation For Models
@@ -105,12 +112,19 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
  - [WhatsappMessageSendRequest](docs/WhatsappMessageSendRequest.md)
+ - [WhatsappMessageStatus](docs/WhatsappMessageStatus.md)
  - [WhatsappMessageTemplate](docs/WhatsappMessageTemplate.md)
  - [WhatsappMessageTemplateComponentsInner](docs/WhatsappMessageTemplateComponentsInner.md)
  - [WhatsappMessageTemplateComponentsInnerParametersInner](docs/WhatsappMessageTemplateComponentsInnerParametersInner.md)
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
  - [WhatsappMessageText](docs/WhatsappMessageText.md)
  - [WhatsappMessageType](docs/WhatsappMessageType.md)
+ - [WhatsappPhoneNumber](docs/WhatsappPhoneNumber.md)
+ - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
+ - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)
+ - [WhatsappPhoneNumberPage](docs/WhatsappPhoneNumberPage.md)
+ - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
+ - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)

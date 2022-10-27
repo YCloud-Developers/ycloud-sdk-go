@@ -20,6 +20,8 @@ import (
 type WhatsappInboundMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
+	// WhatsApp Business Account ID.
+	WabaId *string `json:"wabaId,omitempty"`
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From *string `json:"from,omitempty"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -79,6 +81,38 @@ func (o *WhatsappInboundMessage) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *WhatsappInboundMessage) SetId(v string) {
 	o.Id = v
+}
+
+// GetWabaId returns the WabaId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetWabaId() string {
+	if o == nil || o.WabaId == nil {
+		var ret string
+		return ret
+	}
+	return *o.WabaId
+}
+
+// GetWabaIdOk returns a tuple with the WabaId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetWabaIdOk() (*string, bool) {
+	if o == nil || o.WabaId == nil {
+		return nil, false
+	}
+	return o.WabaId, true
+}
+
+// HasWabaId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasWabaId() bool {
+	if o != nil && o.WabaId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWabaId gets a reference to the given string and assigns it to the WabaId field.
+func (o *WhatsappInboundMessage) SetWabaId(v string) {
+	o.WabaId = &v
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
@@ -533,6 +567,9 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if o.WabaId != nil {
+		toSerialize["wabaId"] = o.WabaId
 	}
 	if o.From != nil {
 		toSerialize["from"] = o.From

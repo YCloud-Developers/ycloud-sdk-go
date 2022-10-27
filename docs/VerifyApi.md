@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    verificationCheckRequest := *ycloud.NewVerificationCheckRequest() // VerificationCheckRequest |  (optional)
+    verificationCheckRequest := *ycloud.NewVerificationCheckRequest() // VerificationCheckRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
