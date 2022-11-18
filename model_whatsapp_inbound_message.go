@@ -22,8 +22,9 @@ type WhatsappInboundMessage struct {
 	Id string `json:"id"`
 	// WhatsApp Business Account ID.
 	WabaId *string `json:"wabaId,omitempty"`
-	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+	// The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From *string `json:"from,omitempty"`
+	CustomerProfile *WhatsappProfile `json:"customerProfile,omitempty"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To *string `json:"to,omitempty"`
 	// The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
@@ -145,6 +146,38 @@ func (o *WhatsappInboundMessage) HasFrom() bool {
 // SetFrom gets a reference to the given string and assigns it to the From field.
 func (o *WhatsappInboundMessage) SetFrom(v string) {
 	o.From = &v
+}
+
+// GetCustomerProfile returns the CustomerProfile field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetCustomerProfile() WhatsappProfile {
+	if o == nil || o.CustomerProfile == nil {
+		var ret WhatsappProfile
+		return ret
+	}
+	return *o.CustomerProfile
+}
+
+// GetCustomerProfileOk returns a tuple with the CustomerProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetCustomerProfileOk() (*WhatsappProfile, bool) {
+	if o == nil || o.CustomerProfile == nil {
+		return nil, false
+	}
+	return o.CustomerProfile, true
+}
+
+// HasCustomerProfile returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasCustomerProfile() bool {
+	if o != nil && o.CustomerProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerProfile gets a reference to the given WhatsappProfile and assigns it to the CustomerProfile field.
+func (o *WhatsappInboundMessage) SetCustomerProfile(v WhatsappProfile) {
+	o.CustomerProfile = &v
 }
 
 // GetTo returns the To field value if set, zero value otherwise.
@@ -573,6 +606,9 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.From != nil {
 		toSerialize["from"] = o.From
+	}
+	if o.CustomerProfile != nil {
+		toSerialize["customerProfile"] = o.CustomerProfile
 	}
 	if o.To != nil {
 		toSerialize["to"] = o.To

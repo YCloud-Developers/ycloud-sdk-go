@@ -21,11 +21,12 @@ type WhatsappMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
 	// WhatsApp Business Account ID.
-	WabaId *string `json:"wabaId,omitempty"`
+	WabaId string `json:"wabaId"`
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To string `json:"to"`
+	Conversation *WhatsappConversation `json:"conversation,omitempty"`
 	Type WhatsappMessageType `json:"type"`
 	Template *WhatsappMessageTemplate `json:"template,omitempty"`
 	Text *WhatsappMessageText `json:"text,omitempty"`
@@ -53,9 +54,10 @@ type WhatsappMessage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessage(id string, from string, to string, type_ WhatsappMessageType) *WhatsappMessage {
+func NewWhatsappMessage(id string, wabaId string, from string, to string, type_ WhatsappMessageType) *WhatsappMessage {
 	this := WhatsappMessage{}
 	this.Id = id
+	this.WabaId = wabaId
 	this.From = from
 	this.To = to
 	this.Type = type_
@@ -94,36 +96,28 @@ func (o *WhatsappMessage) SetId(v string) {
 	o.Id = v
 }
 
-// GetWabaId returns the WabaId field value if set, zero value otherwise.
+// GetWabaId returns the WabaId field value
 func (o *WhatsappMessage) GetWabaId() string {
-	if o == nil || o.WabaId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WabaId
+
+	return o.WabaId
 }
 
-// GetWabaIdOk returns a tuple with the WabaId field value if set, nil otherwise
+// GetWabaIdOk returns a tuple with the WabaId field value
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessage) GetWabaIdOk() (*string, bool) {
-	if o == nil || o.WabaId == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.WabaId, true
+	return &o.WabaId, true
 }
 
-// HasWabaId returns a boolean if a field has been set.
-func (o *WhatsappMessage) HasWabaId() bool {
-	if o != nil && o.WabaId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetWabaId gets a reference to the given string and assigns it to the WabaId field.
+// SetWabaId sets field value
 func (o *WhatsappMessage) SetWabaId(v string) {
-	o.WabaId = &v
+	o.WabaId = v
 }
 
 // GetFrom returns the From field value
@@ -172,6 +166,38 @@ func (o *WhatsappMessage) GetToOk() (*string, bool) {
 // SetTo sets field value
 func (o *WhatsappMessage) SetTo(v string) {
 	o.To = v
+}
+
+// GetConversation returns the Conversation field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetConversation() WhatsappConversation {
+	if o == nil || o.Conversation == nil {
+		var ret WhatsappConversation
+		return ret
+	}
+	return *o.Conversation
+}
+
+// GetConversationOk returns a tuple with the Conversation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetConversationOk() (*WhatsappConversation, bool) {
+	if o == nil || o.Conversation == nil {
+		return nil, false
+	}
+	return o.Conversation, true
+}
+
+// HasConversation returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasConversation() bool {
+	if o != nil && o.Conversation != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConversation gets a reference to the given WhatsappConversation and assigns it to the Conversation field.
+func (o *WhatsappMessage) SetConversation(v WhatsappConversation) {
+	o.Conversation = &v
 }
 
 // GetType returns the Type field value
@@ -683,7 +709,7 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.WabaId != nil {
+	if true {
 		toSerialize["wabaId"] = o.WabaId
 	}
 	if true {
@@ -691,6 +717,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["to"] = o.To
+	}
+	if o.Conversation != nil {
+		toSerialize["conversation"] = o.Conversation
 	}
 	if true {
 		toSerialize["type"] = o.Type

@@ -21,18 +21,17 @@ type WhatsappMessageTemplate struct {
 	Name string `json:"name"`
 	Language WhatsappMessageTemplateLanguage `json:"language"`
 	// Array of components objects containing the parameters of the message.
-	Components []WhatsappMessageTemplateComponentsInner `json:"components"`
+	Components []WhatsappMessageTemplateComponentsInner `json:"components,omitempty"`
 }
 
 // NewWhatsappMessageTemplate instantiates a new WhatsappMessageTemplate object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageTemplate(name string, language WhatsappMessageTemplateLanguage, components []WhatsappMessageTemplateComponentsInner) *WhatsappMessageTemplate {
+func NewWhatsappMessageTemplate(name string, language WhatsappMessageTemplateLanguage) *WhatsappMessageTemplate {
 	this := WhatsappMessageTemplate{}
 	this.Name = name
 	this.Language = language
-	this.Components = components
 	return &this
 }
 
@@ -92,26 +91,34 @@ func (o *WhatsappMessageTemplate) SetLanguage(v WhatsappMessageTemplateLanguage)
 	o.Language = v
 }
 
-// GetComponents returns the Components field value
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateComponentsInner {
-	if o == nil {
+	if o == nil || o.Components == nil {
 		var ret []WhatsappMessageTemplateComponentsInner
 		return ret
 	}
-
 	return o.Components
 }
 
-// GetComponentsOk returns a tuple with the Components field value
+// GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageTemplate) GetComponentsOk() ([]WhatsappMessageTemplateComponentsInner, bool) {
-	if o == nil {
+	if o == nil || o.Components == nil {
 		return nil, false
 	}
 	return o.Components, true
 }
 
-// SetComponents sets field value
+// HasComponents returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplate) HasComponents() bool {
+	if o != nil && o.Components != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComponents gets a reference to the given []WhatsappMessageTemplateComponentsInner and assigns it to the Components field.
 func (o *WhatsappMessageTemplate) SetComponents(v []WhatsappMessageTemplateComponentsInner) {
 	o.Components = v
 }
@@ -124,7 +131,7 @@ func (o WhatsappMessageTemplate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["language"] = o.Language
 	}
-	if true {
+	if o.Components != nil {
 		toSerialize["components"] = o.Components
 	}
 	return json.Marshal(toSerialize)

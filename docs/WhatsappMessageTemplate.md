@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the template. | 
 **Language** | [**WhatsappMessageTemplateLanguage**](WhatsappMessageTemplateLanguage.md) |  | 
-**Components** | [**[]WhatsappMessageTemplateComponentsInner**](WhatsappMessageTemplateComponentsInner.md) | Array of components objects containing the parameters of the message. | 
+**Components** | Pointer to [**[]WhatsappMessageTemplateComponentsInner**](WhatsappMessageTemplateComponentsInner.md) | Array of components objects containing the parameters of the message. | [optional] 
 
 ## Methods
 
 ### NewWhatsappMessageTemplate
 
-`func NewWhatsappMessageTemplate(name string, language WhatsappMessageTemplateLanguage, components []WhatsappMessageTemplateComponentsInner, ) *WhatsappMessageTemplate`
+`func NewWhatsappMessageTemplate(name string, language WhatsappMessageTemplateLanguage, ) *WhatsappMessageTemplate`
 
 NewWhatsappMessageTemplate instantiates a new WhatsappMessageTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetComponents sets Components field to given value.
 
+### HasComponents
+
+`func (o *WhatsappMessageTemplate) HasComponents() bool`
+
+HasComponents returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

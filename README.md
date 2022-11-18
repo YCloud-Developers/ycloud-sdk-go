@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.2.0
+- Package version: 1.3.0
 
 ## Installation
 
@@ -49,6 +49,7 @@ Class | Method | HTTP request | Description
 *WhatsappPhoneNumbersApi* | [**Retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
 *WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a WhatsApp template
 *WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
+*WhatsappTemplatesApi* | [**EditByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editbynameandlanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
 *WhatsappTemplatesApi* | [**List**](docs/WhatsappTemplatesApi.md#list) | **Get** /whatsapp/templates | List WhatsApp templates
 *WhatsappTemplatesApi* | [**RetrieveByNameAndLanguage**](docs/WhatsappTemplatesApi.md#retrievebynameandlanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template
 
@@ -83,6 +84,8 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WhatsappConversation](docs/WhatsappConversation.md)
+ - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
  - [WhatsappInboundMessage](docs/WhatsappInboundMessage.md)
  - [WhatsappInboundMessageButton](docs/WhatsappInboundMessageButton.md)
  - [WhatsappInboundMessageInteractive](docs/WhatsappInboundMessageInteractive.md)
@@ -125,6 +128,7 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberPage](docs/WhatsappPhoneNumberPage.md)
  - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
+ - [WhatsappProfile](docs/WhatsappProfile.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
@@ -132,6 +136,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
  - [WhatsappTemplateComponentExample](docs/WhatsappTemplateComponentExample.md)
  - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)
+ - [WhatsappTemplateEditRequest](docs/WhatsappTemplateEditRequest.md)
  - [WhatsappTemplatePage](docs/WhatsappTemplatePage.md)
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
 

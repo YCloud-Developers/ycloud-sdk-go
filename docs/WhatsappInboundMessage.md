@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
-**From** | Pointer to **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
+**From** | Pointer to **string** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
+**CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional] 
 **To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **SendTime** | Pointer to **time.Time** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **Type** | Pointer to [**WhatsappInboundMessageType**](WhatsappInboundMessageType.md) |  | [optional] 
@@ -109,6 +110,31 @@ SetFrom sets From field to given value.
 `func (o *WhatsappInboundMessage) HasFrom() bool`
 
 HasFrom returns a boolean if a field has been set.
+
+### GetCustomerProfile
+
+`func (o *WhatsappInboundMessage) GetCustomerProfile() WhatsappProfile`
+
+GetCustomerProfile returns the CustomerProfile field if non-nil, zero value otherwise.
+
+### GetCustomerProfileOk
+
+`func (o *WhatsappInboundMessage) GetCustomerProfileOk() (*WhatsappProfile, bool)`
+
+GetCustomerProfileOk returns a tuple with the CustomerProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerProfile
+
+`func (o *WhatsappInboundMessage) SetCustomerProfile(v WhatsappProfile)`
+
+SetCustomerProfile sets CustomerProfile field to given value.
+
+### HasCustomerProfile
+
+`func (o *WhatsappInboundMessage) HasCustomerProfile() bool`
+
+HasCustomerProfile returns a boolean if a field has been set.
 
 ### GetTo
 

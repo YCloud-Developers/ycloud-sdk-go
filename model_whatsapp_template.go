@@ -19,7 +19,7 @@ import (
 // WhatsappTemplate See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).
 type WhatsappTemplate struct {
 	// WhatsApp Business Account ID.
-	WabaId *string `json:"wabaId,omitempty"`
+	WabaId string `json:"wabaId"`
 	// Name of the template.
 	Name string `json:"name"`
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
@@ -39,8 +39,9 @@ type WhatsappTemplate struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappTemplate(name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent) *WhatsappTemplate {
+func NewWhatsappTemplate(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent) *WhatsappTemplate {
 	this := WhatsappTemplate{}
+	this.WabaId = wabaId
 	this.Name = name
 	this.Language = language
 	this.Category = category
@@ -56,36 +57,28 @@ func NewWhatsappTemplateWithDefaults() *WhatsappTemplate {
 	return &this
 }
 
-// GetWabaId returns the WabaId field value if set, zero value otherwise.
+// GetWabaId returns the WabaId field value
 func (o *WhatsappTemplate) GetWabaId() string {
-	if o == nil || o.WabaId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WabaId
+
+	return o.WabaId
 }
 
-// GetWabaIdOk returns a tuple with the WabaId field value if set, nil otherwise
+// GetWabaIdOk returns a tuple with the WabaId field value
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplate) GetWabaIdOk() (*string, bool) {
-	if o == nil || o.WabaId == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.WabaId, true
+	return &o.WabaId, true
 }
 
-// HasWabaId returns a boolean if a field has been set.
-func (o *WhatsappTemplate) HasWabaId() bool {
-	if o != nil && o.WabaId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetWabaId gets a reference to the given string and assigns it to the WabaId field.
+// SetWabaId sets field value
 func (o *WhatsappTemplate) SetWabaId(v string) {
-	o.WabaId = &v
+	o.WabaId = v
 }
 
 // GetName returns the Name field value
@@ -314,7 +307,7 @@ func (o *WhatsappTemplate) SetUpdateTime(v time.Time) {
 
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.WabaId != nil {
+	if true {
 		toSerialize["wabaId"] = o.WabaId
 	}
 	if true {

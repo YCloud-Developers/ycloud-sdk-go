@@ -17,16 +17,16 @@ import (
 
 // WhatsappInboundMessageMedia When a message with media (`image` | `document` | `audio` | `video` | `sticker`) is received, the WhatsApp Business API client will download the media. Once the media is downloaded, a notification is sent to your Webhook. This message contains information that identifies the media object and enables you to find and download the object.
 type WhatsappInboundMessageMedia struct {
-	// The protocol and URL of the media.
+	// ID of the media. Can be used to delete the media if stored locally on the client.
+	Id *string `json:"id,omitempty"`
+	// The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an `X-API-Key` header to download this file within a month.
 	Link *string `json:"link,omitempty"`
 	// The provided caption for the media. Only present if specified.
 	Caption *string `json:"caption,omitempty"`
 	// Filename on the sender's device. This will only be present in `document` media messages.
 	Filename *string `json:"filename,omitempty"`
-	// ID of the media. Can be used to delete the media if stored locally on the client.
-	Id *string `json:"id,omitempty"`
 	// Metadata pertaining to `sticker` media.
-	Metadata *string `json:"metadata,omitempty"`
+	Metadata map[string]map[string]interface{} `json:"metadata,omitempty"`
 	// Mime type of the media.
 	MimeType *string `json:"mime_type,omitempty"`
 	// Checksum.
@@ -48,6 +48,38 @@ func NewWhatsappInboundMessageMedia() *WhatsappInboundMessageMedia {
 func NewWhatsappInboundMessageMediaWithDefaults() *WhatsappInboundMessageMedia {
 	this := WhatsappInboundMessageMedia{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageMedia) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageMedia) GetIdOk() (*string, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageMedia) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *WhatsappInboundMessageMedia) SetId(v string) {
+	o.Id = &v
 }
 
 // GetLink returns the Link field value if set, zero value otherwise.
@@ -146,50 +178,18 @@ func (o *WhatsappInboundMessageMedia) SetFilename(v string) {
 	o.Filename = &v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *WhatsappInboundMessageMedia) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessageMedia) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *WhatsappInboundMessageMedia) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *WhatsappInboundMessageMedia) SetId(v string) {
-	o.Id = &v
-}
-
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
-func (o *WhatsappInboundMessageMedia) GetMetadata() string {
+func (o *WhatsappInboundMessageMedia) GetMetadata() map[string]map[string]interface{} {
 	if o == nil || o.Metadata == nil {
-		var ret string
+		var ret map[string]map[string]interface{}
 		return ret
 	}
-	return *o.Metadata
+	return o.Metadata
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessageMedia) GetMetadataOk() (*string, bool) {
+func (o *WhatsappInboundMessageMedia) GetMetadataOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || o.Metadata == nil {
 		return nil, false
 	}
@@ -205,9 +205,9 @@ func (o *WhatsappInboundMessageMedia) HasMetadata() bool {
 	return false
 }
 
-// SetMetadata gets a reference to the given string and assigns it to the Metadata field.
-func (o *WhatsappInboundMessageMedia) SetMetadata(v string) {
-	o.Metadata = &v
+// SetMetadata gets a reference to the given map[string]map[string]interface{} and assigns it to the Metadata field.
+func (o *WhatsappInboundMessageMedia) SetMetadata(v map[string]map[string]interface{}) {
+	o.Metadata = v
 }
 
 // GetMimeType returns the MimeType field value if set, zero value otherwise.
@@ -276,6 +276,9 @@ func (o *WhatsappInboundMessageMedia) SetSha256(v string) {
 
 func (o WhatsappInboundMessageMedia) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
 	if o.Link != nil {
 		toSerialize["link"] = o.Link
 	}
@@ -284,9 +287,6 @@ func (o WhatsappInboundMessageMedia) MarshalJSON() ([]byte, error) {
 	}
 	if o.Filename != nil {
 		toSerialize["filename"] = o.Filename
-	}
-	if o.Id != nil {
-		toSerialize["id"] = o.Id
 	}
 	if o.Metadata != nil {
 		toSerialize["metadata"] = o.Metadata

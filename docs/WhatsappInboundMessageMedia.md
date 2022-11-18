@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Link** | Pointer to **string** | The protocol and URL of the media. | [optional] 
+**Id** | Pointer to **string** | ID of the media. Can be used to delete the media if stored locally on the client. | [optional] 
+**Link** | Pointer to **string** | The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an &#x60;X-API-Key&#x60; header to download this file within a month. | [optional] 
 **Caption** | Pointer to **string** | The provided caption for the media. Only present if specified. | [optional] 
 **Filename** | Pointer to **string** | Filename on the sender&#39;s device. This will only be present in &#x60;document&#x60; media messages. | [optional] 
-**Id** | Pointer to **string** | ID of the media. Can be used to delete the media if stored locally on the client. | [optional] 
-**Metadata** | Pointer to **string** | Metadata pertaining to &#x60;sticker&#x60; media. | [optional] 
+**Metadata** | Pointer to **map[string]map[string]interface{}** | Metadata pertaining to &#x60;sticker&#x60; media. | [optional] 
 **MimeType** | Pointer to **string** | Mime type of the media. | [optional] 
 **Sha256** | Pointer to **string** | Checksum. | [optional] 
 
@@ -30,6 +30,31 @@ will change when the set of required properties is changed
 NewWhatsappInboundMessageMediaWithDefaults instantiates a new WhatsappInboundMessageMedia object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *WhatsappInboundMessageMedia) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *WhatsappInboundMessageMedia) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *WhatsappInboundMessageMedia) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *WhatsappInboundMessageMedia) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetLink
 
@@ -106,47 +131,22 @@ SetFilename sets Filename field to given value.
 
 HasFilename returns a boolean if a field has been set.
 
-### GetId
-
-`func (o *WhatsappInboundMessageMedia) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *WhatsappInboundMessageMedia) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *WhatsappInboundMessageMedia) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *WhatsappInboundMessageMedia) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
 ### GetMetadata
 
-`func (o *WhatsappInboundMessageMedia) GetMetadata() string`
+`func (o *WhatsappInboundMessageMedia) GetMetadata() map[string]map[string]interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *WhatsappInboundMessageMedia) GetMetadataOk() (*string, bool)`
+`func (o *WhatsappInboundMessageMedia) GetMetadataOk() (*map[string]map[string]interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *WhatsappInboundMessageMedia) SetMetadata(v string)`
+`func (o *WhatsappInboundMessageMedia) SetMetadata(v map[string]map[string]interface{})`
 
 SetMetadata sets Metadata field to given value.
 

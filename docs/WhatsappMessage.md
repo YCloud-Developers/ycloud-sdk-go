@@ -5,9 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
-**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
+**WabaId** | **string** | WhatsApp Business Account ID. | 
 **From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**Conversation** | Pointer to [**WhatsappConversation**](WhatsappConversation.md) |  | [optional] 
 **Type** | [**WhatsappMessageType**](WhatsappMessageType.md) |  | 
 **Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional] 
 **Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional] 
@@ -29,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessage
 
-`func NewWhatsappMessage(id string, from string, to string, type_ WhatsappMessageType, ) *WhatsappMessage`
+`func NewWhatsappMessage(id string, wabaId string, from string, to string, type_ WhatsappMessageType, ) *WhatsappMessage`
 
 NewWhatsappMessage instantiates a new WhatsappMessage object
 This constructor will assign default values to properties that have it defined,
@@ -83,11 +84,6 @@ and a boolean to check if the value has been set.
 
 SetWabaId sets WabaId field to given value.
 
-### HasWabaId
-
-`func (o *WhatsappMessage) HasWabaId() bool`
-
-HasWabaId returns a boolean if a field has been set.
 
 ### GetFrom
 
@@ -128,6 +124,31 @@ and a boolean to check if the value has been set.
 
 SetTo sets To field to given value.
 
+
+### GetConversation
+
+`func (o *WhatsappMessage) GetConversation() WhatsappConversation`
+
+GetConversation returns the Conversation field if non-nil, zero value otherwise.
+
+### GetConversationOk
+
+`func (o *WhatsappMessage) GetConversationOk() (*WhatsappConversation, bool)`
+
+GetConversationOk returns a tuple with the Conversation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConversation
+
+`func (o *WhatsappMessage) SetConversation(v WhatsappConversation)`
+
+SetConversation sets Conversation field to given value.
+
+### HasConversation
+
+`func (o *WhatsappMessage) HasConversation() bool`
+
+HasConversation returns a boolean if a field has been set.
 
 ### GetType
 

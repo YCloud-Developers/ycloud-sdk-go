@@ -17,9 +17,9 @@ import (
 
 // Error struct for Error
 type Error struct {
-	// HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6).
+	// HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.
 	Status int32 `json:"status"`
-	// One of a server-defined set of error codes, which could be handled programmatically.
+	// One of a server-defined error codes. Some `4xx` errors that could be handled programmatically include an error code that briefly explains the error reported.
 	Code string `json:"code"`
 	// A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.
 	Message *string `json:"message,omitempty"`

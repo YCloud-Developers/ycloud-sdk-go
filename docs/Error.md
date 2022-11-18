@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **int32** | HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). | 
-**Code** | **string** | One of a server-defined set of error codes, which could be handled programmatically. | 
+**Status** | **int32** | HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer. | 
+**Code** | **string** | One of a server-defined error codes. Some &#x60;4xx&#x60; errors that could be handled programmatically include an error code that briefly explains the error reported. | 
 **Message** | Pointer to **string** | A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users. | [optional] 
 **Target** | Pointer to **string** | The target of the error. | [optional] 
 **DocUrl** | Pointer to **string** | A URL to more information about the error. | [optional] 

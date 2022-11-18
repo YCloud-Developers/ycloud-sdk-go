@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
+**WabaId** | **string** | WhatsApp Business Account ID. | 
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappTemplate
 
-`func NewWhatsappTemplate(name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent, ) *WhatsappTemplate`
+`func NewWhatsappTemplate(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent, ) *WhatsappTemplate`
 
 NewWhatsappTemplate instantiates a new WhatsappTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetWabaId sets WabaId field to given value.
 
-### HasWabaId
-
-`func (o *WhatsappTemplate) HasWabaId() bool`
-
-HasWabaId returns a boolean if a field has been set.
 
 ### GetName
 
