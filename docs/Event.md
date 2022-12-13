@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional] 
 **Sms** | Pointer to [**Sms**](Sms.md) |  | [optional] 
 **Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
+**WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional] 
 **WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
 **WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
 **WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
@@ -189,6 +190,31 @@ SetVoice sets Voice field to given value.
 `func (o *Event) HasVoice() bool`
 
 HasVoice returns a boolean if a field has been set.
+
+### GetWhatsappBusinessAccount
+
+`func (o *Event) GetWhatsappBusinessAccount() WhatsappBusinessAccount`
+
+GetWhatsappBusinessAccount returns the WhatsappBusinessAccount field if non-nil, zero value otherwise.
+
+### GetWhatsappBusinessAccountOk
+
+`func (o *Event) GetWhatsappBusinessAccountOk() (*WhatsappBusinessAccount, bool)`
+
+GetWhatsappBusinessAccountOk returns a tuple with the WhatsappBusinessAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappBusinessAccount
+
+`func (o *Event) SetWhatsappBusinessAccount(v WhatsappBusinessAccount)`
+
+SetWhatsappBusinessAccount sets WhatsappBusinessAccount field to given value.
+
+### HasWhatsappBusinessAccount
+
+`func (o *Event) HasWhatsappBusinessAccount() bool`
+
+HasWhatsappBusinessAccount returns a boolean if a field has been set.
 
 ### GetWhatsappInboundMessage
 

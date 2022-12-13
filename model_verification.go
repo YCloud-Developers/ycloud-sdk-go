@@ -26,8 +26,10 @@ type Verification struct {
 	Channel *VerificationChannel `json:"channel,omitempty"`
 	// The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	SendTime *time.Time `json:"sendTime,omitempty"`
-	// Total price of this verification. Currency: USD.
+	// Total price of this verification.
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
+	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+	Currency *string `json:"currency,omitempty"`
 }
 
 // NewVerification instantiates a new Verification object
@@ -232,6 +234,38 @@ func (o *Verification) SetTotalPrice(v float64) {
 	o.TotalPrice = &v
 }
 
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *Verification) GetCurrency() string {
+	if o == nil || o.Currency == nil {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Verification) GetCurrencyOk() (*string, bool) {
+	if o == nil || o.Currency == nil {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *Verification) HasCurrency() bool {
+	if o != nil && o.Currency != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *Verification) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 func (o Verification) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -251,6 +285,9 @@ func (o Verification) MarshalJSON() ([]byte, error) {
 	}
 	if o.TotalPrice != nil {
 		toSerialize["totalPrice"] = o.TotalPrice
+	}
+	if o.Currency != nil {
+		toSerialize["currency"] = o.Currency
 	}
 	return json.Marshal(toSerialize)
 }

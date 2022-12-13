@@ -33,6 +33,9 @@ type WhatsappTemplate struct {
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	UpdateTime *time.Time `json:"updateTime,omitempty"`
+	StatusUpdateEvent *WhatsappTemplateStatusUpdateEventEnum `json:"statusUpdateEvent,omitempty"`
+	// The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.
+	DisableDate *string `json:"disableDate,omitempty"`
 }
 
 // NewWhatsappTemplate instantiates a new WhatsappTemplate object
@@ -305,6 +308,70 @@ func (o *WhatsappTemplate) SetUpdateTime(v time.Time) {
 	o.UpdateTime = &v
 }
 
+// GetStatusUpdateEvent returns the StatusUpdateEvent field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetStatusUpdateEvent() WhatsappTemplateStatusUpdateEventEnum {
+	if o == nil || o.StatusUpdateEvent == nil {
+		var ret WhatsappTemplateStatusUpdateEventEnum
+		return ret
+	}
+	return *o.StatusUpdateEvent
+}
+
+// GetStatusUpdateEventOk returns a tuple with the StatusUpdateEvent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetStatusUpdateEventOk() (*WhatsappTemplateStatusUpdateEventEnum, bool) {
+	if o == nil || o.StatusUpdateEvent == nil {
+		return nil, false
+	}
+	return o.StatusUpdateEvent, true
+}
+
+// HasStatusUpdateEvent returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasStatusUpdateEvent() bool {
+	if o != nil && o.StatusUpdateEvent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusUpdateEvent gets a reference to the given WhatsappTemplateStatusUpdateEventEnum and assigns it to the StatusUpdateEvent field.
+func (o *WhatsappTemplate) SetStatusUpdateEvent(v WhatsappTemplateStatusUpdateEventEnum) {
+	o.StatusUpdateEvent = &v
+}
+
+// GetDisableDate returns the DisableDate field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetDisableDate() string {
+	if o == nil || o.DisableDate == nil {
+		var ret string
+		return ret
+	}
+	return *o.DisableDate
+}
+
+// GetDisableDateOk returns a tuple with the DisableDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetDisableDateOk() (*string, bool) {
+	if o == nil || o.DisableDate == nil {
+		return nil, false
+	}
+	return o.DisableDate, true
+}
+
+// HasDisableDate returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasDisableDate() bool {
+	if o != nil && o.DisableDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableDate gets a reference to the given string and assigns it to the DisableDate field.
+func (o *WhatsappTemplate) SetDisableDate(v string) {
+	o.DisableDate = &v
+}
+
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -333,6 +400,12 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if o.UpdateTime != nil {
 		toSerialize["updateTime"] = o.UpdateTime
+	}
+	if o.StatusUpdateEvent != nil {
+		toSerialize["statusUpdateEvent"] = o.StatusUpdateEvent
+	}
+	if o.DisableDate != nil {
+		toSerialize["disableDate"] = o.DisableDate
 	}
 	return json.Marshal(toSerialize)
 }

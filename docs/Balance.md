@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **float64** | Balance of current account. | 
-**Currency** | **string** | [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | 
+**Currency** | **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | 
 
 ## Methods
 

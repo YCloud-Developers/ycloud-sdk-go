@@ -24,6 +24,8 @@ const (
 	EVENTTYPE_EMAIL_DELIVERY_UPDATED EventType = "email.delivery.updated"
 	EVENTTYPE_SMS_MESSAGE_UPDATED EventType = "sms.message.updated"
 	EVENTTYPE_VOICE_MESSAGE_UPDATED EventType = "voice.message.updated"
+	EVENTTYPE_WHATSAPP_BUSINESS_ACCOUNT_REVIEWED EventType = "whatsapp.business_account.reviewed"
+	EVENTTYPE_WHATSAPP_BUSINESS_ACCOUNT_UPDATED EventType = "whatsapp.business_account.updated"
 	EVENTTYPE_WHATSAPP_INBOUND_MESSAGE_RECEIVED EventType = "whatsapp.inbound_message.received"
 	EVENTTYPE_WHATSAPP_MESSAGE_UPDATED EventType = "whatsapp.message.updated"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_NAME_UPDATED EventType = "whatsapp.phone_number.name_updated"
@@ -36,6 +38,8 @@ var AllowedEventTypeEnumValues = []EventType{
 	"email.delivery.updated",
 	"sms.message.updated",
 	"voice.message.updated",
+	"whatsapp.business_account.reviewed",
+	"whatsapp.business_account.updated",
 	"whatsapp.inbound_message.received",
 	"whatsapp.message.updated",
 	"whatsapp.phone_number.name_updated",

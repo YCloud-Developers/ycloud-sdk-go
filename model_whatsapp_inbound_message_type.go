@@ -31,7 +31,10 @@ const (
 	WHATSAPPINBOUNDMESSAGETYPE_LOCATION WhatsappInboundMessageType = "location"
 	WHATSAPPINBOUNDMESSAGETYPE_INTERACTIVE WhatsappInboundMessageType = "interactive"
 	WHATSAPPINBOUNDMESSAGETYPE_BUTTON WhatsappInboundMessageType = "button"
+	WHATSAPPINBOUNDMESSAGETYPE_REACTION WhatsappInboundMessageType = "reaction"
+	WHATSAPPINBOUNDMESSAGETYPE_ORDER WhatsappInboundMessageType = "order"
 	WHATSAPPINBOUNDMESSAGETYPE_SYSTEM WhatsappInboundMessageType = "system"
+	WHATSAPPINBOUNDMESSAGETYPE_UNSUPPORTED WhatsappInboundMessageType = "unsupported"
 	WHATSAPPINBOUNDMESSAGETYPE_UNKNOWN WhatsappInboundMessageType = "unknown"
 )
 
@@ -47,7 +50,10 @@ var AllowedWhatsappInboundMessageTypeEnumValues = []WhatsappInboundMessageType{
 	"location",
 	"interactive",
 	"button",
+	"reaction",
+	"order",
 	"system",
+	"unsupported",
 	"unknown",
 }
 

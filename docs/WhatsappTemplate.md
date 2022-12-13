@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **string** | The reason why the template is rejected. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **UpdateTime** | Pointer to **time.Time** | The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**StatusUpdateEvent** | Pointer to [**WhatsappTemplateStatusUpdateEventEnum**](WhatsappTemplateStatusUpdateEventEnum.md) |  | [optional] 
+**DisableDate** | Pointer to **string** | The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set. | [optional] 
 
 ## Methods
 
@@ -232,6 +234,56 @@ SetUpdateTime sets UpdateTime field to given value.
 `func (o *WhatsappTemplate) HasUpdateTime() bool`
 
 HasUpdateTime returns a boolean if a field has been set.
+
+### GetStatusUpdateEvent
+
+`func (o *WhatsappTemplate) GetStatusUpdateEvent() WhatsappTemplateStatusUpdateEventEnum`
+
+GetStatusUpdateEvent returns the StatusUpdateEvent field if non-nil, zero value otherwise.
+
+### GetStatusUpdateEventOk
+
+`func (o *WhatsappTemplate) GetStatusUpdateEventOk() (*WhatsappTemplateStatusUpdateEventEnum, bool)`
+
+GetStatusUpdateEventOk returns a tuple with the StatusUpdateEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusUpdateEvent
+
+`func (o *WhatsappTemplate) SetStatusUpdateEvent(v WhatsappTemplateStatusUpdateEventEnum)`
+
+SetStatusUpdateEvent sets StatusUpdateEvent field to given value.
+
+### HasStatusUpdateEvent
+
+`func (o *WhatsappTemplate) HasStatusUpdateEvent() bool`
+
+HasStatusUpdateEvent returns a boolean if a field has been set.
+
+### GetDisableDate
+
+`func (o *WhatsappTemplate) GetDisableDate() string`
+
+GetDisableDate returns the DisableDate field if non-nil, zero value otherwise.
+
+### GetDisableDateOk
+
+`func (o *WhatsappTemplate) GetDisableDateOk() (*string, bool)`
+
+GetDisableDateOk returns a tuple with the DisableDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableDate
+
+`func (o *WhatsappTemplate) SetDisableDate(v string)`
+
+SetDisableDate sets DisableDate field to given value.
+
+### HasDisableDate
+
+`func (o *WhatsappTemplate) HasDisableDate() bool`
+
+HasDisableDate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

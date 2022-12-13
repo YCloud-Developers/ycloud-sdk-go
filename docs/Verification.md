@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **To** | Pointer to **string** | Recipient of the verification. | [optional] 
 **Channel** | Pointer to [**VerificationChannel**](VerificationChannel.md) |  | [optional] 
 **SendTime** | Pointer to **time.Time** | The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**TotalPrice** | Pointer to **float64** | Total price of this verification. Currency: USD. | [optional] 
+**TotalPrice** | Pointer to **float64** | Total price of this verification. | [optional] 
+**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 
 ## Methods
 
@@ -174,6 +175,31 @@ SetTotalPrice sets TotalPrice field to given value.
 `func (o *Verification) HasTotalPrice() bool`
 
 HasTotalPrice returns a boolean if a field has been set.
+
+### GetCurrency
+
+`func (o *Verification) GetCurrency() string`
+
+GetCurrency returns the Currency field if non-nil, zero value otherwise.
+
+### GetCurrencyOk
+
+`func (o *Verification) GetCurrencyOk() (*string, bool)`
+
+GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrency
+
+`func (o *Verification) SetCurrency(v string)`
+
+SetCurrency sets Currency field to given value.
+
+### HasCurrency
+
+`func (o *Verification) HasCurrency() bool`
+
+HasCurrency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

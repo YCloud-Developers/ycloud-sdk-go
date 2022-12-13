@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **RegionCode** | Pointer to **string** | [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
 **TotalSegments** | Pointer to **int32** | Number of message segments. It&#39;s always 1 for voice calls. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
-**Currency** | Pointer to **string** | [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | [optional] 
+**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 **Status** | Pointer to **string** | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;. | [optional] 
 **ErrorCode** | Pointer to **string** | Error code when the message is undeliverable. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;. | [optional] 

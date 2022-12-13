@@ -32,7 +32,7 @@ type Sms struct {
 	TotalSegments *int32 `json:"totalSegments,omitempty"`
 	// Total price of this message.
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
-	// [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`.
 	Status *string `json:"status,omitempty"`

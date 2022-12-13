@@ -19,7 +19,7 @@ import (
 type Balance struct {
 	// Balance of current account.
 	Amount float64 `json:"amount"`
-	// [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency string `json:"currency"`
 }
 

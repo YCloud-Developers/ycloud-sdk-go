@@ -32,8 +32,7 @@ type WhatsappPhoneNumber struct {
 	Status *WhatsappPhoneNumberStatus `json:"status,omitempty"`
 	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
 	NewNameStatus *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
-	// Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
-	Decision *string `json:"decision,omitempty"`
+	Decision *WhatsappReviewDecision `json:"decision,omitempty"`
 	// Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
 	RequestedVerifiedName *string `json:"requestedVerifiedName,omitempty"`
 	// Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
@@ -378,9 +377,9 @@ func (o *WhatsappPhoneNumber) SetNewNameStatus(v WhatsappPhoneNumberNameStatus) 
 }
 
 // GetDecision returns the Decision field value if set, zero value otherwise.
-func (o *WhatsappPhoneNumber) GetDecision() string {
+func (o *WhatsappPhoneNumber) GetDecision() WhatsappReviewDecision {
 	if o == nil || o.Decision == nil {
-		var ret string
+		var ret WhatsappReviewDecision
 		return ret
 	}
 	return *o.Decision
@@ -388,7 +387,7 @@ func (o *WhatsappPhoneNumber) GetDecision() string {
 
 // GetDecisionOk returns a tuple with the Decision field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappPhoneNumber) GetDecisionOk() (*string, bool) {
+func (o *WhatsappPhoneNumber) GetDecisionOk() (*WhatsappReviewDecision, bool) {
 	if o == nil || o.Decision == nil {
 		return nil, false
 	}
@@ -404,8 +403,8 @@ func (o *WhatsappPhoneNumber) HasDecision() bool {
 	return false
 }
 
-// SetDecision gets a reference to the given string and assigns it to the Decision field.
-func (o *WhatsappPhoneNumber) SetDecision(v string) {
+// SetDecision gets a reference to the given WhatsappReviewDecision and assigns it to the Decision field.
+func (o *WhatsappPhoneNumber) SetDecision(v WhatsappReviewDecision) {
 	o.Decision = &v
 }
 

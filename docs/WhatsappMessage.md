@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
+**Wamid** | Pointer to **string** | The native WhatsApp message ID. | [optional] 
 **WabaId** | **string** | WhatsApp Business Account ID. | 
 **From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
@@ -25,6 +26,8 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **UpdateTime** | Pointer to **time.Time** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
+**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 
 ## Methods
 
@@ -64,6 +67,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetWamid
+
+`func (o *WhatsappMessage) GetWamid() string`
+
+GetWamid returns the Wamid field if non-nil, zero value otherwise.
+
+### GetWamidOk
+
+`func (o *WhatsappMessage) GetWamidOk() (*string, bool)`
+
+GetWamidOk returns a tuple with the Wamid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWamid
+
+`func (o *WhatsappMessage) SetWamid(v string)`
+
+SetWamid sets Wamid field to given value.
+
+### HasWamid
+
+`func (o *WhatsappMessage) HasWamid() bool`
+
+HasWamid returns a boolean if a field has been set.
 
 ### GetWabaId
 
@@ -544,6 +572,56 @@ SetUpdateTime sets UpdateTime field to given value.
 `func (o *WhatsappMessage) HasUpdateTime() bool`
 
 HasUpdateTime returns a boolean if a field has been set.
+
+### GetTotalPrice
+
+`func (o *WhatsappMessage) GetTotalPrice() float64`
+
+GetTotalPrice returns the TotalPrice field if non-nil, zero value otherwise.
+
+### GetTotalPriceOk
+
+`func (o *WhatsappMessage) GetTotalPriceOk() (*float64, bool)`
+
+GetTotalPriceOk returns a tuple with the TotalPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalPrice
+
+`func (o *WhatsappMessage) SetTotalPrice(v float64)`
+
+SetTotalPrice sets TotalPrice field to given value.
+
+### HasTotalPrice
+
+`func (o *WhatsappMessage) HasTotalPrice() bool`
+
+HasTotalPrice returns a boolean if a field has been set.
+
+### GetCurrency
+
+`func (o *WhatsappMessage) GetCurrency() string`
+
+GetCurrency returns the Currency field if non-nil, zero value otherwise.
+
+### GetCurrencyOk
+
+`func (o *WhatsappMessage) GetCurrencyOk() (*string, bool)`
+
+GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrency
+
+`func (o *WhatsappMessage) SetCurrency(v string)`
+
+SetCurrency sets Currency field to given value.
+
+### HasCurrency
+
+`func (o *WhatsappMessage) HasCurrency() bool`
+
+HasCurrency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

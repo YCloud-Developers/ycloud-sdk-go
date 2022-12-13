@@ -20,6 +20,8 @@ import (
 type WhatsappInboundMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
+	// The native WhatsApp message ID.
+	Wamid *string `json:"wamid,omitempty"`
 	// WhatsApp Business Account ID.
 	WabaId *string `json:"wabaId,omitempty"`
 	// The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -40,6 +42,12 @@ type WhatsappInboundMessage struct {
 	Location *WhatsappInboundMessageLocation `json:"location,omitempty"`
 	Button *WhatsappInboundMessageButton `json:"button,omitempty"`
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
+	Reaction *WhatsappInboundMessageReaction `json:"reaction,omitempty"`
+	Order *WhatsappInboundMessageOrder `json:"order,omitempty"`
+	System *WhatsappInboundMessageSystem `json:"system,omitempty"`
+	Errors []WhatsappInboundMessageError `json:"errors,omitempty"`
+	Context *WhatsappInboundMessageContext `json:"context,omitempty"`
+	Referral *WhatsappInboundMessageReferral `json:"referral,omitempty"`
 }
 
 // NewWhatsappInboundMessage instantiates a new WhatsappInboundMessage object
@@ -82,6 +90,38 @@ func (o *WhatsappInboundMessage) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *WhatsappInboundMessage) SetId(v string) {
 	o.Id = v
+}
+
+// GetWamid returns the Wamid field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetWamid() string {
+	if o == nil || o.Wamid == nil {
+		var ret string
+		return ret
+	}
+	return *o.Wamid
+}
+
+// GetWamidOk returns a tuple with the Wamid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetWamidOk() (*string, bool) {
+	if o == nil || o.Wamid == nil {
+		return nil, false
+	}
+	return o.Wamid, true
+}
+
+// HasWamid returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasWamid() bool {
+	if o != nil && o.Wamid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWamid gets a reference to the given string and assigns it to the Wamid field.
+func (o *WhatsappInboundMessage) SetWamid(v string) {
+	o.Wamid = &v
 }
 
 // GetWabaId returns the WabaId field value if set, zero value otherwise.
@@ -596,10 +636,205 @@ func (o *WhatsappInboundMessage) SetContacts(v []WhatsappMessageContact) {
 	o.Contacts = v
 }
 
+// GetReaction returns the Reaction field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetReaction() WhatsappInboundMessageReaction {
+	if o == nil || o.Reaction == nil {
+		var ret WhatsappInboundMessageReaction
+		return ret
+	}
+	return *o.Reaction
+}
+
+// GetReactionOk returns a tuple with the Reaction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetReactionOk() (*WhatsappInboundMessageReaction, bool) {
+	if o == nil || o.Reaction == nil {
+		return nil, false
+	}
+	return o.Reaction, true
+}
+
+// HasReaction returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasReaction() bool {
+	if o != nil && o.Reaction != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReaction gets a reference to the given WhatsappInboundMessageReaction and assigns it to the Reaction field.
+func (o *WhatsappInboundMessage) SetReaction(v WhatsappInboundMessageReaction) {
+	o.Reaction = &v
+}
+
+// GetOrder returns the Order field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetOrder() WhatsappInboundMessageOrder {
+	if o == nil || o.Order == nil {
+		var ret WhatsappInboundMessageOrder
+		return ret
+	}
+	return *o.Order
+}
+
+// GetOrderOk returns a tuple with the Order field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetOrderOk() (*WhatsappInboundMessageOrder, bool) {
+	if o == nil || o.Order == nil {
+		return nil, false
+	}
+	return o.Order, true
+}
+
+// HasOrder returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasOrder() bool {
+	if o != nil && o.Order != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOrder gets a reference to the given WhatsappInboundMessageOrder and assigns it to the Order field.
+func (o *WhatsappInboundMessage) SetOrder(v WhatsappInboundMessageOrder) {
+	o.Order = &v
+}
+
+// GetSystem returns the System field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetSystem() WhatsappInboundMessageSystem {
+	if o == nil || o.System == nil {
+		var ret WhatsappInboundMessageSystem
+		return ret
+	}
+	return *o.System
+}
+
+// GetSystemOk returns a tuple with the System field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetSystemOk() (*WhatsappInboundMessageSystem, bool) {
+	if o == nil || o.System == nil {
+		return nil, false
+	}
+	return o.System, true
+}
+
+// HasSystem returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasSystem() bool {
+	if o != nil && o.System != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSystem gets a reference to the given WhatsappInboundMessageSystem and assigns it to the System field.
+func (o *WhatsappInboundMessage) SetSystem(v WhatsappInboundMessageSystem) {
+	o.System = &v
+}
+
+// GetErrors returns the Errors field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetErrors() []WhatsappInboundMessageError {
+	if o == nil || o.Errors == nil {
+		var ret []WhatsappInboundMessageError
+		return ret
+	}
+	return o.Errors
+}
+
+// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetErrorsOk() ([]WhatsappInboundMessageError, bool) {
+	if o == nil || o.Errors == nil {
+		return nil, false
+	}
+	return o.Errors, true
+}
+
+// HasErrors returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasErrors() bool {
+	if o != nil && o.Errors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrors gets a reference to the given []WhatsappInboundMessageError and assigns it to the Errors field.
+func (o *WhatsappInboundMessage) SetErrors(v []WhatsappInboundMessageError) {
+	o.Errors = v
+}
+
+// GetContext returns the Context field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetContext() WhatsappInboundMessageContext {
+	if o == nil || o.Context == nil {
+		var ret WhatsappInboundMessageContext
+		return ret
+	}
+	return *o.Context
+}
+
+// GetContextOk returns a tuple with the Context field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetContextOk() (*WhatsappInboundMessageContext, bool) {
+	if o == nil || o.Context == nil {
+		return nil, false
+	}
+	return o.Context, true
+}
+
+// HasContext returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasContext() bool {
+	if o != nil && o.Context != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContext gets a reference to the given WhatsappInboundMessageContext and assigns it to the Context field.
+func (o *WhatsappInboundMessage) SetContext(v WhatsappInboundMessageContext) {
+	o.Context = &v
+}
+
+// GetReferral returns the Referral field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetReferral() WhatsappInboundMessageReferral {
+	if o == nil || o.Referral == nil {
+		var ret WhatsappInboundMessageReferral
+		return ret
+	}
+	return *o.Referral
+}
+
+// GetReferralOk returns a tuple with the Referral field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetReferralOk() (*WhatsappInboundMessageReferral, bool) {
+	if o == nil || o.Referral == nil {
+		return nil, false
+	}
+	return o.Referral, true
+}
+
+// HasReferral returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasReferral() bool {
+	if o != nil && o.Referral != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReferral gets a reference to the given WhatsappInboundMessageReferral and assigns it to the Referral field.
+func (o *WhatsappInboundMessage) SetReferral(v WhatsappInboundMessageReferral) {
+	o.Referral = &v
+}
+
 func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if o.Wamid != nil {
+		toSerialize["wamid"] = o.Wamid
 	}
 	if o.WabaId != nil {
 		toSerialize["wabaId"] = o.WabaId
@@ -648,6 +883,24 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.Contacts != nil {
 		toSerialize["contacts"] = o.Contacts
+	}
+	if o.Reaction != nil {
+		toSerialize["reaction"] = o.Reaction
+	}
+	if o.Order != nil {
+		toSerialize["order"] = o.Order
+	}
+	if o.System != nil {
+		toSerialize["system"] = o.System
+	}
+	if o.Errors != nil {
+		toSerialize["errors"] = o.Errors
+	}
+	if o.Context != nil {
+		toSerialize["context"] = o.Context
+	}
+	if o.Referral != nil {
+		toSerialize["referral"] = o.Referral
 	}
 	return json.Marshal(toSerialize)
 }

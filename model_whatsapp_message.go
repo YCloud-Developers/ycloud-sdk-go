@@ -20,6 +20,8 @@ import (
 type WhatsappMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
+	// The native WhatsApp message ID.
+	Wamid *string `json:"wamid,omitempty"`
 	// WhatsApp Business Account ID.
 	WabaId string `json:"wabaId"`
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -48,6 +50,10 @@ type WhatsappMessage struct {
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	UpdateTime *time.Time `json:"updateTime,omitempty"`
+	// Total price of this message.
+	TotalPrice *float64 `json:"totalPrice,omitempty"`
+	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+	Currency *string `json:"currency,omitempty"`
 }
 
 // NewWhatsappMessage instantiates a new WhatsappMessage object
@@ -94,6 +100,38 @@ func (o *WhatsappMessage) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *WhatsappMessage) SetId(v string) {
 	o.Id = v
+}
+
+// GetWamid returns the Wamid field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetWamid() string {
+	if o == nil || o.Wamid == nil {
+		var ret string
+		return ret
+	}
+	return *o.Wamid
+}
+
+// GetWamidOk returns a tuple with the Wamid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetWamidOk() (*string, bool) {
+	if o == nil || o.Wamid == nil {
+		return nil, false
+	}
+	return o.Wamid, true
+}
+
+// HasWamid returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasWamid() bool {
+	if o != nil && o.Wamid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWamid gets a reference to the given string and assigns it to the Wamid field.
+func (o *WhatsappMessage) SetWamid(v string) {
+	o.Wamid = &v
 }
 
 // GetWabaId returns the WabaId field value
@@ -704,10 +742,77 @@ func (o *WhatsappMessage) SetUpdateTime(v time.Time) {
 	o.UpdateTime = &v
 }
 
+// GetTotalPrice returns the TotalPrice field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetTotalPrice() float64 {
+	if o == nil || o.TotalPrice == nil {
+		var ret float64
+		return ret
+	}
+	return *o.TotalPrice
+}
+
+// GetTotalPriceOk returns a tuple with the TotalPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetTotalPriceOk() (*float64, bool) {
+	if o == nil || o.TotalPrice == nil {
+		return nil, false
+	}
+	return o.TotalPrice, true
+}
+
+// HasTotalPrice returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasTotalPrice() bool {
+	if o != nil && o.TotalPrice != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalPrice gets a reference to the given float64 and assigns it to the TotalPrice field.
+func (o *WhatsappMessage) SetTotalPrice(v float64) {
+	o.TotalPrice = &v
+}
+
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetCurrency() string {
+	if o == nil || o.Currency == nil {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetCurrencyOk() (*string, bool) {
+	if o == nil || o.Currency == nil {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasCurrency() bool {
+	if o != nil && o.Currency != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *WhatsappMessage) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if o.Wamid != nil {
+		toSerialize["wamid"] = o.Wamid
 	}
 	if true {
 		toSerialize["wabaId"] = o.WabaId
@@ -768,6 +873,12 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.UpdateTime != nil {
 		toSerialize["updateTime"] = o.UpdateTime
+	}
+	if o.TotalPrice != nil {
+		toSerialize["totalPrice"] = o.TotalPrice
+	}
+	if o.Currency != nil {
+		toSerialize["currency"] = o.Currency
 	}
 	return json.Marshal(toSerialize)
 }

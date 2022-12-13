@@ -41,10 +41,10 @@ type Email struct {
 	// The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// Total recipients of this message, including `to`, `cc` and `bcc`.
-	TotalRecipients *float32 `json:"totalRecipients,omitempty"`
+	TotalRecipients *int32 `json:"totalRecipients,omitempty"`
 	// Total price of this message.
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
-	// [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 }
 
@@ -443,9 +443,9 @@ func (o *Email) SetCreateTime(v time.Time) {
 }
 
 // GetTotalRecipients returns the TotalRecipients field value if set, zero value otherwise.
-func (o *Email) GetTotalRecipients() float32 {
+func (o *Email) GetTotalRecipients() int32 {
 	if o == nil || o.TotalRecipients == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.TotalRecipients
@@ -453,7 +453,7 @@ func (o *Email) GetTotalRecipients() float32 {
 
 // GetTotalRecipientsOk returns a tuple with the TotalRecipients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Email) GetTotalRecipientsOk() (*float32, bool) {
+func (o *Email) GetTotalRecipientsOk() (*int32, bool) {
 	if o == nil || o.TotalRecipients == nil {
 		return nil, false
 	}
@@ -469,8 +469,8 @@ func (o *Email) HasTotalRecipients() bool {
 	return false
 }
 
-// SetTotalRecipients gets a reference to the given float32 and assigns it to the TotalRecipients field.
-func (o *Email) SetTotalRecipients(v float32) {
+// SetTotalRecipients gets a reference to the given int32 and assigns it to the TotalRecipients field.
+func (o *Email) SetTotalRecipients(v int32) {
 	o.TotalRecipients = &v
 }
 

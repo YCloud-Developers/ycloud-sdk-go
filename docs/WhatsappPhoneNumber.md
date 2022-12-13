@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional] 
 **NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
 **NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
-**Decision** | Pointer to **string** | Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). | [optional] 
+**Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional] 
 **RequestedVerifiedName** | Pointer to **string** | Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). | [optional] 
 **RejectionReason** | Pointer to **string** | Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). | [optional] 
 
@@ -289,20 +289,20 @@ HasNewNameStatus returns a boolean if a field has been set.
 
 ### GetDecision
 
-`func (o *WhatsappPhoneNumber) GetDecision() string`
+`func (o *WhatsappPhoneNumber) GetDecision() WhatsappReviewDecision`
 
 GetDecision returns the Decision field if non-nil, zero value otherwise.
 
 ### GetDecisionOk
 
-`func (o *WhatsappPhoneNumber) GetDecisionOk() (*string, bool)`
+`func (o *WhatsappPhoneNumber) GetDecisionOk() (*WhatsappReviewDecision, bool)`
 
 GetDecisionOk returns a tuple with the Decision field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDecision
 
-`func (o *WhatsappPhoneNumber) SetDecision(v string)`
+`func (o *WhatsappPhoneNumber) SetDecision(v WhatsappReviewDecision)`
 
 SetDecision sets Decision field to given value.
 

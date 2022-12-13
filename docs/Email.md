@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **CallbackUrl** | Pointer to **string** | Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**TotalRecipients** | Pointer to **float32** | Total recipients of this message, including &#x60;to&#x60;, &#x60;cc&#x60; and &#x60;bcc&#x60;. | [optional] 
+**TotalRecipients** | Pointer to **int32** | Total recipients of this message, including &#x60;to&#x60;, &#x60;cc&#x60; and &#x60;bcc&#x60;. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
-**Currency** | Pointer to **string** | [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | [optional] 
+**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 
 ## Methods
 
@@ -336,20 +336,20 @@ HasCreateTime returns a boolean if a field has been set.
 
 ### GetTotalRecipients
 
-`func (o *Email) GetTotalRecipients() float32`
+`func (o *Email) GetTotalRecipients() int32`
 
 GetTotalRecipients returns the TotalRecipients field if non-nil, zero value otherwise.
 
 ### GetTotalRecipientsOk
 
-`func (o *Email) GetTotalRecipientsOk() (*float32, bool)`
+`func (o *Email) GetTotalRecipientsOk() (*int32, bool)`
 
 GetTotalRecipientsOk returns a tuple with the TotalRecipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalRecipients
 
-`func (o *Email) SetTotalRecipients(v float32)`
+`func (o *Email) SetTotalRecipients(v int32)`
 
 SetTotalRecipients sets TotalRecipients field to given value.
 

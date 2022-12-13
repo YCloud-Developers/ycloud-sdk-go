@@ -28,6 +28,7 @@ type Event struct {
 	EmailDelivery *EmailDelivery `json:"emailDelivery,omitempty"`
 	Sms *Sms `json:"sms,omitempty"`
 	Voice *Voice `json:"voice,omitempty"`
+	WhatsappBusinessAccount *WhatsappBusinessAccount `json:"whatsappBusinessAccount,omitempty"`
 	WhatsappInboundMessage *WhatsappInboundMessage `json:"whatsappInboundMessage,omitempty"`
 	WhatsappMessage *WhatsappMessage `json:"whatsappMessage,omitempty"`
 	WhatsappPhoneNumber *WhatsappPhoneNumber `json:"whatsappPhoneNumber,omitempty"`
@@ -247,6 +248,38 @@ func (o *Event) SetVoice(v Voice) {
 	o.Voice = &v
 }
 
+// GetWhatsappBusinessAccount returns the WhatsappBusinessAccount field value if set, zero value otherwise.
+func (o *Event) GetWhatsappBusinessAccount() WhatsappBusinessAccount {
+	if o == nil || o.WhatsappBusinessAccount == nil {
+		var ret WhatsappBusinessAccount
+		return ret
+	}
+	return *o.WhatsappBusinessAccount
+}
+
+// GetWhatsappBusinessAccountOk returns a tuple with the WhatsappBusinessAccount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappBusinessAccountOk() (*WhatsappBusinessAccount, bool) {
+	if o == nil || o.WhatsappBusinessAccount == nil {
+		return nil, false
+	}
+	return o.WhatsappBusinessAccount, true
+}
+
+// HasWhatsappBusinessAccount returns a boolean if a field has been set.
+func (o *Event) HasWhatsappBusinessAccount() bool {
+	if o != nil && o.WhatsappBusinessAccount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappBusinessAccount gets a reference to the given WhatsappBusinessAccount and assigns it to the WhatsappBusinessAccount field.
+func (o *Event) SetWhatsappBusinessAccount(v WhatsappBusinessAccount) {
+	o.WhatsappBusinessAccount = &v
+}
+
 // GetWhatsappInboundMessage returns the WhatsappInboundMessage field value if set, zero value otherwise.
 func (o *Event) GetWhatsappInboundMessage() WhatsappInboundMessage {
 	if o == nil || o.WhatsappInboundMessage == nil {
@@ -397,6 +430,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.Voice != nil {
 		toSerialize["voice"] = o.Voice
+	}
+	if o.WhatsappBusinessAccount != nil {
+		toSerialize["whatsappBusinessAccount"] = o.WhatsappBusinessAccount
 	}
 	if o.WhatsappInboundMessage != nil {
 		toSerialize["whatsappInboundMessage"] = o.WhatsappInboundMessage
