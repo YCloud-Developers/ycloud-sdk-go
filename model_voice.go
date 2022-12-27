@@ -34,7 +34,7 @@ type Voice struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
-	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`.
+	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`.
 	Status *string `json:"status,omitempty"`
 	// Error code when the message is undeliverable.
 	ErrorCode *string `json:"errorCode,omitempty"`

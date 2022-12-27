@@ -23,12 +23,14 @@ type WebhookEndpointStatus string
 const (
 	WEBHOOKENDPOINTSTATUS_ACTIVE WebhookEndpointStatus = "active"
 	WEBHOOKENDPOINTSTATUS_DISABLED WebhookEndpointStatus = "disabled"
+	WEBHOOKENDPOINTSTATUS_PENDING WebhookEndpointStatus = "pending"
 )
 
 // All allowed values of WebhookEndpointStatus enum
 var AllowedWebhookEndpointStatusEnumValues = []WebhookEndpointStatus{
 	"active",
 	"disabled",
+	"pending",
 }
 
 func (v *WebhookEndpointStatus) UnmarshalJSON(src []byte) error {

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **OwnershipType** | Pointer to **string** | Ownership type of the WhatsApp Business Account. | [optional] 
 **PrimaryFundingId** | Pointer to **string** | Primary funding ID for the WhatsApp Business Account paid service. | [optional] 
 **PurchaseOrderNumber** | Pointer to **string** | The purchase order number supplied by the business for payment management purposes. | [optional] 
-**TimezoneId** | Pointer to **string** | The timezone of the WhatsApp Business Account. | [optional] 
+**TimezoneId** | Pointer to **string** | The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids). | [optional] 
 **Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional] 
 **UpdateEvent** | Pointer to [**WhatsappBusinessAccountUpdateEventEnum**](WhatsappBusinessAccountUpdateEventEnum.md) |  | [optional] 
 **BanState** | Pointer to [**WhatsappBusinessAccountBanState**](WhatsappBusinessAccountBanState.md) |  | [optional] 

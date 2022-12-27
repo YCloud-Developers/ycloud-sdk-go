@@ -22,19 +22,15 @@ type WhatsappBusinessAccountUpdateEventEnum string
 // List of WhatsappBusinessAccountUpdateEventEnum
 const (
 	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_DISABLED_UPDATE WhatsappBusinessAccountUpdateEventEnum = "DISABLED_UPDATE"
-	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_VERIFIED_ACCOUNT WhatsappBusinessAccountUpdateEventEnum = "VERIFIED_ACCOUNT"
 	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_RESTRICTION WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_RESTRICTION"
 	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_VIOLATION WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_VIOLATION"
-	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_DELETED WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_DELETED"
 )
 
 // All allowed values of WhatsappBusinessAccountUpdateEventEnum enum
 var AllowedWhatsappBusinessAccountUpdateEventEnumEnumValues = []WhatsappBusinessAccountUpdateEventEnum{
 	"DISABLED_UPDATE",
-	"VERIFIED_ACCOUNT",
 	"ACCOUNT_RESTRICTION",
 	"ACCOUNT_VIOLATION",
-	"ACCOUNT_DELETED",
 }
 
 func (v *WhatsappBusinessAccountUpdateEventEnum) UnmarshalJSON(src []byte) error {

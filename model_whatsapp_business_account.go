@@ -35,7 +35,7 @@ type WhatsappBusinessAccount struct {
 	PrimaryFundingId *string `json:"primaryFundingId,omitempty"`
 	// The purchase order number supplied by the business for payment management purposes.
 	PurchaseOrderNumber *string `json:"purchaseOrderNumber,omitempty"`
-	// The timezone of the WhatsApp Business Account.
+	// The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).
 	TimezoneId *string `json:"timezoneId,omitempty"`
 	Decision *WhatsappReviewDecision `json:"decision,omitempty"`
 	UpdateEvent *WhatsappBusinessAccountUpdateEventEnum `json:"updateEvent,omitempty"`
