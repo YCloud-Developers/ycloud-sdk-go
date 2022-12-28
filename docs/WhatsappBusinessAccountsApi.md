@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## List
 
-> WhatsappBusinessAccount List(ctx).FilterAccountReviewStatus(filterAccountReviewStatus).Execute()
+> WhatsappBusinessAccountPage List(ctx).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterAccountReviewStatus(filterAccountReviewStatus).Execute()
 
 List WABAs
 
@@ -30,16 +30,19 @@ import (
 )
 
 func main() {
+    page := int32(56) // int32 | Page number of the results to be returned, 1-based. (optional) (default to 1)
+    limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
+    includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
     filterAccountReviewStatus := "APPROVED" // string | WhatsApp Business Account review status. (optional)
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.WhatsappBusinessAccountsApi.List(context.Background()).FilterAccountReviewStatus(filterAccountReviewStatus).Execute()
+    resp, r, err := apiClient.WhatsappBusinessAccountsApi.List(context.Background()).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterAccountReviewStatus(filterAccountReviewStatus).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WhatsappBusinessAccountsApi.List``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `List`: WhatsappBusinessAccount
+    // response from `List`: WhatsappBusinessAccountPage
     fmt.Fprintf(os.Stdout, "Response from `WhatsappBusinessAccountsApi.List`: %v\n", resp)
 }
 ```
@@ -55,11 +58,14 @@ Other parameters are passed through a pointer to a apiListRequest struct via the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
+ **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
+ **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
  **filterAccountReviewStatus** | **string** | WhatsApp Business Account review status. | 
 
 ### Return type
 
-[**WhatsappBusinessAccount**](WhatsappBusinessAccount.md)
+[**WhatsappBusinessAccountPage**](WhatsappBusinessAccountPage.md)
 
 ### Authorization
 

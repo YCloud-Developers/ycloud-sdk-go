@@ -27,7 +27,28 @@ type WhatsappBusinessAccountsApiService service
 type WhatsappBusinessAccountsApiListRequest struct {
 	ctx context.Context
 	ApiService *WhatsappBusinessAccountsApiService
+	page *int32
+	limit *int32
+	includeTotal *bool
 	filterAccountReviewStatus *string
+}
+
+// Page number of the results to be returned, 1-based.
+func (r WhatsappBusinessAccountsApiListRequest) Page(page int32) WhatsappBusinessAccountsApiListRequest {
+	r.page = &page
+	return r
+}
+
+// A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
+func (r WhatsappBusinessAccountsApiListRequest) Limit(limit int32) WhatsappBusinessAccountsApiListRequest {
+	r.limit = &limit
+	return r
+}
+
+// Return results inside an object that contains the total result count or not.
+func (r WhatsappBusinessAccountsApiListRequest) IncludeTotal(includeTotal bool) WhatsappBusinessAccountsApiListRequest {
+	r.includeTotal = &includeTotal
+	return r
 }
 
 // WhatsApp Business Account review status.
@@ -36,7 +57,7 @@ func (r WhatsappBusinessAccountsApiListRequest) FilterAccountReviewStatus(filter
 	return r
 }
 
-func (r WhatsappBusinessAccountsApiListRequest) Execute() (*WhatsappBusinessAccount, *http.Response, error) {
+func (r WhatsappBusinessAccountsApiListRequest) Execute() (*WhatsappBusinessAccountPage, *http.Response, error) {
 	return r.ApiService.ListExecute(r)
 }
 
@@ -56,13 +77,13 @@ func (a *WhatsappBusinessAccountsApiService) List(ctx context.Context) WhatsappB
 }
 
 // Execute executes the request
-//  @return WhatsappBusinessAccount
-func (a *WhatsappBusinessAccountsApiService) ListExecute(r WhatsappBusinessAccountsApiListRequest) (*WhatsappBusinessAccount, *http.Response, error) {
+//  @return WhatsappBusinessAccountPage
+func (a *WhatsappBusinessAccountsApiService) ListExecute(r WhatsappBusinessAccountsApiListRequest) (*WhatsappBusinessAccountPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WhatsappBusinessAccount
+		localVarReturnValue  *WhatsappBusinessAccountPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappBusinessAccountsApiService.List")
@@ -76,6 +97,15 @@ func (a *WhatsappBusinessAccountsApiService) ListExecute(r WhatsappBusinessAccou
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.includeTotal != nil {
+		localVarQueryParams.Add("includeTotal", parameterToString(*r.includeTotal, ""))
+	}
 	if r.filterAccountReviewStatus != nil {
 		localVarQueryParams.Add("filter.accountReviewStatus", parameterToString(*r.filterAccountReviewStatus, ""))
 	}
