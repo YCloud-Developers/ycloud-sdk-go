@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | 
 **EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional] 
 **Sms** | Pointer to [**Sms**](Sms.md) |  | [optional] 
+**SmsInbound** | Pointer to [**SmsInbound**](SmsInbound.md) |  | [optional] 
 **Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
 **WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional] 
 **WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
@@ -165,6 +166,31 @@ SetSms sets Sms field to given value.
 `func (o *Event) HasSms() bool`
 
 HasSms returns a boolean if a field has been set.
+
+### GetSmsInbound
+
+`func (o *Event) GetSmsInbound() SmsInbound`
+
+GetSmsInbound returns the SmsInbound field if non-nil, zero value otherwise.
+
+### GetSmsInboundOk
+
+`func (o *Event) GetSmsInboundOk() (*SmsInbound, bool)`
+
+GetSmsInboundOk returns a tuple with the SmsInbound field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSmsInbound
+
+`func (o *Event) SetSmsInbound(v SmsInbound)`
+
+SetSmsInbound sets SmsInbound field to given value.
+
+### HasSmsInbound
+
+`func (o *Event) HasSmsInbound() bool`
+
+HasSmsInbound returns a boolean if a field has been set.
 
 ### GetVoice
 

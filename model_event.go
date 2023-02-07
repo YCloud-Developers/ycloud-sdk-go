@@ -27,6 +27,7 @@ type Event struct {
 	CreateTime time.Time `json:"createTime"`
 	EmailDelivery *EmailDelivery `json:"emailDelivery,omitempty"`
 	Sms *Sms `json:"sms,omitempty"`
+	SmsInbound *SmsInbound `json:"smsInbound,omitempty"`
 	Voice *Voice `json:"voice,omitempty"`
 	WhatsappBusinessAccount *WhatsappBusinessAccount `json:"whatsappBusinessAccount,omitempty"`
 	WhatsappInboundMessage *WhatsappInboundMessage `json:"whatsappInboundMessage,omitempty"`
@@ -214,6 +215,38 @@ func (o *Event) HasSms() bool {
 // SetSms gets a reference to the given Sms and assigns it to the Sms field.
 func (o *Event) SetSms(v Sms) {
 	o.Sms = &v
+}
+
+// GetSmsInbound returns the SmsInbound field value if set, zero value otherwise.
+func (o *Event) GetSmsInbound() SmsInbound {
+	if o == nil || o.SmsInbound == nil {
+		var ret SmsInbound
+		return ret
+	}
+	return *o.SmsInbound
+}
+
+// GetSmsInboundOk returns a tuple with the SmsInbound field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetSmsInboundOk() (*SmsInbound, bool) {
+	if o == nil || o.SmsInbound == nil {
+		return nil, false
+	}
+	return o.SmsInbound, true
+}
+
+// HasSmsInbound returns a boolean if a field has been set.
+func (o *Event) HasSmsInbound() bool {
+	if o != nil && o.SmsInbound != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSmsInbound gets a reference to the given SmsInbound and assigns it to the SmsInbound field.
+func (o *Event) SetSmsInbound(v SmsInbound) {
+	o.SmsInbound = &v
 }
 
 // GetVoice returns the Voice field value if set, zero value otherwise.
@@ -427,6 +460,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.Sms != nil {
 		toSerialize["sms"] = o.Sms
+	}
+	if o.SmsInbound != nil {
+		toSerialize["smsInbound"] = o.SmsInbound
 	}
 	if o.Voice != nil {
 		toSerialize["voice"] = o.Voice

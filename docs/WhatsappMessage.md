@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **UpdateTime** | Pointer to **time.Time** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
+**WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
 
 ## Methods
 
@@ -622,6 +623,31 @@ SetCurrency sets Currency field to given value.
 `func (o *WhatsappMessage) HasCurrency() bool`
 
 HasCurrency returns a boolean if a field has been set.
+
+### GetWhatsappApiError
+
+`func (o *WhatsappMessage) GetWhatsappApiError() WhatsappApiError`
+
+GetWhatsappApiError returns the WhatsappApiError field if non-nil, zero value otherwise.
+
+### GetWhatsappApiErrorOk
+
+`func (o *WhatsappMessage) GetWhatsappApiErrorOk() (*WhatsappApiError, bool)`
+
+GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappApiError
+
+`func (o *WhatsappMessage) SetWhatsappApiError(v WhatsappApiError)`
+
+SetWhatsappApiError sets WhatsappApiError field to given value.
+
+### HasWhatsappApiError
+
+`func (o *WhatsappMessage) HasWhatsappApiError() bool`
+
+HasWhatsappApiError returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

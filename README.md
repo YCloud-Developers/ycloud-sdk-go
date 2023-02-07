@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.4.3
+- Package version: 1.4.4
 
 ## Installation
 
@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
  - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
  - [Page](docs/Page.md)
  - [Sms](docs/Sms.md)
+ - [SmsInbound](docs/SmsInbound.md)
  - [SmsPage](docs/SmsPage.md)
  - [SmsSendRequest](docs/SmsSendRequest.md)
  - [Verification](docs/Verification.md)
@@ -87,6 +88,7 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WhatsappApiError](docs/WhatsappApiError.md)
  - [WhatsappBusinessAccount](docs/WhatsappBusinessAccount.md)
  - [WhatsappBusinessAccountBanState](docs/WhatsappBusinessAccountBanState.md)
  - [WhatsappBusinessAccountPage](docs/WhatsappBusinessAccountPage.md)

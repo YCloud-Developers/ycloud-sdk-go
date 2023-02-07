@@ -23,6 +23,7 @@ type EventType string
 const (
 	EVENTTYPE_EMAIL_DELIVERY_UPDATED EventType = "email.delivery.updated"
 	EVENTTYPE_SMS_MESSAGE_UPDATED EventType = "sms.message.updated"
+	EVENTTYPE_SMS_INBOUND_RECEIVED EventType = "sms.inbound.received"
 	EVENTTYPE_VOICE_MESSAGE_UPDATED EventType = "voice.message.updated"
 	EVENTTYPE_WHATSAPP_BUSINESS_ACCOUNT_REVIEWED EventType = "whatsapp.business_account.reviewed"
 	EVENTTYPE_WHATSAPP_BUSINESS_ACCOUNT_UPDATED EventType = "whatsapp.business_account.updated"
@@ -37,6 +38,7 @@ const (
 var AllowedEventTypeEnumValues = []EventType{
 	"email.delivery.updated",
 	"sms.message.updated",
+	"sms.inbound.received",
 	"voice.message.updated",
 	"whatsapp.business_account.reviewed",
 	"whatsapp.business_account.updated",

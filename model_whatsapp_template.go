@@ -36,6 +36,7 @@ type WhatsappTemplate struct {
 	StatusUpdateEvent *WhatsappTemplateStatusUpdateEventEnum `json:"statusUpdateEvent,omitempty"`
 	// The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.
 	DisableDate *string `json:"disableDate,omitempty"`
+	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 }
 
 // NewWhatsappTemplate instantiates a new WhatsappTemplate object
@@ -372,6 +373,38 @@ func (o *WhatsappTemplate) SetDisableDate(v string) {
 	o.DisableDate = &v
 }
 
+// GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetWhatsappApiError() WhatsappApiError {
+	if o == nil || o.WhatsappApiError == nil {
+		var ret WhatsappApiError
+		return ret
+	}
+	return *o.WhatsappApiError
+}
+
+// GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetWhatsappApiErrorOk() (*WhatsappApiError, bool) {
+	if o == nil || o.WhatsappApiError == nil {
+		return nil, false
+	}
+	return o.WhatsappApiError, true
+}
+
+// HasWhatsappApiError returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasWhatsappApiError() bool {
+	if o != nil && o.WhatsappApiError != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappApiError gets a reference to the given WhatsappApiError and assigns it to the WhatsappApiError field.
+func (o *WhatsappTemplate) SetWhatsappApiError(v WhatsappApiError) {
+	o.WhatsappApiError = &v
+}
+
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -406,6 +439,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if o.DisableDate != nil {
 		toSerialize["disableDate"] = o.DisableDate
+	}
+	if o.WhatsappApiError != nil {
+		toSerialize["whatsappApiError"] = o.WhatsappApiError
 	}
 	return json.Marshal(toSerialize)
 }

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **UpdateTime** | Pointer to **time.Time** | The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **StatusUpdateEvent** | Pointer to [**WhatsappTemplateStatusUpdateEventEnum**](WhatsappTemplateStatusUpdateEventEnum.md) |  | [optional] 
 **DisableDate** | Pointer to **string** | The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set. | [optional] 
+**WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
 
 ## Methods
 
@@ -284,6 +285,31 @@ SetDisableDate sets DisableDate field to given value.
 `func (o *WhatsappTemplate) HasDisableDate() bool`
 
 HasDisableDate returns a boolean if a field has been set.
+
+### GetWhatsappApiError
+
+`func (o *WhatsappTemplate) GetWhatsappApiError() WhatsappApiError`
+
+GetWhatsappApiError returns the WhatsappApiError field if non-nil, zero value otherwise.
+
+### GetWhatsappApiErrorOk
+
+`func (o *WhatsappTemplate) GetWhatsappApiErrorOk() (*WhatsappApiError, bool)`
+
+GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappApiError
+
+`func (o *WhatsappTemplate) SetWhatsappApiError(v WhatsappApiError)`
+
+SetWhatsappApiError sets WhatsappApiError field to given value.
+
+### HasWhatsappApiError
+
+`func (o *WhatsappTemplate) HasWhatsappApiError() bool`
+
+HasWhatsappApiError returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -54,6 +54,7 @@ type WhatsappMessage struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
+	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 }
 
 // NewWhatsappMessage instantiates a new WhatsappMessage object
@@ -806,6 +807,38 @@ func (o *WhatsappMessage) SetCurrency(v string) {
 	o.Currency = &v
 }
 
+// GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetWhatsappApiError() WhatsappApiError {
+	if o == nil || o.WhatsappApiError == nil {
+		var ret WhatsappApiError
+		return ret
+	}
+	return *o.WhatsappApiError
+}
+
+// GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetWhatsappApiErrorOk() (*WhatsappApiError, bool) {
+	if o == nil || o.WhatsappApiError == nil {
+		return nil, false
+	}
+	return o.WhatsappApiError, true
+}
+
+// HasWhatsappApiError returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasWhatsappApiError() bool {
+	if o != nil && o.WhatsappApiError != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappApiError gets a reference to the given WhatsappApiError and assigns it to the WhatsappApiError field.
+func (o *WhatsappMessage) SetWhatsappApiError(v WhatsappApiError) {
+	o.WhatsappApiError = &v
+}
+
 func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -879,6 +912,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.Currency != nil {
 		toSerialize["currency"] = o.Currency
+	}
+	if o.WhatsappApiError != nil {
+		toSerialize["whatsappApiError"] = o.WhatsappApiError
 	}
 	return json.Marshal(toSerialize)
 }
