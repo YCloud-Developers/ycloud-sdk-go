@@ -30,6 +30,9 @@ type Verification struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
+	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+	SmsFallbackEnabled *bool `json:"smsFallbackEnabled,omitempty"`
+	SmsFallback *VerificationFallback `json:"smsFallback,omitempty"`
 }
 
 // NewVerification instantiates a new Verification object
@@ -266,6 +269,70 @@ func (o *Verification) SetCurrency(v string) {
 	o.Currency = &v
 }
 
+// GetSmsFallbackEnabled returns the SmsFallbackEnabled field value if set, zero value otherwise.
+func (o *Verification) GetSmsFallbackEnabled() bool {
+	if o == nil || o.SmsFallbackEnabled == nil {
+		var ret bool
+		return ret
+	}
+	return *o.SmsFallbackEnabled
+}
+
+// GetSmsFallbackEnabledOk returns a tuple with the SmsFallbackEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Verification) GetSmsFallbackEnabledOk() (*bool, bool) {
+	if o == nil || o.SmsFallbackEnabled == nil {
+		return nil, false
+	}
+	return o.SmsFallbackEnabled, true
+}
+
+// HasSmsFallbackEnabled returns a boolean if a field has been set.
+func (o *Verification) HasSmsFallbackEnabled() bool {
+	if o != nil && o.SmsFallbackEnabled != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSmsFallbackEnabled gets a reference to the given bool and assigns it to the SmsFallbackEnabled field.
+func (o *Verification) SetSmsFallbackEnabled(v bool) {
+	o.SmsFallbackEnabled = &v
+}
+
+// GetSmsFallback returns the SmsFallback field value if set, zero value otherwise.
+func (o *Verification) GetSmsFallback() VerificationFallback {
+	if o == nil || o.SmsFallback == nil {
+		var ret VerificationFallback
+		return ret
+	}
+	return *o.SmsFallback
+}
+
+// GetSmsFallbackOk returns a tuple with the SmsFallback field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Verification) GetSmsFallbackOk() (*VerificationFallback, bool) {
+	if o == nil || o.SmsFallback == nil {
+		return nil, false
+	}
+	return o.SmsFallback, true
+}
+
+// HasSmsFallback returns a boolean if a field has been set.
+func (o *Verification) HasSmsFallback() bool {
+	if o != nil && o.SmsFallback != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSmsFallback gets a reference to the given VerificationFallback and assigns it to the SmsFallback field.
+func (o *Verification) SetSmsFallback(v VerificationFallback) {
+	o.SmsFallback = &v
+}
+
 func (o Verification) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -288,6 +355,12 @@ func (o Verification) MarshalJSON() ([]byte, error) {
 	}
 	if o.Currency != nil {
 		toSerialize["currency"] = o.Currency
+	}
+	if o.SmsFallbackEnabled != nil {
+		toSerialize["smsFallbackEnabled"] = o.SmsFallbackEnabled
+	}
+	if o.SmsFallback != nil {
+		toSerialize["smsFallback"] = o.SmsFallback
 	}
 	return json.Marshal(toSerialize)
 }

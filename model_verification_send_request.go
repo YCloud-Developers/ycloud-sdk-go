@@ -26,7 +26,7 @@ type VerificationSendRequest struct {
 	SenderId *string `json:"senderId,omitempty"`
 	// This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.
 	Signature *string `json:"signature,omitempty"`
-	// [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese. Not applicable when `channel` is `whatsapp`. `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese
+	// [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese
 	Language *string `json:"language,omitempty"`
 }
 

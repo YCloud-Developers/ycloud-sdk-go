@@ -12,12 +12,14 @@ Name | Type | Description | Notes
 **TotalSegments** | Pointer to **int32** | Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
-**Status** | Pointer to **string** | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. | [optional] 
+**Status** | Pointer to **string** | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered. | [optional] 
 **ErrorCode** | Pointer to **string** | Error code when the message is undeliverable. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;. | [optional] 
 **UpdateTime** | Pointer to **time.Time** | The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;. | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **CallbackUrl** | Pointer to **string** | Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead. | [optional] 
+**BizType** | Pointer to **string** | This can be either empty or one of &#x60;sms&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;sms&#x60;. - &#x60;sms&#x60;: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product. | [optional] 
+**VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional] 
 
 ## Methods
 
@@ -377,6 +379,56 @@ SetCallbackUrl sets CallbackUrl field to given value.
 `func (o *Sms) HasCallbackUrl() bool`
 
 HasCallbackUrl returns a boolean if a field has been set.
+
+### GetBizType
+
+`func (o *Sms) GetBizType() string`
+
+GetBizType returns the BizType field if non-nil, zero value otherwise.
+
+### GetBizTypeOk
+
+`func (o *Sms) GetBizTypeOk() (*string, bool)`
+
+GetBizTypeOk returns a tuple with the BizType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBizType
+
+`func (o *Sms) SetBizType(v string)`
+
+SetBizType sets BizType field to given value.
+
+### HasBizType
+
+`func (o *Sms) HasBizType() bool`
+
+HasBizType returns a boolean if a field has been set.
+
+### GetVerificationId
+
+`func (o *Sms) GetVerificationId() string`
+
+GetVerificationId returns the VerificationId field if non-nil, zero value otherwise.
+
+### GetVerificationIdOk
+
+`func (o *Sms) GetVerificationIdOk() (*string, bool)`
+
+GetVerificationIdOk returns a tuple with the VerificationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerificationId
+
+`func (o *Sms) SetVerificationId(v string)`
+
+SetVerificationId sets VerificationId field to given value.
+
+### HasVerificationId
+
+`func (o *Sms) HasVerificationId() bool`
+
+HasVerificationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

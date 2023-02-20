@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// WhatsappTemplateStatusUpdateEventEnum Used when an event happened on WhatsApp template status updates.
+// WhatsappTemplateStatusUpdateEventEnum Used when an event happened on WhatsApp template status updates. - `PENDING`: Pending. - `APPROVED`: Approved. - `REJECTED`: Rejected. - `IN_APPEAL`: In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - `PAUSED`: Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - `FLAGGED`: Flagged. The template is scheduled for disabling. - `DISABLED`: Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - `REINSTATED`: Reinstated. - `PENDING_DELETION`: Pending deletion.
 type WhatsappTemplateStatusUpdateEventEnum string
 
 // List of WhatsappTemplateStatusUpdateEventEnum

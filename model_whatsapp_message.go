@@ -55,6 +55,10 @@ type WhatsappMessage struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
+	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	BizType *string `json:"bizType,omitempty"`
+	// The verification ID. Included only when `bizType` is `verify`.
+	VerificationId *string `json:"verificationId,omitempty"`
 }
 
 // NewWhatsappMessage instantiates a new WhatsappMessage object
@@ -839,6 +843,70 @@ func (o *WhatsappMessage) SetWhatsappApiError(v WhatsappApiError) {
 	o.WhatsappApiError = &v
 }
 
+// GetBizType returns the BizType field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetBizType() string {
+	if o == nil || o.BizType == nil {
+		var ret string
+		return ret
+	}
+	return *o.BizType
+}
+
+// GetBizTypeOk returns a tuple with the BizType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetBizTypeOk() (*string, bool) {
+	if o == nil || o.BizType == nil {
+		return nil, false
+	}
+	return o.BizType, true
+}
+
+// HasBizType returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasBizType() bool {
+	if o != nil && o.BizType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBizType gets a reference to the given string and assigns it to the BizType field.
+func (o *WhatsappMessage) SetBizType(v string) {
+	o.BizType = &v
+}
+
+// GetVerificationId returns the VerificationId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetVerificationId() string {
+	if o == nil || o.VerificationId == nil {
+		var ret string
+		return ret
+	}
+	return *o.VerificationId
+}
+
+// GetVerificationIdOk returns a tuple with the VerificationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetVerificationIdOk() (*string, bool) {
+	if o == nil || o.VerificationId == nil {
+		return nil, false
+	}
+	return o.VerificationId, true
+}
+
+// HasVerificationId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasVerificationId() bool {
+	if o != nil && o.VerificationId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVerificationId gets a reference to the given string and assigns it to the VerificationId field.
+func (o *WhatsappMessage) SetVerificationId(v string) {
+	o.VerificationId = &v
+}
+
 func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -915,6 +983,12 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError
+	}
+	if o.BizType != nil {
+		toSerialize["bizType"] = o.BizType
+	}
+	if o.VerificationId != nil {
+		toSerialize["verificationId"] = o.VerificationId
 	}
 	return json.Marshal(toSerialize)
 }

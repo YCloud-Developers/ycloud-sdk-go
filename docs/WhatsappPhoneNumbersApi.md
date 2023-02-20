@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**List**](WhatsappPhoneNumbersApi.md#List) | **Get** /whatsapp/phoneNumbers | List WhatsApp phone numbers
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
+[**RetrieveProfile**](WhatsappPhoneNumbersApi.md#RetrieveProfile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a WhatsApp phone number profile
+[**UpdateProfile**](WhatsappPhoneNumbersApi.md#UpdateProfile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a WhatsApp phone number profile
 
 
 
@@ -147,6 +149,154 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RetrieveProfile
+
+> WhatsappPhoneNumberProfile RetrieveProfile(ctx, wabaId, phoneNumber).Execute()
+
+Retrieve a WhatsApp phone number profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+447901614024" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveProfile(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.RetrieveProfile``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RetrieveProfile`: WhatsappPhoneNumberProfile
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.RetrieveProfile`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRetrieveProfileRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappPhoneNumberProfile**](WhatsappPhoneNumberProfile.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateProfile
+
+> WhatsappPhoneNumberProfile UpdateProfile(ctx, wabaId, phoneNumber).WhatsappPhoneNumberProfileUpdateRequest(whatsappPhoneNumberProfileUpdateRequest).Execute()
+
+Update a WhatsApp phone number profile
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+447901614024" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    whatsappPhoneNumberProfileUpdateRequest := *ycloud.NewWhatsappPhoneNumberProfileUpdateRequest() // WhatsappPhoneNumberProfileUpdateRequest | 
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.UpdateProfile(context.Background(), wabaId, phoneNumber).WhatsappPhoneNumberProfileUpdateRequest(whatsappPhoneNumberProfileUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.UpdateProfile``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateProfile`: WhatsappPhoneNumberProfile
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.UpdateProfile`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateProfileRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **whatsappPhoneNumberProfileUpdateRequest** | [**WhatsappPhoneNumberProfileUpdateRequest**](WhatsappPhoneNumberProfileUpdateRequest.md) |  | 
+
+### Return type
+
+[**WhatsappPhoneNumberProfile**](WhatsappPhoneNumberProfile.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

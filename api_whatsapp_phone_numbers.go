@@ -306,3 +306,274 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveExecute(r WhatsappPhoneNumbersA
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
+type WhatsappPhoneNumbersApiRetrieveProfileRequest struct {
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
+}
+
+func (r WhatsappPhoneNumbersApiRetrieveProfileRequest) Execute() (*WhatsappPhoneNumberProfile, *http.Response, error) {
+	return r.ApiService.RetrieveProfileExecute(r)
+}
+
+/*
+RetrieveProfile Retrieve a WhatsApp phone number profile
+
+Retrieves a WhatsApp business account phone number's profile. Customers can view your business profile by clicking your business's name or number in a conversation thread.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiRetrieveProfileRequest
+*/
+func (a *WhatsappPhoneNumbersApiService) RetrieveProfile(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRetrieveProfileRequest {
+	return WhatsappPhoneNumbersApiRetrieveProfileRequest{
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
+		phoneNumber: phoneNumber,
+	}
+}
+
+// Execute executes the request
+//  @return WhatsappPhoneNumberProfile
+func (a *WhatsappPhoneNumbersApiService) RetrieveProfileExecute(r WhatsappPhoneNumbersApiRetrieveProfileRequest) (*WhatsappPhoneNumberProfile, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumberProfile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.RetrieveProfile")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"phoneNumber"+"}", url.PathEscape(parameterToString(r.phoneNumber, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type WhatsappPhoneNumbersApiUpdateProfileRequest struct {
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
+	whatsappPhoneNumberProfileUpdateRequest *WhatsappPhoneNumberProfileUpdateRequest
+}
+
+func (r WhatsappPhoneNumbersApiUpdateProfileRequest) WhatsappPhoneNumberProfileUpdateRequest(whatsappPhoneNumberProfileUpdateRequest WhatsappPhoneNumberProfileUpdateRequest) WhatsappPhoneNumbersApiUpdateProfileRequest {
+	r.whatsappPhoneNumberProfileUpdateRequest = &whatsappPhoneNumberProfileUpdateRequest
+	return r
+}
+
+func (r WhatsappPhoneNumbersApiUpdateProfileRequest) Execute() (*WhatsappPhoneNumberProfile, *http.Response, error) {
+	return r.ApiService.UpdateProfileExecute(r)
+}
+
+/*
+UpdateProfile Update a WhatsApp phone number profile
+
+Updates a WhatsApp phone number profile.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiUpdateProfileRequest
+*/
+func (a *WhatsappPhoneNumbersApiService) UpdateProfile(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiUpdateProfileRequest {
+	return WhatsappPhoneNumbersApiUpdateProfileRequest{
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
+		phoneNumber: phoneNumber,
+	}
+}
+
+// Execute executes the request
+//  @return WhatsappPhoneNumberProfile
+func (a *WhatsappPhoneNumbersApiService) UpdateProfileExecute(r WhatsappPhoneNumbersApiUpdateProfileRequest) (*WhatsappPhoneNumberProfile, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumberProfile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.UpdateProfile")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"phoneNumber"+"}", url.PathEscape(parameterToString(r.phoneNumber, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.whatsappPhoneNumberProfileUpdateRequest == nil {
+		return localVarReturnValue, nil, reportError("whatsappPhoneNumberProfileUpdateRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.whatsappPhoneNumberProfileUpdateRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}

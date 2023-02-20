@@ -21,7 +21,7 @@ type EmailDelivery struct {
 	EmailId string `json:"emailId"`
 	// A recipient's email address.
 	RecipientAddress string `json:"recipientAddress"`
-	// Delivery status of the email to the specific recipient address.
+	// Delivery status of the email to the specific recipient address. - `sending`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from YCloud. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.
 	Status *string `json:"status,omitempty"`
 	// Error code when the email is undeliverable.
 	ErrorCode *string `json:"errorCode,omitempty"`
@@ -29,6 +29,10 @@ type EmailDelivery struct {
 	ErrorMessage *string `json:"errorMessage,omitempty"`
 	// The `externalId` you specified when you sent the email.
 	ExternalId *string `json:"externalId,omitempty"`
+	// This can be either empty or one of `email`, or `verify`. Defaults to `email`. - `email`: Indicates that the message is sent via [Email](https://www.ycloud.com/email) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	BizType *string `json:"bizType,omitempty"`
+	// The verification ID. Included only when `bizType` is `verify`.
+	VerificationId *string `json:"verificationId,omitempty"`
 }
 
 // NewEmailDelivery instantiates a new EmailDelivery object
@@ -226,6 +230,70 @@ func (o *EmailDelivery) SetExternalId(v string) {
 	o.ExternalId = &v
 }
 
+// GetBizType returns the BizType field value if set, zero value otherwise.
+func (o *EmailDelivery) GetBizType() string {
+	if o == nil || o.BizType == nil {
+		var ret string
+		return ret
+	}
+	return *o.BizType
+}
+
+// GetBizTypeOk returns a tuple with the BizType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EmailDelivery) GetBizTypeOk() (*string, bool) {
+	if o == nil || o.BizType == nil {
+		return nil, false
+	}
+	return o.BizType, true
+}
+
+// HasBizType returns a boolean if a field has been set.
+func (o *EmailDelivery) HasBizType() bool {
+	if o != nil && o.BizType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBizType gets a reference to the given string and assigns it to the BizType field.
+func (o *EmailDelivery) SetBizType(v string) {
+	o.BizType = &v
+}
+
+// GetVerificationId returns the VerificationId field value if set, zero value otherwise.
+func (o *EmailDelivery) GetVerificationId() string {
+	if o == nil || o.VerificationId == nil {
+		var ret string
+		return ret
+	}
+	return *o.VerificationId
+}
+
+// GetVerificationIdOk returns a tuple with the VerificationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EmailDelivery) GetVerificationIdOk() (*string, bool) {
+	if o == nil || o.VerificationId == nil {
+		return nil, false
+	}
+	return o.VerificationId, true
+}
+
+// HasVerificationId returns a boolean if a field has been set.
+func (o *EmailDelivery) HasVerificationId() bool {
+	if o != nil && o.VerificationId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVerificationId gets a reference to the given string and assigns it to the VerificationId field.
+func (o *EmailDelivery) SetVerificationId(v string) {
+	o.VerificationId = &v
+}
+
 func (o EmailDelivery) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -245,6 +313,12 @@ func (o EmailDelivery) MarshalJSON() ([]byte, error) {
 	}
 	if o.ExternalId != nil {
 		toSerialize["externalId"] = o.ExternalId
+	}
+	if o.BizType != nil {
+		toSerialize["bizType"] = o.BizType
+	}
+	if o.VerificationId != nil {
+		toSerialize["verificationId"] = o.VerificationId
 	}
 	return json.Marshal(toSerialize)
 }

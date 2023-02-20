@@ -34,7 +34,7 @@ type Sms struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
-	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`.
+	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.
 	Status *string `json:"status,omitempty"`
 	// Error code when the message is undeliverable.
 	ErrorCode *string `json:"errorCode,omitempty"`
@@ -46,6 +46,10 @@ type Sms struct {
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
+	// This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	BizType *string `json:"bizType,omitempty"`
+	// The verification ID. Included only when `bizType` is `verify`.
+	VerificationId *string `json:"verificationId,omitempty"`
 }
 
 // NewSms instantiates a new Sms object
@@ -499,6 +503,70 @@ func (o *Sms) SetCallbackUrl(v string) {
 	o.CallbackUrl = &v
 }
 
+// GetBizType returns the BizType field value if set, zero value otherwise.
+func (o *Sms) GetBizType() string {
+	if o == nil || o.BizType == nil {
+		var ret string
+		return ret
+	}
+	return *o.BizType
+}
+
+// GetBizTypeOk returns a tuple with the BizType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Sms) GetBizTypeOk() (*string, bool) {
+	if o == nil || o.BizType == nil {
+		return nil, false
+	}
+	return o.BizType, true
+}
+
+// HasBizType returns a boolean if a field has been set.
+func (o *Sms) HasBizType() bool {
+	if o != nil && o.BizType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBizType gets a reference to the given string and assigns it to the BizType field.
+func (o *Sms) SetBizType(v string) {
+	o.BizType = &v
+}
+
+// GetVerificationId returns the VerificationId field value if set, zero value otherwise.
+func (o *Sms) GetVerificationId() string {
+	if o == nil || o.VerificationId == nil {
+		var ret string
+		return ret
+	}
+	return *o.VerificationId
+}
+
+// GetVerificationIdOk returns a tuple with the VerificationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Sms) GetVerificationIdOk() (*string, bool) {
+	if o == nil || o.VerificationId == nil {
+		return nil, false
+	}
+	return o.VerificationId, true
+}
+
+// HasVerificationId returns a boolean if a field has been set.
+func (o *Sms) HasVerificationId() bool {
+	if o != nil && o.VerificationId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVerificationId gets a reference to the given string and assigns it to the VerificationId field.
+func (o *Sms) SetVerificationId(v string) {
+	o.VerificationId = &v
+}
+
 func (o Sms) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -542,6 +610,12 @@ func (o Sms) MarshalJSON() ([]byte, error) {
 	}
 	if o.CallbackUrl != nil {
 		toSerialize["callbackUrl"] = o.CallbackUrl
+	}
+	if o.BizType != nil {
+		toSerialize["bizType"] = o.BizType
+	}
+	if o.VerificationId != nil {
+		toSerialize["verificationId"] = o.VerificationId
 	}
 	return json.Marshal(toSerialize)
 }

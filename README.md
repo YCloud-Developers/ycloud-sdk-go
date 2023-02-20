@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.4.4
+- Package version: 1.5.0
 
 ## Installation
 
@@ -49,6 +49,8 @@ Class | Method | HTTP request | Description
 *WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Send a WhatsApp message
 *WhatsappPhoneNumbersApi* | [**List**](docs/WhatsappPhoneNumbersApi.md#list) | **Get** /whatsapp/phoneNumbers | List WhatsApp phone numbers
 *WhatsappPhoneNumbersApi* | [**Retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
+*WhatsappPhoneNumbersApi* | [**RetrieveProfile**](docs/WhatsappPhoneNumbersApi.md#retrieveprofile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a WhatsApp phone number profile
+*WhatsappPhoneNumbersApi* | [**UpdateProfile**](docs/WhatsappPhoneNumbersApi.md#updateprofile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a WhatsApp phone number profile
 *WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a WhatsApp template
 *WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
 *WhatsappTemplatesApi* | [**EditByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editbynameandlanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
@@ -78,6 +80,7 @@ Class | Method | HTTP request | Description
  - [VerificationChannel](docs/VerificationChannel.md)
  - [VerificationCheck](docs/VerificationCheck.md)
  - [VerificationCheckRequest](docs/VerificationCheckRequest.md)
+ - [VerificationFallback](docs/VerificationFallback.md)
  - [VerificationSendRequest](docs/VerificationSendRequest.md)
  - [VerificationStatus](docs/VerificationStatus.md)
  - [Voice](docs/Voice.md)
@@ -145,6 +148,9 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
  - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)
  - [WhatsappPhoneNumberPage](docs/WhatsappPhoneNumberPage.md)
+ - [WhatsappPhoneNumberProfile](docs/WhatsappPhoneNumberProfile.md)
+ - [WhatsappPhoneNumberProfileUpdateRequest](docs/WhatsappPhoneNumberProfileUpdateRequest.md)
+ - [WhatsappPhoneNumberProfileVertical](docs/WhatsappPhoneNumberProfileVertical.md)
  - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)

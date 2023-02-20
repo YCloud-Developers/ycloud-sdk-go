@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **TotalPrice** | Pointer to **float64** | Total price of this message. | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 **WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
+**BizType** | Pointer to **string** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product. | [optional] 
+**VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional] 
 
 ## Methods
 
@@ -648,6 +650,56 @@ SetWhatsappApiError sets WhatsappApiError field to given value.
 `func (o *WhatsappMessage) HasWhatsappApiError() bool`
 
 HasWhatsappApiError returns a boolean if a field has been set.
+
+### GetBizType
+
+`func (o *WhatsappMessage) GetBizType() string`
+
+GetBizType returns the BizType field if non-nil, zero value otherwise.
+
+### GetBizTypeOk
+
+`func (o *WhatsappMessage) GetBizTypeOk() (*string, bool)`
+
+GetBizTypeOk returns a tuple with the BizType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBizType
+
+`func (o *WhatsappMessage) SetBizType(v string)`
+
+SetBizType sets BizType field to given value.
+
+### HasBizType
+
+`func (o *WhatsappMessage) HasBizType() bool`
+
+HasBizType returns a boolean if a field has been set.
+
+### GetVerificationId
+
+`func (o *WhatsappMessage) GetVerificationId() string`
+
+GetVerificationId returns the VerificationId field if non-nil, zero value otherwise.
+
+### GetVerificationIdOk
+
+`func (o *WhatsappMessage) GetVerificationIdOk() (*string, bool)`
+
+GetVerificationIdOk returns a tuple with the VerificationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerificationId
+
+`func (o *WhatsappMessage) SetVerificationId(v string)`
+
+SetVerificationId sets VerificationId field to given value.
+
+### HasVerificationId
+
+`func (o *WhatsappMessage) HasVerificationId() bool`
+
+HasVerificationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
