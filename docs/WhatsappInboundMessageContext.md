@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Forwarded** | Pointer to **bool** | **Added to Webhooks if message was forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded. | [optional] 
 **FrequentlyForwarded** | Pointer to **bool** | **Added to Webhooks if message has been frequently forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded more than five times. | [optional] 
 **From** | Pointer to **string** | **Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the &#39;+&#39; prefix) of the sender of the sent message. | [optional] 
-**Id** | Pointer to **string** | **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. | [optional] 
+**Id** | Pointer to **string** | **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform. | [optional] 
 **ReferredProduct** | Pointer to [**WhatsappInboundMessageReferredProduct**](WhatsappInboundMessageReferredProduct.md) |  | [optional] 
 
 ## Methods

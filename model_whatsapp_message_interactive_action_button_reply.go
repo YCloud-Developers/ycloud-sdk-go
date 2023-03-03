@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveActionButtonsInnerReply struct for WhatsappMessageInteractiveActionButtonsInnerReply
-type WhatsappMessageInteractiveActionButtonsInnerReply struct {
+// WhatsappMessageInteractiveActionButtonReply struct for WhatsappMessageInteractiveActionButtonReply
+type WhatsappMessageInteractiveActionButtonReply struct {
 	// Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
 	Title *string `json:"title,omitempty"`
 	// Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user.
 	Id *string `json:"id,omitempty"`
 }
 
-// NewWhatsappMessageInteractiveActionButtonsInnerReply instantiates a new WhatsappMessageInteractiveActionButtonsInnerReply object
+// NewWhatsappMessageInteractiveActionButtonReply instantiates a new WhatsappMessageInteractiveActionButtonReply object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageInteractiveActionButtonsInnerReply() *WhatsappMessageInteractiveActionButtonsInnerReply {
-	this := WhatsappMessageInteractiveActionButtonsInnerReply{}
+func NewWhatsappMessageInteractiveActionButtonReply() *WhatsappMessageInteractiveActionButtonReply {
+	this := WhatsappMessageInteractiveActionButtonReply{}
 	return &this
 }
 
-// NewWhatsappMessageInteractiveActionButtonsInnerReplyWithDefaults instantiates a new WhatsappMessageInteractiveActionButtonsInnerReply object
+// NewWhatsappMessageInteractiveActionButtonReplyWithDefaults instantiates a new WhatsappMessageInteractiveActionButtonReply object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageInteractiveActionButtonsInnerReplyWithDefaults() *WhatsappMessageInteractiveActionButtonsInnerReply {
-	this := WhatsappMessageInteractiveActionButtonsInnerReply{}
+func NewWhatsappMessageInteractiveActionButtonReplyWithDefaults() *WhatsappMessageInteractiveActionButtonReply {
+	this := WhatsappMessageInteractiveActionButtonReply{}
 	return &this
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitle() string {
+func (o *WhatsappMessageInteractiveActionButtonReply) GetTitle() string {
 	if o == nil || o.Title == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitleOk() (*string, bool) {
+func (o *WhatsappMessageInteractiveActionButtonReply) GetTitleOk() (*string, bool) {
 	if o == nil || o.Title == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitleOk() (*strin
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasTitle() bool {
+func (o *WhatsappMessageInteractiveActionButtonReply) HasTitle() bool {
 	if o != nil && o.Title != nil {
 		return true
 	}
@@ -68,12 +68,12 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) SetTitle(v string) {
+func (o *WhatsappMessageInteractiveActionButtonReply) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetId() string {
+func (o *WhatsappMessageInteractiveActionButtonReply) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetIdOk() (*string, bool) {
+func (o *WhatsappMessageInteractiveActionButtonReply) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetIdOk() (*string, 
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasId() bool {
+func (o *WhatsappMessageInteractiveActionButtonReply) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -100,11 +100,11 @@ func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *WhatsappMessageInteractiveActionButtonsInnerReply) SetId(v string) {
+func (o *WhatsappMessageInteractiveActionButtonReply) SetId(v string) {
 	o.Id = &v
 }
 
-func (o WhatsappMessageInteractiveActionButtonsInnerReply) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageInteractiveActionButtonReply) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Title != nil {
 		toSerialize["title"] = o.Title
@@ -115,38 +115,38 @@ func (o WhatsappMessageInteractiveActionButtonsInnerReply) MarshalJSON() ([]byte
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageInteractiveActionButtonsInnerReply struct {
-	value *WhatsappMessageInteractiveActionButtonsInnerReply
+type NullableWhatsappMessageInteractiveActionButtonReply struct {
+	value *WhatsappMessageInteractiveActionButtonReply
 	isSet bool
 }
 
-func (v NullableWhatsappMessageInteractiveActionButtonsInnerReply) Get() *WhatsappMessageInteractiveActionButtonsInnerReply {
+func (v NullableWhatsappMessageInteractiveActionButtonReply) Get() *WhatsappMessageInteractiveActionButtonReply {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageInteractiveActionButtonsInnerReply) Set(val *WhatsappMessageInteractiveActionButtonsInnerReply) {
+func (v *NullableWhatsappMessageInteractiveActionButtonReply) Set(val *WhatsappMessageInteractiveActionButtonReply) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageInteractiveActionButtonsInnerReply) IsSet() bool {
+func (v NullableWhatsappMessageInteractiveActionButtonReply) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageInteractiveActionButtonsInnerReply) Unset() {
+func (v *NullableWhatsappMessageInteractiveActionButtonReply) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageInteractiveActionButtonsInnerReply(val *WhatsappMessageInteractiveActionButtonsInnerReply) *NullableWhatsappMessageInteractiveActionButtonsInnerReply {
-	return &NullableWhatsappMessageInteractiveActionButtonsInnerReply{value: val, isSet: true}
+func NewNullableWhatsappMessageInteractiveActionButtonReply(val *WhatsappMessageInteractiveActionButtonReply) *NullableWhatsappMessageInteractiveActionButtonReply {
+	return &NullableWhatsappMessageInteractiveActionButtonReply{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageInteractiveActionButtonsInnerReply) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageInteractiveActionButtonReply) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageInteractiveActionButtonsInnerReply) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageInteractiveActionButtonReply) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

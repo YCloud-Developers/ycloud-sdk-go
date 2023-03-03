@@ -15,12 +15,12 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractive [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
+// WhatsappMessageInteractive Use for `interactive` messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
 type WhatsappMessageInteractive struct {
-	// The type of interactive message you want to send. - `list`: Use it for List Messages. - `button`: Use it for Reply Buttons.
+	// The type of interactive message you want to send. - `list`: Use it for List Messages. - `button`: Use it for Reply Buttons. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.
 	Type string `json:"type"`
 	Action WhatsappMessageInteractiveAction `json:"action"`
-	Body WhatsappMessageInteractiveBody `json:"body"`
+	Body *WhatsappMessageInteractiveBody `json:"body,omitempty"`
 	Header *WhatsappMessageInteractiveHeader `json:"header,omitempty"`
 	Footer *WhatsappMessageInteractiveFooter `json:"footer,omitempty"`
 }
@@ -29,11 +29,10 @@ type WhatsappMessageInteractive struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction, body WhatsappMessageInteractiveBody) *WhatsappMessageInteractive {
+func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction) *WhatsappMessageInteractive {
 	this := WhatsappMessageInteractive{}
 	this.Type = type_
 	this.Action = action
-	this.Body = body
 	return &this
 }
 
@@ -93,28 +92,36 @@ func (o *WhatsappMessageInteractive) SetAction(v WhatsappMessageInteractiveActio
 	o.Action = v
 }
 
-// GetBody returns the Body field value
+// GetBody returns the Body field value if set, zero value otherwise.
 func (o *WhatsappMessageInteractive) GetBody() WhatsappMessageInteractiveBody {
-	if o == nil {
+	if o == nil || o.Body == nil {
 		var ret WhatsappMessageInteractiveBody
 		return ret
 	}
-
-	return o.Body
+	return *o.Body
 }
 
-// GetBodyOk returns a tuple with the Body field value
+// GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageInteractive) GetBodyOk() (*WhatsappMessageInteractiveBody, bool) {
-	if o == nil {
+	if o == nil || o.Body == nil {
 		return nil, false
 	}
-	return &o.Body, true
+	return o.Body, true
 }
 
-// SetBody sets field value
+// HasBody returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractive) HasBody() bool {
+	if o != nil && o.Body != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBody gets a reference to the given WhatsappMessageInteractiveBody and assigns it to the Body field.
 func (o *WhatsappMessageInteractive) SetBody(v WhatsappMessageInteractiveBody) {
-	o.Body = v
+	o.Body = &v
 }
 
 // GetHeader returns the Header field value if set, zero value otherwise.
@@ -189,7 +196,7 @@ func (o WhatsappMessageInteractive) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["action"] = o.Action
 	}
-	if true {
+	if o.Body != nil {
 		toSerialize["body"] = o.Body
 	}
 	if o.Header != nil {

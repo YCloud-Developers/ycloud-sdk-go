@@ -13,9 +13,12 @@ Name | Type | Description | Notes
 **Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
+**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional] 
 **Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional] 
 **Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) | Required when &#x60;type&#x60; is &#x60;contacts&#x60;. | [optional] 
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
+**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 
 ## Methods
@@ -247,6 +250,31 @@ SetDocument sets Document field to given value.
 
 HasDocument returns a boolean if a field has been set.
 
+### GetSticker
+
+`func (o *WhatsappMessageSendRequest) GetSticker() WhatsappMessageMedia`
+
+GetSticker returns the Sticker field if non-nil, zero value otherwise.
+
+### GetStickerOk
+
+`func (o *WhatsappMessageSendRequest) GetStickerOk() (*WhatsappMessageMedia, bool)`
+
+GetStickerOk returns a tuple with the Sticker field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSticker
+
+`func (o *WhatsappMessageSendRequest) SetSticker(v WhatsappMessageMedia)`
+
+SetSticker sets Sticker field to given value.
+
+### HasSticker
+
+`func (o *WhatsappMessageSendRequest) HasSticker() bool`
+
+HasSticker returns a boolean if a field has been set.
+
 ### GetLocation
 
 `func (o *WhatsappMessageSendRequest) GetLocation() WhatsappMessageLocation`
@@ -321,6 +349,56 @@ SetContacts sets Contacts field to given value.
 `func (o *WhatsappMessageSendRequest) HasContacts() bool`
 
 HasContacts returns a boolean if a field has been set.
+
+### GetReaction
+
+`func (o *WhatsappMessageSendRequest) GetReaction() WhatsappMessageReaction`
+
+GetReaction returns the Reaction field if non-nil, zero value otherwise.
+
+### GetReactionOk
+
+`func (o *WhatsappMessageSendRequest) GetReactionOk() (*WhatsappMessageReaction, bool)`
+
+GetReactionOk returns a tuple with the Reaction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReaction
+
+`func (o *WhatsappMessageSendRequest) SetReaction(v WhatsappMessageReaction)`
+
+SetReaction sets Reaction field to given value.
+
+### HasReaction
+
+`func (o *WhatsappMessageSendRequest) HasReaction() bool`
+
+HasReaction returns a boolean if a field has been set.
+
+### GetContext
+
+`func (o *WhatsappMessageSendRequest) GetContext() WhatsappMessageContext`
+
+GetContext returns the Context field if non-nil, zero value otherwise.
+
+### GetContextOk
+
+`func (o *WhatsappMessageSendRequest) GetContextOk() (*WhatsappMessageContext, bool)`
+
+GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContext
+
+`func (o *WhatsappMessageSendRequest) SetContext(v WhatsappMessageContext)`
+
+SetContext sets Context field to given value.
+
+### HasContext
+
+`func (o *WhatsappMessageSendRequest) HasContext() bool`
+
+HasContext returns a boolean if a field has been set.
 
 ### GetExternalId
 

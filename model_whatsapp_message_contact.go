@@ -17,24 +17,25 @@ import (
 
 // WhatsappMessageContact When the message type filed is set to `contacts`, this object is included in the message object. See also [WhatsApp message contacts object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object).
 type WhatsappMessageContact struct {
-	Addresses []WhatsappMessageContactAddressesInner `json:"addresses,omitempty"`
+	Addresses []WhatsappMessageContactAddress `json:"addresses,omitempty"`
 	// `YYYY-MM-DD` formatted string.
 	Birthday *string `json:"birthday,omitempty"`
-	Emails []WhatsappMessageContactEmailsInner `json:"emails,omitempty"`
-	Name *WhatsappMessageContactName `json:"name,omitempty"`
+	Emails []WhatsappMessageContactEmail `json:"emails,omitempty"`
+	Name WhatsappMessageContactName `json:"name"`
 	Org *WhatsappMessageContactOrg `json:"org,omitempty"`
 	// Contact phone number(s) formatted as a phone object.
-	Phones []WhatsappMessageContactPhonesInner `json:"phones,omitempty"`
+	Phones []WhatsappMessageContactPhone `json:"phones,omitempty"`
 	// Contact URL(s) formatted as a urls object.
-	Urls []WhatsappMessageContactUrlsInner `json:"urls,omitempty"`
+	Urls []WhatsappMessageContactUrl `json:"urls,omitempty"`
 }
 
 // NewWhatsappMessageContact instantiates a new WhatsappMessageContact object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageContact() *WhatsappMessageContact {
+func NewWhatsappMessageContact(name WhatsappMessageContactName) *WhatsappMessageContact {
 	this := WhatsappMessageContact{}
+	this.Name = name
 	return &this
 }
 
@@ -47,9 +48,9 @@ func NewWhatsappMessageContactWithDefaults() *WhatsappMessageContact {
 }
 
 // GetAddresses returns the Addresses field value if set, zero value otherwise.
-func (o *WhatsappMessageContact) GetAddresses() []WhatsappMessageContactAddressesInner {
+func (o *WhatsappMessageContact) GetAddresses() []WhatsappMessageContactAddress {
 	if o == nil || o.Addresses == nil {
-		var ret []WhatsappMessageContactAddressesInner
+		var ret []WhatsappMessageContactAddress
 		return ret
 	}
 	return o.Addresses
@@ -57,7 +58,7 @@ func (o *WhatsappMessageContact) GetAddresses() []WhatsappMessageContactAddresse
 
 // GetAddressesOk returns a tuple with the Addresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContact) GetAddressesOk() ([]WhatsappMessageContactAddressesInner, bool) {
+func (o *WhatsappMessageContact) GetAddressesOk() ([]WhatsappMessageContactAddress, bool) {
 	if o == nil || o.Addresses == nil {
 		return nil, false
 	}
@@ -73,8 +74,8 @@ func (o *WhatsappMessageContact) HasAddresses() bool {
 	return false
 }
 
-// SetAddresses gets a reference to the given []WhatsappMessageContactAddressesInner and assigns it to the Addresses field.
-func (o *WhatsappMessageContact) SetAddresses(v []WhatsappMessageContactAddressesInner) {
+// SetAddresses gets a reference to the given []WhatsappMessageContactAddress and assigns it to the Addresses field.
+func (o *WhatsappMessageContact) SetAddresses(v []WhatsappMessageContactAddress) {
 	o.Addresses = v
 }
 
@@ -111,9 +112,9 @@ func (o *WhatsappMessageContact) SetBirthday(v string) {
 }
 
 // GetEmails returns the Emails field value if set, zero value otherwise.
-func (o *WhatsappMessageContact) GetEmails() []WhatsappMessageContactEmailsInner {
+func (o *WhatsappMessageContact) GetEmails() []WhatsappMessageContactEmail {
 	if o == nil || o.Emails == nil {
-		var ret []WhatsappMessageContactEmailsInner
+		var ret []WhatsappMessageContactEmail
 		return ret
 	}
 	return o.Emails
@@ -121,7 +122,7 @@ func (o *WhatsappMessageContact) GetEmails() []WhatsappMessageContactEmailsInner
 
 // GetEmailsOk returns a tuple with the Emails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContact) GetEmailsOk() ([]WhatsappMessageContactEmailsInner, bool) {
+func (o *WhatsappMessageContact) GetEmailsOk() ([]WhatsappMessageContactEmail, bool) {
 	if o == nil || o.Emails == nil {
 		return nil, false
 	}
@@ -137,41 +138,33 @@ func (o *WhatsappMessageContact) HasEmails() bool {
 	return false
 }
 
-// SetEmails gets a reference to the given []WhatsappMessageContactEmailsInner and assigns it to the Emails field.
-func (o *WhatsappMessageContact) SetEmails(v []WhatsappMessageContactEmailsInner) {
+// SetEmails gets a reference to the given []WhatsappMessageContactEmail and assigns it to the Emails field.
+func (o *WhatsappMessageContact) SetEmails(v []WhatsappMessageContactEmail) {
 	o.Emails = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *WhatsappMessageContact) GetName() WhatsappMessageContactName {
-	if o == nil || o.Name == nil {
+	if o == nil {
 		var ret WhatsappMessageContactName
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageContact) GetNameOk() (*WhatsappMessageContactName, bool) {
-	if o == nil || o.Name == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *WhatsappMessageContact) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given WhatsappMessageContactName and assigns it to the Name field.
+// SetName sets field value
 func (o *WhatsappMessageContact) SetName(v WhatsappMessageContactName) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetOrg returns the Org field value if set, zero value otherwise.
@@ -207,9 +200,9 @@ func (o *WhatsappMessageContact) SetOrg(v WhatsappMessageContactOrg) {
 }
 
 // GetPhones returns the Phones field value if set, zero value otherwise.
-func (o *WhatsappMessageContact) GetPhones() []WhatsappMessageContactPhonesInner {
+func (o *WhatsappMessageContact) GetPhones() []WhatsappMessageContactPhone {
 	if o == nil || o.Phones == nil {
-		var ret []WhatsappMessageContactPhonesInner
+		var ret []WhatsappMessageContactPhone
 		return ret
 	}
 	return o.Phones
@@ -217,7 +210,7 @@ func (o *WhatsappMessageContact) GetPhones() []WhatsappMessageContactPhonesInner
 
 // GetPhonesOk returns a tuple with the Phones field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContact) GetPhonesOk() ([]WhatsappMessageContactPhonesInner, bool) {
+func (o *WhatsappMessageContact) GetPhonesOk() ([]WhatsappMessageContactPhone, bool) {
 	if o == nil || o.Phones == nil {
 		return nil, false
 	}
@@ -233,15 +226,15 @@ func (o *WhatsappMessageContact) HasPhones() bool {
 	return false
 }
 
-// SetPhones gets a reference to the given []WhatsappMessageContactPhonesInner and assigns it to the Phones field.
-func (o *WhatsappMessageContact) SetPhones(v []WhatsappMessageContactPhonesInner) {
+// SetPhones gets a reference to the given []WhatsappMessageContactPhone and assigns it to the Phones field.
+func (o *WhatsappMessageContact) SetPhones(v []WhatsappMessageContactPhone) {
 	o.Phones = v
 }
 
 // GetUrls returns the Urls field value if set, zero value otherwise.
-func (o *WhatsappMessageContact) GetUrls() []WhatsappMessageContactUrlsInner {
+func (o *WhatsappMessageContact) GetUrls() []WhatsappMessageContactUrl {
 	if o == nil || o.Urls == nil {
-		var ret []WhatsappMessageContactUrlsInner
+		var ret []WhatsappMessageContactUrl
 		return ret
 	}
 	return o.Urls
@@ -249,7 +242,7 @@ func (o *WhatsappMessageContact) GetUrls() []WhatsappMessageContactUrlsInner {
 
 // GetUrlsOk returns a tuple with the Urls field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContact) GetUrlsOk() ([]WhatsappMessageContactUrlsInner, bool) {
+func (o *WhatsappMessageContact) GetUrlsOk() ([]WhatsappMessageContactUrl, bool) {
 	if o == nil || o.Urls == nil {
 		return nil, false
 	}
@@ -265,8 +258,8 @@ func (o *WhatsappMessageContact) HasUrls() bool {
 	return false
 }
 
-// SetUrls gets a reference to the given []WhatsappMessageContactUrlsInner and assigns it to the Urls field.
-func (o *WhatsappMessageContact) SetUrls(v []WhatsappMessageContactUrlsInner) {
+// SetUrls gets a reference to the given []WhatsappMessageContactUrl and assigns it to the Urls field.
+func (o *WhatsappMessageContact) SetUrls(v []WhatsappMessageContactUrl) {
 	o.Urls = v
 }
 
@@ -281,7 +274,7 @@ func (o WhatsappMessageContact) MarshalJSON() ([]byte, error) {
 	if o.Emails != nil {
 		toSerialize["emails"] = o.Emails
 	}
-	if o.Name != nil {
+	if true {
 		toSerialize["name"] = o.Name
 	}
 	if o.Org != nil {

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageLocation [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
+// WhatsappMessageLocation Use for `location` messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
 type WhatsappMessageLocation struct {
 	// Latitude of the location.
 	Latitude float64 `json:"latitude"`

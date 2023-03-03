@@ -28,10 +28,13 @@ type WhatsappMessageSendRequest struct {
 	Video *WhatsappMessageMedia `json:"video,omitempty"`
 	Audio *WhatsappMessageMedia `json:"audio,omitempty"`
 	Document *WhatsappMessageMedia `json:"document,omitempty"`
+	Sticker *WhatsappMessageMedia `json:"sticker,omitempty"`
 	Location *WhatsappMessageLocation `json:"location,omitempty"`
 	Interactive *WhatsappMessageInteractive `json:"interactive,omitempty"`
 	// Required when `type` is `contacts`.
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
+	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
+	Context *WhatsappMessageContext `json:"context,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 }
@@ -320,6 +323,38 @@ func (o *WhatsappMessageSendRequest) SetDocument(v WhatsappMessageMedia) {
 	o.Document = &v
 }
 
+// GetSticker returns the Sticker field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetSticker() WhatsappMessageMedia {
+	if o == nil || o.Sticker == nil {
+		var ret WhatsappMessageMedia
+		return ret
+	}
+	return *o.Sticker
+}
+
+// GetStickerOk returns a tuple with the Sticker field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetStickerOk() (*WhatsappMessageMedia, bool) {
+	if o == nil || o.Sticker == nil {
+		return nil, false
+	}
+	return o.Sticker, true
+}
+
+// HasSticker returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasSticker() bool {
+	if o != nil && o.Sticker != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSticker gets a reference to the given WhatsappMessageMedia and assigns it to the Sticker field.
+func (o *WhatsappMessageSendRequest) SetSticker(v WhatsappMessageMedia) {
+	o.Sticker = &v
+}
+
 // GetLocation returns the Location field value if set, zero value otherwise.
 func (o *WhatsappMessageSendRequest) GetLocation() WhatsappMessageLocation {
 	if o == nil || o.Location == nil {
@@ -416,6 +451,70 @@ func (o *WhatsappMessageSendRequest) SetContacts(v []WhatsappMessageContact) {
 	o.Contacts = v
 }
 
+// GetReaction returns the Reaction field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetReaction() WhatsappMessageReaction {
+	if o == nil || o.Reaction == nil {
+		var ret WhatsappMessageReaction
+		return ret
+	}
+	return *o.Reaction
+}
+
+// GetReactionOk returns a tuple with the Reaction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetReactionOk() (*WhatsappMessageReaction, bool) {
+	if o == nil || o.Reaction == nil {
+		return nil, false
+	}
+	return o.Reaction, true
+}
+
+// HasReaction returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasReaction() bool {
+	if o != nil && o.Reaction != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReaction gets a reference to the given WhatsappMessageReaction and assigns it to the Reaction field.
+func (o *WhatsappMessageSendRequest) SetReaction(v WhatsappMessageReaction) {
+	o.Reaction = &v
+}
+
+// GetContext returns the Context field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetContext() WhatsappMessageContext {
+	if o == nil || o.Context == nil {
+		var ret WhatsappMessageContext
+		return ret
+	}
+	return *o.Context
+}
+
+// GetContextOk returns a tuple with the Context field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetContextOk() (*WhatsappMessageContext, bool) {
+	if o == nil || o.Context == nil {
+		return nil, false
+	}
+	return o.Context, true
+}
+
+// HasContext returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasContext() bool {
+	if o != nil && o.Context != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContext gets a reference to the given WhatsappMessageContext and assigns it to the Context field.
+func (o *WhatsappMessageSendRequest) SetContext(v WhatsappMessageContext) {
+	o.Context = &v
+}
+
 // GetExternalId returns the ExternalId field value if set, zero value otherwise.
 func (o *WhatsappMessageSendRequest) GetExternalId() string {
 	if o == nil || o.ExternalId == nil {
@@ -477,6 +576,9 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	if o.Document != nil {
 		toSerialize["document"] = o.Document
 	}
+	if o.Sticker != nil {
+		toSerialize["sticker"] = o.Sticker
+	}
 	if o.Location != nil {
 		toSerialize["location"] = o.Location
 	}
@@ -485,6 +587,12 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.Contacts != nil {
 		toSerialize["contacts"] = o.Contacts
+	}
+	if o.Reaction != nil {
+		toSerialize["reaction"] = o.Reaction
+	}
+	if o.Context != nil {
+		toSerialize["context"] = o.Context
 	}
 	if o.ExternalId != nil {
 		toSerialize["externalId"] = o.ExternalId

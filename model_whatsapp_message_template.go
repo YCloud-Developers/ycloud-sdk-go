@@ -15,13 +15,13 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageTemplate Template object when sending a WhatsApp template message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
+// WhatsappMessageTemplate Use for sending a WhatsApp `template` message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
 type WhatsappMessageTemplate struct {
 	// Name of the template.
 	Name string `json:"name"`
 	Language WhatsappMessageTemplateLanguage `json:"language"`
-	// Array of components objects containing the parameters of the message.
-	Components []WhatsappMessageTemplateComponentsInner `json:"components,omitempty"`
+	// **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+	Components []WhatsappMessageTemplateComponent `json:"components,omitempty"`
 }
 
 // NewWhatsappMessageTemplate instantiates a new WhatsappMessageTemplate object
@@ -92,9 +92,9 @@ func (o *WhatsappMessageTemplate) SetLanguage(v WhatsappMessageTemplateLanguage)
 }
 
 // GetComponents returns the Components field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateComponentsInner {
+func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateComponent {
 	if o == nil || o.Components == nil {
-		var ret []WhatsappMessageTemplateComponentsInner
+		var ret []WhatsappMessageTemplateComponent
 		return ret
 	}
 	return o.Components
@@ -102,7 +102,7 @@ func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateCompo
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplate) GetComponentsOk() ([]WhatsappMessageTemplateComponentsInner, bool) {
+func (o *WhatsappMessageTemplate) GetComponentsOk() ([]WhatsappMessageTemplateComponent, bool) {
 	if o == nil || o.Components == nil {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *WhatsappMessageTemplate) HasComponents() bool {
 	return false
 }
 
-// SetComponents gets a reference to the given []WhatsappMessageTemplateComponentsInner and assigns it to the Components field.
-func (o *WhatsappMessageTemplate) SetComponents(v []WhatsappMessageTemplateComponentsInner) {
+// SetComponents gets a reference to the given []WhatsappMessageTemplateComponent and assigns it to the Components field.
+func (o *WhatsappMessageTemplate) SetComponents(v []WhatsappMessageTemplateComponent) {
 	o.Components = v
 }
 

@@ -25,6 +25,7 @@ type WhatsappTemplate struct {
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
+	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
 	Components []WhatsappTemplateComponent `json:"components"`
 	Status *WhatsappTemplateStatus `json:"status,omitempty"`
 	// The reason why the template is rejected.

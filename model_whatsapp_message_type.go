@@ -31,6 +31,7 @@ const (
 	WHATSAPPMESSAGETYPE_LOCATION WhatsappMessageType = "location"
 	WHATSAPPMESSAGETYPE_INTERACTIVE WhatsappMessageType = "interactive"
 	WHATSAPPMESSAGETYPE_CONTACTS WhatsappMessageType = "contacts"
+	WHATSAPPMESSAGETYPE_REACTION WhatsappMessageType = "reaction"
 )
 
 // All allowed values of WhatsappMessageType enum
@@ -45,6 +46,7 @@ var AllowedWhatsappMessageTypeEnumValues = []WhatsappMessageType{
 	"location",
 	"interactive",
 	"contacts",
+	"reaction",
 }
 
 func (v *WhatsappMessageType) UnmarshalJSON(src []byte) error {

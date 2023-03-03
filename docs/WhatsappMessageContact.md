@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Addresses** | Pointer to [**[]WhatsappMessageContactAddressesInner**](WhatsappMessageContactAddressesInner.md) |  | [optional] 
+**Addresses** | Pointer to [**[]WhatsappMessageContactAddress**](WhatsappMessageContactAddress.md) |  | [optional] 
 **Birthday** | Pointer to **string** | &#x60;YYYY-MM-DD&#x60; formatted string. | [optional] 
-**Emails** | Pointer to [**[]WhatsappMessageContactEmailsInner**](WhatsappMessageContactEmailsInner.md) |  | [optional] 
-**Name** | Pointer to [**WhatsappMessageContactName**](WhatsappMessageContactName.md) |  | [optional] 
+**Emails** | Pointer to [**[]WhatsappMessageContactEmail**](WhatsappMessageContactEmail.md) |  | [optional] 
+**Name** | [**WhatsappMessageContactName**](WhatsappMessageContactName.md) |  | 
 **Org** | Pointer to [**WhatsappMessageContactOrg**](WhatsappMessageContactOrg.md) |  | [optional] 
-**Phones** | Pointer to [**[]WhatsappMessageContactPhonesInner**](WhatsappMessageContactPhonesInner.md) | Contact phone number(s) formatted as a phone object. | [optional] 
-**Urls** | Pointer to [**[]WhatsappMessageContactUrlsInner**](WhatsappMessageContactUrlsInner.md) | Contact URL(s) formatted as a urls object. | [optional] 
+**Phones** | Pointer to [**[]WhatsappMessageContactPhone**](WhatsappMessageContactPhone.md) | Contact phone number(s) formatted as a phone object. | [optional] 
+**Urls** | Pointer to [**[]WhatsappMessageContactUrl**](WhatsappMessageContactUrl.md) | Contact URL(s) formatted as a urls object. | [optional] 
 
 ## Methods
 
 ### NewWhatsappMessageContact
 
-`func NewWhatsappMessageContact() *WhatsappMessageContact`
+`func NewWhatsappMessageContact(name WhatsappMessageContactName, ) *WhatsappMessageContact`
 
 NewWhatsappMessageContact instantiates a new WhatsappMessageContact object
 This constructor will assign default values to properties that have it defined,
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAddresses
 
-`func (o *WhatsappMessageContact) GetAddresses() []WhatsappMessageContactAddressesInner`
+`func (o *WhatsappMessageContact) GetAddresses() []WhatsappMessageContactAddress`
 
 GetAddresses returns the Addresses field if non-nil, zero value otherwise.
 
 ### GetAddressesOk
 
-`func (o *WhatsappMessageContact) GetAddressesOk() (*[]WhatsappMessageContactAddressesInner, bool)`
+`func (o *WhatsappMessageContact) GetAddressesOk() (*[]WhatsappMessageContactAddress, bool)`
 
 GetAddressesOk returns a tuple with the Addresses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAddresses
 
-`func (o *WhatsappMessageContact) SetAddresses(v []WhatsappMessageContactAddressesInner)`
+`func (o *WhatsappMessageContact) SetAddresses(v []WhatsappMessageContactAddress)`
 
 SetAddresses sets Addresses field to given value.
 
@@ -83,20 +83,20 @@ HasBirthday returns a boolean if a field has been set.
 
 ### GetEmails
 
-`func (o *WhatsappMessageContact) GetEmails() []WhatsappMessageContactEmailsInner`
+`func (o *WhatsappMessageContact) GetEmails() []WhatsappMessageContactEmail`
 
 GetEmails returns the Emails field if non-nil, zero value otherwise.
 
 ### GetEmailsOk
 
-`func (o *WhatsappMessageContact) GetEmailsOk() (*[]WhatsappMessageContactEmailsInner, bool)`
+`func (o *WhatsappMessageContact) GetEmailsOk() (*[]WhatsappMessageContactEmail, bool)`
 
 GetEmailsOk returns a tuple with the Emails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmails
 
-`func (o *WhatsappMessageContact) SetEmails(v []WhatsappMessageContactEmailsInner)`
+`func (o *WhatsappMessageContact) SetEmails(v []WhatsappMessageContactEmail)`
 
 SetEmails sets Emails field to given value.
 
@@ -125,11 +125,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *WhatsappMessageContact) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetOrg
 
@@ -158,20 +153,20 @@ HasOrg returns a boolean if a field has been set.
 
 ### GetPhones
 
-`func (o *WhatsappMessageContact) GetPhones() []WhatsappMessageContactPhonesInner`
+`func (o *WhatsappMessageContact) GetPhones() []WhatsappMessageContactPhone`
 
 GetPhones returns the Phones field if non-nil, zero value otherwise.
 
 ### GetPhonesOk
 
-`func (o *WhatsappMessageContact) GetPhonesOk() (*[]WhatsappMessageContactPhonesInner, bool)`
+`func (o *WhatsappMessageContact) GetPhonesOk() (*[]WhatsappMessageContactPhone, bool)`
 
 GetPhonesOk returns a tuple with the Phones field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPhones
 
-`func (o *WhatsappMessageContact) SetPhones(v []WhatsappMessageContactPhonesInner)`
+`func (o *WhatsappMessageContact) SetPhones(v []WhatsappMessageContactPhone)`
 
 SetPhones sets Phones field to given value.
 
@@ -183,20 +178,20 @@ HasPhones returns a boolean if a field has been set.
 
 ### GetUrls
 
-`func (o *WhatsappMessageContact) GetUrls() []WhatsappMessageContactUrlsInner`
+`func (o *WhatsappMessageContact) GetUrls() []WhatsappMessageContactUrl`
 
 GetUrls returns the Urls field if non-nil, zero value otherwise.
 
 ### GetUrlsOk
 
-`func (o *WhatsappMessageContact) GetUrlsOk() (*[]WhatsappMessageContactUrlsInner, bool)`
+`func (o *WhatsappMessageContact) GetUrlsOk() (*[]WhatsappMessageContactUrl, bool)`
 
 GetUrlsOk returns a tuple with the Urls field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUrls
 
-`func (o *WhatsappMessageContact) SetUrls(v []WhatsappMessageContactUrlsInner)`
+`func (o *WhatsappMessageContact) SetUrls(v []WhatsappMessageContactUrl)`
 
 SetUrls sets Urls field to given value.
 

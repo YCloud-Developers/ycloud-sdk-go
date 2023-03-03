@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the template. | 
 **Language** | [**WhatsappMessageTemplateLanguage**](WhatsappMessageTemplateLanguage.md) |  | 
-**Components** | Pointer to [**[]WhatsappMessageTemplateComponentsInner**](WhatsappMessageTemplateComponentsInner.md) | Array of components objects containing the parameters of the message. | [optional] 
+**Components** | Pointer to [**[]WhatsappMessageTemplateComponent**](WhatsappMessageTemplateComponent.md) | **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message. | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetLanguage sets Language field to given value.
 
 ### GetComponents
 
-`func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateComponentsInner`
+`func (o *WhatsappMessageTemplate) GetComponents() []WhatsappMessageTemplateComponent`
 
 GetComponents returns the Components field if non-nil, zero value otherwise.
 
 ### GetComponentsOk
 
-`func (o *WhatsappMessageTemplate) GetComponentsOk() (*[]WhatsappMessageTemplateComponentsInner, bool)`
+`func (o *WhatsappMessageTemplate) GetComponentsOk() (*[]WhatsappMessageTemplateComponent, bool)`
 
 GetComponentsOk returns a tuple with the Components field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComponents
 
-`func (o *WhatsappMessageTemplate) SetComponents(v []WhatsappMessageTemplateComponentsInner)`
+`func (o *WhatsappMessageTemplate) SetComponents(v []WhatsappMessageTemplateComponent)`
 
 SetComponents sets Components field to given value.
 

@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageTemplateComponentsInnerParametersInner See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object), [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object.
-type WhatsappMessageTemplateComponentsInnerParametersInner struct {
-	// Describes the parameter type.
+// WhatsappMessageTemplateComponentParameter See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object), [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object.
+type WhatsappMessageTemplateComponentParameter struct {
+	// **Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`.
 	Type *string `json:"type,omitempty"`
-	// Required when `type` = `text`. The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
+	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
 	// Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
 	Payload *string `json:"payload,omitempty"`
@@ -28,25 +28,25 @@ type WhatsappMessageTemplateComponentsInnerParametersInner struct {
 	Document *WhatsappMessageMedia `json:"document,omitempty"`
 }
 
-// NewWhatsappMessageTemplateComponentsInnerParametersInner instantiates a new WhatsappMessageTemplateComponentsInnerParametersInner object
+// NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageTemplateComponentsInnerParametersInner() *WhatsappMessageTemplateComponentsInnerParametersInner {
-	this := WhatsappMessageTemplateComponentsInnerParametersInner{}
+func NewWhatsappMessageTemplateComponentParameter() *WhatsappMessageTemplateComponentParameter {
+	this := WhatsappMessageTemplateComponentParameter{}
 	return &this
 }
 
-// NewWhatsappMessageTemplateComponentsInnerParametersInnerWithDefaults instantiates a new WhatsappMessageTemplateComponentsInnerParametersInner object
+// NewWhatsappMessageTemplateComponentParameterWithDefaults instantiates a new WhatsappMessageTemplateComponentParameter object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageTemplateComponentsInnerParametersInnerWithDefaults() *WhatsappMessageTemplateComponentsInnerParametersInner {
-	this := WhatsappMessageTemplateComponentsInnerParametersInner{}
+func NewWhatsappMessageTemplateComponentParameterWithDefaults() *WhatsappMessageTemplateComponentParameter {
+	this := WhatsappMessageTemplateComponentParameter{}
 	return &this
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetType() string {
+func (o *WhatsappMessageTemplateComponentParameter) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -56,7 +56,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetType() string
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetTypeOk() (*string, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetTypeOk() (*st
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasType() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -73,12 +73,12 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetType(v string) {
+func (o *WhatsappMessageTemplateComponentParameter) SetType(v string) {
 	o.Type = &v
 }
 
 // GetText returns the Text field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetText() string {
+func (o *WhatsappMessageTemplateComponentParameter) GetText() string {
 	if o == nil || o.Text == nil {
 		var ret string
 		return ret
@@ -88,7 +88,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetText() string
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetTextOk() (*string, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetTextOk() (*string, bool) {
 	if o == nil || o.Text == nil {
 		return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetTextOk() (*st
 }
 
 // HasText returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasText() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasText() bool {
 	if o != nil && o.Text != nil {
 		return true
 	}
@@ -105,12 +105,12 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasText() bool {
 }
 
 // SetText gets a reference to the given string and assigns it to the Text field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetText(v string) {
+func (o *WhatsappMessageTemplateComponentParameter) SetText(v string) {
 	o.Text = &v
 }
 
 // GetPayload returns the Payload field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetPayload() string {
+func (o *WhatsappMessageTemplateComponentParameter) GetPayload() string {
 	if o == nil || o.Payload == nil {
 		var ret string
 		return ret
@@ -120,7 +120,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetPayload() str
 
 // GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetPayloadOk() (*string, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetPayloadOk() (*string, bool) {
 	if o == nil || o.Payload == nil {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetPayloadOk() (
 }
 
 // HasPayload returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasPayload() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasPayload() bool {
 	if o != nil && o.Payload != nil {
 		return true
 	}
@@ -137,12 +137,12 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasPayload() boo
 }
 
 // SetPayload gets a reference to the given string and assigns it to the Payload field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetPayload(v string) {
+func (o *WhatsappMessageTemplateComponentParameter) SetPayload(v string) {
 	o.Payload = &v
 }
 
 // GetImage returns the Image field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetImage() WhatsappMessageMedia {
+func (o *WhatsappMessageTemplateComponentParameter) GetImage() WhatsappMessageMedia {
 	if o == nil || o.Image == nil {
 		var ret WhatsappMessageMedia
 		return ret
@@ -152,7 +152,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetImage() Whats
 
 // GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetImageOk() (*WhatsappMessageMedia, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetImageOk() (*WhatsappMessageMedia, bool) {
 	if o == nil || o.Image == nil {
 		return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetImageOk() (*W
 }
 
 // HasImage returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasImage() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasImage() bool {
 	if o != nil && o.Image != nil {
 		return true
 	}
@@ -169,12 +169,12 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasImage() bool 
 }
 
 // SetImage gets a reference to the given WhatsappMessageMedia and assigns it to the Image field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetImage(v WhatsappMessageMedia) {
+func (o *WhatsappMessageTemplateComponentParameter) SetImage(v WhatsappMessageMedia) {
 	o.Image = &v
 }
 
 // GetVideo returns the Video field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetVideo() WhatsappMessageMedia {
+func (o *WhatsappMessageTemplateComponentParameter) GetVideo() WhatsappMessageMedia {
 	if o == nil || o.Video == nil {
 		var ret WhatsappMessageMedia
 		return ret
@@ -184,7 +184,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetVideo() Whats
 
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetVideoOk() (*WhatsappMessageMedia, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetVideoOk() (*WhatsappMessageMedia, bool) {
 	if o == nil || o.Video == nil {
 		return nil, false
 	}
@@ -192,7 +192,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetVideoOk() (*W
 }
 
 // HasVideo returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasVideo() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasVideo() bool {
 	if o != nil && o.Video != nil {
 		return true
 	}
@@ -201,12 +201,12 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasVideo() bool 
 }
 
 // SetVideo gets a reference to the given WhatsappMessageMedia and assigns it to the Video field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetVideo(v WhatsappMessageMedia) {
+func (o *WhatsappMessageTemplateComponentParameter) SetVideo(v WhatsappMessageMedia) {
 	o.Video = &v
 }
 
 // GetDocument returns the Document field value if set, zero value otherwise.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetDocument() WhatsappMessageMedia {
+func (o *WhatsappMessageTemplateComponentParameter) GetDocument() WhatsappMessageMedia {
 	if o == nil || o.Document == nil {
 		var ret WhatsappMessageMedia
 		return ret
@@ -216,7 +216,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetDocument() Wh
 
 // GetDocumentOk returns a tuple with the Document field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetDocumentOk() (*WhatsappMessageMedia, bool) {
+func (o *WhatsappMessageTemplateComponentParameter) GetDocumentOk() (*WhatsappMessageMedia, bool) {
 	if o == nil || o.Document == nil {
 		return nil, false
 	}
@@ -224,7 +224,7 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) GetDocumentOk() 
 }
 
 // HasDocument returns a boolean if a field has been set.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasDocument() bool {
+func (o *WhatsappMessageTemplateComponentParameter) HasDocument() bool {
 	if o != nil && o.Document != nil {
 		return true
 	}
@@ -233,11 +233,11 @@ func (o *WhatsappMessageTemplateComponentsInnerParametersInner) HasDocument() bo
 }
 
 // SetDocument gets a reference to the given WhatsappMessageMedia and assigns it to the Document field.
-func (o *WhatsappMessageTemplateComponentsInnerParametersInner) SetDocument(v WhatsappMessageMedia) {
+func (o *WhatsappMessageTemplateComponentParameter) SetDocument(v WhatsappMessageMedia) {
 	o.Document = &v
 }
 
-func (o WhatsappMessageTemplateComponentsInnerParametersInner) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
@@ -260,38 +260,38 @@ func (o WhatsappMessageTemplateComponentsInnerParametersInner) MarshalJSON() ([]
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageTemplateComponentsInnerParametersInner struct {
-	value *WhatsappMessageTemplateComponentsInnerParametersInner
+type NullableWhatsappMessageTemplateComponentParameter struct {
+	value *WhatsappMessageTemplateComponentParameter
 	isSet bool
 }
 
-func (v NullableWhatsappMessageTemplateComponentsInnerParametersInner) Get() *WhatsappMessageTemplateComponentsInnerParametersInner {
+func (v NullableWhatsappMessageTemplateComponentParameter) Get() *WhatsappMessageTemplateComponentParameter {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageTemplateComponentsInnerParametersInner) Set(val *WhatsappMessageTemplateComponentsInnerParametersInner) {
+func (v *NullableWhatsappMessageTemplateComponentParameter) Set(val *WhatsappMessageTemplateComponentParameter) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageTemplateComponentsInnerParametersInner) IsSet() bool {
+func (v NullableWhatsappMessageTemplateComponentParameter) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageTemplateComponentsInnerParametersInner) Unset() {
+func (v *NullableWhatsappMessageTemplateComponentParameter) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageTemplateComponentsInnerParametersInner(val *WhatsappMessageTemplateComponentsInnerParametersInner) *NullableWhatsappMessageTemplateComponentsInnerParametersInner {
-	return &NullableWhatsappMessageTemplateComponentsInnerParametersInner{value: val, isSet: true}
+func NewNullableWhatsappMessageTemplateComponentParameter(val *WhatsappMessageTemplateComponentParameter) *NullableWhatsappMessageTemplateComponentParameter {
+	return &NullableWhatsappMessageTemplateComponentParameter{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageTemplateComponentsInnerParametersInner) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageTemplateComponentsInnerParametersInner) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageTemplateComponentParameter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

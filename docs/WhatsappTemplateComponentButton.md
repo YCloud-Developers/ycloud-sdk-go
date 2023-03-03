@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to [**WhatsappTemplateComponentButtonType**](WhatsappTemplateComponentButtonType.md) |  | [optional] 
-**Text** | Pointer to **string** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
-**PhoneNumber** | Pointer to **string** |  | [optional] 
-**Example** | Pointer to **[]string** |  | [optional] 
+**Type** | [**WhatsappTemplateComponentButtonType**](WhatsappTemplateComponentButtonType.md) |  | 
+**Text** | **string** | **Required.** Button text. | 
+**Url** | Pointer to **string** | **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL. | [optional] 
+**PhoneNumber** | Pointer to **string** | **Required for button type &#x60;PHONE_NUMBER&#x60;.** | [optional] 
+**Example** | Pointer to **[]string** | Sample full URL for a &#x60;URL&#x60; button with a variable. | [optional] 
 
 ## Methods
 
 ### NewWhatsappTemplateComponentButton
 
-`func NewWhatsappTemplateComponentButton() *WhatsappTemplateComponentButton`
+`func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType, text string, ) *WhatsappTemplateComponentButton`
 
 NewWhatsappTemplateComponentButton instantiates a new WhatsappTemplateComponentButton object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *WhatsappTemplateComponentButton) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetText
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetText sets Text field to given value.
 
-### HasText
-
-`func (o *WhatsappTemplateComponentButton) HasText() bool`
-
-HasText returns a boolean if a field has been set.
 
 ### GetUrl
 

@@ -42,7 +42,7 @@ func (r WhatsappTemplatesApiCreateRequest) Execute() (*WhatsappTemplate, *http.R
 /*
 Create Create a WhatsApp template
 
-Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates).
+Creates a WhatsApp template.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WhatsappTemplatesApiCreateRequest

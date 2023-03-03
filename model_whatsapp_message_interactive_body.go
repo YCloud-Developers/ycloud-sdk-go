@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveBody [WhatsApp Body Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#body-object).
+// WhatsappMessageInteractiveBody Optional for type `product`. Required for other message types. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
 type WhatsappMessageInteractiveBody struct {
 	// The body content of the message. Emojis and markdown are supported. Links are supported.
 	Text *string `json:"text,omitempty"`

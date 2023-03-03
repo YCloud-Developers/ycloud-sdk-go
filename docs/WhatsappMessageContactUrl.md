@@ -1,4 +1,4 @@
-# WhatsappMessageContactUrlsInner
+# WhatsappMessageContactUrl
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewWhatsappMessageContactUrlsInner
+### NewWhatsappMessageContactUrl
 
-`func NewWhatsappMessageContactUrlsInner() *WhatsappMessageContactUrlsInner`
+`func NewWhatsappMessageContactUrl() *WhatsappMessageContactUrl`
 
-NewWhatsappMessageContactUrlsInner instantiates a new WhatsappMessageContactUrlsInner object
+NewWhatsappMessageContactUrl instantiates a new WhatsappMessageContactUrl object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewWhatsappMessageContactUrlsInnerWithDefaults
+### NewWhatsappMessageContactUrlWithDefaults
 
-`func NewWhatsappMessageContactUrlsInnerWithDefaults() *WhatsappMessageContactUrlsInner`
+`func NewWhatsappMessageContactUrlWithDefaults() *WhatsappMessageContactUrl`
 
-NewWhatsappMessageContactUrlsInnerWithDefaults instantiates a new WhatsappMessageContactUrlsInner object
+NewWhatsappMessageContactUrlWithDefaults instantiates a new WhatsappMessageContactUrl object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetUrl
 
-`func (o *WhatsappMessageContactUrlsInner) GetUrl() string`
+`func (o *WhatsappMessageContactUrl) GetUrl() string`
 
 GetUrl returns the Url field if non-nil, zero value otherwise.
 
 ### GetUrlOk
 
-`func (o *WhatsappMessageContactUrlsInner) GetUrlOk() (*string, bool)`
+`func (o *WhatsappMessageContactUrl) GetUrlOk() (*string, bool)`
 
 GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUrl
 
-`func (o *WhatsappMessageContactUrlsInner) SetUrl(v string)`
+`func (o *WhatsappMessageContactUrl) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
 
 ### HasUrl
 
-`func (o *WhatsappMessageContactUrlsInner) HasUrl() bool`
+`func (o *WhatsappMessageContactUrl) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *WhatsappMessageContactUrlsInner) GetType() string`
+`func (o *WhatsappMessageContactUrl) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *WhatsappMessageContactUrlsInner) GetTypeOk() (*string, bool)`
+`func (o *WhatsappMessageContactUrl) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *WhatsappMessageContactUrlsInner) SetType(v string)`
+`func (o *WhatsappMessageContactUrl) SetType(v string)`
 
 SetType sets Type field to given value.
 
 ### HasType
 
-`func (o *WhatsappMessageContactUrlsInner) HasType() bool`
+`func (o *WhatsappMessageContactUrl) HasType() bool`
 
 HasType returns a boolean if a field has been set.
 

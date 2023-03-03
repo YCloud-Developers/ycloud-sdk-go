@@ -1,4 +1,4 @@
-# WhatsappMessageInteractiveActionButtonsInnerReply
+# WhatsappMessageInteractiveActionButtonReply
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewWhatsappMessageInteractiveActionButtonsInnerReply
+### NewWhatsappMessageInteractiveActionButtonReply
 
-`func NewWhatsappMessageInteractiveActionButtonsInnerReply() *WhatsappMessageInteractiveActionButtonsInnerReply`
+`func NewWhatsappMessageInteractiveActionButtonReply() *WhatsappMessageInteractiveActionButtonReply`
 
-NewWhatsappMessageInteractiveActionButtonsInnerReply instantiates a new WhatsappMessageInteractiveActionButtonsInnerReply object
+NewWhatsappMessageInteractiveActionButtonReply instantiates a new WhatsappMessageInteractiveActionButtonReply object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewWhatsappMessageInteractiveActionButtonsInnerReplyWithDefaults
+### NewWhatsappMessageInteractiveActionButtonReplyWithDefaults
 
-`func NewWhatsappMessageInteractiveActionButtonsInnerReplyWithDefaults() *WhatsappMessageInteractiveActionButtonsInnerReply`
+`func NewWhatsappMessageInteractiveActionButtonReplyWithDefaults() *WhatsappMessageInteractiveActionButtonReply`
 
-NewWhatsappMessageInteractiveActionButtonsInnerReplyWithDefaults instantiates a new WhatsappMessageInteractiveActionButtonsInnerReply object
+NewWhatsappMessageInteractiveActionButtonReplyWithDefaults instantiates a new WhatsappMessageInteractiveActionButtonReply object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetTitle
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitle() string`
+`func (o *WhatsappMessageInteractiveActionButtonReply) GetTitle() string`
 
 GetTitle returns the Title field if non-nil, zero value otherwise.
 
 ### GetTitleOk
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetTitleOk() (*string, bool)`
+`func (o *WhatsappMessageInteractiveActionButtonReply) GetTitleOk() (*string, bool)`
 
 GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTitle
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) SetTitle(v string)`
+`func (o *WhatsappMessageInteractiveActionButtonReply) SetTitle(v string)`
 
 SetTitle sets Title field to given value.
 
 ### HasTitle
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasTitle() bool`
+`func (o *WhatsappMessageInteractiveActionButtonReply) HasTitle() bool`
 
 HasTitle returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetId() string`
+`func (o *WhatsappMessageInteractiveActionButtonReply) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) GetIdOk() (*string, bool)`
+`func (o *WhatsappMessageInteractiveActionButtonReply) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) SetId(v string)`
+`func (o *WhatsappMessageInteractiveActionButtonReply) SetId(v string)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *WhatsappMessageInteractiveActionButtonsInnerReply) HasId() bool`
+`func (o *WhatsappMessageInteractiveActionButtonReply) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 

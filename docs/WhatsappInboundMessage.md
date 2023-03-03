@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
-**Wamid** | Pointer to **string** | The native WhatsApp message ID. | [optional] 
+**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional] 
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **From** | Pointer to **string** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Location** | Pointer to [**WhatsappInboundMessageLocation**](WhatsappInboundMessageLocation.md) |  | [optional] 
 **Button** | Pointer to [**WhatsappInboundMessageButton**](WhatsappInboundMessageButton.md) |  | [optional] 
 **Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
-**Reaction** | Pointer to [**WhatsappInboundMessageReaction**](WhatsappInboundMessageReaction.md) |  | [optional] 
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
 **Order** | Pointer to [**WhatsappInboundMessageOrder**](WhatsappInboundMessageOrder.md) |  | [optional] 
 **System** | Pointer to [**WhatsappInboundMessageSystem**](WhatsappInboundMessageSystem.md) |  | [optional] 
 **Errors** | Pointer to [**[]WhatsappInboundMessageError**](WhatsappInboundMessageError.md) |  | [optional] 
@@ -495,20 +495,20 @@ HasContacts returns a boolean if a field has been set.
 
 ### GetReaction
 
-`func (o *WhatsappInboundMessage) GetReaction() WhatsappInboundMessageReaction`
+`func (o *WhatsappInboundMessage) GetReaction() WhatsappMessageReaction`
 
 GetReaction returns the Reaction field if non-nil, zero value otherwise.
 
 ### GetReactionOk
 
-`func (o *WhatsappInboundMessage) GetReactionOk() (*WhatsappInboundMessageReaction, bool)`
+`func (o *WhatsappInboundMessage) GetReactionOk() (*WhatsappMessageReaction, bool)`
 
 GetReactionOk returns a tuple with the Reaction field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReaction
 
-`func (o *WhatsappInboundMessage) SetReaction(v WhatsappInboundMessageReaction)`
+`func (o *WhatsappInboundMessage) SetReaction(v WhatsappMessageReaction)`
 
 SetReaction sets Reaction field to given value.
 

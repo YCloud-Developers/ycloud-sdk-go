@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionButtonsInner**](WhatsappMessageInteractiveActionButtonsInner.md) | Required for Reply Buttons. | [optional] 
+**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionButton**](WhatsappMessageInteractiveActionButton.md) | Required for Reply Buttons. | [optional] 
 **Button** | Pointer to **string** | Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. | [optional] 
-**Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSectionsInner**](WhatsappMessageInteractiveActionSectionsInner.md) | Required for List Messages. | [optional] 
+**CatalogId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/). | [optional] 
+**ProductRetailerId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. | [optional] 
+**Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSection**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. | [optional] 
 
 ## Methods
 
@@ -29,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetButtons
 
-`func (o *WhatsappMessageInteractiveAction) GetButtons() []WhatsappMessageInteractiveActionButtonsInner`
+`func (o *WhatsappMessageInteractiveAction) GetButtons() []WhatsappMessageInteractiveActionButton`
 
 GetButtons returns the Buttons field if non-nil, zero value otherwise.
 
 ### GetButtonsOk
 
-`func (o *WhatsappMessageInteractiveAction) GetButtonsOk() (*[]WhatsappMessageInteractiveActionButtonsInner, bool)`
+`func (o *WhatsappMessageInteractiveAction) GetButtonsOk() (*[]WhatsappMessageInteractiveActionButton, bool)`
 
 GetButtonsOk returns a tuple with the Buttons field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetButtons
 
-`func (o *WhatsappMessageInteractiveAction) SetButtons(v []WhatsappMessageInteractiveActionButtonsInner)`
+`func (o *WhatsappMessageInteractiveAction) SetButtons(v []WhatsappMessageInteractiveActionButton)`
 
 SetButtons sets Buttons field to given value.
 
@@ -77,22 +79,72 @@ SetButton sets Button field to given value.
 
 HasButton returns a boolean if a field has been set.
 
+### GetCatalogId
+
+`func (o *WhatsappMessageInteractiveAction) GetCatalogId() string`
+
+GetCatalogId returns the CatalogId field if non-nil, zero value otherwise.
+
+### GetCatalogIdOk
+
+`func (o *WhatsappMessageInteractiveAction) GetCatalogIdOk() (*string, bool)`
+
+GetCatalogIdOk returns a tuple with the CatalogId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCatalogId
+
+`func (o *WhatsappMessageInteractiveAction) SetCatalogId(v string)`
+
+SetCatalogId sets CatalogId field to given value.
+
+### HasCatalogId
+
+`func (o *WhatsappMessageInteractiveAction) HasCatalogId() bool`
+
+HasCatalogId returns a boolean if a field has been set.
+
+### GetProductRetailerId
+
+`func (o *WhatsappMessageInteractiveAction) GetProductRetailerId() string`
+
+GetProductRetailerId returns the ProductRetailerId field if non-nil, zero value otherwise.
+
+### GetProductRetailerIdOk
+
+`func (o *WhatsappMessageInteractiveAction) GetProductRetailerIdOk() (*string, bool)`
+
+GetProductRetailerIdOk returns a tuple with the ProductRetailerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductRetailerId
+
+`func (o *WhatsappMessageInteractiveAction) SetProductRetailerId(v string)`
+
+SetProductRetailerId sets ProductRetailerId field to given value.
+
+### HasProductRetailerId
+
+`func (o *WhatsappMessageInteractiveAction) HasProductRetailerId() bool`
+
+HasProductRetailerId returns a boolean if a field has been set.
+
 ### GetSections
 
-`func (o *WhatsappMessageInteractiveAction) GetSections() []WhatsappMessageInteractiveActionSectionsInner`
+`func (o *WhatsappMessageInteractiveAction) GetSections() []WhatsappMessageInteractiveActionSection`
 
 GetSections returns the Sections field if non-nil, zero value otherwise.
 
 ### GetSectionsOk
 
-`func (o *WhatsappMessageInteractiveAction) GetSectionsOk() (*[]WhatsappMessageInteractiveActionSectionsInner, bool)`
+`func (o *WhatsappMessageInteractiveAction) GetSectionsOk() (*[]WhatsappMessageInteractiveActionSection, bool)`
 
 GetSectionsOk returns a tuple with the Sections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSections
 
-`func (o *WhatsappMessageInteractiveAction) SetSections(v []WhatsappMessageInteractiveActionSectionsInner)`
+`func (o *WhatsappMessageInteractiveAction) SetSections(v []WhatsappMessageInteractiveActionSection)`
 
 SetSections sets Sections field to given value.
 

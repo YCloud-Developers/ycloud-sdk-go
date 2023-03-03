@@ -19,6 +19,8 @@ import (
 type WhatsappMessageTemplateLanguage struct {
 	// The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
 	Code string `json:"code"`
+	// Default (and only supported option): `deterministic`.
+	Policy *string `json:"policy,omitempty"`
 }
 
 // NewWhatsappMessageTemplateLanguage instantiates a new WhatsappMessageTemplateLanguage object
@@ -63,10 +65,45 @@ func (o *WhatsappMessageTemplateLanguage) SetCode(v string) {
 	o.Code = v
 }
 
+// GetPolicy returns the Policy field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateLanguage) GetPolicy() string {
+	if o == nil || o.Policy == nil {
+		var ret string
+		return ret
+	}
+	return *o.Policy
+}
+
+// GetPolicyOk returns a tuple with the Policy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateLanguage) GetPolicyOk() (*string, bool) {
+	if o == nil || o.Policy == nil {
+		return nil, false
+	}
+	return o.Policy, true
+}
+
+// HasPolicy returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateLanguage) HasPolicy() bool {
+	if o != nil && o.Policy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPolicy gets a reference to the given string and assigns it to the Policy field.
+func (o *WhatsappMessageTemplateLanguage) SetPolicy(v string) {
+	o.Policy = &v
+}
+
 func (o WhatsappMessageTemplateLanguage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["code"] = o.Code
+	}
+	if o.Policy != nil {
+		toSerialize["policy"] = o.Policy
 	}
 	return json.Marshal(toSerialize)
 }

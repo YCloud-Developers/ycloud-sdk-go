@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. | 
+**Type** | **string** | The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. | 
 **Action** | [**WhatsappMessageInteractiveAction**](WhatsappMessageInteractiveAction.md) |  | 
-**Body** | [**WhatsappMessageInteractiveBody**](WhatsappMessageInteractiveBody.md) |  | 
+**Body** | Pointer to [**WhatsappMessageInteractiveBody**](WhatsappMessageInteractiveBody.md) |  | [optional] 
 **Header** | Pointer to [**WhatsappMessageInteractiveHeader**](WhatsappMessageInteractiveHeader.md) |  | [optional] 
 **Footer** | Pointer to [**WhatsappMessageInteractiveFooter**](WhatsappMessageInteractiveFooter.md) |  | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessageInteractive
 
-`func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction, body WhatsappMessageInteractiveBody, ) *WhatsappMessageInteractive`
+`func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction, ) *WhatsappMessageInteractive`
 
 NewWhatsappMessageInteractive instantiates a new WhatsappMessageInteractive object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +88,11 @@ and a boolean to check if the value has been set.
 
 SetBody sets Body field to given value.
 
+### HasBody
+
+`func (o *WhatsappMessageInteractive) HasBody() bool`
+
+HasBody returns a boolean if a field has been set.
 
 ### GetHeader
 

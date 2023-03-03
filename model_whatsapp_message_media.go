@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageMedia [WhatsApp Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object).
+// WhatsappMessageMedia Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).
 type WhatsappMessageMedia struct {
 	// The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
 	Link string `json:"link"`
-	// Describes the specified `video` or `image` media.
+	// Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `interactive` messages.
 	Caption *string `json:"caption,omitempty"`
 	// Describes the filename for the specific document. Use only with `document` media.
 	Filename *string `json:"filename,omitempty"`

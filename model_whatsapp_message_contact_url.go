@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageContactUrlsInner struct for WhatsappMessageContactUrlsInner
-type WhatsappMessageContactUrlsInner struct {
+// WhatsappMessageContactUrl struct for WhatsappMessageContactUrl
+type WhatsappMessageContactUrl struct {
 	// URL.
 	Url *string `json:"url,omitempty"`
 	// Standard values are `HOME` and `WORK`.
 	Type *string `json:"type,omitempty"`
 }
 
-// NewWhatsappMessageContactUrlsInner instantiates a new WhatsappMessageContactUrlsInner object
+// NewWhatsappMessageContactUrl instantiates a new WhatsappMessageContactUrl object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageContactUrlsInner() *WhatsappMessageContactUrlsInner {
-	this := WhatsappMessageContactUrlsInner{}
+func NewWhatsappMessageContactUrl() *WhatsappMessageContactUrl {
+	this := WhatsappMessageContactUrl{}
 	return &this
 }
 
-// NewWhatsappMessageContactUrlsInnerWithDefaults instantiates a new WhatsappMessageContactUrlsInner object
+// NewWhatsappMessageContactUrlWithDefaults instantiates a new WhatsappMessageContactUrl object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageContactUrlsInnerWithDefaults() *WhatsappMessageContactUrlsInner {
-	this := WhatsappMessageContactUrlsInner{}
+func NewWhatsappMessageContactUrlWithDefaults() *WhatsappMessageContactUrl {
+	this := WhatsappMessageContactUrl{}
 	return &this
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise.
-func (o *WhatsappMessageContactUrlsInner) GetUrl() string {
+func (o *WhatsappMessageContactUrl) GetUrl() string {
 	if o == nil || o.Url == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *WhatsappMessageContactUrlsInner) GetUrl() string {
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactUrlsInner) GetUrlOk() (*string, bool) {
+func (o *WhatsappMessageContactUrl) GetUrlOk() (*string, bool) {
 	if o == nil || o.Url == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *WhatsappMessageContactUrlsInner) GetUrlOk() (*string, bool) {
 }
 
 // HasUrl returns a boolean if a field has been set.
-func (o *WhatsappMessageContactUrlsInner) HasUrl() bool {
+func (o *WhatsappMessageContactUrl) HasUrl() bool {
 	if o != nil && o.Url != nil {
 		return true
 	}
@@ -68,12 +68,12 @@ func (o *WhatsappMessageContactUrlsInner) HasUrl() bool {
 }
 
 // SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *WhatsappMessageContactUrlsInner) SetUrl(v string) {
+func (o *WhatsappMessageContactUrl) SetUrl(v string) {
 	o.Url = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *WhatsappMessageContactUrlsInner) GetType() string {
+func (o *WhatsappMessageContactUrl) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *WhatsappMessageContactUrlsInner) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactUrlsInner) GetTypeOk() (*string, bool) {
+func (o *WhatsappMessageContactUrl) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *WhatsappMessageContactUrlsInner) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *WhatsappMessageContactUrlsInner) HasType() bool {
+func (o *WhatsappMessageContactUrl) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -100,11 +100,11 @@ func (o *WhatsappMessageContactUrlsInner) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *WhatsappMessageContactUrlsInner) SetType(v string) {
+func (o *WhatsappMessageContactUrl) SetType(v string) {
 	o.Type = &v
 }
 
-func (o WhatsappMessageContactUrlsInner) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageContactUrl) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Url != nil {
 		toSerialize["url"] = o.Url
@@ -115,38 +115,38 @@ func (o WhatsappMessageContactUrlsInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageContactUrlsInner struct {
-	value *WhatsappMessageContactUrlsInner
+type NullableWhatsappMessageContactUrl struct {
+	value *WhatsappMessageContactUrl
 	isSet bool
 }
 
-func (v NullableWhatsappMessageContactUrlsInner) Get() *WhatsappMessageContactUrlsInner {
+func (v NullableWhatsappMessageContactUrl) Get() *WhatsappMessageContactUrl {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageContactUrlsInner) Set(val *WhatsappMessageContactUrlsInner) {
+func (v *NullableWhatsappMessageContactUrl) Set(val *WhatsappMessageContactUrl) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageContactUrlsInner) IsSet() bool {
+func (v NullableWhatsappMessageContactUrl) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageContactUrlsInner) Unset() {
+func (v *NullableWhatsappMessageContactUrl) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageContactUrlsInner(val *WhatsappMessageContactUrlsInner) *NullableWhatsappMessageContactUrlsInner {
-	return &NullableWhatsappMessageContactUrlsInner{value: val, isSet: true}
+func NewNullableWhatsappMessageContactUrl(val *WhatsappMessageContactUrl) *NullableWhatsappMessageContactUrl {
+	return &NullableWhatsappMessageContactUrl{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageContactUrlsInner) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageContactUrl) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageContactUrlsInner) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageContactUrl) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

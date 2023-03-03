@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID for the object. | 
-**Wamid** | Pointer to **string** | The native WhatsApp message ID. | [optional] 
+**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional] 
 **WabaId** | **string** | WhatsApp Business Account ID. | 
 **From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
@@ -17,9 +17,12 @@ Name | Type | Description | Notes
 **Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
+**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional] 
 **Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional] 
 **Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
+**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **Status** | Pointer to [**WhatsappMessageStatus**](WhatsappMessageStatus.md) |  | [optional] 
 **ErrorCode** | Pointer to **string** | Error code when the message status is &#x60;failed&#x60;. | [optional] 
@@ -351,6 +354,31 @@ SetDocument sets Document field to given value.
 
 HasDocument returns a boolean if a field has been set.
 
+### GetSticker
+
+`func (o *WhatsappMessage) GetSticker() WhatsappMessageMedia`
+
+GetSticker returns the Sticker field if non-nil, zero value otherwise.
+
+### GetStickerOk
+
+`func (o *WhatsappMessage) GetStickerOk() (*WhatsappMessageMedia, bool)`
+
+GetStickerOk returns a tuple with the Sticker field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSticker
+
+`func (o *WhatsappMessage) SetSticker(v WhatsappMessageMedia)`
+
+SetSticker sets Sticker field to given value.
+
+### HasSticker
+
+`func (o *WhatsappMessage) HasSticker() bool`
+
+HasSticker returns a boolean if a field has been set.
+
 ### GetLocation
 
 `func (o *WhatsappMessage) GetLocation() WhatsappMessageLocation`
@@ -425,6 +453,56 @@ SetContacts sets Contacts field to given value.
 `func (o *WhatsappMessage) HasContacts() bool`
 
 HasContacts returns a boolean if a field has been set.
+
+### GetReaction
+
+`func (o *WhatsappMessage) GetReaction() WhatsappMessageReaction`
+
+GetReaction returns the Reaction field if non-nil, zero value otherwise.
+
+### GetReactionOk
+
+`func (o *WhatsappMessage) GetReactionOk() (*WhatsappMessageReaction, bool)`
+
+GetReactionOk returns a tuple with the Reaction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReaction
+
+`func (o *WhatsappMessage) SetReaction(v WhatsappMessageReaction)`
+
+SetReaction sets Reaction field to given value.
+
+### HasReaction
+
+`func (o *WhatsappMessage) HasReaction() bool`
+
+HasReaction returns a boolean if a field has been set.
+
+### GetContext
+
+`func (o *WhatsappMessage) GetContext() WhatsappMessageContext`
+
+GetContext returns the Context field if non-nil, zero value otherwise.
+
+### GetContextOk
+
+`func (o *WhatsappMessage) GetContextOk() (*WhatsappMessageContext, bool)`
+
+GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContext
+
+`func (o *WhatsappMessage) SetContext(v WhatsappMessageContext)`
+
+SetContext sets Context field to given value.
+
+### HasContext
+
+`func (o *WhatsappMessage) HasContext() bool`
+
+HasContext returns a boolean if a field has been set.
 
 ### GetExternalId
 

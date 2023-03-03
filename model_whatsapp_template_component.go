@@ -17,9 +17,13 @@ import (
 
 // WhatsappTemplateComponent struct for WhatsappTemplateComponent
 type WhatsappTemplateComponent struct {
+	// **Required.** Template component type.
 	Type *string `json:"type,omitempty"`
+	// **Required for type `HEADER`.**
 	Format *string `json:"format,omitempty"`
+	// **Required for type `BODY`, `FOOTER`, and format `TEXT`.**
 	Text *string `json:"text,omitempty"`
+	// **Required for type `BUTTONS`.** The `BUTTONS` component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
 	Buttons []WhatsappTemplateComponentButton `json:"buttons,omitempty"`
 	Example *WhatsappTemplateComponentExample `json:"example,omitempty"`
 }

@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageContactPhonesInner struct for WhatsappMessageContactPhonesInner
-type WhatsappMessageContactPhonesInner struct {
+// WhatsappMessageContactPhone struct for WhatsappMessageContactPhone
+type WhatsappMessageContactPhone struct {
 	// Automatically populated with the `wa_id` value as a formatted phone number.
 	Phone *string `json:"phone,omitempty"`
 	// Standard Values are `CELL`, `MAIN`, `IPHONE`, `HOME`, and `WORK`.
@@ -25,25 +25,25 @@ type WhatsappMessageContactPhonesInner struct {
 	WaId *string `json:"wa_id,omitempty"`
 }
 
-// NewWhatsappMessageContactPhonesInner instantiates a new WhatsappMessageContactPhonesInner object
+// NewWhatsappMessageContactPhone instantiates a new WhatsappMessageContactPhone object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageContactPhonesInner() *WhatsappMessageContactPhonesInner {
-	this := WhatsappMessageContactPhonesInner{}
+func NewWhatsappMessageContactPhone() *WhatsappMessageContactPhone {
+	this := WhatsappMessageContactPhone{}
 	return &this
 }
 
-// NewWhatsappMessageContactPhonesInnerWithDefaults instantiates a new WhatsappMessageContactPhonesInner object
+// NewWhatsappMessageContactPhoneWithDefaults instantiates a new WhatsappMessageContactPhone object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageContactPhonesInnerWithDefaults() *WhatsappMessageContactPhonesInner {
-	this := WhatsappMessageContactPhonesInner{}
+func NewWhatsappMessageContactPhoneWithDefaults() *WhatsappMessageContactPhone {
+	this := WhatsappMessageContactPhone{}
 	return &this
 }
 
 // GetPhone returns the Phone field value if set, zero value otherwise.
-func (o *WhatsappMessageContactPhonesInner) GetPhone() string {
+func (o *WhatsappMessageContactPhone) GetPhone() string {
 	if o == nil || o.Phone == nil {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *WhatsappMessageContactPhonesInner) GetPhone() string {
 
 // GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactPhonesInner) GetPhoneOk() (*string, bool) {
+func (o *WhatsappMessageContactPhone) GetPhoneOk() (*string, bool) {
 	if o == nil || o.Phone == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *WhatsappMessageContactPhonesInner) GetPhoneOk() (*string, bool) {
 }
 
 // HasPhone returns a boolean if a field has been set.
-func (o *WhatsappMessageContactPhonesInner) HasPhone() bool {
+func (o *WhatsappMessageContactPhone) HasPhone() bool {
 	if o != nil && o.Phone != nil {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *WhatsappMessageContactPhonesInner) HasPhone() bool {
 }
 
 // SetPhone gets a reference to the given string and assigns it to the Phone field.
-func (o *WhatsappMessageContactPhonesInner) SetPhone(v string) {
+func (o *WhatsappMessageContactPhone) SetPhone(v string) {
 	o.Phone = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *WhatsappMessageContactPhonesInner) GetType() string {
+func (o *WhatsappMessageContactPhone) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *WhatsappMessageContactPhonesInner) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactPhonesInner) GetTypeOk() (*string, bool) {
+func (o *WhatsappMessageContactPhone) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *WhatsappMessageContactPhonesInner) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *WhatsappMessageContactPhonesInner) HasType() bool {
+func (o *WhatsappMessageContactPhone) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *WhatsappMessageContactPhonesInner) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *WhatsappMessageContactPhonesInner) SetType(v string) {
+func (o *WhatsappMessageContactPhone) SetType(v string) {
 	o.Type = &v
 }
 
 // GetWaId returns the WaId field value if set, zero value otherwise.
-func (o *WhatsappMessageContactPhonesInner) GetWaId() string {
+func (o *WhatsappMessageContactPhone) GetWaId() string {
 	if o == nil || o.WaId == nil {
 		var ret string
 		return ret
@@ -117,7 +117,7 @@ func (o *WhatsappMessageContactPhonesInner) GetWaId() string {
 
 // GetWaIdOk returns a tuple with the WaId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactPhonesInner) GetWaIdOk() (*string, bool) {
+func (o *WhatsappMessageContactPhone) GetWaIdOk() (*string, bool) {
 	if o == nil || o.WaId == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *WhatsappMessageContactPhonesInner) GetWaIdOk() (*string, bool) {
 }
 
 // HasWaId returns a boolean if a field has been set.
-func (o *WhatsappMessageContactPhonesInner) HasWaId() bool {
+func (o *WhatsappMessageContactPhone) HasWaId() bool {
 	if o != nil && o.WaId != nil {
 		return true
 	}
@@ -134,11 +134,11 @@ func (o *WhatsappMessageContactPhonesInner) HasWaId() bool {
 }
 
 // SetWaId gets a reference to the given string and assigns it to the WaId field.
-func (o *WhatsappMessageContactPhonesInner) SetWaId(v string) {
+func (o *WhatsappMessageContactPhone) SetWaId(v string) {
 	o.WaId = &v
 }
 
-func (o WhatsappMessageContactPhonesInner) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageContactPhone) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Phone != nil {
 		toSerialize["phone"] = o.Phone
@@ -152,38 +152,38 @@ func (o WhatsappMessageContactPhonesInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageContactPhonesInner struct {
-	value *WhatsappMessageContactPhonesInner
+type NullableWhatsappMessageContactPhone struct {
+	value *WhatsappMessageContactPhone
 	isSet bool
 }
 
-func (v NullableWhatsappMessageContactPhonesInner) Get() *WhatsappMessageContactPhonesInner {
+func (v NullableWhatsappMessageContactPhone) Get() *WhatsappMessageContactPhone {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageContactPhonesInner) Set(val *WhatsappMessageContactPhonesInner) {
+func (v *NullableWhatsappMessageContactPhone) Set(val *WhatsappMessageContactPhone) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageContactPhonesInner) IsSet() bool {
+func (v NullableWhatsappMessageContactPhone) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageContactPhonesInner) Unset() {
+func (v *NullableWhatsappMessageContactPhone) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageContactPhonesInner(val *WhatsappMessageContactPhonesInner) *NullableWhatsappMessageContactPhonesInner {
-	return &NullableWhatsappMessageContactPhonesInner{value: val, isSet: true}
+func NewNullableWhatsappMessageContactPhone(val *WhatsappMessageContactPhone) *NullableWhatsappMessageContactPhone {
+	return &NullableWhatsappMessageContactPhone{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageContactPhonesInner) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageContactPhone) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageContactPhonesInner) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageContactPhone) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

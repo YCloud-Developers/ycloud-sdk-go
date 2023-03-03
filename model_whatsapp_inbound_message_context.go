@@ -23,7 +23,7 @@ type WhatsappInboundMessageContext struct {
 	FrequentlyForwarded *bool `json:"frequently_forwarded,omitempty"`
 	// **Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the '+' prefix) of the sender of the sent message.
 	From *string `json:"from,omitempty"`
-	// **Optional.**  The `wamid` for the sent message for an inbound reply.
+	// **Optional.**  The `wamid` for the sent message for an inbound reply. `wamid` is the original message ID on WhatsApp’s platform.
 	Id *string `json:"id,omitempty"`
 	ReferredProduct *WhatsappInboundMessageReferredProduct `json:"referred_product,omitempty"`
 }

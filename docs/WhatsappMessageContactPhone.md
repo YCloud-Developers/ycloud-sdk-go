@@ -1,4 +1,4 @@
-# WhatsappMessageContactPhonesInner
+# WhatsappMessageContactPhone
 
 ## Properties
 
@@ -10,95 +10,95 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewWhatsappMessageContactPhonesInner
+### NewWhatsappMessageContactPhone
 
-`func NewWhatsappMessageContactPhonesInner() *WhatsappMessageContactPhonesInner`
+`func NewWhatsappMessageContactPhone() *WhatsappMessageContactPhone`
 
-NewWhatsappMessageContactPhonesInner instantiates a new WhatsappMessageContactPhonesInner object
+NewWhatsappMessageContactPhone instantiates a new WhatsappMessageContactPhone object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewWhatsappMessageContactPhonesInnerWithDefaults
+### NewWhatsappMessageContactPhoneWithDefaults
 
-`func NewWhatsappMessageContactPhonesInnerWithDefaults() *WhatsappMessageContactPhonesInner`
+`func NewWhatsappMessageContactPhoneWithDefaults() *WhatsappMessageContactPhone`
 
-NewWhatsappMessageContactPhonesInnerWithDefaults instantiates a new WhatsappMessageContactPhonesInner object
+NewWhatsappMessageContactPhoneWithDefaults instantiates a new WhatsappMessageContactPhone object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPhone
 
-`func (o *WhatsappMessageContactPhonesInner) GetPhone() string`
+`func (o *WhatsappMessageContactPhone) GetPhone() string`
 
 GetPhone returns the Phone field if non-nil, zero value otherwise.
 
 ### GetPhoneOk
 
-`func (o *WhatsappMessageContactPhonesInner) GetPhoneOk() (*string, bool)`
+`func (o *WhatsappMessageContactPhone) GetPhoneOk() (*string, bool)`
 
 GetPhoneOk returns a tuple with the Phone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPhone
 
-`func (o *WhatsappMessageContactPhonesInner) SetPhone(v string)`
+`func (o *WhatsappMessageContactPhone) SetPhone(v string)`
 
 SetPhone sets Phone field to given value.
 
 ### HasPhone
 
-`func (o *WhatsappMessageContactPhonesInner) HasPhone() bool`
+`func (o *WhatsappMessageContactPhone) HasPhone() bool`
 
 HasPhone returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *WhatsappMessageContactPhonesInner) GetType() string`
+`func (o *WhatsappMessageContactPhone) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *WhatsappMessageContactPhonesInner) GetTypeOk() (*string, bool)`
+`func (o *WhatsappMessageContactPhone) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *WhatsappMessageContactPhonesInner) SetType(v string)`
+`func (o *WhatsappMessageContactPhone) SetType(v string)`
 
 SetType sets Type field to given value.
 
 ### HasType
 
-`func (o *WhatsappMessageContactPhonesInner) HasType() bool`
+`func (o *WhatsappMessageContactPhone) HasType() bool`
 
 HasType returns a boolean if a field has been set.
 
 ### GetWaId
 
-`func (o *WhatsappMessageContactPhonesInner) GetWaId() string`
+`func (o *WhatsappMessageContactPhone) GetWaId() string`
 
 GetWaId returns the WaId field if non-nil, zero value otherwise.
 
 ### GetWaIdOk
 
-`func (o *WhatsappMessageContactPhonesInner) GetWaIdOk() (*string, bool)`
+`func (o *WhatsappMessageContactPhone) GetWaIdOk() (*string, bool)`
 
 GetWaIdOk returns a tuple with the WaId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWaId
 
-`func (o *WhatsappMessageContactPhonesInner) SetWaId(v string)`
+`func (o *WhatsappMessageContactPhone) SetWaId(v string)`
 
 SetWaId sets WaId field to given value.
 
 ### HasWaId
 
-`func (o *WhatsappMessageContactPhonesInner) HasWaId() bool`
+`func (o *WhatsappMessageContactPhone) HasWaId() bool`
 
 HasWaId returns a boolean if a field has been set.
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
-**Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) |  | 
+**Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. | 
 **Status** | Pointer to [**WhatsappTemplateStatus**](WhatsappTemplateStatus.md) |  | [optional] 
 **Reason** | Pointer to **string** | The reason why the template is rejected. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 

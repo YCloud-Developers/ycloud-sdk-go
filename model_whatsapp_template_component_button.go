@@ -17,10 +17,14 @@ import (
 
 // WhatsappTemplateComponentButton struct for WhatsappTemplateComponentButton
 type WhatsappTemplateComponentButton struct {
-	Type *WhatsappTemplateComponentButtonType `json:"type,omitempty"`
-	Text *string `json:"text,omitempty"`
+	Type WhatsappTemplateComponentButtonType `json:"type"`
+	// **Required.** Button text.
+	Text string `json:"text"`
+	// **Required for button type `URL`.**  There can be at most 1 variable at the end of the URL.
 	Url *string `json:"url,omitempty"`
+	// **Required for button type `PHONE_NUMBER`.**
 	PhoneNumber *string `json:"phone_number,omitempty"`
+	// Sample full URL for a `URL` button with a variable.
 	Example []string `json:"example,omitempty"`
 }
 
@@ -28,8 +32,10 @@ type WhatsappTemplateComponentButton struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappTemplateComponentButton() *WhatsappTemplateComponentButton {
+func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType, text string) *WhatsappTemplateComponentButton {
 	this := WhatsappTemplateComponentButton{}
+	this.Type = type_
+	this.Text = text
 	return &this
 }
 
@@ -41,68 +47,52 @@ func NewWhatsappTemplateComponentButtonWithDefaults() *WhatsappTemplateComponent
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *WhatsappTemplateComponentButton) GetType() WhatsappTemplateComponentButtonType {
-	if o == nil || o.Type == nil {
+	if o == nil {
 		var ret WhatsappTemplateComponentButtonType
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplateComponentButton) GetTypeOk() (*WhatsappTemplateComponentButtonType, bool) {
-	if o == nil || o.Type == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *WhatsappTemplateComponentButton) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given WhatsappTemplateComponentButtonType and assigns it to the Type field.
+// SetType sets field value
 func (o *WhatsappTemplateComponentButton) SetType(v WhatsappTemplateComponentButtonType) {
-	o.Type = &v
+	o.Type = v
 }
 
-// GetText returns the Text field value if set, zero value otherwise.
+// GetText returns the Text field value
 func (o *WhatsappTemplateComponentButton) GetText() string {
-	if o == nil || o.Text == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Text
+
+	return o.Text
 }
 
-// GetTextOk returns a tuple with the Text field value if set, nil otherwise
+// GetTextOk returns a tuple with the Text field value
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplateComponentButton) GetTextOk() (*string, bool) {
-	if o == nil || o.Text == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Text, true
+	return &o.Text, true
 }
 
-// HasText returns a boolean if a field has been set.
-func (o *WhatsappTemplateComponentButton) HasText() bool {
-	if o != nil && o.Text != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetText gets a reference to the given string and assigns it to the Text field.
+// SetText sets field value
 func (o *WhatsappTemplateComponentButton) SetText(v string) {
-	o.Text = &v
+	o.Text = v
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise.
@@ -203,10 +193,10 @@ func (o *WhatsappTemplateComponentButton) SetExample(v []string) {
 
 func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type != nil {
+	if true {
 		toSerialize["type"] = o.Type
 	}
-	if o.Text != nil {
+	if true {
 		toSerialize["text"] = o.Text
 	}
 	if o.Url != nil {

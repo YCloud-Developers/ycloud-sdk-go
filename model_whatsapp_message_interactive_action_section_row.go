@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveActionSectionsInnerRowsInner struct for WhatsappMessageInteractiveActionSectionsInnerRowsInner
-type WhatsappMessageInteractiveActionSectionsInnerRowsInner struct {
+// WhatsappMessageInteractiveActionSectionRow struct for WhatsappMessageInteractiveActionSectionRow
+type WhatsappMessageInteractiveActionSectionRow struct {
 	// Unique row ID.
 	Id *string `json:"id,omitempty"`
 	// Row title content.
@@ -25,25 +25,25 @@ type WhatsappMessageInteractiveActionSectionsInnerRowsInner struct {
 	Description *string `json:"description,omitempty"`
 }
 
-// NewWhatsappMessageInteractiveActionSectionsInnerRowsInner instantiates a new WhatsappMessageInteractiveActionSectionsInnerRowsInner object
+// NewWhatsappMessageInteractiveActionSectionRow instantiates a new WhatsappMessageInteractiveActionSectionRow object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageInteractiveActionSectionsInnerRowsInner() *WhatsappMessageInteractiveActionSectionsInnerRowsInner {
-	this := WhatsappMessageInteractiveActionSectionsInnerRowsInner{}
+func NewWhatsappMessageInteractiveActionSectionRow() *WhatsappMessageInteractiveActionSectionRow {
+	this := WhatsappMessageInteractiveActionSectionRow{}
 	return &this
 }
 
-// NewWhatsappMessageInteractiveActionSectionsInnerRowsInnerWithDefaults instantiates a new WhatsappMessageInteractiveActionSectionsInnerRowsInner object
+// NewWhatsappMessageInteractiveActionSectionRowWithDefaults instantiates a new WhatsappMessageInteractiveActionSectionRow object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageInteractiveActionSectionsInnerRowsInnerWithDefaults() *WhatsappMessageInteractiveActionSectionsInnerRowsInner {
-	this := WhatsappMessageInteractiveActionSectionsInnerRowsInner{}
+func NewWhatsappMessageInteractiveActionSectionRowWithDefaults() *WhatsappMessageInteractiveActionSectionRow {
+	this := WhatsappMessageInteractiveActionSectionRow{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetId() string {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetId() string 
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetIdOk() (*string, bool) {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetIdOk() (*str
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasId() bool {
+func (o *WhatsappMessageInteractiveActionSectionRow) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) SetId(v string) {
+func (o *WhatsappMessageInteractiveActionSectionRow) SetId(v string) {
 	o.Id = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetTitle() string {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetTitle() string {
 	if o == nil || o.Title == nil {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetTitle() stri
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetTitleOk() (*string, bool) {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetTitleOk() (*string, bool) {
 	if o == nil || o.Title == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetTitleOk() (*
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasTitle() bool {
+func (o *WhatsappMessageInteractiveActionSectionRow) HasTitle() bool {
 	if o != nil && o.Title != nil {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasTitle() bool
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) SetTitle(v string) {
+func (o *WhatsappMessageInteractiveActionSectionRow) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetDescription() string {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetDescription() string {
 	if o == nil || o.Description == nil {
 		var ret string
 		return ret
@@ -117,7 +117,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetDescription(
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetDescriptionOk() (*string, bool) {
+func (o *WhatsappMessageInteractiveActionSectionRow) GetDescriptionOk() (*string, bool) {
 	if o == nil || o.Description == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) GetDescriptionO
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasDescription() bool {
+func (o *WhatsappMessageInteractiveActionSectionRow) HasDescription() bool {
 	if o != nil && o.Description != nil {
 		return true
 	}
@@ -134,11 +134,11 @@ func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) HasDescription(
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *WhatsappMessageInteractiveActionSectionsInnerRowsInner) SetDescription(v string) {
+func (o *WhatsappMessageInteractiveActionSectionRow) SetDescription(v string) {
 	o.Description = &v
 }
 
-func (o WhatsappMessageInteractiveActionSectionsInnerRowsInner) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageInteractiveActionSectionRow) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
@@ -152,38 +152,38 @@ func (o WhatsappMessageInteractiveActionSectionsInnerRowsInner) MarshalJSON() ([
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner struct {
-	value *WhatsappMessageInteractiveActionSectionsInnerRowsInner
+type NullableWhatsappMessageInteractiveActionSectionRow struct {
+	value *WhatsappMessageInteractiveActionSectionRow
 	isSet bool
 }
 
-func (v NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) Get() *WhatsappMessageInteractiveActionSectionsInnerRowsInner {
+func (v NullableWhatsappMessageInteractiveActionSectionRow) Get() *WhatsappMessageInteractiveActionSectionRow {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) Set(val *WhatsappMessageInteractiveActionSectionsInnerRowsInner) {
+func (v *NullableWhatsappMessageInteractiveActionSectionRow) Set(val *WhatsappMessageInteractiveActionSectionRow) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) IsSet() bool {
+func (v NullableWhatsappMessageInteractiveActionSectionRow) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) Unset() {
+func (v *NullableWhatsappMessageInteractiveActionSectionRow) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageInteractiveActionSectionsInnerRowsInner(val *WhatsappMessageInteractiveActionSectionsInnerRowsInner) *NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner {
-	return &NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner{value: val, isSet: true}
+func NewNullableWhatsappMessageInteractiveActionSectionRow(val *WhatsappMessageInteractiveActionSectionRow) *NullableWhatsappMessageInteractiveActionSectionRow {
+	return &NullableWhatsappMessageInteractiveActionSectionRow{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageInteractiveActionSectionRow) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageInteractiveActionSectionsInnerRowsInner) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageInteractiveActionSectionRow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

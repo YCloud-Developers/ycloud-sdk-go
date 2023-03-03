@@ -20,7 +20,7 @@ import (
 type WhatsappInboundMessage struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
-	// The native WhatsApp message ID.
+	// The original message ID on WhatsApp's platform.
 	Wamid *string `json:"wamid,omitempty"`
 	// WhatsApp Business Account ID.
 	WabaId *string `json:"wabaId,omitempty"`
@@ -42,7 +42,7 @@ type WhatsappInboundMessage struct {
 	Location *WhatsappInboundMessageLocation `json:"location,omitempty"`
 	Button *WhatsappInboundMessageButton `json:"button,omitempty"`
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
-	Reaction *WhatsappInboundMessageReaction `json:"reaction,omitempty"`
+	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
 	Order *WhatsappInboundMessageOrder `json:"order,omitempty"`
 	System *WhatsappInboundMessageSystem `json:"system,omitempty"`
 	Errors []WhatsappInboundMessageError `json:"errors,omitempty"`
@@ -637,9 +637,9 @@ func (o *WhatsappInboundMessage) SetContacts(v []WhatsappMessageContact) {
 }
 
 // GetReaction returns the Reaction field value if set, zero value otherwise.
-func (o *WhatsappInboundMessage) GetReaction() WhatsappInboundMessageReaction {
+func (o *WhatsappInboundMessage) GetReaction() WhatsappMessageReaction {
 	if o == nil || o.Reaction == nil {
-		var ret WhatsappInboundMessageReaction
+		var ret WhatsappMessageReaction
 		return ret
 	}
 	return *o.Reaction
@@ -647,7 +647,7 @@ func (o *WhatsappInboundMessage) GetReaction() WhatsappInboundMessageReaction {
 
 // GetReactionOk returns a tuple with the Reaction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessage) GetReactionOk() (*WhatsappInboundMessageReaction, bool) {
+func (o *WhatsappInboundMessage) GetReactionOk() (*WhatsappMessageReaction, bool) {
 	if o == nil || o.Reaction == nil {
 		return nil, false
 	}
@@ -663,8 +663,8 @@ func (o *WhatsappInboundMessage) HasReaction() bool {
 	return false
 }
 
-// SetReaction gets a reference to the given WhatsappInboundMessageReaction and assigns it to the Reaction field.
-func (o *WhatsappInboundMessage) SetReaction(v WhatsappInboundMessageReaction) {
+// SetReaction gets a reference to the given WhatsappMessageReaction and assigns it to the Reaction field.
+func (o *WhatsappInboundMessage) SetReaction(v WhatsappMessageReaction) {
 	o.Reaction = &v
 }
 

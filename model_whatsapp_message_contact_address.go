@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageContactAddressesInner Full contact address(es) formatted as an addresses object.
-type WhatsappMessageContactAddressesInner struct {
+// WhatsappMessageContactAddress Full contact address(es) formatted as an addresses object.
+type WhatsappMessageContactAddress struct {
 	// Street number and name.
 	Street *string `json:"street,omitempty"`
 	// City name.
@@ -33,25 +33,25 @@ type WhatsappMessageContactAddressesInner struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// NewWhatsappMessageContactAddressesInner instantiates a new WhatsappMessageContactAddressesInner object
+// NewWhatsappMessageContactAddress instantiates a new WhatsappMessageContactAddress object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageContactAddressesInner() *WhatsappMessageContactAddressesInner {
-	this := WhatsappMessageContactAddressesInner{}
+func NewWhatsappMessageContactAddress() *WhatsappMessageContactAddress {
+	this := WhatsappMessageContactAddress{}
 	return &this
 }
 
-// NewWhatsappMessageContactAddressesInnerWithDefaults instantiates a new WhatsappMessageContactAddressesInner object
+// NewWhatsappMessageContactAddressWithDefaults instantiates a new WhatsappMessageContactAddress object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageContactAddressesInnerWithDefaults() *WhatsappMessageContactAddressesInner {
-	this := WhatsappMessageContactAddressesInner{}
+func NewWhatsappMessageContactAddressWithDefaults() *WhatsappMessageContactAddress {
+	this := WhatsappMessageContactAddress{}
 	return &this
 }
 
 // GetStreet returns the Street field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetStreet() string {
+func (o *WhatsappMessageContactAddress) GetStreet() string {
 	if o == nil || o.Street == nil {
 		var ret string
 		return ret
@@ -61,7 +61,7 @@ func (o *WhatsappMessageContactAddressesInner) GetStreet() string {
 
 // GetStreetOk returns a tuple with the Street field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetStreetOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetStreetOk() (*string, bool) {
 	if o == nil || o.Street == nil {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *WhatsappMessageContactAddressesInner) GetStreetOk() (*string, bool) {
 }
 
 // HasStreet returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasStreet() bool {
+func (o *WhatsappMessageContactAddress) HasStreet() bool {
 	if o != nil && o.Street != nil {
 		return true
 	}
@@ -78,12 +78,12 @@ func (o *WhatsappMessageContactAddressesInner) HasStreet() bool {
 }
 
 // SetStreet gets a reference to the given string and assigns it to the Street field.
-func (o *WhatsappMessageContactAddressesInner) SetStreet(v string) {
+func (o *WhatsappMessageContactAddress) SetStreet(v string) {
 	o.Street = &v
 }
 
 // GetCity returns the City field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetCity() string {
+func (o *WhatsappMessageContactAddress) GetCity() string {
 	if o == nil || o.City == nil {
 		var ret string
 		return ret
@@ -93,7 +93,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCity() string {
 
 // GetCityOk returns a tuple with the City field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetCityOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetCityOk() (*string, bool) {
 	if o == nil || o.City == nil {
 		return nil, false
 	}
@@ -101,7 +101,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCityOk() (*string, bool) {
 }
 
 // HasCity returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasCity() bool {
+func (o *WhatsappMessageContactAddress) HasCity() bool {
 	if o != nil && o.City != nil {
 		return true
 	}
@@ -110,12 +110,12 @@ func (o *WhatsappMessageContactAddressesInner) HasCity() bool {
 }
 
 // SetCity gets a reference to the given string and assigns it to the City field.
-func (o *WhatsappMessageContactAddressesInner) SetCity(v string) {
+func (o *WhatsappMessageContactAddress) SetCity(v string) {
 	o.City = &v
 }
 
 // GetState returns the State field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetState() string {
+func (o *WhatsappMessageContactAddress) GetState() string {
 	if o == nil || o.State == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *WhatsappMessageContactAddressesInner) GetState() string {
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetStateOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetStateOk() (*string, bool) {
 	if o == nil || o.State == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *WhatsappMessageContactAddressesInner) GetStateOk() (*string, bool) {
 }
 
 // HasState returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasState() bool {
+func (o *WhatsappMessageContactAddress) HasState() bool {
 	if o != nil && o.State != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *WhatsappMessageContactAddressesInner) HasState() bool {
 }
 
 // SetState gets a reference to the given string and assigns it to the State field.
-func (o *WhatsappMessageContactAddressesInner) SetState(v string) {
+func (o *WhatsappMessageContactAddress) SetState(v string) {
 	o.State = &v
 }
 
 // GetZip returns the Zip field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetZip() string {
+func (o *WhatsappMessageContactAddress) GetZip() string {
 	if o == nil || o.Zip == nil {
 		var ret string
 		return ret
@@ -157,7 +157,7 @@ func (o *WhatsappMessageContactAddressesInner) GetZip() string {
 
 // GetZipOk returns a tuple with the Zip field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetZipOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetZipOk() (*string, bool) {
 	if o == nil || o.Zip == nil {
 		return nil, false
 	}
@@ -165,7 +165,7 @@ func (o *WhatsappMessageContactAddressesInner) GetZipOk() (*string, bool) {
 }
 
 // HasZip returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasZip() bool {
+func (o *WhatsappMessageContactAddress) HasZip() bool {
 	if o != nil && o.Zip != nil {
 		return true
 	}
@@ -174,12 +174,12 @@ func (o *WhatsappMessageContactAddressesInner) HasZip() bool {
 }
 
 // SetZip gets a reference to the given string and assigns it to the Zip field.
-func (o *WhatsappMessageContactAddressesInner) SetZip(v string) {
+func (o *WhatsappMessageContactAddress) SetZip(v string) {
 	o.Zip = &v
 }
 
 // GetCountry returns the Country field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetCountry() string {
+func (o *WhatsappMessageContactAddress) GetCountry() string {
 	if o == nil || o.Country == nil {
 		var ret string
 		return ret
@@ -189,7 +189,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCountry() string {
 
 // GetCountryOk returns a tuple with the Country field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetCountryOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetCountryOk() (*string, bool) {
 	if o == nil || o.Country == nil {
 		return nil, false
 	}
@@ -197,7 +197,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCountryOk() (*string, bool) {
 }
 
 // HasCountry returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasCountry() bool {
+func (o *WhatsappMessageContactAddress) HasCountry() bool {
 	if o != nil && o.Country != nil {
 		return true
 	}
@@ -206,12 +206,12 @@ func (o *WhatsappMessageContactAddressesInner) HasCountry() bool {
 }
 
 // SetCountry gets a reference to the given string and assigns it to the Country field.
-func (o *WhatsappMessageContactAddressesInner) SetCountry(v string) {
+func (o *WhatsappMessageContactAddress) SetCountry(v string) {
 	o.Country = &v
 }
 
 // GetCountryCode returns the CountryCode field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetCountryCode() string {
+func (o *WhatsappMessageContactAddress) GetCountryCode() string {
 	if o == nil || o.CountryCode == nil {
 		var ret string
 		return ret
@@ -221,7 +221,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCountryCode() string {
 
 // GetCountryCodeOk returns a tuple with the CountryCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetCountryCodeOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetCountryCodeOk() (*string, bool) {
 	if o == nil || o.CountryCode == nil {
 		return nil, false
 	}
@@ -229,7 +229,7 @@ func (o *WhatsappMessageContactAddressesInner) GetCountryCodeOk() (*string, bool
 }
 
 // HasCountryCode returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasCountryCode() bool {
+func (o *WhatsappMessageContactAddress) HasCountryCode() bool {
 	if o != nil && o.CountryCode != nil {
 		return true
 	}
@@ -238,12 +238,12 @@ func (o *WhatsappMessageContactAddressesInner) HasCountryCode() bool {
 }
 
 // SetCountryCode gets a reference to the given string and assigns it to the CountryCode field.
-func (o *WhatsappMessageContactAddressesInner) SetCountryCode(v string) {
+func (o *WhatsappMessageContactAddress) SetCountryCode(v string) {
 	o.CountryCode = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *WhatsappMessageContactAddressesInner) GetType() string {
+func (o *WhatsappMessageContactAddress) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -253,7 +253,7 @@ func (o *WhatsappMessageContactAddressesInner) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappMessageContactAddressesInner) GetTypeOk() (*string, bool) {
+func (o *WhatsappMessageContactAddress) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -261,7 +261,7 @@ func (o *WhatsappMessageContactAddressesInner) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *WhatsappMessageContactAddressesInner) HasType() bool {
+func (o *WhatsappMessageContactAddress) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -270,11 +270,11 @@ func (o *WhatsappMessageContactAddressesInner) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *WhatsappMessageContactAddressesInner) SetType(v string) {
+func (o *WhatsappMessageContactAddress) SetType(v string) {
 	o.Type = &v
 }
 
-func (o WhatsappMessageContactAddressesInner) MarshalJSON() ([]byte, error) {
+func (o WhatsappMessageContactAddress) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Street != nil {
 		toSerialize["street"] = o.Street
@@ -300,38 +300,38 @@ func (o WhatsappMessageContactAddressesInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableWhatsappMessageContactAddressesInner struct {
-	value *WhatsappMessageContactAddressesInner
+type NullableWhatsappMessageContactAddress struct {
+	value *WhatsappMessageContactAddress
 	isSet bool
 }
 
-func (v NullableWhatsappMessageContactAddressesInner) Get() *WhatsappMessageContactAddressesInner {
+func (v NullableWhatsappMessageContactAddress) Get() *WhatsappMessageContactAddress {
 	return v.value
 }
 
-func (v *NullableWhatsappMessageContactAddressesInner) Set(val *WhatsappMessageContactAddressesInner) {
+func (v *NullableWhatsappMessageContactAddress) Set(val *WhatsappMessageContactAddress) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWhatsappMessageContactAddressesInner) IsSet() bool {
+func (v NullableWhatsappMessageContactAddress) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWhatsappMessageContactAddressesInner) Unset() {
+func (v *NullableWhatsappMessageContactAddress) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWhatsappMessageContactAddressesInner(val *WhatsappMessageContactAddressesInner) *NullableWhatsappMessageContactAddressesInner {
-	return &NullableWhatsappMessageContactAddressesInner{value: val, isSet: true}
+func NewNullableWhatsappMessageContactAddress(val *WhatsappMessageContactAddress) *NullableWhatsappMessageContactAddress {
+	return &NullableWhatsappMessageContactAddress{value: val, isSet: true}
 }
 
-func (v NullableWhatsappMessageContactAddressesInner) MarshalJSON() ([]byte, error) {
+func (v NullableWhatsappMessageContactAddress) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWhatsappMessageContactAddressesInner) UnmarshalJSON(src []byte) error {
+func (v *NullableWhatsappMessageContactAddress) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
