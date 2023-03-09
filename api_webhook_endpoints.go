@@ -42,7 +42,7 @@ func (r WebhookEndpointsApiCreateRequest) Execute() (*WebhookEndpoint, *http.Res
 /*
 Create Create a webhook endpoint
 
-Creates a webhook endpoint listening the specified events.
+Creates a webhook endpoint listening for specific events.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WebhookEndpointsApiCreateRequest

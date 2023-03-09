@@ -27,6 +27,8 @@ type Error struct {
 	Target *string `json:"target,omitempty"`
 	// A URL to more information about the error.
 	DocUrl *string `json:"docUrl,omitempty"`
+	// Each API request has an associated request ID. It conveys the response header `YCloud-Request-ID` used for the convenience of the consumer.
+	RequestId *string `json:"requestId,omitempty"`
 }
 
 // NewError instantiates a new Error object
@@ -192,6 +194,38 @@ func (o *Error) SetDocUrl(v string) {
 	o.DocUrl = &v
 }
 
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
+func (o *Error) GetRequestId() string {
+	if o == nil || o.RequestId == nil {
+		var ret string
+		return ret
+	}
+	return *o.RequestId
+}
+
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Error) GetRequestIdOk() (*string, bool) {
+	if o == nil || o.RequestId == nil {
+		return nil, false
+	}
+	return o.RequestId, true
+}
+
+// HasRequestId returns a boolean if a field has been set.
+func (o *Error) HasRequestId() bool {
+	if o != nil && o.RequestId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+func (o *Error) SetRequestId(v string) {
+	o.RequestId = &v
+}
+
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -208,6 +242,9 @@ func (o Error) MarshalJSON() ([]byte, error) {
 	}
 	if o.DocUrl != nil {
 		toSerialize["docUrl"] = o.DocUrl
+	}
+	if o.RequestId != nil {
+		toSerialize["requestId"] = o.RequestId
 	}
 	return json.Marshal(toSerialize)
 }

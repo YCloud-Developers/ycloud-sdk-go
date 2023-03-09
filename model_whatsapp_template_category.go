@@ -16,20 +16,24 @@ import (
 	"fmt"
 )
 
-// WhatsappTemplateCategory Category of WhatsApp templates. `TRANSACTIONAL`: Send account updates, order updates, alerts, and more to share important information. `MARKETING`: Send promotional offers, product announcements, and more to increase awareness and engagement. `OTP`: Send codes that allow your customers to access their accounts.
+// WhatsappTemplateCategory Category of WhatsApp templates. - `AUTHENTICATION`: Enable businesses to authenticate users with one-time passcodes, potentially at multiple steps in the login process (e.g., account verification, account recovery, integrity challenges). - `MARKETING`: Include promotions or offers, informational updates, or invitations for customers to respond / take action. Any conversation that does not qualify as utility or authentication is a marketing conversation. - `UTILITY`: Facilitate a specific, agreed-upon request or transaction or update to a customer about an ongoing transaction, including post-purchase notifications and recurring billing statements. - `TRANSACTIONAL`: Valid until 2023-05-01. Send account updates, order updates, alerts, and more to share important information. - `OTP`: Valid until 2023-05-01. Send codes that allow your customers to access their accounts.
 type WhatsappTemplateCategory string
 
 // List of WhatsappTemplateCategory
 const (
-	WHATSAPPTEMPLATECATEGORY_TRANSACTIONAL WhatsappTemplateCategory = "TRANSACTIONAL"
+	WHATSAPPTEMPLATECATEGORY_AUTHENTICATION WhatsappTemplateCategory = "AUTHENTICATION"
 	WHATSAPPTEMPLATECATEGORY_MARKETING WhatsappTemplateCategory = "MARKETING"
+	WHATSAPPTEMPLATECATEGORY_UTILITY WhatsappTemplateCategory = "UTILITY"
+	WHATSAPPTEMPLATECATEGORY_TRANSACTIONAL WhatsappTemplateCategory = "TRANSACTIONAL"
 	WHATSAPPTEMPLATECATEGORY_OTP WhatsappTemplateCategory = "OTP"
 )
 
 // All allowed values of WhatsappTemplateCategory enum
 var AllowedWhatsappTemplateCategoryEnumValues = []WhatsappTemplateCategory{
-	"TRANSACTIONAL",
+	"AUTHENTICATION",
 	"MARKETING",
+	"UTILITY",
+	"TRANSACTIONAL",
 	"OTP",
 }
 

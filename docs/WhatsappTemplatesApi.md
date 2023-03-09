@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    whatsappTemplateCreateRequest := *ycloud.NewWhatsappTemplateCreateRequest("whatsapp-business-account-id", "sample_whatsapp_template", "en", ycloud.WhatsappTemplateCategory("TRANSACTIONAL"), []ycloud.WhatsappTemplateComponent{*ycloud.NewWhatsappTemplateComponent()}) // WhatsappTemplateCreateRequest | 
+    whatsappTemplateCreateRequest := *ycloud.NewWhatsappTemplateCreateRequest("whatsapp-business-account-id", "sample_whatsapp_template", "en", ycloud.WhatsappTemplateCategory("AUTHENTICATION"), []ycloud.WhatsappTemplateComponent{*ycloud.NewWhatsappTemplateComponent()}) // WhatsappTemplateCreateRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
