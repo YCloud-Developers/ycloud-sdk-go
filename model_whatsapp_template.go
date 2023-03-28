@@ -25,6 +25,8 @@ type WhatsappTemplate struct {
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
+	// This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
+	PreviousCategory *string `json:"previousCategory,omitempty"`
 	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
 	Components []WhatsappTemplateComponent `json:"components"`
 	Status *WhatsappTemplateStatus `json:"status,omitempty"`
@@ -156,6 +158,38 @@ func (o *WhatsappTemplate) GetCategoryOk() (*WhatsappTemplateCategory, bool) {
 // SetCategory sets field value
 func (o *WhatsappTemplate) SetCategory(v WhatsappTemplateCategory) {
 	o.Category = v
+}
+
+// GetPreviousCategory returns the PreviousCategory field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetPreviousCategory() string {
+	if o == nil || o.PreviousCategory == nil {
+		var ret string
+		return ret
+	}
+	return *o.PreviousCategory
+}
+
+// GetPreviousCategoryOk returns a tuple with the PreviousCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetPreviousCategoryOk() (*string, bool) {
+	if o == nil || o.PreviousCategory == nil {
+		return nil, false
+	}
+	return o.PreviousCategory, true
+}
+
+// HasPreviousCategory returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasPreviousCategory() bool {
+	if o != nil && o.PreviousCategory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPreviousCategory gets a reference to the given string and assigns it to the PreviousCategory field.
+func (o *WhatsappTemplate) SetPreviousCategory(v string) {
+	o.PreviousCategory = &v
 }
 
 // GetComponents returns the Components field value
@@ -419,6 +453,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["category"] = o.Category
+	}
+	if o.PreviousCategory != nil {
+		toSerialize["previousCategory"] = o.PreviousCategory
 	}
 	if true {
 		toSerialize["components"] = o.Components

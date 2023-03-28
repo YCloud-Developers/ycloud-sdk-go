@@ -18,12 +18,19 @@ import (
 // WhatsappTemplateComponentButton struct for WhatsappTemplateComponentButton
 type WhatsappTemplateComponentButton struct {
 	Type WhatsappTemplateComponentButtonType `json:"type"`
-	// **Required.** Button text.
+	// **Required.** Button text. For `OTP` buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
 	Text string `json:"text"`
 	// **Required for button type `URL`.**  There can be at most 1 variable at the end of the URL.
 	Url *string `json:"url,omitempty"`
 	// **Required for button type `PHONE_NUMBER`.**
 	PhoneNumber *string `json:"phone_number,omitempty"`
+	OtpType *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
+	// **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+	AutofillText *string `json:"autofill_text,omitempty"`
+	// **One-tap buttons only.** Your Android app's package name.
+	PackageName *string `json:"package_name,omitempty"`
+	// **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+	SignatureHash *string `json:"signature_hash,omitempty"`
 	// Sample full URL for a `URL` button with a variable.
 	Example []string `json:"example,omitempty"`
 }
@@ -159,6 +166,134 @@ func (o *WhatsappTemplateComponentButton) SetPhoneNumber(v string) {
 	o.PhoneNumber = &v
 }
 
+// GetOtpType returns the OtpType field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetOtpType() WhatsappTemplateComponentButtonOtpType {
+	if o == nil || o.OtpType == nil {
+		var ret WhatsappTemplateComponentButtonOtpType
+		return ret
+	}
+	return *o.OtpType
+}
+
+// GetOtpTypeOk returns a tuple with the OtpType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetOtpTypeOk() (*WhatsappTemplateComponentButtonOtpType, bool) {
+	if o == nil || o.OtpType == nil {
+		return nil, false
+	}
+	return o.OtpType, true
+}
+
+// HasOtpType returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasOtpType() bool {
+	if o != nil && o.OtpType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOtpType gets a reference to the given WhatsappTemplateComponentButtonOtpType and assigns it to the OtpType field.
+func (o *WhatsappTemplateComponentButton) SetOtpType(v WhatsappTemplateComponentButtonOtpType) {
+	o.OtpType = &v
+}
+
+// GetAutofillText returns the AutofillText field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetAutofillText() string {
+	if o == nil || o.AutofillText == nil {
+		var ret string
+		return ret
+	}
+	return *o.AutofillText
+}
+
+// GetAutofillTextOk returns a tuple with the AutofillText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetAutofillTextOk() (*string, bool) {
+	if o == nil || o.AutofillText == nil {
+		return nil, false
+	}
+	return o.AutofillText, true
+}
+
+// HasAutofillText returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasAutofillText() bool {
+	if o != nil && o.AutofillText != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAutofillText gets a reference to the given string and assigns it to the AutofillText field.
+func (o *WhatsappTemplateComponentButton) SetAutofillText(v string) {
+	o.AutofillText = &v
+}
+
+// GetPackageName returns the PackageName field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetPackageName() string {
+	if o == nil || o.PackageName == nil {
+		var ret string
+		return ret
+	}
+	return *o.PackageName
+}
+
+// GetPackageNameOk returns a tuple with the PackageName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetPackageNameOk() (*string, bool) {
+	if o == nil || o.PackageName == nil {
+		return nil, false
+	}
+	return o.PackageName, true
+}
+
+// HasPackageName returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasPackageName() bool {
+	if o != nil && o.PackageName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPackageName gets a reference to the given string and assigns it to the PackageName field.
+func (o *WhatsappTemplateComponentButton) SetPackageName(v string) {
+	o.PackageName = &v
+}
+
+// GetSignatureHash returns the SignatureHash field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetSignatureHash() string {
+	if o == nil || o.SignatureHash == nil {
+		var ret string
+		return ret
+	}
+	return *o.SignatureHash
+}
+
+// GetSignatureHashOk returns a tuple with the SignatureHash field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetSignatureHashOk() (*string, bool) {
+	if o == nil || o.SignatureHash == nil {
+		return nil, false
+	}
+	return o.SignatureHash, true
+}
+
+// HasSignatureHash returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasSignatureHash() bool {
+	if o != nil && o.SignatureHash != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSignatureHash gets a reference to the given string and assigns it to the SignatureHash field.
+func (o *WhatsappTemplateComponentButton) SetSignatureHash(v string) {
+	o.SignatureHash = &v
+}
+
 // GetExample returns the Example field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponentButton) GetExample() []string {
 	if o == nil || o.Example == nil {
@@ -204,6 +339,18 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.PhoneNumber != nil {
 		toSerialize["phone_number"] = o.PhoneNumber
+	}
+	if o.OtpType != nil {
+		toSerialize["otp_type"] = o.OtpType
+	}
+	if o.AutofillText != nil {
+		toSerialize["autofill_text"] = o.AutofillText
+	}
+	if o.PackageName != nil {
+		toSerialize["package_name"] = o.PackageName
+	}
+	if o.SignatureHash != nil {
+		toSerialize["signature_hash"] = o.SignatureHash
 	}
 	if o.Example != nil {
 		toSerialize["example"] = o.Example

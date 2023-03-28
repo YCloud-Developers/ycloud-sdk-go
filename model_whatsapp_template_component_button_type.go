@@ -24,6 +24,7 @@ const (
 	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_PHONE_NUMBER WhatsappTemplateComponentButtonType = "PHONE_NUMBER"
 	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_URL WhatsappTemplateComponentButtonType = "URL"
 	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_QUICK_REPLY WhatsappTemplateComponentButtonType = "QUICK_REPLY"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_OTP WhatsappTemplateComponentButtonType = "OTP"
 )
 
 // All allowed values of WhatsappTemplateComponentButtonType enum
@@ -31,6 +32,7 @@ var AllowedWhatsappTemplateComponentButtonTypeEnumValues = []WhatsappTemplateCom
 	"PHONE_NUMBER",
 	"URL",
 	"QUICK_REPLY",
+	"OTP",
 }
 
 func (v *WhatsappTemplateComponentButtonType) UnmarshalJSON(src []byte) error {

@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// WhatsappConversationOriginType Indicates who initiated the conversation. `business_initiated`: Indicates that the conversation started by a business sending the first message to a customer. This applies any time it has been more than 24 hours since the last customer message. `user_initiated`: Indicates that the conversation started by a business replying to a customer message. This applies only when the business reply is within 24 hours of the last customer message. `referral_conversion`: Indicates that the conversation originated from a free entry point. These conversations are always customer-initiated.
+// WhatsappConversationOriginType Indicates who initiated the conversation. **Note: Starting June 1, 2023, `business_initiated` will be replaced with `authentication`, `marketing`, and `utility`, while `user_initiated` will be replaced with `service`. For more information, see also [Updates to conversation-based pricing: Effective June 1, 2023](https://developers.facebook.com/docs/whatsapp/updates-to-pricing).**  `business_initiated`: Indicates that the conversation started by a business sending the first message to a customer. This applies any time it has been more than 24 hours since the last customer message. `user_initiated`: Indicates that the conversation started by a business replying to a customer message. This applies only when the business reply is within 24 hours of the last customer message. `referral_conversion`: Indicates the user initiated the conversation by clicking a [Click to WhatsApp ad](https://www.facebook.com/business/help/447934475640650) or a [Facebook Page Call-to-Action button](https://www.facebook.com/help/977869848936797). `authentication`: Indicates the business initiated the conversation with a message template categorized as `AUTHENTICATION`. `marketing`: Indicates the business initiated the conversation with a message template categorized as `MARKETING`. `utility`: Indicates the business initiated the conversation with a message template categorized as `UTILITY`. `service`: Indicates the user initiated the conversation.
 type WhatsappConversationOriginType string
 
 // List of WhatsappConversationOriginType
@@ -24,6 +24,10 @@ const (
 	WHATSAPPCONVERSATIONORIGINTYPE_BUSINESS_INITIATED WhatsappConversationOriginType = "business_initiated"
 	WHATSAPPCONVERSATIONORIGINTYPE_USER_INITIATED WhatsappConversationOriginType = "user_initiated"
 	WHATSAPPCONVERSATIONORIGINTYPE_REFERRAL_CONVERSION WhatsappConversationOriginType = "referral_conversion"
+	WHATSAPPCONVERSATIONORIGINTYPE_AUTHENTICATION WhatsappConversationOriginType = "authentication"
+	WHATSAPPCONVERSATIONORIGINTYPE_MARKETING WhatsappConversationOriginType = "marketing"
+	WHATSAPPCONVERSATIONORIGINTYPE_UTILITY WhatsappConversationOriginType = "utility"
+	WHATSAPPCONVERSATIONORIGINTYPE_SERVICE WhatsappConversationOriginType = "service"
 )
 
 // All allowed values of WhatsappConversationOriginType enum
@@ -31,6 +35,10 @@ var AllowedWhatsappConversationOriginTypeEnumValues = []WhatsappConversationOrig
 	"business_initiated",
 	"user_initiated",
 	"referral_conversion",
+	"authentication",
+	"marketing",
+	"utility",
+	"service",
 }
 
 func (v *WhatsappConversationOriginType) UnmarshalJSON(src []byte) error {

@@ -25,6 +25,10 @@ type WhatsappTemplateComponent struct {
 	Text *string `json:"text,omitempty"`
 	// **Required for type `BUTTONS`.** The `BUTTONS` component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
 	Buttons []WhatsappTemplateComponentButton `json:"buttons,omitempty"`
+	// **Optional. Only applicable in the `BODY` component of an AUTHENTICATION template.** Set to `true` if you want the template to include the string, *For your security, do not share this code.* Set to `false` to exclude the string.
+	AddSecurityRecommendation *bool `json:"add_security_recommendation,omitempty"`
+	// **Optional. Only applicable in the `FOOTER` component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
+	CodeExpirationMinutes *int32 `json:"code_expiration_minutes,omitempty"`
 	Example *WhatsappTemplateComponentExample `json:"example,omitempty"`
 }
 
@@ -173,6 +177,70 @@ func (o *WhatsappTemplateComponent) SetButtons(v []WhatsappTemplateComponentButt
 	o.Buttons = v
 }
 
+// GetAddSecurityRecommendation returns the AddSecurityRecommendation field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponent) GetAddSecurityRecommendation() bool {
+	if o == nil || o.AddSecurityRecommendation == nil {
+		var ret bool
+		return ret
+	}
+	return *o.AddSecurityRecommendation
+}
+
+// GetAddSecurityRecommendationOk returns a tuple with the AddSecurityRecommendation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponent) GetAddSecurityRecommendationOk() (*bool, bool) {
+	if o == nil || o.AddSecurityRecommendation == nil {
+		return nil, false
+	}
+	return o.AddSecurityRecommendation, true
+}
+
+// HasAddSecurityRecommendation returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponent) HasAddSecurityRecommendation() bool {
+	if o != nil && o.AddSecurityRecommendation != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddSecurityRecommendation gets a reference to the given bool and assigns it to the AddSecurityRecommendation field.
+func (o *WhatsappTemplateComponent) SetAddSecurityRecommendation(v bool) {
+	o.AddSecurityRecommendation = &v
+}
+
+// GetCodeExpirationMinutes returns the CodeExpirationMinutes field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponent) GetCodeExpirationMinutes() int32 {
+	if o == nil || o.CodeExpirationMinutes == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CodeExpirationMinutes
+}
+
+// GetCodeExpirationMinutesOk returns a tuple with the CodeExpirationMinutes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponent) GetCodeExpirationMinutesOk() (*int32, bool) {
+	if o == nil || o.CodeExpirationMinutes == nil {
+		return nil, false
+	}
+	return o.CodeExpirationMinutes, true
+}
+
+// HasCodeExpirationMinutes returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponent) HasCodeExpirationMinutes() bool {
+	if o != nil && o.CodeExpirationMinutes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCodeExpirationMinutes gets a reference to the given int32 and assigns it to the CodeExpirationMinutes field.
+func (o *WhatsappTemplateComponent) SetCodeExpirationMinutes(v int32) {
+	o.CodeExpirationMinutes = &v
+}
+
 // GetExample returns the Example field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponent) GetExample() WhatsappTemplateComponentExample {
 	if o == nil || o.Example == nil {
@@ -218,6 +286,12 @@ func (o WhatsappTemplateComponent) MarshalJSON() ([]byte, error) {
 	}
 	if o.Buttons != nil {
 		toSerialize["buttons"] = o.Buttons
+	}
+	if o.AddSecurityRecommendation != nil {
+		toSerialize["add_security_recommendation"] = o.AddSecurityRecommendation
+	}
+	if o.CodeExpirationMinutes != nil {
+		toSerialize["code_expiration_minutes"] = o.CodeExpirationMinutes
 	}
 	if o.Example != nil {
 		toSerialize["example"] = o.Example

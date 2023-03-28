@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
+**PreviousCategory** | Pointer to **string** | This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration). | [optional] 
 **Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. | 
 **Status** | Pointer to [**WhatsappTemplateStatus**](WhatsappTemplateStatus.md) |  | [optional] 
 **Reason** | Pointer to **string** | The reason why the template is rejected. | [optional] 
@@ -115,6 +116,31 @@ and a boolean to check if the value has been set.
 
 SetCategory sets Category field to given value.
 
+
+### GetPreviousCategory
+
+`func (o *WhatsappTemplate) GetPreviousCategory() string`
+
+GetPreviousCategory returns the PreviousCategory field if non-nil, zero value otherwise.
+
+### GetPreviousCategoryOk
+
+`func (o *WhatsappTemplate) GetPreviousCategoryOk() (*string, bool)`
+
+GetPreviousCategoryOk returns a tuple with the PreviousCategory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPreviousCategory
+
+`func (o *WhatsappTemplate) SetPreviousCategory(v string)`
+
+SetPreviousCategory sets PreviousCategory field to given value.
+
+### HasPreviousCategory
+
+`func (o *WhatsappTemplate) HasPreviousCategory() bool`
+
+HasPreviousCategory returns a boolean if a field has been set.
 
 ### GetComponents
 

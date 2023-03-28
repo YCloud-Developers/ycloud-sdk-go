@@ -19,7 +19,7 @@ import (
 type WhatsappMessageMedia struct {
 	// The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
 	Link string `json:"link"`
-	// Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `interactive` messages.
+	// Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.
 	Caption *string `json:"caption,omitempty"`
 	// Describes the filename for the specific document. Use only with `document` media.
 	Filename *string `json:"filename,omitempty"`

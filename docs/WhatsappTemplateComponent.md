@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Format** | Pointer to **string** | **Required for type &#x60;HEADER&#x60;.** | [optional] 
 **Text** | Pointer to **string** | **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.** | [optional] 
 **Buttons** | Pointer to [**[]WhatsappTemplateComponentButton**](WhatsappTemplateComponentButton.md) | **Required for type &#x60;BUTTONS&#x60;.** The &#x60;BUTTONS&#x60; component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button. | [optional] 
+**AddSecurityRecommendation** | Pointer to **bool** | **Optional. Only applicable in the &#x60;BODY&#x60; component of an AUTHENTICATION template.** Set to &#x60;true&#x60; if you want the template to include the string, *For your security, do not share this code.* Set to &#x60;false&#x60; to exclude the string. | [optional] 
+**CodeExpirationMinutes** | Pointer to **int32** | **Optional. Only applicable in the &#x60;FOOTER&#x60; component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90. | [optional] 
 **Example** | Pointer to [**WhatsappTemplateComponentExample**](WhatsappTemplateComponentExample.md) |  | [optional] 
 
 ## Methods
@@ -128,6 +130,56 @@ SetButtons sets Buttons field to given value.
 `func (o *WhatsappTemplateComponent) HasButtons() bool`
 
 HasButtons returns a boolean if a field has been set.
+
+### GetAddSecurityRecommendation
+
+`func (o *WhatsappTemplateComponent) GetAddSecurityRecommendation() bool`
+
+GetAddSecurityRecommendation returns the AddSecurityRecommendation field if non-nil, zero value otherwise.
+
+### GetAddSecurityRecommendationOk
+
+`func (o *WhatsappTemplateComponent) GetAddSecurityRecommendationOk() (*bool, bool)`
+
+GetAddSecurityRecommendationOk returns a tuple with the AddSecurityRecommendation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddSecurityRecommendation
+
+`func (o *WhatsappTemplateComponent) SetAddSecurityRecommendation(v bool)`
+
+SetAddSecurityRecommendation sets AddSecurityRecommendation field to given value.
+
+### HasAddSecurityRecommendation
+
+`func (o *WhatsappTemplateComponent) HasAddSecurityRecommendation() bool`
+
+HasAddSecurityRecommendation returns a boolean if a field has been set.
+
+### GetCodeExpirationMinutes
+
+`func (o *WhatsappTemplateComponent) GetCodeExpirationMinutes() int32`
+
+GetCodeExpirationMinutes returns the CodeExpirationMinutes field if non-nil, zero value otherwise.
+
+### GetCodeExpirationMinutesOk
+
+`func (o *WhatsappTemplateComponent) GetCodeExpirationMinutesOk() (*int32, bool)`
+
+GetCodeExpirationMinutesOk returns a tuple with the CodeExpirationMinutes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodeExpirationMinutes
+
+`func (o *WhatsappTemplateComponent) SetCodeExpirationMinutes(v int32)`
+
+SetCodeExpirationMinutes sets CodeExpirationMinutes field to given value.
+
+### HasCodeExpirationMinutes
+
+`func (o *WhatsappTemplateComponent) HasCodeExpirationMinutes() bool`
+
+HasCodeExpirationMinutes returns a boolean if a field has been set.
 
 ### GetExample
 
