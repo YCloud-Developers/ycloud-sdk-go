@@ -21,7 +21,7 @@ type WhatsappTemplateCreateRequest struct {
 	WabaId string `json:"wabaId"`
 	// Name of the template.
 	Name string `json:"name"`
-	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
 	Components []WhatsappTemplateComponent `json:"components"`

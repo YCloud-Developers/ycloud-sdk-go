@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional] 
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **QualityRating** | Pointer to [**WhatsappPhoneNumberQualityRating**](WhatsappPhoneNumberQualityRating.md) |  | [optional] 
-**MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
+**MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
 **VerifiedName** | Pointer to **string** | Verified name. | [optional] 
 **CodeVerificationStatus** | Pointer to [**WhatsappPhoneNumberCodeVerificationStatus**](WhatsappPhoneNumberCodeVerificationStatus.md) |  | [optional] 
 **Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional] 
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional] 
 **RequestedVerifiedName** | Pointer to **string** | Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). | [optional] 
 **RejectionReason** | Pointer to **string** | Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). | [optional] 
+**QualityUpdateEvent** | Pointer to [**WhatsappPhoneNumberQualityUpdateEventEnum**](WhatsappPhoneNumberQualityUpdateEventEnum.md) |  | [optional] 
 
 ## Methods
 
@@ -361,6 +362,31 @@ SetRejectionReason sets RejectionReason field to given value.
 `func (o *WhatsappPhoneNumber) HasRejectionReason() bool`
 
 HasRejectionReason returns a boolean if a field has been set.
+
+### GetQualityUpdateEvent
+
+`func (o *WhatsappPhoneNumber) GetQualityUpdateEvent() WhatsappPhoneNumberQualityUpdateEventEnum`
+
+GetQualityUpdateEvent returns the QualityUpdateEvent field if non-nil, zero value otherwise.
+
+### GetQualityUpdateEventOk
+
+`func (o *WhatsappPhoneNumber) GetQualityUpdateEventOk() (*WhatsappPhoneNumberQualityUpdateEventEnum, bool)`
+
+GetQualityUpdateEventOk returns a tuple with the QualityUpdateEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQualityUpdateEvent
+
+`func (o *WhatsappPhoneNumber) SetQualityUpdateEvent(v WhatsappPhoneNumberQualityUpdateEventEnum)`
+
+SetQualityUpdateEvent sets QualityUpdateEvent field to given value.
+
+### HasQualityUpdateEvent
+
+`func (o *WhatsappPhoneNumber) HasQualityUpdateEvent() bool`
+
+HasQualityUpdateEvent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

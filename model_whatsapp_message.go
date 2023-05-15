@@ -53,6 +53,12 @@ type WhatsappMessage struct {
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	UpdateTime *time.Time `json:"updateTime,omitempty"`
+	// The time at which this message `status` changed to `sent`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
+	SendTime *time.Time `json:"sendTime,omitempty"`
+	// The time at which this message `status` changed to `delivered`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
+	DeliverTime *time.Time `json:"deliverTime,omitempty"`
+	// The time at which this message `status` changed to `read`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
+	ReadTime *time.Time `json:"readTime,omitempty"`
 	// Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
@@ -846,6 +852,102 @@ func (o *WhatsappMessage) SetUpdateTime(v time.Time) {
 	o.UpdateTime = &v
 }
 
+// GetSendTime returns the SendTime field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetSendTime() time.Time {
+	if o == nil || o.SendTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.SendTime
+}
+
+// GetSendTimeOk returns a tuple with the SendTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetSendTimeOk() (*time.Time, bool) {
+	if o == nil || o.SendTime == nil {
+		return nil, false
+	}
+	return o.SendTime, true
+}
+
+// HasSendTime returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasSendTime() bool {
+	if o != nil && o.SendTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSendTime gets a reference to the given time.Time and assigns it to the SendTime field.
+func (o *WhatsappMessage) SetSendTime(v time.Time) {
+	o.SendTime = &v
+}
+
+// GetDeliverTime returns the DeliverTime field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetDeliverTime() time.Time {
+	if o == nil || o.DeliverTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeliverTime
+}
+
+// GetDeliverTimeOk returns a tuple with the DeliverTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetDeliverTimeOk() (*time.Time, bool) {
+	if o == nil || o.DeliverTime == nil {
+		return nil, false
+	}
+	return o.DeliverTime, true
+}
+
+// HasDeliverTime returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasDeliverTime() bool {
+	if o != nil && o.DeliverTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliverTime gets a reference to the given time.Time and assigns it to the DeliverTime field.
+func (o *WhatsappMessage) SetDeliverTime(v time.Time) {
+	o.DeliverTime = &v
+}
+
+// GetReadTime returns the ReadTime field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetReadTime() time.Time {
+	if o == nil || o.ReadTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.ReadTime
+}
+
+// GetReadTimeOk returns a tuple with the ReadTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetReadTimeOk() (*time.Time, bool) {
+	if o == nil || o.ReadTime == nil {
+		return nil, false
+	}
+	return o.ReadTime, true
+}
+
+// HasReadTime returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasReadTime() bool {
+	if o != nil && o.ReadTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReadTime gets a reference to the given time.Time and assigns it to the ReadTime field.
+func (o *WhatsappMessage) SetReadTime(v time.Time) {
+	o.ReadTime = &v
+}
+
 // GetTotalPrice returns the TotalPrice field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetTotalPrice() float64 {
 	if o == nil || o.TotalPrice == nil {
@@ -1082,6 +1184,15 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.UpdateTime != nil {
 		toSerialize["updateTime"] = o.UpdateTime
+	}
+	if o.SendTime != nil {
+		toSerialize["sendTime"] = o.SendTime
+	}
+	if o.DeliverTime != nil {
+		toSerialize["deliverTime"] = o.DeliverTime
+	}
+	if o.ReadTime != nil {
+		toSerialize["readTime"] = o.ReadTime
 	}
 	if o.TotalPrice != nil {
 		toSerialize["totalPrice"] = o.TotalPrice

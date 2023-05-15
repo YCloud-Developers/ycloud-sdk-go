@@ -17,9 +17,9 @@ import (
 
 // WhatsappMessageTemplateLanguage Contains a language object. Specifies the language the template may be rendered in.
 type WhatsappMessageTemplateLanguage struct {
-	// The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+	// The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
 	Code string `json:"code"`
-	// Default (and only supported option): `deterministic`.
+	// The language policy the message should follow. Default (and only supported option): `deterministic`, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
 	Policy *string `json:"policy,omitempty"`
 }
 

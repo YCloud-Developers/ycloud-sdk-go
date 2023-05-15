@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Target** | Pointer to **string** | The target of the error. | [optional] 
 **DocUrl** | Pointer to **string** | A URL to more information about the error. | [optional] 
 **RequestId** | Pointer to **string** | Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer. | [optional] 
+**WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
 
 ## Methods
 
@@ -169,6 +170,31 @@ SetRequestId sets RequestId field to given value.
 `func (o *Error) HasRequestId() bool`
 
 HasRequestId returns a boolean if a field has been set.
+
+### GetWhatsappApiError
+
+`func (o *Error) GetWhatsappApiError() WhatsappApiError`
+
+GetWhatsappApiError returns the WhatsappApiError field if non-nil, zero value otherwise.
+
+### GetWhatsappApiErrorOk
+
+`func (o *Error) GetWhatsappApiErrorOk() (*WhatsappApiError, bool)`
+
+GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappApiError
+
+`func (o *Error) SetWhatsappApiError(v WhatsappApiError)`
+
+SetWhatsappApiError sets WhatsappApiError field to given value.
+
+### HasWhatsappApiError
+
+`func (o *Error) HasWhatsappApiError() bool`
+
+HasWhatsappApiError returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

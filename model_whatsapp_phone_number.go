@@ -24,7 +24,7 @@ type WhatsappPhoneNumber struct {
 	// WhatsApp Business Account ID.
 	WabaId *string `json:"wabaId,omitempty"`
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
-	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
 	// Verified name.
 	VerifiedName *string `json:"verifiedName,omitempty"`
@@ -37,6 +37,7 @@ type WhatsappPhoneNumber struct {
 	RequestedVerifiedName *string `json:"requestedVerifiedName,omitempty"`
 	// Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
 	RejectionReason *string `json:"rejectionReason,omitempty"`
+	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
 }
 
 // NewWhatsappPhoneNumber instantiates a new WhatsappPhoneNumber object
@@ -472,6 +473,38 @@ func (o *WhatsappPhoneNumber) SetRejectionReason(v string) {
 	o.RejectionReason = &v
 }
 
+// GetQualityUpdateEvent returns the QualityUpdateEvent field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetQualityUpdateEvent() WhatsappPhoneNumberQualityUpdateEventEnum {
+	if o == nil || o.QualityUpdateEvent == nil {
+		var ret WhatsappPhoneNumberQualityUpdateEventEnum
+		return ret
+	}
+	return *o.QualityUpdateEvent
+}
+
+// GetQualityUpdateEventOk returns a tuple with the QualityUpdateEvent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetQualityUpdateEventOk() (*WhatsappPhoneNumberQualityUpdateEventEnum, bool) {
+	if o == nil || o.QualityUpdateEvent == nil {
+		return nil, false
+	}
+	return o.QualityUpdateEvent, true
+}
+
+// HasQualityUpdateEvent returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasQualityUpdateEvent() bool {
+	if o != nil && o.QualityUpdateEvent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQualityUpdateEvent gets a reference to the given WhatsappPhoneNumberQualityUpdateEventEnum and assigns it to the QualityUpdateEvent field.
+func (o *WhatsappPhoneNumber) SetQualityUpdateEvent(v WhatsappPhoneNumberQualityUpdateEventEnum) {
+	o.QualityUpdateEvent = &v
+}
+
 func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.PhoneNumber != nil {
@@ -512,6 +545,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.RejectionReason != nil {
 		toSerialize["rejectionReason"] = o.RejectionReason
+	}
+	if o.QualityUpdateEvent != nil {
+		toSerialize["qualityUpdateEvent"] = o.QualityUpdateEvent
 	}
 	return json.Marshal(toSerialize)
 }

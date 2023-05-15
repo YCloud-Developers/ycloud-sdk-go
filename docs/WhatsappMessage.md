@@ -29,6 +29,9 @@ Name | Type | Description | Notes
 **ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **UpdateTime** | Pointer to **time.Time** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**SendTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**DeliverTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**ReadTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.** | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 **WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
@@ -653,6 +656,81 @@ SetUpdateTime sets UpdateTime field to given value.
 `func (o *WhatsappMessage) HasUpdateTime() bool`
 
 HasUpdateTime returns a boolean if a field has been set.
+
+### GetSendTime
+
+`func (o *WhatsappMessage) GetSendTime() time.Time`
+
+GetSendTime returns the SendTime field if non-nil, zero value otherwise.
+
+### GetSendTimeOk
+
+`func (o *WhatsappMessage) GetSendTimeOk() (*time.Time, bool)`
+
+GetSendTimeOk returns a tuple with the SendTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSendTime
+
+`func (o *WhatsappMessage) SetSendTime(v time.Time)`
+
+SetSendTime sets SendTime field to given value.
+
+### HasSendTime
+
+`func (o *WhatsappMessage) HasSendTime() bool`
+
+HasSendTime returns a boolean if a field has been set.
+
+### GetDeliverTime
+
+`func (o *WhatsappMessage) GetDeliverTime() time.Time`
+
+GetDeliverTime returns the DeliverTime field if non-nil, zero value otherwise.
+
+### GetDeliverTimeOk
+
+`func (o *WhatsappMessage) GetDeliverTimeOk() (*time.Time, bool)`
+
+GetDeliverTimeOk returns a tuple with the DeliverTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeliverTime
+
+`func (o *WhatsappMessage) SetDeliverTime(v time.Time)`
+
+SetDeliverTime sets DeliverTime field to given value.
+
+### HasDeliverTime
+
+`func (o *WhatsappMessage) HasDeliverTime() bool`
+
+HasDeliverTime returns a boolean if a field has been set.
+
+### GetReadTime
+
+`func (o *WhatsappMessage) GetReadTime() time.Time`
+
+GetReadTime returns the ReadTime field if non-nil, zero value otherwise.
+
+### GetReadTimeOk
+
+`func (o *WhatsappMessage) GetReadTimeOk() (*time.Time, bool)`
+
+GetReadTimeOk returns a tuple with the ReadTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReadTime
+
+`func (o *WhatsappMessage) SetReadTime(v time.Time)`
+
+SetReadTime sets ReadTime field to given value.
+
+### HasReadTime
+
+`func (o *WhatsappMessage) HasReadTime() bool`
+
+HasReadTime returns a boolean if a field has been set.
 
 ### GetTotalPrice
 

@@ -22,7 +22,7 @@ type WhatsappTemplate struct {
 	WabaId string `json:"wabaId"`
 	// Name of the template.
 	Name string `json:"name"`
-	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
 	Language string `json:"language"`
 	Category WhatsappTemplateCategory `json:"category"`
 	// This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).

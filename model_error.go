@@ -29,6 +29,7 @@ type Error struct {
 	DocUrl *string `json:"docUrl,omitempty"`
 	// Each API request has an associated request ID. It conveys the response header `YCloud-Request-ID` used for the convenience of the consumer.
 	RequestId *string `json:"requestId,omitempty"`
+	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 }
 
 // NewError instantiates a new Error object
@@ -226,6 +227,38 @@ func (o *Error) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
+// GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
+func (o *Error) GetWhatsappApiError() WhatsappApiError {
+	if o == nil || o.WhatsappApiError == nil {
+		var ret WhatsappApiError
+		return ret
+	}
+	return *o.WhatsappApiError
+}
+
+// GetWhatsappApiErrorOk returns a tuple with the WhatsappApiError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Error) GetWhatsappApiErrorOk() (*WhatsappApiError, bool) {
+	if o == nil || o.WhatsappApiError == nil {
+		return nil, false
+	}
+	return o.WhatsappApiError, true
+}
+
+// HasWhatsappApiError returns a boolean if a field has been set.
+func (o *Error) HasWhatsappApiError() bool {
+	if o != nil && o.WhatsappApiError != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappApiError gets a reference to the given WhatsappApiError and assigns it to the WhatsappApiError field.
+func (o *Error) SetWhatsappApiError(v WhatsappApiError) {
+	o.WhatsappApiError = &v
+}
+
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -245,6 +278,9 @@ func (o Error) MarshalJSON() ([]byte, error) {
 	}
 	if o.RequestId != nil {
 		toSerialize["requestId"] = o.RequestId
+	}
+	if o.WhatsappApiError != nil {
+		toSerialize["whatsappApiError"] = o.WhatsappApiError
 	}
 	return json.Marshal(toSerialize)
 }

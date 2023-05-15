@@ -307,7 +307,7 @@ See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
  @param name Name of the template.
- @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
  @return WhatsappTemplatesApiEditByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) EditByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiEditByNameAndLanguageRequest {
@@ -616,7 +616,7 @@ Retrieves a WhatsApp template by name and language.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
  @param name Name of the template.
- @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
  @return WhatsappTemplatesApiRetrieveByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) RetrieveByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiRetrieveByNameAndLanguageRequest {

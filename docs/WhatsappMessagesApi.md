@@ -5,7 +5,8 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Retrieve**](WhatsappMessagesApi.md#Retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a WhatsApp message
-[**Send**](WhatsappMessagesApi.md#Send) | **Post** /whatsapp/messages | Send a WhatsApp message
+[**Send**](WhatsappMessagesApi.md#Send) | **Post** /whatsapp/messages | Enqueue a WhatsApp message
+[**SendDirectly**](WhatsappMessagesApi.md#SendDirectly) | **Post** /whatsapp/messages/sendDirectly | Send a WhatsApp message directly
 
 
 
@@ -83,7 +84,7 @@ Name | Type | Description  | Notes
 
 > WhatsappMessage Send(ctx).WhatsappMessageSendRequest(whatsappMessageSendRequest).Execute()
 
-Send a WhatsApp message
+Enqueue a WhatsApp message
 
 
 
@@ -121,6 +122,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiSendRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md) |  | 
+
+### Return type
+
+[**WhatsappMessage**](WhatsappMessage.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SendDirectly
+
+> WhatsappMessage SendDirectly(ctx).WhatsappMessageSendRequest(whatsappMessageSendRequest).Execute()
+
+Send a WhatsApp message directly
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+)
+
+func main() {
+    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+447901614024", "+447901614024", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappMessagesApi.SendDirectly(context.Background()).WhatsappMessageSendRequest(whatsappMessageSendRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappMessagesApi.SendDirectly``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SendDirectly`: WhatsappMessage
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappMessagesApi.SendDirectly`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSendDirectlyRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
