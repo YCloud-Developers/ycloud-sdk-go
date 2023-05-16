@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Create**](WhatsappTemplatesApi.md#Create) | **Post** /whatsapp/templates | Create a WhatsApp template
 [**DeleteByName**](WhatsappTemplatesApi.md#DeleteByName) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
+[**DeleteByNameAndLanguage**](WhatsappTemplatesApi.md#DeleteByNameAndLanguage) | **Delete** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template
 [**EditByNameAndLanguage**](WhatsappTemplatesApi.md#EditByNameAndLanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
 [**List**](WhatsappTemplatesApi.md#List) | **Get** /whatsapp/templates | List WhatsApp templates
 [**RetrieveByNameAndLanguage**](WhatsappTemplatesApi.md#RetrieveByNameAndLanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template
@@ -136,6 +137,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]WhatsappTemplate**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteByNameAndLanguage
+
+> WhatsappTemplate DeleteByNameAndLanguage(ctx, wabaId, name, language).Execute()
+
+Delete a WhatsApp template
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    name := "sample_whatsapp_template" // string | Name of the template.
+    language := "en" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappTemplatesApi.DeleteByNameAndLanguage(context.Background(), wabaId, name, language).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappTemplatesApi.DeleteByNameAndLanguage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteByNameAndLanguage`: WhatsappTemplate
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappTemplatesApi.DeleteByNameAndLanguage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**name** | **string** | Name of the template. | 
+**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteByNameAndLanguageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**WhatsappTemplate**](WhatsappTemplate.md)
 
 ### Authorization
 
