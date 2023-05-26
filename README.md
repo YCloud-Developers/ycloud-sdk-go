@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.8.1
+- Package version: 1.8.2
 
 ## Installation
 
@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)
  - [WhatsappTemplateEditRequest](docs/WhatsappTemplateEditRequest.md)
  - [WhatsappTemplatePage](docs/WhatsappTemplatePage.md)
+ - [WhatsappTemplateQualityRating](docs/WhatsappTemplateQualityRating.md)
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
  - [WhatsappTemplateStatusUpdateEventEnum](docs/WhatsappTemplateStatusUpdateEventEnum.md)
 

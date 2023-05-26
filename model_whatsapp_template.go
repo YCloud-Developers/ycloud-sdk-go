@@ -30,6 +30,7 @@ type WhatsappTemplate struct {
 	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
 	Components []WhatsappTemplateComponent `json:"components"`
 	Status *WhatsappTemplateStatus `json:"status,omitempty"`
+	QualityRating *WhatsappTemplateQualityRating `json:"qualityRating,omitempty"`
 	// The reason why the template is rejected.
 	Reason *string `json:"reason,omitempty"`
 	// The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
@@ -248,6 +249,38 @@ func (o *WhatsappTemplate) SetStatus(v WhatsappTemplateStatus) {
 	o.Status = &v
 }
 
+// GetQualityRating returns the QualityRating field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetQualityRating() WhatsappTemplateQualityRating {
+	if o == nil || o.QualityRating == nil {
+		var ret WhatsappTemplateQualityRating
+		return ret
+	}
+	return *o.QualityRating
+}
+
+// GetQualityRatingOk returns a tuple with the QualityRating field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetQualityRatingOk() (*WhatsappTemplateQualityRating, bool) {
+	if o == nil || o.QualityRating == nil {
+		return nil, false
+	}
+	return o.QualityRating, true
+}
+
+// HasQualityRating returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasQualityRating() bool {
+	if o != nil && o.QualityRating != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQualityRating gets a reference to the given WhatsappTemplateQualityRating and assigns it to the QualityRating field.
+func (o *WhatsappTemplate) SetQualityRating(v WhatsappTemplateQualityRating) {
+	o.QualityRating = &v
+}
+
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *WhatsappTemplate) GetReason() string {
 	if o == nil || o.Reason == nil {
@@ -462,6 +495,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
+	}
+	if o.QualityRating != nil {
+		toSerialize["qualityRating"] = o.QualityRating
 	}
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason

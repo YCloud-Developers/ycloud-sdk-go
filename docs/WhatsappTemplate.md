@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **PreviousCategory** | Pointer to **string** | This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration). | [optional] 
 **Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. | 
 **Status** | Pointer to [**WhatsappTemplateStatus**](WhatsappTemplateStatus.md) |  | [optional] 
+**QualityRating** | Pointer to [**WhatsappTemplateQualityRating**](WhatsappTemplateQualityRating.md) |  | [optional] 
 **Reason** | Pointer to **string** | The reason why the template is rejected. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **UpdateTime** | Pointer to **time.Time** | The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
@@ -186,6 +187,31 @@ SetStatus sets Status field to given value.
 `func (o *WhatsappTemplate) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetQualityRating
+
+`func (o *WhatsappTemplate) GetQualityRating() WhatsappTemplateQualityRating`
+
+GetQualityRating returns the QualityRating field if non-nil, zero value otherwise.
+
+### GetQualityRatingOk
+
+`func (o *WhatsappTemplate) GetQualityRatingOk() (*WhatsappTemplateQualityRating, bool)`
+
+GetQualityRatingOk returns a tuple with the QualityRating field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQualityRating
+
+`func (o *WhatsappTemplate) SetQualityRating(v WhatsappTemplateQualityRating)`
+
+SetQualityRating sets QualityRating field to given value.
+
+### HasQualityRating
+
+`func (o *WhatsappTemplate) HasQualityRating() bool`
+
+HasQualityRating returns a boolean if a field has been set.
 
 ### GetReason
 

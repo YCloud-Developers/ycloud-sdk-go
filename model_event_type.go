@@ -32,6 +32,7 @@ const (
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_NAME_UPDATED EventType = "whatsapp.phone_number.name_updated"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED EventType = "whatsapp.phone_number.quality_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_CATEGORY_UPDATED EventType = "whatsapp.template.category_updated"
+	EVENTTYPE_WHATSAPP_TEMPLATE_QUALITY_UPDATED EventType = "whatsapp.template.quality_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_REVIEWED EventType = "whatsapp.template.reviewed"
 )
 
@@ -48,6 +49,7 @@ var AllowedEventTypeEnumValues = []EventType{
 	"whatsapp.phone_number.name_updated",
 	"whatsapp.phone_number.quality_updated",
 	"whatsapp.template.category_updated",
+	"whatsapp.template.quality_updated",
 	"whatsapp.template.reviewed",
 }
 
