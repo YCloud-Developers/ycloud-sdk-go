@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique ID for the object. | [optional] 
+**Type** | Pointer to [**WhatsappConversationType**](WhatsappConversationType.md) |  | [optional] 
 **OriginType** | Pointer to [**WhatsappConversationOriginType**](WhatsappConversationOriginType.md) |  | [optional] 
 **ExpireTime** | Pointer to **time.Time** | Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 
@@ -51,6 +52,31 @@ SetId sets Id field to given value.
 `func (o *WhatsappConversation) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *WhatsappConversation) GetType() WhatsappConversationType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *WhatsappConversation) GetTypeOk() (*WhatsappConversationType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *WhatsappConversation) SetType(v WhatsappConversationType)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *WhatsappConversation) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetOriginType
 

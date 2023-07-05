@@ -20,6 +20,7 @@ import (
 type WhatsappConversation struct {
 	// Unique ID for the object.
 	Id *string `json:"id,omitempty"`
+	Type *WhatsappConversationType `json:"type,omitempty"`
 	OriginType *WhatsappConversationOriginType `json:"originType,omitempty"`
 	// Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	ExpireTime *time.Time `json:"expireTime,omitempty"`
@@ -72,6 +73,38 @@ func (o *WhatsappConversation) HasId() bool {
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *WhatsappConversation) SetId(v string) {
 	o.Id = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *WhatsappConversation) GetType() WhatsappConversationType {
+	if o == nil || o.Type == nil {
+		var ret WhatsappConversationType
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappConversation) GetTypeOk() (*WhatsappConversationType, bool) {
+	if o == nil || o.Type == nil {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *WhatsappConversation) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given WhatsappConversationType and assigns it to the Type field.
+func (o *WhatsappConversation) SetType(v WhatsappConversationType) {
+	o.Type = &v
 }
 
 // GetOriginType returns the OriginType field value if set, zero value otherwise.
@@ -142,6 +175,9 @@ func (o WhatsappConversation) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
+	}
+	if o.Type != nil {
+		toSerialize["type"] = o.Type
 	}
 	if o.OriginType != nil {
 		toSerialize["originType"] = o.OriginType

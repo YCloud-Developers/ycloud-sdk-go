@@ -29,6 +29,8 @@ type WhatsappPhoneNumber struct {
 	// Verified name.
 	VerifiedName *string `json:"verifiedName,omitempty"`
 	CodeVerificationStatus *WhatsappPhoneNumberCodeVerificationStatus `json:"codeVerificationStatus,omitempty"`
+	// Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
+	IsOfficialBusinessAccount *bool `json:"isOfficialBusinessAccount,omitempty"`
 	Status *WhatsappPhoneNumberStatus `json:"status,omitempty"`
 	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
 	NewNameStatus *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
@@ -281,6 +283,38 @@ func (o *WhatsappPhoneNumber) SetCodeVerificationStatus(v WhatsappPhoneNumberCod
 	o.CodeVerificationStatus = &v
 }
 
+// GetIsOfficialBusinessAccount returns the IsOfficialBusinessAccount field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetIsOfficialBusinessAccount() bool {
+	if o == nil || o.IsOfficialBusinessAccount == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsOfficialBusinessAccount
+}
+
+// GetIsOfficialBusinessAccountOk returns a tuple with the IsOfficialBusinessAccount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetIsOfficialBusinessAccountOk() (*bool, bool) {
+	if o == nil || o.IsOfficialBusinessAccount == nil {
+		return nil, false
+	}
+	return o.IsOfficialBusinessAccount, true
+}
+
+// HasIsOfficialBusinessAccount returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasIsOfficialBusinessAccount() bool {
+	if o != nil && o.IsOfficialBusinessAccount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOfficialBusinessAccount gets a reference to the given bool and assigns it to the IsOfficialBusinessAccount field.
+func (o *WhatsappPhoneNumber) SetIsOfficialBusinessAccount(v bool) {
+	o.IsOfficialBusinessAccount = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *WhatsappPhoneNumber) GetStatus() WhatsappPhoneNumberStatus {
 	if o == nil || o.Status == nil {
@@ -527,6 +561,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.CodeVerificationStatus != nil {
 		toSerialize["codeVerificationStatus"] = o.CodeVerificationStatus
+	}
+	if o.IsOfficialBusinessAccount != nil {
+		toSerialize["isOfficialBusinessAccount"] = o.IsOfficialBusinessAccount
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status

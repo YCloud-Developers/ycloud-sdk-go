@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
 **VerifiedName** | Pointer to **string** | Verified name. | [optional] 
 **CodeVerificationStatus** | Pointer to [**WhatsappPhoneNumberCodeVerificationStatus**](WhatsappPhoneNumberCodeVerificationStatus.md) |  | [optional] 
+**IsOfficialBusinessAccount** | Pointer to **bool** | Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information. | [optional] 
 **Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional] 
 **NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
 **NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
@@ -212,6 +213,31 @@ SetCodeVerificationStatus sets CodeVerificationStatus field to given value.
 `func (o *WhatsappPhoneNumber) HasCodeVerificationStatus() bool`
 
 HasCodeVerificationStatus returns a boolean if a field has been set.
+
+### GetIsOfficialBusinessAccount
+
+`func (o *WhatsappPhoneNumber) GetIsOfficialBusinessAccount() bool`
+
+GetIsOfficialBusinessAccount returns the IsOfficialBusinessAccount field if non-nil, zero value otherwise.
+
+### GetIsOfficialBusinessAccountOk
+
+`func (o *WhatsappPhoneNumber) GetIsOfficialBusinessAccountOk() (*bool, bool)`
+
+GetIsOfficialBusinessAccountOk returns a tuple with the IsOfficialBusinessAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOfficialBusinessAccount
+
+`func (o *WhatsappPhoneNumber) SetIsOfficialBusinessAccount(v bool)`
+
+SetIsOfficialBusinessAccount sets IsOfficialBusinessAccount field to given value.
+
+### HasIsOfficialBusinessAccount
+
+`func (o *WhatsappPhoneNumber) HasIsOfficialBusinessAccount() bool`
+
+HasIsOfficialBusinessAccount returns a boolean if a field has been set.
 
 ### GetStatus
 

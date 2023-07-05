@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.8.2
+- Package version: 1.8.3
 
 ## Installation
 
@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
  - [WhatsappBusinessAccountUpdateEventEnum](docs/WhatsappBusinessAccountUpdateEventEnum.md)
  - [WhatsappConversation](docs/WhatsappConversation.md)
  - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
+ - [WhatsappConversationType](docs/WhatsappConversationType.md)
  - [WhatsappInboundMessage](docs/WhatsappInboundMessage.md)
  - [WhatsappInboundMessageButton](docs/WhatsappInboundMessageButton.md)
  - [WhatsappInboundMessageContext](docs/WhatsappInboundMessageContext.md)

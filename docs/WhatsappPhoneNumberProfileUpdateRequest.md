@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Email** | Pointer to **string** | The contact email address (in valid email format) of the business. Character limit 128. | [optional] 
 **ProfilePictureUrl** | Pointer to **string** | URL of the profile picture that was uploaded to Meta. | [optional] 
 **Vertical** | Pointer to [**WhatsappPhoneNumberProfileVertical**](WhatsappPhoneNumberProfileVertical.md) |  | [optional] 
-**Websites** | Pointer to **[]string** | The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 256 characters each. | [optional] 
+**Websites** | Pointer to **[]string** | The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 255 characters each. | [optional] 
 
 ## Methods
 
