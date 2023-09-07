@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageInteractiveActionSection [WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).
 type WhatsappMessageInteractiveActionSection struct {
-	// Title of the section.
+	// **Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.
 	Title *string `json:"title,omitempty"`
 	// Contains a list of rows. You can have a total of 10 rows across your sections. Each row must have a title (Maximum length: 24 characters) and an ID (Maximum length: 200 characters). You can add a description (Maximum length: 72 characters), but it is optional.
 	Rows []WhatsappMessageInteractiveActionSectionRow `json:"rows,omitempty"`

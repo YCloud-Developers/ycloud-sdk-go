@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveActionButton struct for WhatsappMessageInteractiveActionButton
+// WhatsappMessageInteractiveActionButton A button object in `interactive` messages.
 type WhatsappMessageInteractiveActionButton struct {
 	// Only supported type is `reply` (for Reply Button).
 	Type *string `json:"type,omitempty"`

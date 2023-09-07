@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.8.3
+- Package version: 1.9.0
 
 ## Installation
 
@@ -30,6 +30,11 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalanceApi* | [**Retrieve**](docs/BalanceApi.md#retrieve) | **Get** /balance | Retrieve balance
+*ContactsApi* | [**Create**](docs/ContactsApi.md#create) | **Post** /contact/contacts | Create a contact
+*ContactsApi* | [**Delete**](docs/ContactsApi.md#delete) | **Delete** /contact/contacts/{id} | Delete a contact
+*ContactsApi* | [**List**](docs/ContactsApi.md#list) | **Get** /contact/contacts | List contacts
+*ContactsApi* | [**Retrieve**](docs/ContactsApi.md#retrieve) | **Get** /contact/contacts/{id} | Retrieve a contact
+*ContactsApi* | [**Update**](docs/ContactsApi.md#update) | **Patch** /contact/contacts/{id} | Update a contact
 *EmailsApi* | [**Send**](docs/EmailsApi.md#send) | **Post** /emails | Send an email
 *SmsApi* | [**List**](docs/SmsApi.md#list) | **Get** /sms | List SMS records
 *SmsApi* | [**Send**](docs/SmsApi.md#send) | **Post** /sms | Send an SMS
@@ -63,6 +68,12 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Balance](docs/Balance.md)
+ - [Contact](docs/Contact.md)
+ - [ContactCreateRequest](docs/ContactCreateRequest.md)
+ - [ContactCreateRequestCustomAttributesInner](docs/ContactCreateRequestCustomAttributesInner.md)
+ - [ContactCustomAttributesInner](docs/ContactCustomAttributesInner.md)
+ - [ContactPage](docs/ContactPage.md)
+ - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
  - [Email](docs/Email.md)
  - [EmailContentType](docs/EmailContentType.md)
  - [EmailDelivery](docs/EmailDelivery.md)

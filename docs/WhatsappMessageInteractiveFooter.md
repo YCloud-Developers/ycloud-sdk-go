@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **string** | The footer content. Emojis and markdown are supported. Links are supported. | [optional] 
+**Text** | Pointer to **string** | The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters. | [optional] 
 
 ## Methods
 

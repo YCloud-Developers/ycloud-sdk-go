@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique row ID. | [optional] 
-**Title** | Pointer to **string** | Row title content. | [optional] 
-**Description** | Pointer to **string** | Row description content. | [optional] 
+**Id** | Pointer to **string** | Unique row ID. Maximum length: 200 characters. | [optional] 
+**Title** | Pointer to **string** | Row title content. Maximum length: 24 characters. | [optional] 
+**Description** | Pointer to **string** | Row description content. Maximum length: 72 characters. | [optional] 
 
 ## Methods
 

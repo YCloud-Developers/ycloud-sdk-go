@@ -170,7 +170,7 @@ Send Enqueue a WhatsApp message
 
 Enqueues an outbound WhatsApp message for sending.
 
-Queued messages will be submitted to the Meta WhatsApp API asynchronously.
+Queued messages will be submitted to the WhatsApp Business API asynchronously.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WhatsappMessagesApiSendRequest
@@ -296,9 +296,9 @@ SendDirectly Send a WhatsApp message directly
 
 Sends an outbound WhatsApp message directly.
 
-The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.
+The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.
 
-The response body field `error.whatsappApiError` is included if we tried to request Meta WhatsApp API and got an error response.
+The response body field `error.whatsappApiError` is included if we tried to request the WhatsApp Business API and got an error response.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WhatsappMessagesApiSendDirectlyRequest

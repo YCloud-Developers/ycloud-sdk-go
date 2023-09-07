@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **string** | The body content of the message. Emojis and markdown are supported. Links are supported. | [optional] 
+**Text** | Pointer to **string** | The body content of the message. Emojis and markdown are supported. Maximum length: 1024 characters. | [optional] 
 
 ## Methods
 

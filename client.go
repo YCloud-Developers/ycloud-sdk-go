@@ -52,6 +52,8 @@ type APIClient struct {
 
 	BalanceApi *BalanceApiService
 
+	ContactsApi *ContactsApiService
+
 	EmailsApi *EmailsApiService
 
 	SmsApi *SmsApiService
@@ -88,6 +90,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.BalanceApi = (*BalanceApiService)(&c.common)
+	c.ContactsApi = (*ContactsApiService)(&c.common)
 	c.EmailsApi = (*EmailsApiService)(&c.common)
 	c.SmsApi = (*SmsApiService)(&c.common)
 	c.VerifyApi = (*VerifyApiService)(&c.common)

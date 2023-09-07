@@ -17,11 +17,11 @@ import (
 
 // WhatsappMessageInteractiveActionSectionRow struct for WhatsappMessageInteractiveActionSectionRow
 type WhatsappMessageInteractiveActionSectionRow struct {
-	// Unique row ID.
+	// Unique row ID. Maximum length: 200 characters.
 	Id *string `json:"id,omitempty"`
-	// Row title content.
+	// Row title content. Maximum length: 24 characters.
 	Title *string `json:"title,omitempty"`
-	// Row description content.
+	// Row description content. Maximum length: 72 characters.
 	Description *string `json:"description,omitempty"`
 }
 

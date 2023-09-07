@@ -17,9 +17,9 @@ import (
 
 // WhatsappMessageInteractiveAction Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
 type WhatsappMessageInteractiveAction struct {
-	// Required for Reply Buttons.
+	// Required for Reply Buttons. You can have up to 3 buttons.
 	Buttons []WhatsappMessageInteractiveActionButton `json:"buttons,omitempty"`
-	// Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+	// Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
 	Button *string `json:"button,omitempty"`
 	// Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
 	CatalogId *string `json:"catalog_id,omitempty"`
