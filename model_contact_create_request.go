@@ -28,7 +28,7 @@ type ContactCreateRequest struct {
 	// Contact's tags. Max items: 50. Max characters per tag: 50.
 	Tags []string `json:"tags,omitempty"`
 	// Contact's custom attributes.
-	CustomAttributes []ContactCreateRequestCustomAttributesInner `json:"customAttributes,omitempty"`
+	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
 }
 
 // NewContactCreateRequest instantiates a new ContactCreateRequest object
@@ -202,9 +202,9 @@ func (o *ContactCreateRequest) SetTags(v []string) {
 }
 
 // GetCustomAttributes returns the CustomAttributes field value if set, zero value otherwise.
-func (o *ContactCreateRequest) GetCustomAttributes() []ContactCreateRequestCustomAttributesInner {
+func (o *ContactCreateRequest) GetCustomAttributes() []ContactCustomAttribute {
 	if o == nil || o.CustomAttributes == nil {
-		var ret []ContactCreateRequestCustomAttributesInner
+		var ret []ContactCustomAttribute
 		return ret
 	}
 	return o.CustomAttributes
@@ -212,7 +212,7 @@ func (o *ContactCreateRequest) GetCustomAttributes() []ContactCreateRequestCusto
 
 // GetCustomAttributesOk returns a tuple with the CustomAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactCreateRequest) GetCustomAttributesOk() ([]ContactCreateRequestCustomAttributesInner, bool) {
+func (o *ContactCreateRequest) GetCustomAttributesOk() ([]ContactCustomAttribute, bool) {
 	if o == nil || o.CustomAttributes == nil {
 		return nil, false
 	}
@@ -228,8 +228,8 @@ func (o *ContactCreateRequest) HasCustomAttributes() bool {
 	return false
 }
 
-// SetCustomAttributes gets a reference to the given []ContactCreateRequestCustomAttributesInner and assigns it to the CustomAttributes field.
-func (o *ContactCreateRequest) SetCustomAttributes(v []ContactCreateRequestCustomAttributesInner) {
+// SetCustomAttributes gets a reference to the given []ContactCustomAttribute and assigns it to the CustomAttributes field.
+func (o *ContactCreateRequest) SetCustomAttributes(v []ContactCustomAttribute) {
 	o.CustomAttributes = v
 }
 

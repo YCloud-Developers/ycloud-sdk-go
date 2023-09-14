@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LastSeen** | Pointer to **time.Time** | The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**CustomAttributes** | Pointer to [**[]ContactCustomAttributesInner**](ContactCustomAttributesInner.md) | Contact&#39;s custom attributes. | [optional] 
+**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
 
 ## Methods
 
@@ -256,20 +256,20 @@ HasCreateTime returns a boolean if a field has been set.
 
 ### GetCustomAttributes
 
-`func (o *Contact) GetCustomAttributes() []ContactCustomAttributesInner`
+`func (o *Contact) GetCustomAttributes() []ContactCustomAttribute`
 
 GetCustomAttributes returns the CustomAttributes field if non-nil, zero value otherwise.
 
 ### GetCustomAttributesOk
 
-`func (o *Contact) GetCustomAttributesOk() (*[]ContactCustomAttributesInner, bool)`
+`func (o *Contact) GetCustomAttributesOk() (*[]ContactCustomAttribute, bool)`
 
 GetCustomAttributesOk returns a tuple with the CustomAttributes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomAttributes
 
-`func (o *Contact) SetCustomAttributes(v []ContactCustomAttributesInner)`
+`func (o *Contact) SetCustomAttributes(v []ContactCustomAttribute)`
 
 SetCustomAttributes sets CustomAttributes field to given value.
 

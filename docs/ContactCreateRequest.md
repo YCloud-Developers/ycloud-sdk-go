@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
 **Email** | Pointer to **string** | Contact&#39;s email address. If present, the email address must be unique. | [optional] 
 **Tags** | Pointer to **[]string** | Contact&#39;s tags. Max items: 50. Max characters per tag: 50. | [optional] 
-**CustomAttributes** | Pointer to [**[]ContactCreateRequestCustomAttributesInner**](ContactCreateRequestCustomAttributesInner.md) | Contact&#39;s custom attributes. | [optional] 
+**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
 
 ## Methods
 
@@ -152,20 +152,20 @@ HasTags returns a boolean if a field has been set.
 
 ### GetCustomAttributes
 
-`func (o *ContactCreateRequest) GetCustomAttributes() []ContactCreateRequestCustomAttributesInner`
+`func (o *ContactCreateRequest) GetCustomAttributes() []ContactCustomAttribute`
 
 GetCustomAttributes returns the CustomAttributes field if non-nil, zero value otherwise.
 
 ### GetCustomAttributesOk
 
-`func (o *ContactCreateRequest) GetCustomAttributesOk() (*[]ContactCreateRequestCustomAttributesInner, bool)`
+`func (o *ContactCreateRequest) GetCustomAttributesOk() (*[]ContactCustomAttribute, bool)`
 
 GetCustomAttributesOk returns a tuple with the CustomAttributes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomAttributes
 
-`func (o *ContactCreateRequest) SetCustomAttributes(v []ContactCreateRequestCustomAttributesInner)`
+`func (o *ContactCreateRequest) SetCustomAttributes(v []ContactCustomAttribute)`
 
 SetCustomAttributes sets CustomAttributes field to given value.
 

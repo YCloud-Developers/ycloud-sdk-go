@@ -28,7 +28,7 @@ type ContactUpdateRequest struct {
 	// Contact's tags. Maximum items: 50.
 	Tags []string `json:"tags,omitempty"`
 	// Contact's custom attributes. If present (i.e., not `null`), all previous attributes of this contact will be replaced.
-	CustomAttributes []ContactCreateRequestCustomAttributesInner `json:"customAttributes,omitempty"`
+	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
 }
 
 // NewContactUpdateRequest instantiates a new ContactUpdateRequest object
@@ -209,9 +209,9 @@ func (o *ContactUpdateRequest) SetTags(v []string) {
 }
 
 // GetCustomAttributes returns the CustomAttributes field value if set, zero value otherwise.
-func (o *ContactUpdateRequest) GetCustomAttributes() []ContactCreateRequestCustomAttributesInner {
+func (o *ContactUpdateRequest) GetCustomAttributes() []ContactCustomAttribute {
 	if o == nil || o.CustomAttributes == nil {
-		var ret []ContactCreateRequestCustomAttributesInner
+		var ret []ContactCustomAttribute
 		return ret
 	}
 	return o.CustomAttributes
@@ -219,7 +219,7 @@ func (o *ContactUpdateRequest) GetCustomAttributes() []ContactCreateRequestCusto
 
 // GetCustomAttributesOk returns a tuple with the CustomAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactUpdateRequest) GetCustomAttributesOk() ([]ContactCreateRequestCustomAttributesInner, bool) {
+func (o *ContactUpdateRequest) GetCustomAttributesOk() ([]ContactCustomAttribute, bool) {
 	if o == nil || o.CustomAttributes == nil {
 		return nil, false
 	}
@@ -235,8 +235,8 @@ func (o *ContactUpdateRequest) HasCustomAttributes() bool {
 	return false
 }
 
-// SetCustomAttributes gets a reference to the given []ContactCreateRequestCustomAttributesInner and assigns it to the CustomAttributes field.
-func (o *ContactUpdateRequest) SetCustomAttributes(v []ContactCreateRequestCustomAttributesInner) {
+// SetCustomAttributes gets a reference to the given []ContactCustomAttribute and assigns it to the CustomAttributes field.
+func (o *ContactUpdateRequest) SetCustomAttributes(v []ContactCustomAttribute) {
 	o.CustomAttributes = v
 }
 

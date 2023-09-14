@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// ContactCustomAttributesInner struct for ContactCustomAttributesInner
-type ContactCustomAttributesInner struct {
-	// Attribute's name.
+// ContactCustomAttribute struct for ContactCustomAttribute
+type ContactCustomAttribute struct {
+	// Name of the attribute that you've previously defined.
 	Name *string `json:"name,omitempty"`
-	// Attribute's value.
+	// Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the `value` is a string with a maximum length of 250.  For Array, the `value` is an array of strings with a maximum length of 250. For Number, the `value` is a signed decimal number. For Boolean, the `value` is either `true` or `false`. For Time, the `value` is a Unix timestamp in milliseconds. For Long Text, the `value` is a string with a maximum length of 5000.
 	Value map[string]interface{} `json:"value,omitempty"`
 }
 
-// NewContactCustomAttributesInner instantiates a new ContactCustomAttributesInner object
+// NewContactCustomAttribute instantiates a new ContactCustomAttribute object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactCustomAttributesInner() *ContactCustomAttributesInner {
-	this := ContactCustomAttributesInner{}
+func NewContactCustomAttribute() *ContactCustomAttribute {
+	this := ContactCustomAttribute{}
 	return &this
 }
 
-// NewContactCustomAttributesInnerWithDefaults instantiates a new ContactCustomAttributesInner object
+// NewContactCustomAttributeWithDefaults instantiates a new ContactCustomAttribute object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewContactCustomAttributesInnerWithDefaults() *ContactCustomAttributesInner {
-	this := ContactCustomAttributesInner{}
+func NewContactCustomAttributeWithDefaults() *ContactCustomAttribute {
+	this := ContactCustomAttribute{}
 	return &this
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *ContactCustomAttributesInner) GetName() string {
+func (o *ContactCustomAttribute) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *ContactCustomAttributesInner) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactCustomAttributesInner) GetNameOk() (*string, bool) {
+func (o *ContactCustomAttribute) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *ContactCustomAttributesInner) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *ContactCustomAttributesInner) HasName() bool {
+func (o *ContactCustomAttribute) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -68,12 +68,12 @@ func (o *ContactCustomAttributesInner) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ContactCustomAttributesInner) SetName(v string) {
+func (o *ContactCustomAttribute) SetName(v string) {
 	o.Name = &v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *ContactCustomAttributesInner) GetValue() map[string]interface{} {
+func (o *ContactCustomAttribute) GetValue() map[string]interface{} {
 	if o == nil || o.Value == nil {
 		var ret map[string]interface{}
 		return ret
@@ -83,7 +83,7 @@ func (o *ContactCustomAttributesInner) GetValue() map[string]interface{} {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactCustomAttributesInner) GetValueOk() (map[string]interface{}, bool) {
+func (o *ContactCustomAttribute) GetValueOk() (map[string]interface{}, bool) {
 	if o == nil || o.Value == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *ContactCustomAttributesInner) GetValueOk() (map[string]interface{}, boo
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *ContactCustomAttributesInner) HasValue() bool {
+func (o *ContactCustomAttribute) HasValue() bool {
 	if o != nil && o.Value != nil {
 		return true
 	}
@@ -100,11 +100,11 @@ func (o *ContactCustomAttributesInner) HasValue() bool {
 }
 
 // SetValue gets a reference to the given map[string]interface{} and assigns it to the Value field.
-func (o *ContactCustomAttributesInner) SetValue(v map[string]interface{}) {
+func (o *ContactCustomAttribute) SetValue(v map[string]interface{}) {
 	o.Value = v
 }
 
-func (o ContactCustomAttributesInner) MarshalJSON() ([]byte, error) {
+func (o ContactCustomAttribute) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
@@ -115,38 +115,38 @@ func (o ContactCustomAttributesInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableContactCustomAttributesInner struct {
-	value *ContactCustomAttributesInner
+type NullableContactCustomAttribute struct {
+	value *ContactCustomAttribute
 	isSet bool
 }
 
-func (v NullableContactCustomAttributesInner) Get() *ContactCustomAttributesInner {
+func (v NullableContactCustomAttribute) Get() *ContactCustomAttribute {
 	return v.value
 }
 
-func (v *NullableContactCustomAttributesInner) Set(val *ContactCustomAttributesInner) {
+func (v *NullableContactCustomAttribute) Set(val *ContactCustomAttribute) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableContactCustomAttributesInner) IsSet() bool {
+func (v NullableContactCustomAttribute) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableContactCustomAttributesInner) Unset() {
+func (v *NullableContactCustomAttribute) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableContactCustomAttributesInner(val *ContactCustomAttributesInner) *NullableContactCustomAttributesInner {
-	return &NullableContactCustomAttributesInner{value: val, isSet: true}
+func NewNullableContactCustomAttribute(val *ContactCustomAttribute) *NullableContactCustomAttribute {
+	return &NullableContactCustomAttribute{value: val, isSet: true}
 }
 
-func (v NullableContactCustomAttributesInner) MarshalJSON() ([]byte, error) {
+func (v NullableContactCustomAttribute) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableContactCustomAttributesInner) UnmarshalJSON(src []byte) error {
+func (v *NullableContactCustomAttribute) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

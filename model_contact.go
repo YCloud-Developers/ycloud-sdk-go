@@ -37,7 +37,7 @@ type Contact struct {
 	// The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// Contact's custom attributes.
-	CustomAttributes []ContactCustomAttributesInner `json:"customAttributes,omitempty"`
+	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
 }
 
 // NewContact instantiates a new Contact object
@@ -339,9 +339,9 @@ func (o *Contact) SetCreateTime(v time.Time) {
 }
 
 // GetCustomAttributes returns the CustomAttributes field value if set, zero value otherwise.
-func (o *Contact) GetCustomAttributes() []ContactCustomAttributesInner {
+func (o *Contact) GetCustomAttributes() []ContactCustomAttribute {
 	if o == nil || o.CustomAttributes == nil {
-		var ret []ContactCustomAttributesInner
+		var ret []ContactCustomAttribute
 		return ret
 	}
 	return o.CustomAttributes
@@ -349,7 +349,7 @@ func (o *Contact) GetCustomAttributes() []ContactCustomAttributesInner {
 
 // GetCustomAttributesOk returns a tuple with the CustomAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Contact) GetCustomAttributesOk() ([]ContactCustomAttributesInner, bool) {
+func (o *Contact) GetCustomAttributesOk() ([]ContactCustomAttribute, bool) {
 	if o == nil || o.CustomAttributes == nil {
 		return nil, false
 	}
@@ -365,8 +365,8 @@ func (o *Contact) HasCustomAttributes() bool {
 	return false
 }
 
-// SetCustomAttributes gets a reference to the given []ContactCustomAttributesInner and assigns it to the CustomAttributes field.
-func (o *Contact) SetCustomAttributes(v []ContactCustomAttributesInner) {
+// SetCustomAttributes gets a reference to the given []ContactCustomAttribute and assigns it to the CustomAttributes field.
+func (o *Contact) SetCustomAttributes(v []ContactCustomAttribute) {
 	o.CustomAttributes = v
 }
 
