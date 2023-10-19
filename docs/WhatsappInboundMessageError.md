@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | Pointer to **string** | The error code. | [optional] 
 **Title** | Pointer to **string** | The error title. | [optional] 
+**Message** | Pointer to **string** | The error message. | [optional] 
+**ErrorData** | Pointer to **map[string]interface{}** | An error data object with the following properties: - &#x60;details&#x60;: A string describing the reason for the error. Example: &#x60;Message type is currently not supported.&#x60;. | [optional] 
 
 ## Methods
 
@@ -75,6 +77,56 @@ SetTitle sets Title field to given value.
 `func (o *WhatsappInboundMessageError) HasTitle() bool`
 
 HasTitle returns a boolean if a field has been set.
+
+### GetMessage
+
+`func (o *WhatsappInboundMessageError) GetMessage() string`
+
+GetMessage returns the Message field if non-nil, zero value otherwise.
+
+### GetMessageOk
+
+`func (o *WhatsappInboundMessageError) GetMessageOk() (*string, bool)`
+
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessage
+
+`func (o *WhatsappInboundMessageError) SetMessage(v string)`
+
+SetMessage sets Message field to given value.
+
+### HasMessage
+
+`func (o *WhatsappInboundMessageError) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
+
+### GetErrorData
+
+`func (o *WhatsappInboundMessageError) GetErrorData() map[string]interface{}`
+
+GetErrorData returns the ErrorData field if non-nil, zero value otherwise.
+
+### GetErrorDataOk
+
+`func (o *WhatsappInboundMessageError) GetErrorDataOk() (*map[string]interface{}, bool)`
+
+GetErrorDataOk returns a tuple with the ErrorData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorData
+
+`func (o *WhatsappInboundMessageError) SetErrorData(v map[string]interface{})`
+
+SetErrorData sets ErrorData field to given value.
+
+### HasErrorData
+
+`func (o *WhatsappInboundMessageError) HasErrorData() bool`
+
+HasErrorData returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

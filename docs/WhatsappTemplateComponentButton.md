@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**WhatsappTemplateComponentButtonType**](WhatsappTemplateComponentButtonType.md) |  | 
-**Text** | **string** | **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters. | 
-**Url** | Pointer to **string** | **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL. | [optional] 
-**PhoneNumber** | Pointer to **string** | **Required for button type &#x60;PHONE_NUMBER&#x60;.** | [optional] 
+**Text** | Pointer to **string** | **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters. | [optional] 
+**Url** | Pointer to **string** | **Required for button type &#x60;URL&#x60;.** URL of website. There can be at most 1 variable at the end of the URL. Example: &#x60;https://www.luckyshrub.com/shop?promo&#x3D;{{1}}&#x60;. 2000 characters maximum. | [optional] 
+**PhoneNumber** | Pointer to **string** | **Required for button type &#x60;PHONE_NUMBER&#x60;.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum. | [optional] 
 **OtpType** | Pointer to [**WhatsappTemplateComponentButtonOtpType**](WhatsappTemplateComponentButtonOtpType.md) |  | [optional] 
 **AutofillText** | Pointer to **string** | **One-tap buttons only.** One-tap button text. Maximum 25 characters. | [optional] 
 **PackageName** | Pointer to **string** | **One-tap buttons only.** Your Android app&#39;s package name. | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappTemplateComponentButton
 
-`func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType, text string, ) *WhatsappTemplateComponentButton`
+`func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType, ) *WhatsappTemplateComponentButton`
 
 NewWhatsappTemplateComponentButton instantiates a new WhatsappTemplateComponentButton object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetText sets Text field to given value.
 
+### HasText
+
+`func (o *WhatsappTemplateComponentButton) HasText() bool`
+
+HasText returns a boolean if a field has been set.
 
 ### GetUrl
 

@@ -21,6 +21,10 @@ type WhatsappInboundMessageError struct {
 	Code *string `json:"code,omitempty"`
 	// The error title.
 	Title *string `json:"title,omitempty"`
+	// The error message.
+	Message *string `json:"message,omitempty"`
+	// An error data object with the following properties: - `details`: A string describing the reason for the error. Example: `Message type is currently not supported.`.
+	ErrorData map[string]interface{} `json:"error_data,omitempty"`
 }
 
 // NewWhatsappInboundMessageError instantiates a new WhatsappInboundMessageError object
@@ -104,6 +108,70 @@ func (o *WhatsappInboundMessageError) SetTitle(v string) {
 	o.Title = &v
 }
 
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageError) GetMessage() string {
+	if o == nil || o.Message == nil {
+		var ret string
+		return ret
+	}
+	return *o.Message
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageError) GetMessageOk() (*string, bool) {
+	if o == nil || o.Message == nil {
+		return nil, false
+	}
+	return o.Message, true
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageError) HasMessage() bool {
+	if o != nil && o.Message != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *WhatsappInboundMessageError) SetMessage(v string) {
+	o.Message = &v
+}
+
+// GetErrorData returns the ErrorData field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageError) GetErrorData() map[string]interface{} {
+	if o == nil || o.ErrorData == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ErrorData
+}
+
+// GetErrorDataOk returns a tuple with the ErrorData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageError) GetErrorDataOk() (map[string]interface{}, bool) {
+	if o == nil || o.ErrorData == nil {
+		return nil, false
+	}
+	return o.ErrorData, true
+}
+
+// HasErrorData returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageError) HasErrorData() bool {
+	if o != nil && o.ErrorData != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorData gets a reference to the given map[string]interface{} and assigns it to the ErrorData field.
+func (o *WhatsappInboundMessageError) SetErrorData(v map[string]interface{}) {
+	o.ErrorData = v
+}
+
 func (o WhatsappInboundMessageError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Code != nil {
@@ -111,6 +179,12 @@ func (o WhatsappInboundMessageError) MarshalJSON() ([]byte, error) {
 	}
 	if o.Title != nil {
 		toSerialize["title"] = o.Title
+	}
+	if o.Message != nil {
+		toSerialize["message"] = o.Message
+	}
+	if o.ErrorData != nil {
+		toSerialize["error_data"] = o.ErrorData
 	}
 	return json.Marshal(toSerialize)
 }
@@ -150,5 +224,3 @@ func (v *NullableWhatsappInboundMessageError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

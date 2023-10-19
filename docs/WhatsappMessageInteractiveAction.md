@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **CatalogId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/). | [optional] 
 **ProductRetailerId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. | [optional] 
 **Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSection**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. | [optional] 
+**Name** | Pointer to **string** | Action name. Required for Call-To-Action (CTA) URL Button Messages. | [optional] 
+**Parameters** | Pointer to [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  | [optional] 
 
 ## Methods
 
@@ -153,6 +155,56 @@ SetSections sets Sections field to given value.
 `func (o *WhatsappMessageInteractiveAction) HasSections() bool`
 
 HasSections returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *WhatsappMessageInteractiveAction) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *WhatsappMessageInteractiveAction) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *WhatsappMessageInteractiveAction) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *WhatsappMessageInteractiveAction) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetParameters
+
+`func (o *WhatsappMessageInteractiveAction) GetParameters() WhatsappMessageInteractiveActionParameters`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *WhatsappMessageInteractiveAction) GetParametersOk() (*WhatsappMessageInteractiveActionParameters, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *WhatsappMessageInteractiveAction) SetParameters(v WhatsappMessageInteractiveActionParameters)`
+
+SetParameters sets Parameters field to given value.
+
+### HasParameters
+
+`func (o *WhatsappMessageInteractiveAction) HasParameters() bool`
+
+HasParameters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

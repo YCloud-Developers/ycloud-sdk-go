@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.9.1
+- Package version: 1.10.0
 
 ## Installation
 
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
+ - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
  - [WhatsappMessageInteractiveActionSectionProductItem](docs/WhatsappMessageInteractiveActionSectionProductItem.md)
  - [WhatsappMessageInteractiveActionSectionRow](docs/WhatsappMessageInteractiveActionSectionRow.md)

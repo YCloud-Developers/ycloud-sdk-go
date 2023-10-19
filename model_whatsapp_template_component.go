@@ -23,13 +23,13 @@ type WhatsappTemplateComponent struct {
 	Format *string `json:"format,omitempty"`
 	// **Required for type `BODY`, `FOOTER`, and format `TEXT`.**
 	Text *string `json:"text,omitempty"`
-	// **Required for type `BUTTONS`.** The `BUTTONS` component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
+	// **Required for type `BUTTONS`.** Buttons are optional interactive components that perform specific actions when tapped. Templates can have a mixture of up to 10 button components total, although there are limits to individual buttons of the same type as well as combination limits. If a template has more than three buttons, two buttons will appear in the delivered message and the remaining buttons will be replaced with a **See all options** button. Tapping the **See all options** button reveals the remaining buttons.
 	Buttons []WhatsappTemplateComponentButton `json:"buttons,omitempty"`
 	// **Optional. Only applicable in the `BODY` component of an AUTHENTICATION template.** Set to `true` if you want the template to include the string, *For your security, do not share this code.* Set to `false` to exclude the string.
 	AddSecurityRecommendation *bool `json:"add_security_recommendation,omitempty"`
 	// **Optional. Only applicable in the `FOOTER` component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
-	CodeExpirationMinutes *int32 `json:"code_expiration_minutes,omitempty"`
-	Example *WhatsappTemplateComponentExample `json:"example,omitempty"`
+	CodeExpirationMinutes *int32                            `json:"code_expiration_minutes,omitempty"`
+	Example               *WhatsappTemplateComponentExample `json:"example,omitempty"`
 }
 
 // NewWhatsappTemplateComponent instantiates a new WhatsappTemplateComponent object
@@ -334,5 +334,3 @@ func (v *NullableWhatsappTemplateComponent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

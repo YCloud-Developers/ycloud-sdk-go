@@ -21,8 +21,6 @@ type WhatsappInboundMessageSystem struct {
 	Body *string `json:"body,omitempty"`
 	// **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.
 	NewWaId *string `json:"new_wa_id,omitempty"`
-	// **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
-	Identity *string `json:"identity,omitempty"`
 	// Supported types are: - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.
 	Type *string `json:"type,omitempty"`
 	// **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.
@@ -110,38 +108,6 @@ func (o *WhatsappInboundMessageSystem) SetNewWaId(v string) {
 	o.NewWaId = &v
 }
 
-// GetIdentity returns the Identity field value if set, zero value otherwise.
-func (o *WhatsappInboundMessageSystem) GetIdentity() string {
-	if o == nil || o.Identity == nil {
-		var ret string
-		return ret
-	}
-	return *o.Identity
-}
-
-// GetIdentityOk returns a tuple with the Identity field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessageSystem) GetIdentityOk() (*string, bool) {
-	if o == nil || o.Identity == nil {
-		return nil, false
-	}
-	return o.Identity, true
-}
-
-// HasIdentity returns a boolean if a field has been set.
-func (o *WhatsappInboundMessageSystem) HasIdentity() bool {
-	if o != nil && o.Identity != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentity gets a reference to the given string and assigns it to the Identity field.
-func (o *WhatsappInboundMessageSystem) SetIdentity(v string) {
-	o.Identity = &v
-}
-
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *WhatsappInboundMessageSystem) GetType() string {
 	if o == nil || o.Type == nil {
@@ -214,9 +180,6 @@ func (o WhatsappInboundMessageSystem) MarshalJSON() ([]byte, error) {
 	if o.NewWaId != nil {
 		toSerialize["new_wa_id"] = o.NewWaId
 	}
-	if o.Identity != nil {
-		toSerialize["identity"] = o.Identity
-	}
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
@@ -261,5 +224,3 @@ func (v *NullableWhatsappInboundMessageSystem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

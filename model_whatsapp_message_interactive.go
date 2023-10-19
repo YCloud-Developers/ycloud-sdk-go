@@ -17,10 +17,10 @@ import (
 
 // WhatsappMessageInteractive Use for `interactive` messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
 type WhatsappMessageInteractive struct {
-	// The type of interactive message you want to send. - `list`: Use it for List Messages. - `button`: Use it for Reply Buttons. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.
-	Type string `json:"type"`
-	Action WhatsappMessageInteractiveAction `json:"action"`
-	Body *WhatsappMessageInteractiveBody `json:"body,omitempty"`
+	// The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.
+	Type   string                            `json:"type"`
+	Action WhatsappMessageInteractiveAction  `json:"action"`
+	Body   *WhatsappMessageInteractiveBody   `json:"body,omitempty"`
 	Header *WhatsappMessageInteractiveHeader `json:"header,omitempty"`
 	Footer *WhatsappMessageInteractiveFooter `json:"footer,omitempty"`
 }
@@ -243,5 +243,3 @@ func (v *NullableWhatsappMessageInteractive) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -27,6 +27,9 @@ type WhatsappMessageInteractiveAction struct {
 	ProductRetailerId *string `json:"product_retailer_id,omitempty"`
 	// Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
 	Sections []WhatsappMessageInteractiveActionSection `json:"sections,omitempty"`
+	// Action name. Required for Call-To-Action (CTA) URL Button Messages.
+	Name       *string                                     `json:"name,omitempty"`
+	Parameters *WhatsappMessageInteractiveActionParameters `json:"parameters,omitempty"`
 }
 
 // NewWhatsappMessageInteractiveAction instantiates a new WhatsappMessageInteractiveAction object
@@ -206,6 +209,70 @@ func (o *WhatsappMessageInteractiveAction) SetSections(v []WhatsappMessageIntera
 	o.Sections = v
 }
 
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveAction) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveAction) GetNameOk() (*string, bool) {
+	if o == nil || o.Name == nil {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveAction) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *WhatsappMessageInteractiveAction) SetName(v string) {
+	o.Name = &v
+}
+
+// GetParameters returns the Parameters field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveAction) GetParameters() WhatsappMessageInteractiveActionParameters {
+	if o == nil || o.Parameters == nil {
+		var ret WhatsappMessageInteractiveActionParameters
+		return ret
+	}
+	return *o.Parameters
+}
+
+// GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveAction) GetParametersOk() (*WhatsappMessageInteractiveActionParameters, bool) {
+	if o == nil || o.Parameters == nil {
+		return nil, false
+	}
+	return o.Parameters, true
+}
+
+// HasParameters returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveAction) HasParameters() bool {
+	if o != nil && o.Parameters != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetParameters gets a reference to the given WhatsappMessageInteractiveActionParameters and assigns it to the Parameters field.
+func (o *WhatsappMessageInteractiveAction) SetParameters(v WhatsappMessageInteractiveActionParameters) {
+	o.Parameters = &v
+}
+
 func (o WhatsappMessageInteractiveAction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Buttons != nil {
@@ -222,6 +289,12 @@ func (o WhatsappMessageInteractiveAction) MarshalJSON() ([]byte, error) {
 	}
 	if o.Sections != nil {
 		toSerialize["sections"] = o.Sections
+	}
+	if o.Name != nil {
+		toSerialize["name"] = o.Name
+	}
+	if o.Parameters != nil {
+		toSerialize["parameters"] = o.Parameters
 	}
 	return json.Marshal(toSerialize)
 }
@@ -261,5 +334,3 @@ func (v *NullableWhatsappMessageInteractiveAction) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,15 +17,17 @@ import (
 
 // WhatsappMessageTemplateComponentParameter See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object), [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object.
 type WhatsappMessageTemplateComponentParameter struct {
-	// **Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`.
+	// **Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`.
 	Type *string `json:"type,omitempty"`
 	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
 	// Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
 	Payload *string `json:"payload,omitempty"`
-	Image *WhatsappMessageMedia `json:"image,omitempty"`
-	Video *WhatsappMessageMedia `json:"video,omitempty"`
-	Document *WhatsappMessageMedia `json:"document,omitempty"`
+	// **Required when `type` = `coupon_code`.** The coupon code to be copied when the customer taps the button.
+	CouponCode *string               `json:"coupon_code,omitempty"`
+	Image      *WhatsappMessageMedia `json:"image,omitempty"`
+	Video      *WhatsappMessageMedia `json:"video,omitempty"`
+	Document   *WhatsappMessageMedia `json:"document,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
@@ -141,6 +143,38 @@ func (o *WhatsappMessageTemplateComponentParameter) SetPayload(v string) {
 	o.Payload = &v
 }
 
+// GetCouponCode returns the CouponCode field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameter) GetCouponCode() string {
+	if o == nil || o.CouponCode == nil {
+		var ret string
+		return ret
+	}
+	return *o.CouponCode
+}
+
+// GetCouponCodeOk returns a tuple with the CouponCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameter) GetCouponCodeOk() (*string, bool) {
+	if o == nil || o.CouponCode == nil {
+		return nil, false
+	}
+	return o.CouponCode, true
+}
+
+// HasCouponCode returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameter) HasCouponCode() bool {
+	if o != nil && o.CouponCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCouponCode gets a reference to the given string and assigns it to the CouponCode field.
+func (o *WhatsappMessageTemplateComponentParameter) SetCouponCode(v string) {
+	o.CouponCode = &v
+}
+
 // GetImage returns the Image field value if set, zero value otherwise.
 func (o *WhatsappMessageTemplateComponentParameter) GetImage() WhatsappMessageMedia {
 	if o == nil || o.Image == nil {
@@ -248,6 +282,9 @@ func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error)
 	if o.Payload != nil {
 		toSerialize["payload"] = o.Payload
 	}
+	if o.CouponCode != nil {
+		toSerialize["coupon_code"] = o.CouponCode
+	}
 	if o.Image != nil {
 		toSerialize["image"] = o.Image
 	}
@@ -295,5 +332,3 @@ func (v *NullableWhatsappMessageTemplateComponentParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

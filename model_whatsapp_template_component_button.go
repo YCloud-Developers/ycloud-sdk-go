@@ -18,13 +18,13 @@ import (
 // WhatsappTemplateComponentButton struct for WhatsappTemplateComponentButton
 type WhatsappTemplateComponentButton struct {
 	Type WhatsappTemplateComponentButtonType `json:"type"`
-	// **Required.** Button text. For `OTP` buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
-	Text string `json:"text"`
-	// **Required for button type `URL`.**  There can be at most 1 variable at the end of the URL.
+	// **Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
+	Text *string `json:"text,omitempty"`
+	// **Required for button type `URL`.** URL of website. There can be at most 1 variable at the end of the URL. Example: `https://www.luckyshrub.com/shop?promo={{1}}`. 2000 characters maximum.
 	Url *string `json:"url,omitempty"`
-	// **Required for button type `PHONE_NUMBER`.**
-	PhoneNumber *string `json:"phone_number,omitempty"`
-	OtpType *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
+	// **Required for button type `PHONE_NUMBER`.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
+	PhoneNumber *string                                 `json:"phone_number,omitempty"`
+	OtpType     *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
 	// **One-tap buttons only.** One-tap button text. Maximum 25 characters.
 	AutofillText *string `json:"autofill_text,omitempty"`
 	// **One-tap buttons only.** Your Android app's package name.
@@ -39,10 +39,9 @@ type WhatsappTemplateComponentButton struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType, text string) *WhatsappTemplateComponentButton {
+func NewWhatsappTemplateComponentButton(type_ WhatsappTemplateComponentButtonType) *WhatsappTemplateComponentButton {
 	this := WhatsappTemplateComponentButton{}
 	this.Type = type_
-	this.Text = text
 	return &this
 }
 
@@ -78,28 +77,36 @@ func (o *WhatsappTemplateComponentButton) SetType(v WhatsappTemplateComponentBut
 	o.Type = v
 }
 
-// GetText returns the Text field value
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponentButton) GetText() string {
-	if o == nil {
+	if o == nil || o.Text == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Text
+	return *o.Text
 }
 
-// GetTextOk returns a tuple with the Text field value
+// GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplateComponentButton) GetTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Text == nil {
 		return nil, false
 	}
-	return &o.Text, true
+	return o.Text, true
 }
 
-// SetText sets field value
+// HasText returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasText() bool {
+	if o != nil && o.Text != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *WhatsappTemplateComponentButton) SetText(v string) {
-	o.Text = v
+	o.Text = &v
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise.
@@ -331,7 +338,7 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["type"] = o.Type
 	}
-	if true {
+	if o.Text != nil {
 		toSerialize["text"] = o.Text
 	}
 	if o.Url != nil {
@@ -393,5 +400,3 @@ func (v *NullableWhatsappTemplateComponentButton) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

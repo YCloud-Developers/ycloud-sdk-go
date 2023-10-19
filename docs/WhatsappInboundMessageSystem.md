@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Body** | Pointer to **string** | Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed. | [optional] 
 **NewWaId** | Pointer to **string** | **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer. | [optional] 
-**Identity** | Pointer to **string** | **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer. | [optional] 
 **Type** | Pointer to **string** | Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification. | [optional] 
 **User** | Pointer to **string** | **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer. | [optional] 
 
@@ -78,31 +77,6 @@ SetNewWaId sets NewWaId field to given value.
 `func (o *WhatsappInboundMessageSystem) HasNewWaId() bool`
 
 HasNewWaId returns a boolean if a field has been set.
-
-### GetIdentity
-
-`func (o *WhatsappInboundMessageSystem) GetIdentity() string`
-
-GetIdentity returns the Identity field if non-nil, zero value otherwise.
-
-### GetIdentityOk
-
-`func (o *WhatsappInboundMessageSystem) GetIdentityOk() (*string, bool)`
-
-GetIdentityOk returns a tuple with the Identity field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentity
-
-`func (o *WhatsappInboundMessageSystem) SetIdentity(v string)`
-
-SetIdentity sets Identity field to given value.
-
-### HasIdentity
-
-`func (o *WhatsappInboundMessageSystem) HasIdentity() bool`
-
-HasIdentity returns a boolean if a field has been set.
 
 ### GetType
 
