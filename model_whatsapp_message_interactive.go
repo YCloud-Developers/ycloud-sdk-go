@@ -17,9 +17,9 @@ import (
 
 // WhatsappMessageInteractive Use for `interactive` messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
 type WhatsappMessageInteractive struct {
-	// The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.
-	Type   string                            `json:"type"`
-	Action WhatsappMessageInteractiveAction  `json:"action"`
+	// **Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.
+	Type   *string                           `json:"type,omitempty"`
+	Action *WhatsappMessageInteractiveAction `json:"action,omitempty"`
 	Body   *WhatsappMessageInteractiveBody   `json:"body,omitempty"`
 	Header *WhatsappMessageInteractiveHeader `json:"header,omitempty"`
 	Footer *WhatsappMessageInteractiveFooter `json:"footer,omitempty"`
@@ -29,10 +29,8 @@ type WhatsappMessageInteractive struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction) *WhatsappMessageInteractive {
+func NewWhatsappMessageInteractive() *WhatsappMessageInteractive {
 	this := WhatsappMessageInteractive{}
-	this.Type = type_
-	this.Action = action
 	return &this
 }
 
@@ -44,52 +42,68 @@ func NewWhatsappMessageInteractiveWithDefaults() *WhatsappMessageInteractive {
 	return &this
 }
 
-// GetType returns the Type field value
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *WhatsappMessageInteractive) GetType() string {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageInteractive) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type, true
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractive) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *WhatsappMessageInteractive) SetType(v string) {
-	o.Type = v
+	o.Type = &v
 }
 
-// GetAction returns the Action field value
+// GetAction returns the Action field value if set, zero value otherwise.
 func (o *WhatsappMessageInteractive) GetAction() WhatsappMessageInteractiveAction {
-	if o == nil {
+	if o == nil || o.Action == nil {
 		var ret WhatsappMessageInteractiveAction
 		return ret
 	}
-
-	return o.Action
+	return *o.Action
 }
 
-// GetActionOk returns a tuple with the Action field value
+// GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageInteractive) GetActionOk() (*WhatsappMessageInteractiveAction, bool) {
-	if o == nil {
+	if o == nil || o.Action == nil {
 		return nil, false
 	}
-	return &o.Action, true
+	return o.Action, true
 }
 
-// SetAction sets field value
+// HasAction returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractive) HasAction() bool {
+	if o != nil && o.Action != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given WhatsappMessageInteractiveAction and assigns it to the Action field.
 func (o *WhatsappMessageInteractive) SetAction(v WhatsappMessageInteractiveAction) {
-	o.Action = v
+	o.Action = &v
 }
 
 // GetBody returns the Body field value if set, zero value otherwise.
@@ -190,10 +204,10 @@ func (o *WhatsappMessageInteractive) SetFooter(v WhatsappMessageInteractiveFoote
 
 func (o WhatsappMessageInteractive) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
-	if true {
+	if o.Action != nil {
 		toSerialize["action"] = o.Action
 	}
 	if o.Body != nil {

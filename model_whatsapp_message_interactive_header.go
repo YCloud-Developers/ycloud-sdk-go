@@ -17,12 +17,12 @@ import (
 
 // WhatsappMessageInteractiveHeader Required for type `product_list`. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
 type WhatsappMessageInteractiveHeader struct {
-	// The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.
-	Type string `json:"type"`
+	// **Required.** The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.
+	Type *string `json:"type,omitempty"`
 	// Text for the header. Formatting allows emojis, but not markdown.
-	Text *string `json:"text,omitempty"`
-	Image *WhatsappMessageMedia `json:"image,omitempty"`
-	Video *WhatsappMessageMedia `json:"video,omitempty"`
+	Text     *string               `json:"text,omitempty"`
+	Image    *WhatsappMessageMedia `json:"image,omitempty"`
+	Video    *WhatsappMessageMedia `json:"video,omitempty"`
 	Document *WhatsappMessageMedia `json:"document,omitempty"`
 }
 
@@ -30,9 +30,8 @@ type WhatsappMessageInteractiveHeader struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageInteractiveHeader(type_ string) *WhatsappMessageInteractiveHeader {
+func NewWhatsappMessageInteractiveHeader() *WhatsappMessageInteractiveHeader {
 	this := WhatsappMessageInteractiveHeader{}
-	this.Type = type_
 	return &this
 }
 
@@ -44,28 +43,36 @@ func NewWhatsappMessageInteractiveHeaderWithDefaults() *WhatsappMessageInteracti
 	return &this
 }
 
-// GetType returns the Type field value
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *WhatsappMessageInteractiveHeader) GetType() string {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageInteractiveHeader) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type, true
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveHeader) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *WhatsappMessageInteractiveHeader) SetType(v string) {
-	o.Type = v
+	o.Type = &v
 }
 
 // GetText returns the Text field value if set, zero value otherwise.
@@ -198,7 +205,7 @@ func (o *WhatsappMessageInteractiveHeader) SetDocument(v WhatsappMessageMedia) {
 
 func (o WhatsappMessageInteractiveHeader) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
 	if o.Text != nil {
@@ -251,5 +258,3 @@ func (v *NullableWhatsappMessageInteractiveHeader) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

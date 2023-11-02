@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons. | 
+**Type** | Pointer to **string** | **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons. | [optional] 
 **Text** | Pointer to **string** | Text for the header. Formatting allows emojis, but not markdown. | [optional] 
 **Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
 **Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessageInteractiveHeader
 
-`func NewWhatsappMessageInteractiveHeader(type_ string, ) *WhatsappMessageInteractiveHeader`
+`func NewWhatsappMessageInteractiveHeader() *WhatsappMessageInteractiveHeader`
 
 NewWhatsappMessageInteractiveHeader instantiates a new WhatsappMessageInteractiveHeader object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
+
+`func (o *WhatsappMessageInteractiveHeader) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetText
 

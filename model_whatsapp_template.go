@@ -23,23 +23,25 @@ type WhatsappTemplate struct {
 	// Name of the template.
 	Name string `json:"name"`
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	Language string `json:"language"`
-	Category WhatsappTemplateCategory `json:"category"`
+	Language string                    `json:"language"`
+	Category *WhatsappTemplateCategory `json:"category,omitempty"`
 	// This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
 	PreviousCategory *string `json:"previousCategory,omitempty"`
+	// **Use only for template category is `AUTHENTICATION`.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to `600` seconds for newly created authentication templates. To override the default value, set this field to a value between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour time-to-live.
+	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
 	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
-	Components []WhatsappTemplateComponent `json:"components"`
-	Status *WhatsappTemplateStatus `json:"status,omitempty"`
+	Components    []WhatsappTemplateComponent    `json:"components,omitempty"`
+	Status        *WhatsappTemplateStatus        `json:"status,omitempty"`
 	QualityRating *WhatsappTemplateQualityRating `json:"qualityRating,omitempty"`
 	// The reason why the template is rejected.
 	Reason *string `json:"reason,omitempty"`
 	// The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
-	UpdateTime *time.Time `json:"updateTime,omitempty"`
+	UpdateTime        *time.Time                             `json:"updateTime,omitempty"`
 	StatusUpdateEvent *WhatsappTemplateStatusUpdateEventEnum `json:"statusUpdateEvent,omitempty"`
 	// The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.
-	DisableDate *string `json:"disableDate,omitempty"`
+	DisableDate      *string           `json:"disableDate,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 }
 
@@ -47,13 +49,11 @@ type WhatsappTemplate struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappTemplate(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent) *WhatsappTemplate {
+func NewWhatsappTemplate(wabaId string, name string, language string) *WhatsappTemplate {
 	this := WhatsappTemplate{}
 	this.WabaId = wabaId
 	this.Name = name
 	this.Language = language
-	this.Category = category
-	this.Components = components
 	return &this
 }
 
@@ -137,28 +137,36 @@ func (o *WhatsappTemplate) SetLanguage(v string) {
 	o.Language = v
 }
 
-// GetCategory returns the Category field value
+// GetCategory returns the Category field value if set, zero value otherwise.
 func (o *WhatsappTemplate) GetCategory() WhatsappTemplateCategory {
-	if o == nil {
+	if o == nil || o.Category == nil {
 		var ret WhatsappTemplateCategory
 		return ret
 	}
-
-	return o.Category
+	return *o.Category
 }
 
-// GetCategoryOk returns a tuple with the Category field value
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplate) GetCategoryOk() (*WhatsappTemplateCategory, bool) {
-	if o == nil {
+	if o == nil || o.Category == nil {
 		return nil, false
 	}
-	return &o.Category, true
+	return o.Category, true
 }
 
-// SetCategory sets field value
+// HasCategory returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasCategory() bool {
+	if o != nil && o.Category != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given WhatsappTemplateCategory and assigns it to the Category field.
 func (o *WhatsappTemplate) SetCategory(v WhatsappTemplateCategory) {
-	o.Category = v
+	o.Category = &v
 }
 
 // GetPreviousCategory returns the PreviousCategory field value if set, zero value otherwise.
@@ -193,26 +201,66 @@ func (o *WhatsappTemplate) SetPreviousCategory(v string) {
 	o.PreviousCategory = &v
 }
 
-// GetComponents returns the Components field value
+// GetMessageSendTtlSeconds returns the MessageSendTtlSeconds field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetMessageSendTtlSeconds() int32 {
+	if o == nil || o.MessageSendTtlSeconds == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MessageSendTtlSeconds
+}
+
+// GetMessageSendTtlSecondsOk returns a tuple with the MessageSendTtlSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetMessageSendTtlSecondsOk() (*int32, bool) {
+	if o == nil || o.MessageSendTtlSeconds == nil {
+		return nil, false
+	}
+	return o.MessageSendTtlSeconds, true
+}
+
+// HasMessageSendTtlSeconds returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasMessageSendTtlSeconds() bool {
+	if o != nil && o.MessageSendTtlSeconds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessageSendTtlSeconds gets a reference to the given int32 and assigns it to the MessageSendTtlSeconds field.
+func (o *WhatsappTemplate) SetMessageSendTtlSeconds(v int32) {
+	o.MessageSendTtlSeconds = &v
+}
+
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *WhatsappTemplate) GetComponents() []WhatsappTemplateComponent {
-	if o == nil {
+	if o == nil || o.Components == nil {
 		var ret []WhatsappTemplateComponent
 		return ret
 	}
-
 	return o.Components
 }
 
-// GetComponentsOk returns a tuple with the Components field value
+// GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappTemplate) GetComponentsOk() ([]WhatsappTemplateComponent, bool) {
-	if o == nil {
+	if o == nil || o.Components == nil {
 		return nil, false
 	}
 	return o.Components, true
 }
 
-// SetComponents sets field value
+// HasComponents returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasComponents() bool {
+	if o != nil && o.Components != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComponents gets a reference to the given []WhatsappTemplateComponent and assigns it to the Components field.
 func (o *WhatsappTemplate) SetComponents(v []WhatsappTemplateComponent) {
 	o.Components = v
 }
@@ -484,13 +532,16 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["language"] = o.Language
 	}
-	if true {
+	if o.Category != nil {
 		toSerialize["category"] = o.Category
 	}
 	if o.PreviousCategory != nil {
 		toSerialize["previousCategory"] = o.PreviousCategory
 	}
-	if true {
+	if o.MessageSendTtlSeconds != nil {
+		toSerialize["messageSendTtlSeconds"] = o.MessageSendTtlSeconds
+	}
+	if o.Components != nil {
 		toSerialize["components"] = o.Components
 	}
 	if o.Status != nil {
@@ -555,5 +606,3 @@ func (v *NullableWhatsappTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

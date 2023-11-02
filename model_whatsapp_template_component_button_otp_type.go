@@ -16,19 +16,21 @@ import (
 	"fmt"
 )
 
-// WhatsappTemplateComponentButtonOtpType Indicates button OTP type. Set to `COPY_CODE` if you want the template to use a copy code button, or `ONE_TAP` to have it use a one-tap autofill button.
+// WhatsappTemplateComponentButtonOtpType Indicates button OTP type. Set to `COPY_CODE` if you want the template to use a copy code button, `ONE_TAP` to have it use a one-tap autofill button, or `ZERO_TAP` to have no button at all.
 type WhatsappTemplateComponentButtonOtpType string
 
 // List of WhatsappTemplateComponentButtonOtpType
 const (
 	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_COPY_CODE WhatsappTemplateComponentButtonOtpType = "COPY_CODE"
-	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ONE_TAP WhatsappTemplateComponentButtonOtpType = "ONE_TAP"
+	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ONE_TAP   WhatsappTemplateComponentButtonOtpType = "ONE_TAP"
+	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ZERO_TAP  WhatsappTemplateComponentButtonOtpType = "ZERO_TAP"
 )
 
 // All allowed values of WhatsappTemplateComponentButtonOtpType enum
 var AllowedWhatsappTemplateComponentButtonOtpTypeEnumValues = []WhatsappTemplateComponentButtonOtpType{
 	"COPY_CODE",
 	"ONE_TAP",
+	"ZERO_TAP",
 }
 
 func (v *WhatsappTemplateComponentButtonOtpType) UnmarshalJSON(src []byte) error {
@@ -103,4 +105,3 @@ func (v *NullableWhatsappTemplateComponentButtonOtpType) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -31,6 +31,8 @@ type WhatsappTemplateComponentButton struct {
 	PackageName *string `json:"package_name,omitempty"`
 	// **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
 	SignatureHash *string `json:"signature_hash,omitempty"`
+	// **Zero-tap buttons only.** Set to `true` to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it's your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to `false`, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
+	ZeroTapTermsAccepted *bool `json:"zero_tap_terms_accepted,omitempty"`
 	// Sample full URL for a `URL` button with a variable.
 	Example []string `json:"example,omitempty"`
 }
@@ -301,6 +303,38 @@ func (o *WhatsappTemplateComponentButton) SetSignatureHash(v string) {
 	o.SignatureHash = &v
 }
 
+// GetZeroTapTermsAccepted returns the ZeroTapTermsAccepted field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetZeroTapTermsAccepted() bool {
+	if o == nil || o.ZeroTapTermsAccepted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.ZeroTapTermsAccepted
+}
+
+// GetZeroTapTermsAcceptedOk returns a tuple with the ZeroTapTermsAccepted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetZeroTapTermsAcceptedOk() (*bool, bool) {
+	if o == nil || o.ZeroTapTermsAccepted == nil {
+		return nil, false
+	}
+	return o.ZeroTapTermsAccepted, true
+}
+
+// HasZeroTapTermsAccepted returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasZeroTapTermsAccepted() bool {
+	if o != nil && o.ZeroTapTermsAccepted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetZeroTapTermsAccepted gets a reference to the given bool and assigns it to the ZeroTapTermsAccepted field.
+func (o *WhatsappTemplateComponentButton) SetZeroTapTermsAccepted(v bool) {
+	o.ZeroTapTermsAccepted = &v
+}
+
 // GetExample returns the Example field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponentButton) GetExample() []string {
 	if o == nil || o.Example == nil {
@@ -358,6 +392,9 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.SignatureHash != nil {
 		toSerialize["signature_hash"] = o.SignatureHash
+	}
+	if o.ZeroTapTermsAccepted != nil {
+		toSerialize["zero_tap_terms_accepted"] = o.ZeroTapTermsAccepted
 	}
 	if o.Example != nil {
 		toSerialize["example"] = o.Example

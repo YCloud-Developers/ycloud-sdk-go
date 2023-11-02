@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AutofillText** | Pointer to **string** | **One-tap buttons only.** One-tap button text. Maximum 25 characters. | [optional] 
 **PackageName** | Pointer to **string** | **One-tap buttons only.** Your Android app&#39;s package name. | [optional] 
 **SignatureHash** | Pointer to **string** | **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash). | [optional] 
+**ZeroTapTermsAccepted** | Pointer to **bool** | **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates. | [optional] 
 **Example** | Pointer to **[]string** | Sample full URL for a &#x60;URL&#x60; button with a variable. | [optional] 
 
 ## Methods
@@ -227,6 +228,31 @@ SetSignatureHash sets SignatureHash field to given value.
 `func (o *WhatsappTemplateComponentButton) HasSignatureHash() bool`
 
 HasSignatureHash returns a boolean if a field has been set.
+
+### GetZeroTapTermsAccepted
+
+`func (o *WhatsappTemplateComponentButton) GetZeroTapTermsAccepted() bool`
+
+GetZeroTapTermsAccepted returns the ZeroTapTermsAccepted field if non-nil, zero value otherwise.
+
+### GetZeroTapTermsAcceptedOk
+
+`func (o *WhatsappTemplateComponentButton) GetZeroTapTermsAcceptedOk() (*bool, bool)`
+
+GetZeroTapTermsAcceptedOk returns a tuple with the ZeroTapTermsAccepted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZeroTapTermsAccepted
+
+`func (o *WhatsappTemplateComponentButton) SetZeroTapTermsAccepted(v bool)`
+
+SetZeroTapTermsAccepted sets ZeroTapTermsAccepted field to given value.
+
+### HasZeroTapTermsAccepted
+
+`func (o *WhatsappTemplateComponentButton) HasZeroTapTermsAccepted() bool`
+
+HasZeroTapTermsAccepted returns a boolean if a field has been set.
 
 ### GetExample
 

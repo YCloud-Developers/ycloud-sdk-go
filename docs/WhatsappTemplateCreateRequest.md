@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
 **Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
+**MessageSendTtlSeconds** | Pointer to **int32** | **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live. | [optional] 
 **Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) |  | 
 
 ## Methods
@@ -108,6 +109,31 @@ and a boolean to check if the value has been set.
 
 SetCategory sets Category field to given value.
 
+
+### GetMessageSendTtlSeconds
+
+`func (o *WhatsappTemplateCreateRequest) GetMessageSendTtlSeconds() int32`
+
+GetMessageSendTtlSeconds returns the MessageSendTtlSeconds field if non-nil, zero value otherwise.
+
+### GetMessageSendTtlSecondsOk
+
+`func (o *WhatsappTemplateCreateRequest) GetMessageSendTtlSecondsOk() (*int32, bool)`
+
+GetMessageSendTtlSecondsOk returns a tuple with the MessageSendTtlSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessageSendTtlSeconds
+
+`func (o *WhatsappTemplateCreateRequest) SetMessageSendTtlSeconds(v int32)`
+
+SetMessageSendTtlSeconds sets MessageSendTtlSeconds field to given value.
+
+### HasMessageSendTtlSeconds
+
+`func (o *WhatsappTemplateCreateRequest) HasMessageSendTtlSeconds() bool`
+
+HasMessageSendTtlSeconds returns a boolean if a field has been set.
 
 ### GetComponents
 

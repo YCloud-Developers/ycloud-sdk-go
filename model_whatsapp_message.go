@@ -27,24 +27,24 @@ type WhatsappMessage struct {
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To string `json:"to"`
-	Conversation *WhatsappConversation `json:"conversation,omitempty"`
-	Type WhatsappMessageType `json:"type"`
-	Template *WhatsappMessageTemplate `json:"template,omitempty"`
-	Text *WhatsappMessageText `json:"text,omitempty"`
-	Image *WhatsappMessageMedia `json:"image,omitempty"`
-	Video *WhatsappMessageMedia `json:"video,omitempty"`
-	Audio *WhatsappMessageMedia `json:"audio,omitempty"`
-	Document *WhatsappMessageMedia `json:"document,omitempty"`
-	Sticker *WhatsappMessageMedia `json:"sticker,omitempty"`
-	Location *WhatsappMessageLocation `json:"location,omitempty"`
-	Interactive *WhatsappMessageInteractive `json:"interactive,omitempty"`
-	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
-	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
-	Context *WhatsappMessageContext `json:"context,omitempty"`
+	To           string                      `json:"to"`
+	Conversation *WhatsappConversation       `json:"conversation,omitempty"`
+	Type         *WhatsappMessageType        `json:"type,omitempty"`
+	Template     *WhatsappMessageTemplate    `json:"template,omitempty"`
+	Text         *WhatsappMessageText        `json:"text,omitempty"`
+	Image        *WhatsappMessageMedia       `json:"image,omitempty"`
+	Video        *WhatsappMessageMedia       `json:"video,omitempty"`
+	Audio        *WhatsappMessageMedia       `json:"audio,omitempty"`
+	Document     *WhatsappMessageMedia       `json:"document,omitempty"`
+	Sticker      *WhatsappMessageMedia       `json:"sticker,omitempty"`
+	Location     *WhatsappMessageLocation    `json:"location,omitempty"`
+	Interactive  *WhatsappMessageInteractive `json:"interactive,omitempty"`
+	Contacts     []WhatsappMessageContact    `json:"contacts,omitempty"`
+	Reaction     *WhatsappMessageReaction    `json:"reaction,omitempty"`
+	Context      *WhatsappMessageContext     `json:"context,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
-	ExternalId *string `json:"externalId,omitempty"`
-	Status *WhatsappMessageStatus `json:"status,omitempty"`
+	ExternalId *string                `json:"externalId,omitempty"`
+	Status     *WhatsappMessageStatus `json:"status,omitempty"`
 	// Error code when the message status is `failed`.
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Error message when the message status is `failed`.
@@ -62,7 +62,7 @@ type WhatsappMessage struct {
 	// Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-	Currency *string `json:"currency,omitempty"`
+	Currency         *string           `json:"currency,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
 	BizType *string `json:"bizType,omitempty"`
@@ -74,13 +74,12 @@ type WhatsappMessage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessage(id string, wabaId string, from string, to string, type_ WhatsappMessageType) *WhatsappMessage {
+func NewWhatsappMessage(id string, wabaId string, from string, to string) *WhatsappMessage {
 	this := WhatsappMessage{}
 	this.Id = id
 	this.WabaId = wabaId
 	this.From = from
 	this.To = to
-	this.Type = type_
 	return &this
 }
 
@@ -252,28 +251,36 @@ func (o *WhatsappMessage) SetConversation(v WhatsappConversation) {
 	o.Conversation = &v
 }
 
-// GetType returns the Type field value
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetType() WhatsappMessageType {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		var ret WhatsappMessageType
 		return ret
 	}
-
-	return o.Type
+	return *o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessage) GetTypeOk() (*WhatsappMessageType, bool) {
-	if o == nil {
+	if o == nil || o.Type == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type, true
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given WhatsappMessageType and assigns it to the Type field.
 func (o *WhatsappMessage) SetType(v WhatsappMessageType) {
-	o.Type = v
+	o.Type = &v
 }
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
@@ -1128,7 +1135,7 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	if o.Conversation != nil {
 		toSerialize["conversation"] = o.Conversation
 	}
-	if true {
+	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
 	if o.Template != nil {
@@ -1247,5 +1254,3 @@ func (v *NullableWhatsappMessage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

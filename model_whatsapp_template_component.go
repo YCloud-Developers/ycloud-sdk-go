@@ -17,19 +17,22 @@ import (
 
 // WhatsappTemplateComponent struct for WhatsappTemplateComponent
 type WhatsappTemplateComponent struct {
-	// **Required.** Template component type.
+	// **Required.** Template component type. - `BODY`: Body components are text-only components and are required by all templates. Templates are limited to one body component. - `HEADER`: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - `FOOTER`: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - `BUTTONS`: Buttons are optional interactive components that perform specific actions when tapped. - `LIMITED_TIME_OFFER`: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - `CAROUSEL`: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
 	Type *string `json:"type,omitempty"`
 	// **Required for type `HEADER`.**
 	Format *string `json:"format,omitempty"`
-	// **Required for type `BODY`, `FOOTER`, and format `TEXT`.**
+	// For body text (type = `BODY`), maximum 1024 characters. For header text (type = `HEADER`, format = `TEXT`), maximum 60 characters. For footer text (type = `FOOTER`), maximum 60 characters. For card body text (`CAROUSEL` card component type = `BODY`), maximum 160 characters.
 	Text *string `json:"text,omitempty"`
 	// **Required for type `BUTTONS`.** Buttons are optional interactive components that perform specific actions when tapped. Templates can have a mixture of up to 10 button components total, although there are limits to individual buttons of the same type as well as combination limits. If a template has more than three buttons, two buttons will appear in the delivered message and the remaining buttons will be replaced with a **See all options** button. Tapping the **See all options** button reveals the remaining buttons.
 	Buttons []WhatsappTemplateComponentButton `json:"buttons,omitempty"`
 	// **Optional. Only applicable in the `BODY` component of an AUTHENTICATION template.** Set to `true` if you want the template to include the string, *For your security, do not share this code.* Set to `false` to exclude the string.
 	AddSecurityRecommendation *bool `json:"add_security_recommendation,omitempty"`
 	// **Optional. Only applicable in the `FOOTER` component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
-	CodeExpirationMinutes *int32                            `json:"code_expiration_minutes,omitempty"`
-	Example               *WhatsappTemplateComponentExample `json:"example,omitempty"`
+	CodeExpirationMinutes *int32                                     `json:"code_expiration_minutes,omitempty"`
+	LimitedTimeOffer      *WhatsappTemplateComponentLimitedTimeOffer `json:"limited_time_offer,omitempty"`
+	Example               *WhatsappTemplateComponentExample          `json:"example,omitempty"`
+	// **Required for type `CAROUSEL`.** Carousel templates support up to 10 carousel cards.
+	Cards []WhatsappTemplateComponentCard `json:"cards,omitempty"`
 }
 
 // NewWhatsappTemplateComponent instantiates a new WhatsappTemplateComponent object
@@ -241,6 +244,38 @@ func (o *WhatsappTemplateComponent) SetCodeExpirationMinutes(v int32) {
 	o.CodeExpirationMinutes = &v
 }
 
+// GetLimitedTimeOffer returns the LimitedTimeOffer field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponent) GetLimitedTimeOffer() WhatsappTemplateComponentLimitedTimeOffer {
+	if o == nil || o.LimitedTimeOffer == nil {
+		var ret WhatsappTemplateComponentLimitedTimeOffer
+		return ret
+	}
+	return *o.LimitedTimeOffer
+}
+
+// GetLimitedTimeOfferOk returns a tuple with the LimitedTimeOffer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponent) GetLimitedTimeOfferOk() (*WhatsappTemplateComponentLimitedTimeOffer, bool) {
+	if o == nil || o.LimitedTimeOffer == nil {
+		return nil, false
+	}
+	return o.LimitedTimeOffer, true
+}
+
+// HasLimitedTimeOffer returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponent) HasLimitedTimeOffer() bool {
+	if o != nil && o.LimitedTimeOffer != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLimitedTimeOffer gets a reference to the given WhatsappTemplateComponentLimitedTimeOffer and assigns it to the LimitedTimeOffer field.
+func (o *WhatsappTemplateComponent) SetLimitedTimeOffer(v WhatsappTemplateComponentLimitedTimeOffer) {
+	o.LimitedTimeOffer = &v
+}
+
 // GetExample returns the Example field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponent) GetExample() WhatsappTemplateComponentExample {
 	if o == nil || o.Example == nil {
@@ -273,6 +308,38 @@ func (o *WhatsappTemplateComponent) SetExample(v WhatsappTemplateComponentExampl
 	o.Example = &v
 }
 
+// GetCards returns the Cards field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponent) GetCards() []WhatsappTemplateComponentCard {
+	if o == nil || o.Cards == nil {
+		var ret []WhatsappTemplateComponentCard
+		return ret
+	}
+	return o.Cards
+}
+
+// GetCardsOk returns a tuple with the Cards field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponent) GetCardsOk() ([]WhatsappTemplateComponentCard, bool) {
+	if o == nil || o.Cards == nil {
+		return nil, false
+	}
+	return o.Cards, true
+}
+
+// HasCards returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponent) HasCards() bool {
+	if o != nil && o.Cards != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCards gets a reference to the given []WhatsappTemplateComponentCard and assigns it to the Cards field.
+func (o *WhatsappTemplateComponent) SetCards(v []WhatsappTemplateComponentCard) {
+	o.Cards = v
+}
+
 func (o WhatsappTemplateComponent) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
@@ -293,8 +360,14 @@ func (o WhatsappTemplateComponent) MarshalJSON() ([]byte, error) {
 	if o.CodeExpirationMinutes != nil {
 		toSerialize["code_expiration_minutes"] = o.CodeExpirationMinutes
 	}
+	if o.LimitedTimeOffer != nil {
+		toSerialize["limited_time_offer"] = o.LimitedTimeOffer
+	}
 	if o.Example != nil {
 		toSerialize["example"] = o.Example
+	}
+	if o.Cards != nil {
+		toSerialize["cards"] = o.Cards
 	}
 	return json.Marshal(toSerialize)
 }

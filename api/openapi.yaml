@@ -1130,13 +1130,14 @@ paths:
           pattern: "[a-z0-9]{1,512}"
           type: string
         style: form
-      - description: Language of the template.
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
+          \ for all codes."
         explode: true
         in: query
         name: filter.language
         required: false
         schema:
-          example: en
+          example: en_US
           type: string
         style: form
       responses:
@@ -1248,7 +1249,7 @@ paths:
         name: language
         required: true
         schema:
-          example: en
+          example: en_US
           type: string
         style: simple
       responses:
@@ -1299,7 +1300,7 @@ paths:
         name: language
         required: true
         schema:
-          example: en
+          example: en_US
           type: string
         style: simple
       responses:
@@ -1353,7 +1354,7 @@ paths:
         name: language
         required: true
         schema:
-          example: en
+          example: en_US
           type: string
         style: simple
       requestBody:
@@ -3820,7 +3821,16 @@ components:
       example:
         template:
           components:
-          - sub_type: quick_reply
+          - cards:
+            - card_index: 5
+              components:
+              - null
+              - null
+            - card_index: 5
+              components:
+              - null
+              - null
+            sub_type: quick_reply
             index: 0
             type: header
             parameters:
@@ -3829,6 +3839,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -3845,6 +3857,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -3856,7 +3870,16 @@ components:
                 link: link
                 caption: caption
               type: text
-          - sub_type: quick_reply
+          - cards:
+            - card_index: 5
+              components:
+              - null
+              - null
+            - card_index: 5
+              components:
+              - null
+              - null
+            sub_type: quick_reply
             index: 0
             type: header
             parameters:
@@ -3865,6 +3888,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -3881,6 +3906,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -3894,7 +3921,7 @@ components:
               type: text
           name: sample_whatsapp_template
           language:
-            code: en
+            code: en_US
             policy: deterministic
         bizType: verify
         wamid: wamid.BgNODYxN...
@@ -4114,9 +4141,9 @@ components:
           error_data: "{}"
         location:
           address: address
-          latitude: 6.027456183070403
+          latitude: 1.4658129805029452
           name: name
-          longitude: 1.4658129805029452
+          longitude: 5.962133916683182
         to: +447901614024
         contacts:
         - birthday: 2022-09-27
@@ -4337,7 +4364,6 @@ components:
       - from
       - id
       - to
-      - type
       - wabaId
       type: object
     WhatsappMessageContact:
@@ -4720,10 +4746,10 @@ components:
           text: text
       properties:
         type:
-          description: "The type of interactive message you want to send.\n- `button`:\
-            \ Use for Reply Buttons.\n- `list`: Use for List Messages.\n- `cta_url`:\
-            \ Use for Call-To-Action (CTA) URL Button Messages.\n- `product`: Use\
-            \ for Single Product Messages.\n- `product_list`: Use for Multi-Product\
+          description: "**Required.**\nThe type of interactive message you want to\
+            \ send.\n- `button`: Use for Reply Buttons.\n- `list`: Use for List Messages.\n\
+            - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages.\n- `product`:\
+            \ Use for Single Product Messages.\n- `product_list`: Use for Multi-Product\
             \ Messages."
           enum:
           - button
@@ -4746,13 +4772,10 @@ components:
           $ref: '#/components/schemas/WhatsappMessageInteractiveHeader'
         footer:
           $ref: '#/components/schemas/WhatsappMessageInteractiveFooter'
-      required:
-      - action
-      - type
       type: object
     WhatsappMessageInteractiveAction:
-      description: "Action you want the user to perform after reading the `interactive`\
-        \ message.\nSee also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object)."
+      description: "**Required.**\nAction you want the user to perform after reading\
+        \ the `interactive` message.\nSee also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object)."
       example:
         button: button
         catalog_id: catalog_id
@@ -5091,9 +5114,10 @@ components:
         type: text
       properties:
         type:
-          description: "The header type you would like to use.\n- `text`: Used for\
-            \ List Messages and Reply Buttons.\n- `video`: Used for Reply Buttons.\n\
-            - `image`: Used for Reply Buttons.\n- `document`: Used for Reply Buttons."
+          description: "**Required.**\nThe header type you would like to use.\n- `text`:\
+            \ Used for List Messages and Reply Buttons.\n- `video`: Used for Reply\
+            \ Buttons.\n- `image`: Used for Reply Buttons.\n- `document`: Used for\
+            \ Reply Buttons."
           enum:
           - text
           - image
@@ -5110,16 +5134,14 @@ components:
           $ref: '#/components/schemas/WhatsappMessageMedia'
         document:
           $ref: '#/components/schemas/WhatsappMessageMedia'
-      required:
-      - type
       type: object
     WhatsappMessageLocation:
       description: "Use for `location` messages.\nSee also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object)."
       example:
         address: address
-        latitude: 6.027456183070403
+        latitude: 1.4658129805029452
         name: name
-        longitude: 1.4658129805029452
+        longitude: 5.962133916683182
       properties:
         latitude:
           description: Latitude of the location.
@@ -5166,7 +5188,16 @@ components:
       example:
         template:
           components:
-          - sub_type: quick_reply
+          - cards:
+            - card_index: 5
+              components:
+              - null
+              - null
+            - card_index: 5
+              components:
+              - null
+              - null
+            sub_type: quick_reply
             index: 0
             type: header
             parameters:
@@ -5175,6 +5206,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -5191,6 +5224,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -5202,7 +5237,16 @@ components:
                 link: link
                 caption: caption
               type: text
-          - sub_type: quick_reply
+          - cards:
+            - card_index: 5
+              components:
+              - null
+              - null
+            - card_index: 5
+              components:
+              - null
+              - null
+            sub_type: quick_reply
             index: 0
             type: header
             parameters:
@@ -5211,6 +5255,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -5227,6 +5273,8 @@ components:
                 link: link
                 caption: caption
               coupon_code: coupon_code
+              limited_time_offer:
+                expiration_time_ms: 1698562800000
               payload: payload
               document:
                 filename: filename
@@ -5240,7 +5288,7 @@ components:
               type: text
           name: sample_whatsapp_template
           language:
-            code: en
+            code: en_US
             policy: deterministic
         image:
           filename: filename
@@ -5426,9 +5474,9 @@ components:
         from: +447901614024
         location:
           address: address
-          latitude: 6.027456183070403
+          latitude: 1.4658129805029452
           name: name
-          longitude: 1.4658129805029452
+          longitude: 5.962133916683182
         to: +447901614024
         text:
           preview_url: true
@@ -5602,7 +5650,16 @@ components:
         \ Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object)."
       example:
         components:
-        - sub_type: quick_reply
+        - cards:
+          - card_index: 5
+            components:
+            - null
+            - null
+          - card_index: 5
+            components:
+            - null
+            - null
+          sub_type: quick_reply
           index: 0
           type: header
           parameters:
@@ -5611,6 +5668,8 @@ components:
               link: link
               caption: caption
             coupon_code: coupon_code
+            limited_time_offer:
+              expiration_time_ms: 1698562800000
             payload: payload
             document:
               filename: filename
@@ -5627,6 +5686,8 @@ components:
               link: link
               caption: caption
             coupon_code: coupon_code
+            limited_time_offer:
+              expiration_time_ms: 1698562800000
             payload: payload
             document:
               filename: filename
@@ -5638,7 +5699,16 @@ components:
               link: link
               caption: caption
             type: text
-        - sub_type: quick_reply
+        - cards:
+          - card_index: 5
+            components:
+            - null
+            - null
+          - card_index: 5
+            components:
+            - null
+            - null
+          sub_type: quick_reply
           index: 0
           type: header
           parameters:
@@ -5647,6 +5717,8 @@ components:
               link: link
               caption: caption
             coupon_code: coupon_code
+            limited_time_offer:
+              expiration_time_ms: 1698562800000
             payload: payload
             document:
               filename: filename
@@ -5663,6 +5735,8 @@ components:
               link: link
               caption: caption
             coupon_code: coupon_code
+            limited_time_offer:
+              expiration_time_ms: 1698562800000
             payload: payload
             document:
               filename: filename
@@ -5676,7 +5750,7 @@ components:
             type: text
         name: sample_whatsapp_template
         language:
-          code: en
+          code: en_US
           policy: deterministic
       properties:
         name:
@@ -5699,6 +5773,15 @@ components:
     WhatsappMessageTemplateComponent:
       description: Component object containing the parameters of the message.
       example:
+        cards:
+        - card_index: 5
+          components:
+          - null
+          - null
+        - card_index: 5
+          components:
+          - null
+          - null
         sub_type: quick_reply
         index: 0
         type: header
@@ -5708,6 +5791,8 @@ components:
             link: link
             caption: caption
           coupon_code: coupon_code
+          limited_time_offer:
+            expiration_time_ms: 1698562800000
           payload: payload
           document:
             filename: filename
@@ -5724,6 +5809,8 @@ components:
             link: link
             caption: caption
           coupon_code: coupon_code
+          limited_time_offer:
+            expiration_time_ms: 1698562800000
           payload: payload
           document:
             filename: filename
@@ -5737,12 +5824,13 @@ components:
           type: text
       properties:
         type:
-          description: "Describes the component type. One of `header`, `body`, `button`.\
-            \ For text-based templates, we only support the type=body."
+          description: Describes the component type.
           enum:
           - header
           - body
           - button
+          - limited_time_offer
+          - carousel
           type: string
         sub_type:
           description: "**Required when type is `button`.**\nType of button.\n`quick_reply`:\
@@ -5750,14 +5838,14 @@ components:
             \ customer to return a predefined message.\n`url`: Refers to a previously\
             \ created url button that allows the customer to visit the URL generated\
             \ by appending the text parameter to the predefined prefix URL in the\
-            \ template.\n`COPY_CODE`: Refers to a previously created copy code button\
+            \ template.\n`copy_code`: Refers to a previously created copy code button\
             \ that allows the customer to copy a text string (defined when the template\
             \ is sent in a template message) to the device's clipboard when tapped\
             \ by the app user."
           enum:
           - quick_reply
           - url
-          - COPY_CODE
+          - copy_code
           type: string
         index:
           description: "**Required when `type` = `button`. Not used for the other\
@@ -5778,8 +5866,36 @@ components:
           items:
             $ref: '#/components/schemas/WhatsappMessageTemplateComponentParameter'
           type: array
+        cards:
+          description: Use for `carousel` components. Provides card components containing
+            the parameters of the message.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageTemplateComponentCard'
+          type: array
       required:
       - type
+      type: object
+    WhatsappMessageTemplateComponentCard:
+      description: Card component containing the parameters of the message.
+      example:
+        card_index: 5
+        components:
+        - null
+        - null
+      properties:
+        card_index:
+          description: "**Required.**\nZero-indexed order in which card appears within\
+            \ the card carousel. 0 indicates first card, 1 indicates second card,\
+            \ etc."
+          format: int32
+          maximum: 9
+          minimum: 0
+          type: integer
+        components:
+          description: Card component.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageTemplateComponent'
+          type: array
       type: object
     WhatsappMessageTemplateComponentParameter:
       description: "See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object),\
@@ -5790,6 +5906,8 @@ components:
           link: link
           caption: caption
         coupon_code: coupon_code
+        limited_time_offer:
+          expiration_time_ms: 1698562800000
         payload: payload
         document:
           filename: filename
@@ -5810,7 +5928,8 @@ components:
             \ `VIDEO`.\n- `document`: Used when the template `HEADER` component is\
             \ `DOCUMENT`.\n- `payload`: Used when the template component button type\
             \ is `QUICK_REPLY`.\n- `coupon_code`: Used when the template component\
-            \ button type is `COPY_CODE`."
+            \ button type is `COPY_CODE`.\n- `limited_time_offer`: Used when the template\
+            \ component type is `LIMITED_TIME_OFFER`."
           enum:
           - text
           - image
@@ -5818,6 +5937,7 @@ components:
           - document
           - payload
           - coupon_code
+          - limited_time_offer
           type: string
         text:
           description: "**Required when `type` = `text`.**\nThe message's text. For\
@@ -5842,6 +5962,21 @@ components:
           $ref: '#/components/schemas/WhatsappMessageMedia'
         document:
           $ref: '#/components/schemas/WhatsappMessageMedia'
+        limited_time_offer:
+          $ref: '#/components/schemas/WhatsappMessageTemplateComponentParameterLimitedTimeOffer'
+      type: object
+    WhatsappMessageTemplateComponentParameterLimitedTimeOffer:
+      description: Required if template uses offer expiration details.
+      example:
+        expiration_time_ms: 1698562800000
+      properties:
+        expiration_time_ms:
+          description: |-
+            **Required.**
+            Offer code expiration time as a UNIX timestamp in milliseconds.
+          example: 1698562800000
+          format: int64
+          type: integer
       type: object
     WhatsappMessageText:
       description: "[WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object)."
@@ -6310,6 +6445,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6321,6 +6457,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6332,6 +6469,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6343,6 +6481,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6354,9 +6493,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -6383,6 +6542,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6394,6 +6554,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6405,6 +6566,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6416,6 +6578,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6427,9 +6590,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -6448,9 +6631,10 @@ components:
             - header_url
             - header_url
         previousCategory: previousCategory
-        language: en
+        language: en_US
         updateTime: 2022-06-01T12:00:00Z
         qualityRating: null
+        messageSendTtlSeconds: 600
         wabaId: whatsapp-business-account-id
         disableDate: "December 9, 2022"
         createTime: 2022-06-01T12:00:00Z
@@ -6480,7 +6664,7 @@ components:
         language:
           description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
-          example: en
+          example: en_US
           type: string
         category:
           $ref: '#/components/schemas/WhatsappTemplateCategory'
@@ -6491,6 +6675,17 @@ components:
             \ template's current category.\nFor more information about template category\
             \ migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration)."
           type: string
+        messageSendTtlSeconds:
+          description: "**Use only for template category is `AUTHENTICATION`.**\n\
+            If we are unable to deliver an authentication template for an amount of\
+            \ time that exceeds its time-to-live, we will stop retrying and drop the\
+            \ message.\nDefaults to `600` seconds for newly created authentication\
+            \ templates.\nTo override the default value, set this field to a value\
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
+            \ time-to-live."
+          example: 600
+          format: int32
+          type: integer
         components:
           description: "Template components. A template consists of `HEADER`, `BODY`,\
             \ `FOOTER`, and `BUTTONS` components. `BODY` component is required, the\
@@ -6528,8 +6723,6 @@ components:
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
       required:
-      - category
-      - components
       - language
       - name
       - wabaId
@@ -6579,6 +6772,7 @@ components:
           type: null
           signature_hash: K8a%2FAINcGX7
           url: url
+          zero_tap_terms_accepted: true
           example:
           - example
           - example
@@ -6590,6 +6784,7 @@ components:
           type: null
           signature_hash: K8a%2FAINcGX7
           url: url
+          zero_tap_terms_accepted: true
           example:
           - example
           - example
@@ -6601,6 +6796,7 @@ components:
           type: null
           signature_hash: K8a%2FAINcGX7
           url: url
+          zero_tap_terms_accepted: true
           example:
           - example
           - example
@@ -6612,6 +6808,7 @@ components:
           type: null
           signature_hash: K8a%2FAINcGX7
           url: url
+          zero_tap_terms_accepted: true
           example:
           - example
           - example
@@ -6623,9 +6820,29 @@ components:
           type: null
           signature_hash: K8a%2FAINcGX7
           url: url
+          zero_tap_terms_accepted: true
           example:
           - example
           - example
+        limited_time_offer:
+          has_expiration: true
+          text: Expiring offer!
+        cards:
+        - components:
+          - null
+          - null
+        - components:
+          - null
+          - null
+        - components:
+          - null
+          - null
+        - components:
+          - null
+          - null
+        - components:
+          - null
+          - null
         format: TEXT
         add_security_recommendation: true
         code_expiration_minutes: 5
@@ -6645,12 +6862,27 @@ components:
           - header_url
       properties:
         type:
-          description: '**Required.** Template component type.'
+          description: "**Required.** Template component type.\n- `BODY`: Body components\
+            \ are text-only components and are required by all templates. Templates\
+            \ are limited to one body component.\n- `HEADER`: Headers are optional\
+            \ components that appear at the top of template messages. Headers support\
+            \ text, media (images, videos, documents). Templates are limited to one\
+            \ header component.\n- `FOOTER`: Footers are optional text-only components\
+            \ that appear immediately after the body component. Templates are limited\
+            \ to one footer component.\n- `BUTTONS`: Buttons are optional interactive\
+            \ components that perform specific actions when tapped.\n- `LIMITED_TIME_OFFER`:\
+            \ Use for limited-time offer templates. The delivered message can display\
+            \ an offer expiration details section with a heading, an optional expiration\
+            \ timer, and the offer code itself.\n- `CAROUSEL`: Carousel templates\
+            \ allow you to send a single text message (1), accompanied by a set of\
+            \ up to 10 carousel cards (2) in a horizontally scrollable view."
           enum:
           - BODY
           - HEADER
           - FOOTER
           - BUTTONS
+          - LIMITED_TIME_OFFER
+          - CAROUSEL
           type: string
         format:
           description: '**Required for type `HEADER`.**'
@@ -6661,7 +6893,11 @@ components:
           - DOCUMENT
           type: string
         text:
-          description: "**Required for type `BODY`, `FOOTER`, and format `TEXT`.**"
+          description: "For body text (type = `BODY`), maximum 1024 characters.\n\
+            For header text (type = `HEADER`, format = `TEXT`), maximum 60 characters.\n\
+            For footer text (type = `FOOTER`), maximum 60 characters.\nFor card body\
+            \ text (`CAROUSEL` card component type = `BODY`), maximum 160 characters."
+          maxLength: 1024
           type: string
         buttons:
           description: "**Required for type `BUTTONS`.**\nButtons are optional interactive\
@@ -6692,8 +6928,18 @@ components:
           maximum: 90
           minimum: 1
           type: integer
+        limited_time_offer:
+          $ref: '#/components/schemas/WhatsappTemplateComponentLimitedTimeOffer'
         example:
           $ref: '#/components/schemas/WhatsappTemplateComponent_example'
+        cards:
+          description: |-
+            **Required for type `CAROUSEL`.**
+            Carousel templates support up to 10 carousel cards.
+          items:
+            $ref: '#/components/schemas/WhatsappTemplateComponentCard'
+          maxItems: 10
+          type: array
       type: object
     WhatsappTemplateComponentButton:
       example:
@@ -6705,6 +6951,7 @@ components:
         type: null
         signature_hash: K8a%2FAINcGX7
         url: url
+        zero_tap_terms_accepted: true
         example:
         - example
         - example
@@ -6742,7 +6989,8 @@ components:
         autofill_text:
           description: |-
             **One-tap buttons only.**
-            One-tap button text. Maximum 25 characters.
+            One-tap button text.
+            Maximum 25 characters.
           example: Autofill
           maxLength: 25
           type: string
@@ -6757,6 +7005,16 @@ components:
             \ [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash)."
           example: K8a%2FAINcGX7
           type: string
+        zero_tap_terms_accepted:
+          description: "**Zero-tap buttons only.**\nSet to `true` to indicate that\
+            \ you understand that your use of zero-tap authentication is subject to\
+            \ the WhatsApp Business Terms of Service, and that it's your responsibility\
+            \ to ensure your customers expect that the code will be automatically\
+            \ filled in on their behalf when they choose to receive the zero-tap code\
+            \ through WhatsApp.\nIf set to `false`, the template will not be created\
+            \ as you need to accept zero-tap terms before creating zero-tap enabled\
+            \ message templates."
+          type: boolean
         example:
           description: Sample full URL for a `URL` button with a variable.
           items:
@@ -6766,12 +7024,13 @@ components:
       - type
       type: object
     WhatsappTemplateComponentButtonOtpType:
-      description: "Indicates button OTP type. Set to `COPY_CODE` if you want the\
-        \ template to use a copy code button, or `ONE_TAP` to have it use a one-tap\
-        \ autofill button."
+      description: "Indicates button OTP type.\nSet to `COPY_CODE` if you want the\
+        \ template to use a copy code button, `ONE_TAP` to have it use a one-tap autofill\
+        \ button, or `ZERO_TAP` to have no button at all."
       enum:
       - COPY_CODE
       - ONE_TAP
+      - ZERO_TAP
       type: string
     WhatsappTemplateComponentButtonType:
       description: "Button type.\n- `PHONE_NUMBER`: Phone number buttons call the\
@@ -6795,6 +7054,49 @@ components:
       - COPY_CODE
       - OTP
       type: string
+    WhatsappTemplateComponentCard:
+      description: "Carousel templates support up to 10 carousel cards. Cards must\
+        \ have a media header (image or video) and can optionally include body text\
+        \ and up to 2 quick reply buttons, phone number buttons, or URL buttons (button\
+        \ types can be mixed)."
+      example:
+        components:
+        - null
+        - null
+      properties:
+        components:
+          description: |-
+            **Required.**
+            Card components.
+          items:
+            $ref: '#/components/schemas/WhatsappTemplateComponent'
+          type: array
+      type: object
+    WhatsappTemplateComponentLimitedTimeOffer:
+      description: Use for `LIMITED_TIME_OFFER` components.
+      example:
+        has_expiration: true
+        text: Expiring offer!
+      properties:
+        text:
+          description: |-
+            **Required.**
+            Offer details text.
+            Maximum 16 characters.
+          example: Expiring offer!
+          maxLength: 16
+          type: string
+        has_expiration:
+          description: "**Optional.**\nSet to `true` to have the [offer expiration\
+            \ details](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/limited-time-offer-templates#offer-expiration-details)\
+            \ appear in the delivered message.\nIf set to `true`, the copy code button\
+            \ component must be included in the `buttons` array, and must appear first\
+            \ in the array.\nIf set to `false`, offer expiration details will not\
+            \ appear in the delivered message and the copy code button component is\
+            \ optional. If including the copy code button, it must appear first in\
+            \ the `buttons` array."
+          type: boolean
+      type: object
     WhatsappTemplateCreateRequest:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
@@ -6809,6 +7111,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6820,6 +7123,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6831,6 +7135,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6842,6 +7147,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6853,9 +7159,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -6882,6 +7208,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6893,6 +7220,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6904,6 +7232,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6915,6 +7244,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -6926,9 +7256,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -6947,8 +7297,9 @@ components:
             - header_url
             - header_url
         name: sample_whatsapp_template
-        language: en
+        language: en_US
         category: null
+        messageSendTtlSeconds: 600
       properties:
         wabaId:
           description: WhatsApp Business Account ID.
@@ -6963,10 +7314,21 @@ components:
         language:
           description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
-          example: en
+          example: en_US
           type: string
         category:
           $ref: '#/components/schemas/WhatsappTemplateCategory'
+        messageSendTtlSeconds:
+          description: "**Use only for template category is `AUTHENTICATION`.**\n\
+            If we are unable to deliver an authentication template for an amount of\
+            \ time that exceeds its time-to-live, we will stop retrying and drop the\
+            \ message.\nDefaults to `600` seconds for newly created authentication\
+            \ templates.\nTo override the default value, set this field to a value\
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
+            \ time-to-live."
+          example: 600
+          format: int32
+          type: integer
         components:
           items:
             $ref: '#/components/schemas/WhatsappTemplateComponent'
@@ -6991,6 +7353,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7002,6 +7365,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7013,6 +7377,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7024,6 +7389,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7035,9 +7401,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -7064,6 +7450,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7075,6 +7462,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7086,6 +7474,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7097,6 +7486,7 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
@@ -7108,9 +7498,29 @@ components:
             type: null
             signature_hash: K8a%2FAINcGX7
             url: url
+            zero_tap_terms_accepted: true
             example:
             - example
             - example
+          limited_time_offer:
+            has_expiration: true
+            text: Expiring offer!
+          cards:
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
+          - components:
+            - null
+            - null
           format: TEXT
           add_security_recommendation: true
           code_expiration_minutes: 5
@@ -7128,11 +7538,23 @@ components:
             header_url:
             - header_url
             - header_url
+        messageSendTtlSeconds: 600
       properties:
         components:
           items:
             $ref: '#/components/schemas/WhatsappTemplateComponent'
           type: array
+        messageSendTtlSeconds:
+          description: "**Use only for template category is `AUTHENTICATION`.**\n\
+            If we are unable to deliver an authentication template for an amount of\
+            \ time that exceeds its time-to-live, we will stop retrying and drop the\
+            \ message.\nDefaults to `600` seconds for newly created authentication\
+            \ templates.\nTo override the default value, set this field to a value\
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
+            \ time-to-live."
+          example: 600
+          format: int32
+          type: integer
       required:
       - components
       type: object
@@ -7153,6 +7575,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7164,6 +7587,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7175,6 +7599,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7186,6 +7611,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7197,9 +7623,29 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
+            limited_time_offer:
+              has_expiration: true
+              text: Expiring offer!
+            cards:
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
             format: TEXT
             add_security_recommendation: true
             code_expiration_minutes: 5
@@ -7226,6 +7672,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7237,6 +7684,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7248,6 +7696,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7259,6 +7708,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7270,9 +7720,29 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
+            limited_time_offer:
+              has_expiration: true
+              text: Expiring offer!
+            cards:
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
             format: TEXT
             add_security_recommendation: true
             code_expiration_minutes: 5
@@ -7291,9 +7761,10 @@ components:
               - header_url
               - header_url
           previousCategory: previousCategory
-          language: en
+          language: en_US
           updateTime: 2022-06-01T12:00:00Z
           qualityRating: null
+          messageSendTtlSeconds: 600
           wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
@@ -7321,6 +7792,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7332,6 +7804,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7343,6 +7816,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7354,6 +7828,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7365,9 +7840,29 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
+            limited_time_offer:
+              has_expiration: true
+              text: Expiring offer!
+            cards:
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
             format: TEXT
             add_security_recommendation: true
             code_expiration_minutes: 5
@@ -7394,6 +7889,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7405,6 +7901,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7416,6 +7913,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7427,6 +7925,7 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
@@ -7438,9 +7937,29 @@ components:
               type: null
               signature_hash: K8a%2FAINcGX7
               url: url
+              zero_tap_terms_accepted: true
               example:
               - example
               - example
+            limited_time_offer:
+              has_expiration: true
+              text: Expiring offer!
+            cards:
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
+            - components:
+              - null
+              - null
             format: TEXT
             add_security_recommendation: true
             code_expiration_minutes: 5
@@ -7459,9 +7978,10 @@ components:
               - header_url
               - header_url
           previousCategory: previousCategory
-          language: en
+          language: en_US
           updateTime: 2022-06-01T12:00:00Z
           qualityRating: null
+          messageSendTtlSeconds: 600
           wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
@@ -7614,14 +8134,14 @@ components:
       description: Contains a language object. Specifies the language the template
         may be rendered in.
       example:
-        code: en
+        code: en_US
         policy: deterministic
       properties:
         code:
           description: "The code of the language or locale to use. Accepts both language\
             \ and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
-          example: en
+          example: en_US
           type: string
         policy:
           description: "The language policy the message should follow.\nDefault (and\

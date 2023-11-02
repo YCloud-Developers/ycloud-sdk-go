@@ -18,6 +18,8 @@ import (
 // WhatsappTemplateEditRequest The request body to edit a WhatsApp template.
 type WhatsappTemplateEditRequest struct {
 	Components []WhatsappTemplateComponent `json:"components"`
+	// **Use only for template category is `AUTHENTICATION`.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to `600` seconds for newly created authentication templates. To override the default value, set this field to a value between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour time-to-live.
+	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
 }
 
 // NewWhatsappTemplateEditRequest instantiates a new WhatsappTemplateEditRequest object
@@ -62,10 +64,45 @@ func (o *WhatsappTemplateEditRequest) SetComponents(v []WhatsappTemplateComponen
 	o.Components = v
 }
 
+// GetMessageSendTtlSeconds returns the MessageSendTtlSeconds field value if set, zero value otherwise.
+func (o *WhatsappTemplateEditRequest) GetMessageSendTtlSeconds() int32 {
+	if o == nil || o.MessageSendTtlSeconds == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MessageSendTtlSeconds
+}
+
+// GetMessageSendTtlSecondsOk returns a tuple with the MessageSendTtlSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateEditRequest) GetMessageSendTtlSecondsOk() (*int32, bool) {
+	if o == nil || o.MessageSendTtlSeconds == nil {
+		return nil, false
+	}
+	return o.MessageSendTtlSeconds, true
+}
+
+// HasMessageSendTtlSeconds returns a boolean if a field has been set.
+func (o *WhatsappTemplateEditRequest) HasMessageSendTtlSeconds() bool {
+	if o != nil && o.MessageSendTtlSeconds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMessageSendTtlSeconds gets a reference to the given int32 and assigns it to the MessageSendTtlSeconds field.
+func (o *WhatsappTemplateEditRequest) SetMessageSendTtlSeconds(v int32) {
+	o.MessageSendTtlSeconds = &v
+}
+
 func (o WhatsappTemplateEditRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["components"] = o.Components
+	}
+	if o.MessageSendTtlSeconds != nil {
+		toSerialize["messageSendTtlSeconds"] = o.MessageSendTtlSeconds
 	}
 	return json.Marshal(toSerialize)
 }
@@ -105,5 +142,3 @@ func (v *NullableWhatsappTemplateEditRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. | 
-**Action** | [**WhatsappMessageInteractiveAction**](WhatsappMessageInteractiveAction.md) |  | 
+**Type** | Pointer to **string** | **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. | [optional] 
+**Action** | Pointer to [**WhatsappMessageInteractiveAction**](WhatsappMessageInteractiveAction.md) |  | [optional] 
 **Body** | Pointer to [**WhatsappMessageInteractiveBody**](WhatsappMessageInteractiveBody.md) |  | [optional] 
 **Header** | Pointer to [**WhatsappMessageInteractiveHeader**](WhatsappMessageInteractiveHeader.md) |  | [optional] 
 **Footer** | Pointer to [**WhatsappMessageInteractiveFooter**](WhatsappMessageInteractiveFooter.md) |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessageInteractive
 
-`func NewWhatsappMessageInteractive(type_ string, action WhatsappMessageInteractiveAction, ) *WhatsappMessageInteractive`
+`func NewWhatsappMessageInteractive() *WhatsappMessageInteractive`
 
 NewWhatsappMessageInteractive instantiates a new WhatsappMessageInteractive object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
+
+`func (o *WhatsappMessageInteractive) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetAction
 
@@ -68,6 +73,11 @@ and a boolean to check if the value has been set.
 
 SetAction sets Action field to given value.
 
+### HasAction
+
+`func (o *WhatsappMessageInteractive) HasAction() bool`
+
+HasAction returns a boolean if a field has been set.
 
 ### GetBody
 

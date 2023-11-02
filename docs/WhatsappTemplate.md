@@ -7,9 +7,10 @@ Name | Type | Description | Notes
 **WabaId** | **string** | WhatsApp Business Account ID. | 
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
-**Category** | [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | 
+**Category** | Pointer to [**WhatsappTemplateCategory**](WhatsappTemplateCategory.md) |  | [optional] 
 **PreviousCategory** | Pointer to **string** | This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration). | [optional] 
-**Components** | [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. | 
+**MessageSendTtlSeconds** | Pointer to **int32** | **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live. | [optional] 
+**Components** | Pointer to [**[]WhatsappTemplateComponent**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. | [optional] 
 **Status** | Pointer to [**WhatsappTemplateStatus**](WhatsappTemplateStatus.md) |  | [optional] 
 **QualityRating** | Pointer to [**WhatsappTemplateQualityRating**](WhatsappTemplateQualityRating.md) |  | [optional] 
 **Reason** | Pointer to **string** | The reason why the template is rejected. | [optional] 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappTemplate
 
-`func NewWhatsappTemplate(wabaId string, name string, language string, category WhatsappTemplateCategory, components []WhatsappTemplateComponent, ) *WhatsappTemplate`
+`func NewWhatsappTemplate(wabaId string, name string, language string, ) *WhatsappTemplate`
 
 NewWhatsappTemplate instantiates a new WhatsappTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -117,6 +118,11 @@ and a boolean to check if the value has been set.
 
 SetCategory sets Category field to given value.
 
+### HasCategory
+
+`func (o *WhatsappTemplate) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
 
 ### GetPreviousCategory
 
@@ -143,6 +149,31 @@ SetPreviousCategory sets PreviousCategory field to given value.
 
 HasPreviousCategory returns a boolean if a field has been set.
 
+### GetMessageSendTtlSeconds
+
+`func (o *WhatsappTemplate) GetMessageSendTtlSeconds() int32`
+
+GetMessageSendTtlSeconds returns the MessageSendTtlSeconds field if non-nil, zero value otherwise.
+
+### GetMessageSendTtlSecondsOk
+
+`func (o *WhatsappTemplate) GetMessageSendTtlSecondsOk() (*int32, bool)`
+
+GetMessageSendTtlSecondsOk returns a tuple with the MessageSendTtlSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessageSendTtlSeconds
+
+`func (o *WhatsappTemplate) SetMessageSendTtlSeconds(v int32)`
+
+SetMessageSendTtlSeconds sets MessageSendTtlSeconds field to given value.
+
+### HasMessageSendTtlSeconds
+
+`func (o *WhatsappTemplate) HasMessageSendTtlSeconds() bool`
+
+HasMessageSendTtlSeconds returns a boolean if a field has been set.
+
 ### GetComponents
 
 `func (o *WhatsappTemplate) GetComponents() []WhatsappTemplateComponent`
@@ -162,6 +193,11 @@ and a boolean to check if the value has been set.
 
 SetComponents sets Components field to given value.
 
+### HasComponents
+
+`func (o *WhatsappTemplate) HasComponents() bool`
+
+HasComponents returns a boolean if a field has been set.
 
 ### GetStatus
 

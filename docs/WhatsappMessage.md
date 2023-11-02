@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
 **Conversation** | Pointer to [**WhatsappConversation**](WhatsappConversation.md) |  | [optional] 
-**Type** | [**WhatsappMessageType**](WhatsappMessageType.md) |  | 
+**Type** | Pointer to [**WhatsappMessageType**](WhatsappMessageType.md) |  | [optional] 
 **Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional] 
 **Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional] 
 **Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessage
 
-`func NewWhatsappMessage(id string, wabaId string, from string, to string, type_ WhatsappMessageType, ) *WhatsappMessage`
+`func NewWhatsappMessage(id string, wabaId string, from string, to string, ) *WhatsappMessage`
 
 NewWhatsappMessage instantiates a new WhatsappMessage object
 This constructor will assign default values to properties that have it defined,
@@ -206,6 +206,11 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
+
+`func (o *WhatsappMessage) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetTemplate
 

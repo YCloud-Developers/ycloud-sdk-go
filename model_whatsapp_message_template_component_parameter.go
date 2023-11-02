@@ -17,17 +17,18 @@ import (
 
 // WhatsappMessageTemplateComponentParameter See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object), [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object.
 type WhatsappMessageTemplateComponentParameter struct {
-	// **Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`.
+	// **Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`.
 	Type *string `json:"type,omitempty"`
 	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
 	// Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
 	Payload *string `json:"payload,omitempty"`
 	// **Required when `type` = `coupon_code`.** The coupon code to be copied when the customer taps the button.
-	CouponCode *string               `json:"coupon_code,omitempty"`
-	Image      *WhatsappMessageMedia `json:"image,omitempty"`
-	Video      *WhatsappMessageMedia `json:"video,omitempty"`
-	Document   *WhatsappMessageMedia `json:"document,omitempty"`
+	CouponCode       *string                                                    `json:"coupon_code,omitempty"`
+	Image            *WhatsappMessageMedia                                      `json:"image,omitempty"`
+	Video            *WhatsappMessageMedia                                      `json:"video,omitempty"`
+	Document         *WhatsappMessageMedia                                      `json:"document,omitempty"`
+	LimitedTimeOffer *WhatsappMessageTemplateComponentParameterLimitedTimeOffer `json:"limited_time_offer,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
@@ -271,6 +272,38 @@ func (o *WhatsappMessageTemplateComponentParameter) SetDocument(v WhatsappMessag
 	o.Document = &v
 }
 
+// GetLimitedTimeOffer returns the LimitedTimeOffer field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameter) GetLimitedTimeOffer() WhatsappMessageTemplateComponentParameterLimitedTimeOffer {
+	if o == nil || o.LimitedTimeOffer == nil {
+		var ret WhatsappMessageTemplateComponentParameterLimitedTimeOffer
+		return ret
+	}
+	return *o.LimitedTimeOffer
+}
+
+// GetLimitedTimeOfferOk returns a tuple with the LimitedTimeOffer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameter) GetLimitedTimeOfferOk() (*WhatsappMessageTemplateComponentParameterLimitedTimeOffer, bool) {
+	if o == nil || o.LimitedTimeOffer == nil {
+		return nil, false
+	}
+	return o.LimitedTimeOffer, true
+}
+
+// HasLimitedTimeOffer returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameter) HasLimitedTimeOffer() bool {
+	if o != nil && o.LimitedTimeOffer != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLimitedTimeOffer gets a reference to the given WhatsappMessageTemplateComponentParameterLimitedTimeOffer and assigns it to the LimitedTimeOffer field.
+func (o *WhatsappMessageTemplateComponentParameter) SetLimitedTimeOffer(v WhatsappMessageTemplateComponentParameterLimitedTimeOffer) {
+	o.LimitedTimeOffer = &v
+}
+
 func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
@@ -293,6 +326,9 @@ func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error)
 	}
 	if o.Document != nil {
 		toSerialize["document"] = o.Document
+	}
+	if o.LimitedTimeOffer != nil {
+		toSerialize["limited_time_offer"] = o.LimitedTimeOffer
 	}
 	return json.Marshal(toSerialize)
 }

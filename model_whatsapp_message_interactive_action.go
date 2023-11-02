@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveAction Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
+// WhatsappMessageInteractiveAction **Required.** Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
 type WhatsappMessageInteractiveAction struct {
 	// Required for Reply Buttons. You can have up to 3 buttons.
 	Buttons []WhatsappMessageInteractiveActionButton `json:"buttons,omitempty"`
