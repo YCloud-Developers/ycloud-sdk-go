@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.10.1
+- Package version: 1.10.2
 
 ## Installation
 
@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageTemplate](docs/WhatsappMessageTemplate.md)
  - [WhatsappMessageTemplateComponent](docs/WhatsappMessageTemplateComponent.md)
  - [WhatsappMessageTemplateComponentCard](docs/WhatsappMessageTemplateComponentCard.md)
+ - [WhatsappMessageTemplateComponentCardComponent](docs/WhatsappMessageTemplateComponentCardComponent.md)
  - [WhatsappMessageTemplateComponentParameter](docs/WhatsappMessageTemplateComponentParameter.md)
  - [WhatsappMessageTemplateComponentParameterLimitedTimeOffer](docs/WhatsappMessageTemplateComponentParameterLimitedTimeOffer.md)
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
@@ -181,6 +182,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateComponentButtonOtpType](docs/WhatsappTemplateComponentButtonOtpType.md)
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
  - [WhatsappTemplateComponentCard](docs/WhatsappTemplateComponentCard.md)
+ - [WhatsappTemplateComponentCardComponent](docs/WhatsappTemplateComponentCardComponent.md)
  - [WhatsappTemplateComponentExample](docs/WhatsappTemplateComponentExample.md)
  - [WhatsappTemplateComponentLimitedTimeOffer](docs/WhatsappTemplateComponentLimitedTimeOffer.md)
  - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)

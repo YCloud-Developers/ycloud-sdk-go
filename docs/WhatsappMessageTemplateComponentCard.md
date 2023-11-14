@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CardIndex** | Pointer to **int32** | **Required.** Zero-indexed order in which card appears within the card carousel. 0 indicates first card, 1 indicates second card, etc. | [optional] 
-**Components** | Pointer to [**[]WhatsappMessageTemplateComponent**](WhatsappMessageTemplateComponent.md) | Card component. | [optional] 
+**Components** | Pointer to [**[]WhatsappMessageTemplateComponentCardComponent**](WhatsappMessageTemplateComponentCardComponent.md) | Card component. | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasCardIndex returns a boolean if a field has been set.
 
 ### GetComponents
 
-`func (o *WhatsappMessageTemplateComponentCard) GetComponents() []WhatsappMessageTemplateComponent`
+`func (o *WhatsappMessageTemplateComponentCard) GetComponents() []WhatsappMessageTemplateComponentCardComponent`
 
 GetComponents returns the Components field if non-nil, zero value otherwise.
 
 ### GetComponentsOk
 
-`func (o *WhatsappMessageTemplateComponentCard) GetComponentsOk() (*[]WhatsappMessageTemplateComponent, bool)`
+`func (o *WhatsappMessageTemplateComponentCard) GetComponentsOk() (*[]WhatsappMessageTemplateComponentCardComponent, bool)`
 
 GetComponentsOk returns a tuple with the Components field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComponents
 
-`func (o *WhatsappMessageTemplateComponentCard) SetComponents(v []WhatsappMessageTemplateComponent)`
+`func (o *WhatsappMessageTemplateComponentCard) SetComponents(v []WhatsappMessageTemplateComponentCardComponent)`
 
 SetComponents sets Components field to given value.
 

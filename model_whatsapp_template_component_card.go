@@ -18,7 +18,7 @@ import (
 // WhatsappTemplateComponentCard Carousel templates support up to 10 carousel cards. Cards must have a media header (image or video) and can optionally include body text and up to 2 quick reply buttons, phone number buttons, or URL buttons (button types can be mixed).
 type WhatsappTemplateComponentCard struct {
 	// **Required.** Card components.
-	Components []WhatsappTemplateComponent `json:"components,omitempty"`
+	Components []WhatsappTemplateComponentCardComponent `json:"components,omitempty"`
 }
 
 // NewWhatsappTemplateComponentCard instantiates a new WhatsappTemplateComponentCard object
@@ -39,9 +39,9 @@ func NewWhatsappTemplateComponentCardWithDefaults() *WhatsappTemplateComponentCa
 }
 
 // GetComponents returns the Components field value if set, zero value otherwise.
-func (o *WhatsappTemplateComponentCard) GetComponents() []WhatsappTemplateComponent {
+func (o *WhatsappTemplateComponentCard) GetComponents() []WhatsappTemplateComponentCardComponent {
 	if o == nil || o.Components == nil {
-		var ret []WhatsappTemplateComponent
+		var ret []WhatsappTemplateComponentCardComponent
 		return ret
 	}
 	return o.Components
@@ -49,7 +49,7 @@ func (o *WhatsappTemplateComponentCard) GetComponents() []WhatsappTemplateCompon
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappTemplateComponentCard) GetComponentsOk() ([]WhatsappTemplateComponent, bool) {
+func (o *WhatsappTemplateComponentCard) GetComponentsOk() ([]WhatsappTemplateComponentCardComponent, bool) {
 	if o == nil || o.Components == nil {
 		return nil, false
 	}
@@ -65,8 +65,8 @@ func (o *WhatsappTemplateComponentCard) HasComponents() bool {
 	return false
 }
 
-// SetComponents gets a reference to the given []WhatsappTemplateComponent and assigns it to the Components field.
-func (o *WhatsappTemplateComponentCard) SetComponents(v []WhatsappTemplateComponent) {
+// SetComponents gets a reference to the given []WhatsappTemplateComponentCardComponent and assigns it to the Components field.
+func (o *WhatsappTemplateComponentCard) SetComponents(v []WhatsappTemplateComponentCardComponent) {
 	o.Components = v
 }
 
