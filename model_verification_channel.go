@@ -16,15 +16,15 @@ import (
 	"fmt"
 )
 
-// VerificationChannel Supports several independent channels for verification: `sms`: Sends an SMS message with a verification code. `voice`: Makes a voice call with a verification code. `email_code`: Sends an email with a verification code. `whatsapp`: Sends a WhatsApp message with a verification code.
+// VerificationChannel Supports several independent channels for verification: - `sms`: Sends an SMS message with a verification code. - `voice`: Makes a voice call with a verification code. - `email_code`: Sends an email with a verification code. - `whatsapp`: Sends a WhatsApp message with a verification code.
 type VerificationChannel string
 
 // List of VerificationChannel
 const (
-	VERIFICATIONCHANNEL_SMS VerificationChannel = "sms"
-	VERIFICATIONCHANNEL_VOICE VerificationChannel = "voice"
+	VERIFICATIONCHANNEL_SMS        VerificationChannel = "sms"
+	VERIFICATIONCHANNEL_VOICE      VerificationChannel = "voice"
 	VERIFICATIONCHANNEL_EMAIL_CODE VerificationChannel = "email_code"
-	VERIFICATIONCHANNEL_WHATSAPP VerificationChannel = "whatsapp"
+	VERIFICATIONCHANNEL_WHATSAPP   VerificationChannel = "whatsapp"
 )
 
 // All allowed values of VerificationChannel enum
@@ -107,4 +107,3 @@ func (v *NullableVerificationChannel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

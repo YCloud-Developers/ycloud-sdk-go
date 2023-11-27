@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique ID of a button. | [optional] 
+**Id** | Pointer to **string** | Unique ID of the clicked button. | [optional] 
 **Title** | Pointer to **string** | Title of a button. | [optional] 
 
 ## Methods

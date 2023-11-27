@@ -17,15 +17,15 @@ import (
 
 // WhatsappBusinessAccount Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119).
 type WhatsappBusinessAccount struct {
-	// ID of the WhatApp Business Account.
+	// WhatApp Business Account ID.
 	Id *string `json:"id,omitempty"`
 	// User-friendly name to differentiate WhatsApp Business Accounts.
 	Name *string `json:"name,omitempty"`
 	// The currency in which the payment transactions for the WhatsApp Business Account will be processed.
 	Currency *string `json:"currency,omitempty"`
 	// Namespace string for the message templates that belong to the WhatsApp Business Account.
-	MessageTemplateNamespace *string `json:"messageTemplateNamespace,omitempty"`
-	AccountReviewStatus *WhatsappBusinessAccountReviewStatus `json:"accountReviewStatus,omitempty"`
+	MessageTemplateNamespace   *string                                `json:"messageTemplateNamespace,omitempty"`
+	AccountReviewStatus        *WhatsappBusinessAccountReviewStatus   `json:"accountReviewStatus,omitempty"`
 	BusinessVerificationStatus *MetaBusinessAccountVerificationStatus `json:"businessVerificationStatus,omitempty"`
 	// Country of the WhatsApp Business Account's owning Meta Business account.
 	Country *string `json:"country,omitempty"`
@@ -36,10 +36,10 @@ type WhatsappBusinessAccount struct {
 	// The purchase order number supplied by the business for payment management purposes.
 	PurchaseOrderNumber *string `json:"purchaseOrderNumber,omitempty"`
 	// The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).
-	TimezoneId *string `json:"timezoneId,omitempty"`
-	Decision *WhatsappReviewDecision `json:"decision,omitempty"`
+	TimezoneId  *string                                 `json:"timezoneId,omitempty"`
+	Decision    *WhatsappReviewDecision                 `json:"decision,omitempty"`
 	UpdateEvent *WhatsappBusinessAccountUpdateEventEnum `json:"updateEvent,omitempty"`
-	BanState *WhatsappBusinessAccountBanState `json:"banState,omitempty"`
+	BanState    *WhatsappBusinessAccountBanState        `json:"banState,omitempty"`
 	// The date when the WABA is banned.
 	BanDate *string `json:"banDate,omitempty"`
 	// Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations).
@@ -700,5 +700,3 @@ func (v *NullableWhatsappBusinessAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

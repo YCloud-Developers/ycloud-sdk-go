@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.10.2
+- Package version: 1.10.3
 
 ## Installation
 
@@ -50,19 +50,21 @@ Class | Method | HTTP request | Description
 *WebhookEndpointsApi* | [**Update**](docs/WebhookEndpointsApi.md#update) | **Patch** /webhookEndpoints/{id} | Update a webhook endpoint
 *WhatsappBusinessAccountsApi* | [**List**](docs/WhatsappBusinessAccountsApi.md#list) | **Get** /whatsapp/businessAccounts | List WABAs
 *WhatsappBusinessAccountsApi* | [**Retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **Get** /whatsapp/businessAccounts/{id} | Retrieve a WABA
-*WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a WhatsApp message
-*WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Enqueue a WhatsApp message
-*WhatsappMessagesApi* | [**SendDirectly**](docs/WhatsappMessagesApi.md#senddirectly) | **Post** /whatsapp/messages/sendDirectly | Send a WhatsApp message directly
-*WhatsappPhoneNumbersApi* | [**List**](docs/WhatsappPhoneNumbersApi.md#list) | **Get** /whatsapp/phoneNumbers | List WhatsApp phone numbers
-*WhatsappPhoneNumbersApi* | [**Retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
-*WhatsappPhoneNumbersApi* | [**RetrieveProfile**](docs/WhatsappPhoneNumbersApi.md#retrieveprofile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a WhatsApp phone number profile
-*WhatsappPhoneNumbersApi* | [**UpdateProfile**](docs/WhatsappPhoneNumbersApi.md#updateprofile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a WhatsApp phone number profile
-*WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a WhatsApp template
-*WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
-*WhatsappTemplatesApi* | [**DeleteByNameAndLanguage**](docs/WhatsappTemplatesApi.md#deletebynameandlanguage) | **Delete** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template
-*WhatsappTemplatesApi* | [**EditByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editbynameandlanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
-*WhatsappTemplatesApi* | [**List**](docs/WhatsappTemplatesApi.md#list) | **Get** /whatsapp/templates | List WhatsApp templates
-*WhatsappTemplatesApi* | [**RetrieveByNameAndLanguage**](docs/WhatsappTemplatesApi.md#retrievebynameandlanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template
+*WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a message
+*WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Enqueue a message
+*WhatsappMessagesApi* | [**SendDirectly**](docs/WhatsappMessagesApi.md#senddirectly) | **Post** /whatsapp/messages/sendDirectly | Send a message directly
+*WhatsappPhoneNumbersApi* | [**List**](docs/WhatsappPhoneNumbersApi.md#list) | **Get** /whatsapp/phoneNumbers | List phone numbers
+*WhatsappPhoneNumbersApi* | [**Retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
+*WhatsappPhoneNumbersApi* | [**RetrieveCommerceSettings**](docs/WhatsappPhoneNumbersApi.md#retrievecommercesettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Retrieve commerce settings
+*WhatsappPhoneNumbersApi* | [**RetrieveProfile**](docs/WhatsappPhoneNumbersApi.md#retrieveprofile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a phone number profile
+*WhatsappPhoneNumbersApi* | [**UpdateCommerceSettings**](docs/WhatsappPhoneNumbersApi.md#updatecommercesettings) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
+*WhatsappPhoneNumbersApi* | [**UpdateProfile**](docs/WhatsappPhoneNumbersApi.md#updateprofile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
+*WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a template
+*WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete templates by name
+*WhatsappTemplatesApi* | [**DeleteByNameAndLanguage**](docs/WhatsappTemplatesApi.md#deletebynameandlanguage) | **Delete** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a template
+*WhatsappTemplatesApi* | [**EditByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editbynameandlanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a template
+*WhatsappTemplatesApi* | [**List**](docs/WhatsappTemplatesApi.md#list) | **Get** /whatsapp/templates | List templates
+*WhatsappTemplatesApi* | [**RetrieveByNameAndLanguage**](docs/WhatsappTemplatesApi.md#retrievebynameandlanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a template
 
 
 ## Documentation For Models
@@ -110,6 +112,8 @@ Class | Method | HTTP request | Description
  - [WhatsappBusinessAccountRestrictionInfo](docs/WhatsappBusinessAccountRestrictionInfo.md)
  - [WhatsappBusinessAccountReviewStatus](docs/WhatsappBusinessAccountReviewStatus.md)
  - [WhatsappBusinessAccountUpdateEventEnum](docs/WhatsappBusinessAccountUpdateEventEnum.md)
+ - [WhatsappCommerceSettings](docs/WhatsappCommerceSettings.md)
+ - [WhatsappCommerceSettingsUpdateRequest](docs/WhatsappCommerceSettingsUpdateRequest.md)
  - [WhatsappConversation](docs/WhatsappConversation.md)
  - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
  - [WhatsappConversationType](docs/WhatsappConversationType.md)
@@ -159,6 +163,9 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageTemplateComponentCard](docs/WhatsappMessageTemplateComponentCard.md)
  - [WhatsappMessageTemplateComponentCardComponent](docs/WhatsappMessageTemplateComponentCardComponent.md)
  - [WhatsappMessageTemplateComponentParameter](docs/WhatsappMessageTemplateComponentParameter.md)
+ - [WhatsappMessageTemplateComponentParameterAction](docs/WhatsappMessageTemplateComponentParameterAction.md)
+ - [WhatsappMessageTemplateComponentParameterActionSection](docs/WhatsappMessageTemplateComponentParameterActionSection.md)
+ - [WhatsappMessageTemplateComponentParameterActionSectionProductItem](docs/WhatsappMessageTemplateComponentParameterActionSectionProductItem.md)
  - [WhatsappMessageTemplateComponentParameterLimitedTimeOffer](docs/WhatsappMessageTemplateComponentParameterLimitedTimeOffer.md)
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
  - [WhatsappMessageText](docs/WhatsappMessageText.md)

@@ -17,7 +17,7 @@ import (
 
 // WhatsappInboundMessageInteractiveButtonReply Sent when a customer clicks a button. Returned when `type` is `button_reply`.
 type WhatsappInboundMessageInteractiveButtonReply struct {
-	// Unique ID of a button.
+	// Unique ID of the clicked button.
 	Id *string `json:"id,omitempty"`
 	// Title of a button.
 	Title *string `json:"title,omitempty"`
@@ -150,5 +150,3 @@ func (v *NullableWhatsappInboundMessageInteractiveButtonReply) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

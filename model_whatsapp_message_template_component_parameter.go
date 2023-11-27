@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageTemplateComponentParameter struct for WhatsappMessageTemplateComponentParameter
 type WhatsappMessageTemplateComponentParameter struct {
-	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`.
+	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`.
 	Type *string `json:"type,omitempty"`
 	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
@@ -29,6 +29,7 @@ type WhatsappMessageTemplateComponentParameter struct {
 	Video            *WhatsappMessageMedia                                      `json:"video,omitempty"`
 	Document         *WhatsappMessageMedia                                      `json:"document,omitempty"`
 	LimitedTimeOffer *WhatsappMessageTemplateComponentParameterLimitedTimeOffer `json:"limited_time_offer,omitempty"`
+	Action           *WhatsappMessageTemplateComponentParameterAction           `json:"action,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
@@ -304,6 +305,38 @@ func (o *WhatsappMessageTemplateComponentParameter) SetLimitedTimeOffer(v Whatsa
 	o.LimitedTimeOffer = &v
 }
 
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameter) GetAction() WhatsappMessageTemplateComponentParameterAction {
+	if o == nil || o.Action == nil {
+		var ret WhatsappMessageTemplateComponentParameterAction
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameter) GetActionOk() (*WhatsappMessageTemplateComponentParameterAction, bool) {
+	if o == nil || o.Action == nil {
+		return nil, false
+	}
+	return o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameter) HasAction() bool {
+	if o != nil && o.Action != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given WhatsappMessageTemplateComponentParameterAction and assigns it to the Action field.
+func (o *WhatsappMessageTemplateComponentParameter) SetAction(v WhatsappMessageTemplateComponentParameterAction) {
+	o.Action = &v
+}
+
 func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
@@ -329,6 +362,9 @@ func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error)
 	}
 	if o.LimitedTimeOffer != nil {
 		toSerialize["limited_time_offer"] = o.LimitedTimeOffer
+	}
+	if o.Action != nil {
+		toSerialize["action"] = o.Action
 	}
 	return json.Marshal(toSerialize)
 }

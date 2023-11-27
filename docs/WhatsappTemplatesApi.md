@@ -4,12 +4,12 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](WhatsappTemplatesApi.md#Create) | **Post** /whatsapp/templates | Create a WhatsApp template
-[**DeleteByName**](WhatsappTemplatesApi.md#DeleteByName) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
-[**DeleteByNameAndLanguage**](WhatsappTemplatesApi.md#DeleteByNameAndLanguage) | **Delete** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template
-[**EditByNameAndLanguage**](WhatsappTemplatesApi.md#EditByNameAndLanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
-[**List**](WhatsappTemplatesApi.md#List) | **Get** /whatsapp/templates | List WhatsApp templates
-[**RetrieveByNameAndLanguage**](WhatsappTemplatesApi.md#RetrieveByNameAndLanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template
+[**Create**](WhatsappTemplatesApi.md#Create) | **Post** /whatsapp/templates | Create a template
+[**DeleteByName**](WhatsappTemplatesApi.md#DeleteByName) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete templates by name
+[**DeleteByNameAndLanguage**](WhatsappTemplatesApi.md#DeleteByNameAndLanguage) | **Delete** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a template
+[**EditByNameAndLanguage**](WhatsappTemplatesApi.md#EditByNameAndLanguage) | **Patch** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a template
+[**List**](WhatsappTemplatesApi.md#List) | **Get** /whatsapp/templates | List templates
+[**RetrieveByNameAndLanguage**](WhatsappTemplatesApi.md#RetrieveByNameAndLanguage) | **Get** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a template
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > WhatsappTemplate Create(ctx).WhatsappTemplateCreateRequest(whatsappTemplateCreateRequest).Execute()
 
-Create a WhatsApp template
+Create a template
 
 
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > []WhatsappTemplate DeleteByName(ctx, wabaId, name).Execute()
 
-Delete WhatsApp templates by name
+Delete templates by name
 
 
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 > WhatsappTemplate DeleteByNameAndLanguage(ctx, wabaId, name, language).Execute()
 
-Delete a WhatsApp template
+Delete a template
 
 
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 > WhatsappTemplate EditByNameAndLanguage(ctx, wabaId, name, language).WhatsappTemplateEditRequest(whatsappTemplateEditRequest).Execute()
 
-Edit a WhatsApp template
+Edit a template
 
 
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 > WhatsappTemplatePage List(ctx).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterWabaId(filterWabaId).FilterName(filterName).FilterLanguage(filterLanguage).Execute()
 
-List WhatsApp templates
+List templates
 
 
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 > WhatsappTemplate RetrieveByNameAndLanguage(ctx, wabaId, name, language).Execute()
 
-Retrieve a WhatsApp template
+Retrieve a template
 
 
 

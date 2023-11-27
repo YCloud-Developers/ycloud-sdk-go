@@ -4,9 +4,9 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Retrieve**](WhatsappMessagesApi.md#Retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a WhatsApp message
-[**Send**](WhatsappMessagesApi.md#Send) | **Post** /whatsapp/messages | Enqueue a WhatsApp message
-[**SendDirectly**](WhatsappMessagesApi.md#SendDirectly) | **Post** /whatsapp/messages/sendDirectly | Send a WhatsApp message directly
+[**Retrieve**](WhatsappMessagesApi.md#Retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a message
+[**Send**](WhatsappMessagesApi.md#Send) | **Post** /whatsapp/messages | Enqueue a message
+[**SendDirectly**](WhatsappMessagesApi.md#SendDirectly) | **Post** /whatsapp/messages/sendDirectly | Send a message directly
 
 
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 > WhatsappMessage Retrieve(ctx, id).Execute()
 
-Retrieve a WhatsApp message
+Retrieve a message
 
 
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 > WhatsappMessage Send(ctx).WhatsappMessageSendRequest(whatsappMessageSendRequest).Execute()
 
-Enqueue a WhatsApp message
+Enqueue a message
 
 
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 > WhatsappMessage SendDirectly(ctx).WhatsappMessageSendRequest(whatsappMessageSendRequest).Execute()
 
-Send a WhatsApp message directly
+Send a message directly
 
 
 

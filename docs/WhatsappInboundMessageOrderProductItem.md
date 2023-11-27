@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProductRetailerId** | Pointer to **string** | The product SKU identifier. | [optional] 
 **Quantity** | Pointer to **int32** | Number of item. | [optional] 
-**ItemPrice** | Pointer to **string** | Unitary price of item. | [optional] 
+**ItemPrice** | Pointer to **float64** | Unitary price of item. | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 
 ## Methods
@@ -80,20 +80,20 @@ HasQuantity returns a boolean if a field has been set.
 
 ### GetItemPrice
 
-`func (o *WhatsappInboundMessageOrderProductItem) GetItemPrice() string`
+`func (o *WhatsappInboundMessageOrderProductItem) GetItemPrice() float64`
 
 GetItemPrice returns the ItemPrice field if non-nil, zero value otherwise.
 
 ### GetItemPriceOk
 
-`func (o *WhatsappInboundMessageOrderProductItem) GetItemPriceOk() (*string, bool)`
+`func (o *WhatsappInboundMessageOrderProductItem) GetItemPriceOk() (*float64, bool)`
 
 GetItemPriceOk returns a tuple with the ItemPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemPrice
 
-`func (o *WhatsappInboundMessageOrderProductItem) SetItemPrice(v string)`
+`func (o *WhatsappInboundMessageOrderProductItem) SetItemPrice(v float64)`
 
 SetItemPrice sets ItemPrice field to given value.
 

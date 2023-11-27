@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayText** | Pointer to **string** | Text of the CTA URL button. Maximum length: 20 bytes. | [optional] 
 **Url** | Pointer to **string** | URL of the CTA URL button. | [optional] 
+**ThumbnailProductRetailerId** | Pointer to **string** | Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image. | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetUrl sets Url field to given value.
 `func (o *WhatsappMessageInteractiveActionParameters) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetThumbnailProductRetailerId
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetThumbnailProductRetailerId() string`
+
+GetThumbnailProductRetailerId returns the ThumbnailProductRetailerId field if non-nil, zero value otherwise.
+
+### GetThumbnailProductRetailerIdOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetThumbnailProductRetailerIdOk() (*string, bool)`
+
+GetThumbnailProductRetailerIdOk returns a tuple with the ThumbnailProductRetailerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbnailProductRetailerId
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetThumbnailProductRetailerId(v string)`
+
+SetThumbnailProductRetailerId sets ThumbnailProductRetailerId field to given value.
+
+### HasThumbnailProductRetailerId
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasThumbnailProductRetailerId() bool`
+
+HasThumbnailProductRetailerId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

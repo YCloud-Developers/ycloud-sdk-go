@@ -21,6 +21,8 @@ type WhatsappMessageInteractiveActionParameters struct {
 	DisplayText *string `json:"display_text,omitempty"`
 	// URL of the CTA URL button.
 	Url *string `json:"url,omitempty"`
+	// Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message's header image.
+	ThumbnailProductRetailerId *string `json:"thumbnail_product_retailer_id,omitempty"`
 }
 
 // NewWhatsappMessageInteractiveActionParameters instantiates a new WhatsappMessageInteractiveActionParameters object
@@ -104,6 +106,38 @@ func (o *WhatsappMessageInteractiveActionParameters) SetUrl(v string) {
 	o.Url = &v
 }
 
+// GetThumbnailProductRetailerId returns the ThumbnailProductRetailerId field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetThumbnailProductRetailerId() string {
+	if o == nil || o.ThumbnailProductRetailerId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ThumbnailProductRetailerId
+}
+
+// GetThumbnailProductRetailerIdOk returns a tuple with the ThumbnailProductRetailerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetThumbnailProductRetailerIdOk() (*string, bool) {
+	if o == nil || o.ThumbnailProductRetailerId == nil {
+		return nil, false
+	}
+	return o.ThumbnailProductRetailerId, true
+}
+
+// HasThumbnailProductRetailerId returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasThumbnailProductRetailerId() bool {
+	if o != nil && o.ThumbnailProductRetailerId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetThumbnailProductRetailerId gets a reference to the given string and assigns it to the ThumbnailProductRetailerId field.
+func (o *WhatsappMessageInteractiveActionParameters) SetThumbnailProductRetailerId(v string) {
+	o.ThumbnailProductRetailerId = &v
+}
+
 func (o WhatsappMessageInteractiveActionParameters) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.DisplayText != nil {
@@ -111,6 +145,9 @@ func (o WhatsappMessageInteractiveActionParameters) MarshalJSON() ([]byte, error
 	}
 	if o.Url != nil {
 		toSerialize["url"] = o.Url
+	}
+	if o.ThumbnailProductRetailerId != nil {
+		toSerialize["thumbnail_product_retailer_id"] = o.ThumbnailProductRetailerId
 	}
 	return json.Marshal(toSerialize)
 }

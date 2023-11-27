@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CatalogId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/). | [optional] 
 **ProductRetailerId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. | [optional] 
 **Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSection**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. | [optional] 
-**Name** | Pointer to **string** | Action name. Required for Call-To-Action (CTA) URL Button Messages. | [optional] 
+**Name** | Pointer to **string** | Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. | [optional] 
 **Parameters** | Pointer to [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  | [optional] 
 
 ## Methods

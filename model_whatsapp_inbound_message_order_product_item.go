@@ -22,7 +22,7 @@ type WhatsappInboundMessageOrderProductItem struct {
 	// Number of item.
 	Quantity *int32 `json:"quantity,omitempty"`
 	// Unitary price of item.
-	ItemPrice *string `json:"item_price,omitempty"`
+	ItemPrice *float64 `json:"item_price,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 }
@@ -109,9 +109,9 @@ func (o *WhatsappInboundMessageOrderProductItem) SetQuantity(v int32) {
 }
 
 // GetItemPrice returns the ItemPrice field value if set, zero value otherwise.
-func (o *WhatsappInboundMessageOrderProductItem) GetItemPrice() string {
+func (o *WhatsappInboundMessageOrderProductItem) GetItemPrice() float64 {
 	if o == nil || o.ItemPrice == nil {
-		var ret string
+		var ret float64
 		return ret
 	}
 	return *o.ItemPrice
@@ -119,7 +119,7 @@ func (o *WhatsappInboundMessageOrderProductItem) GetItemPrice() string {
 
 // GetItemPriceOk returns a tuple with the ItemPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessageOrderProductItem) GetItemPriceOk() (*string, bool) {
+func (o *WhatsappInboundMessageOrderProductItem) GetItemPriceOk() (*float64, bool) {
 	if o == nil || o.ItemPrice == nil {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *WhatsappInboundMessageOrderProductItem) HasItemPrice() bool {
 	return false
 }
 
-// SetItemPrice gets a reference to the given string and assigns it to the ItemPrice field.
-func (o *WhatsappInboundMessageOrderProductItem) SetItemPrice(v string) {
+// SetItemPrice gets a reference to the given float64 and assigns it to the ItemPrice field.
+func (o *WhatsappInboundMessageOrderProductItem) SetItemPrice(v float64) {
 	o.ItemPrice = &v
 }
 
@@ -224,5 +224,3 @@ func (v *NullableWhatsappInboundMessageOrderProductItem) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

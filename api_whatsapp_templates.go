@@ -39,7 +39,7 @@ func (r WhatsappTemplatesApiCreateRequest) Execute() (*WhatsappTemplate, *http.R
 }
 
 /*
-Create Create a WhatsApp template
+Create Create a template
 
 Creates a WhatsApp template.
 
@@ -160,7 +160,7 @@ func (r WhatsappTemplatesApiDeleteByNameRequest) Execute() ([]WhatsappTemplate, 
 }
 
 /*
-DeleteByName Delete WhatsApp templates by name
+DeleteByName Delete templates by name
 
 Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted.
 HTTP status `404` is returned if no templates are found for the specific name.
@@ -293,7 +293,7 @@ func (r WhatsappTemplatesApiDeleteByNameAndLanguageRequest) Execute() (*Whatsapp
 }
 
 /*
-DeleteByNameAndLanguage Delete a WhatsApp template
+DeleteByNameAndLanguage Delete a template
 
 Deletes a WhatsApp template by name and language.
 
@@ -434,7 +434,7 @@ func (r WhatsappTemplatesApiEditByNameAndLanguageRequest) Execute() (*WhatsappTe
 }
 
 /*
-EditByNameAndLanguage Edit a WhatsApp template
+EditByNameAndLanguage Edit a template
 
 Edits a WhatsApp template by name and language.
 Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
@@ -612,7 +612,7 @@ func (r WhatsappTemplatesApiListRequest) Execute() (*WhatsappTemplatePage, *http
 }
 
 /*
-List List WhatsApp templates
+List List templates
 
 Returns a paginated list of WhatsApp templates you've previously created.
 
@@ -747,7 +747,7 @@ func (r WhatsappTemplatesApiRetrieveByNameAndLanguageRequest) Execute() (*Whatsa
 }
 
 /*
-RetrieveByNameAndLanguage Retrieve a WhatsApp template
+RetrieveByNameAndLanguage Retrieve a template
 
 Retrieves a WhatsApp template by name and language.
 

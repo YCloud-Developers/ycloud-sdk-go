@@ -16,24 +16,24 @@ import (
 	"fmt"
 )
 
-// WhatsappPhoneNumberStatus The status of a WhatsApp business account phone number. `PENDING`: Pending. `UNVERIFIED`: Unverified. Verify this phone number to start sending messages. `MANUAL_REVIEW`: Being reviewed. Phone number is currently being reviewed for connection to your account. `DISCONNECTED`: Offline. Phone number is currently not reachable by WhatsApp servers. `CONNECTED`: Connected. Phone number is associated with this account and working properly. `FLAGGED`: Flagged. This phone number has been flagged due to low quality messages. `WARNED`: Warned. A warning has been issued for this number, potentially due to spam reports. `RATE_LIMITED`: Rate limited. The number of messages you can send from this phone number may be restricted. `BANNED`: Banned. Phone number cannot be used with a WhatsApp account. `RESTRICTED`: Restricted. This phone number has reached its 24-hour messaging limit and can no longer send messages to customers. Please wait until the messaging limit is reset to send messages. `BLOCKED`: Message limit reached. The limit has been reached for this 24-hour period. `MIGRATED`: Transferred. This phone number has been transferred to another WhatsApp Business account. `UNKNOWN`: Unavailable. The status of this phone number can't be determined right now.
+// WhatsappPhoneNumberStatus The status of a WhatsApp business phone number. - `PENDING`: Pending. - `UNVERIFIED`: Unverified. Verify this phone number to start sending messages. - `MANUAL_REVIEW`: Being reviewed. Phone number is currently being reviewed for connection to your account. - `DISCONNECTED`: Offline. Phone number is currently not reachable by WhatsApp servers. - `CONNECTED`: Connected. Phone number is associated with this account and working properly. - `FLAGGED`: Flagged. This phone number has been flagged due to low quality messages. - `WARNED`: Warned. A warning has been issued for this number, potentially due to spam reports. - `RATE_LIMITED`: Rate limited. The number of messages you can send from this phone number may be restricted. - `BANNED`: Banned. Phone number cannot be used with a WhatsApp account. - `RESTRICTED`: Restricted. This phone number has reached its 24-hour messaging limit and can no longer send messages to customers. Please wait until the messaging limit is reset to send messages. - `BLOCKED`: Message limit reached. The limit has been reached for this 24-hour period. - `MIGRATED`: Transferred. This phone number has been transferred to another WhatsApp Business account. - `UNKNOWN`: Unavailable. The status of this phone number can't be determined right now.
 type WhatsappPhoneNumberStatus string
 
 // List of WhatsappPhoneNumberStatus
 const (
-	WHATSAPPPHONENUMBERSTATUS_PENDING WhatsappPhoneNumberStatus = "PENDING"
-	WHATSAPPPHONENUMBERSTATUS_UNVERIFIED WhatsappPhoneNumberStatus = "UNVERIFIED"
+	WHATSAPPPHONENUMBERSTATUS_PENDING       WhatsappPhoneNumberStatus = "PENDING"
+	WHATSAPPPHONENUMBERSTATUS_UNVERIFIED    WhatsappPhoneNumberStatus = "UNVERIFIED"
 	WHATSAPPPHONENUMBERSTATUS_MANUAL_REVIEW WhatsappPhoneNumberStatus = "MANUAL_REVIEW"
-	WHATSAPPPHONENUMBERSTATUS_DISCONNECTED WhatsappPhoneNumberStatus = "DISCONNECTED"
-	WHATSAPPPHONENUMBERSTATUS_CONNECTED WhatsappPhoneNumberStatus = "CONNECTED"
-	WHATSAPPPHONENUMBERSTATUS_FLAGGED WhatsappPhoneNumberStatus = "FLAGGED"
-	WHATSAPPPHONENUMBERSTATUS_WARNED WhatsappPhoneNumberStatus = "WARNED"
-	WHATSAPPPHONENUMBERSTATUS_RATE_LIMITED WhatsappPhoneNumberStatus = "RATE_LIMITED"
-	WHATSAPPPHONENUMBERSTATUS_BANNED WhatsappPhoneNumberStatus = "BANNED"
-	WHATSAPPPHONENUMBERSTATUS_RESTRICTED WhatsappPhoneNumberStatus = "RESTRICTED"
-	WHATSAPPPHONENUMBERSTATUS_BLOCKED WhatsappPhoneNumberStatus = "BLOCKED"
-	WHATSAPPPHONENUMBERSTATUS_MIGRATED WhatsappPhoneNumberStatus = "MIGRATED"
-	WHATSAPPPHONENUMBERSTATUS_UNKNOWN WhatsappPhoneNumberStatus = "UNKNOWN"
+	WHATSAPPPHONENUMBERSTATUS_DISCONNECTED  WhatsappPhoneNumberStatus = "DISCONNECTED"
+	WHATSAPPPHONENUMBERSTATUS_CONNECTED     WhatsappPhoneNumberStatus = "CONNECTED"
+	WHATSAPPPHONENUMBERSTATUS_FLAGGED       WhatsappPhoneNumberStatus = "FLAGGED"
+	WHATSAPPPHONENUMBERSTATUS_WARNED        WhatsappPhoneNumberStatus = "WARNED"
+	WHATSAPPPHONENUMBERSTATUS_RATE_LIMITED  WhatsappPhoneNumberStatus = "RATE_LIMITED"
+	WHATSAPPPHONENUMBERSTATUS_BANNED        WhatsappPhoneNumberStatus = "BANNED"
+	WHATSAPPPHONENUMBERSTATUS_RESTRICTED    WhatsappPhoneNumberStatus = "RESTRICTED"
+	WHATSAPPPHONENUMBERSTATUS_BLOCKED       WhatsappPhoneNumberStatus = "BLOCKED"
+	WHATSAPPPHONENUMBERSTATUS_MIGRATED      WhatsappPhoneNumberStatus = "MIGRATED"
+	WHATSAPPPHONENUMBERSTATUS_UNKNOWN       WhatsappPhoneNumberStatus = "UNKNOWN"
 )
 
 // All allowed values of WhatsappPhoneNumberStatus enum
@@ -125,4 +125,3 @@ func (v *NullableWhatsappPhoneNumberStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

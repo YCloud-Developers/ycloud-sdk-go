@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// EventType Type of webhook events.
+// EventType Type of event.
 type EventType string
 
 // List of EventType

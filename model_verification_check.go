@@ -17,13 +17,13 @@ import (
 
 // VerificationCheck struct for VerificationCheck
 type VerificationCheck struct {
-	// ID of this object.
+	// ID of this verification check.
 	Id string `json:"id"`
 	// Whether the verification code is valid for this check.
-	Valid bool `json:"valid"`
+	Valid  bool                `json:"valid"`
 	Status *VerificationStatus `json:"status,omitempty"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.
-	To *string `json:"to,omitempty"`
+	To      *string              `json:"to,omitempty"`
 	Channel *VerificationChannel `json:"channel,omitempty"`
 }
 
@@ -245,5 +245,3 @@ func (v *NullableVerificationCheck) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

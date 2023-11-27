@@ -18,7 +18,7 @@ import (
 
 // WhatsappMessage WhatsApp outbound message object.
 type WhatsappMessage struct {
-	// Unique ID for the object.
+	// Unique ID of the message.
 	Id string `json:"id"`
 	// The original message ID on WhatsApp's platform.
 	Wamid *string `json:"wamid,omitempty"`

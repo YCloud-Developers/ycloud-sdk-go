@@ -18,18 +18,18 @@ import (
 // WhatsappTemplateComponentButton struct for WhatsappTemplateComponentButton
 type WhatsappTemplateComponentButton struct {
 	Type WhatsappTemplateComponentButtonType `json:"type"`
-	// **Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
+	// **Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/autofill-button-authentication-templates#handshake). Maximum 25 characters.
 	Text *string `json:"text,omitempty"`
 	// **Required for button type `URL`.** URL of website. There can be at most 1 variable at the end of the URL. Example: `https://www.luckyshrub.com/shop?promo={{1}}`. 2000 characters maximum.
 	Url *string `json:"url,omitempty"`
 	// **Required for button type `PHONE_NUMBER`.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
 	PhoneNumber *string                                 `json:"phone_number,omitempty"`
 	OtpType     *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
-	// **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+	// **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
 	AutofillText *string `json:"autofill_text,omitempty"`
-	// **One-tap buttons only.** Your Android app's package name.
+	// **One-tap and zero-tap buttons only.** Your Android app's package name.
 	PackageName *string `json:"package_name,omitempty"`
-	// **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+	// **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
 	SignatureHash *string `json:"signature_hash,omitempty"`
 	// **Zero-tap buttons only.** Set to `true` to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it's your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to `false`, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
 	ZeroTapTermsAccepted *bool `json:"zero_tap_terms_accepted,omitempty"`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | ID of this object. | 
+**Id** | **string** | ID of this verification check. | 
 **Valid** | **bool** | Whether the verification code is valid for this check. | 
 **Status** | Pointer to [**VerificationStatus**](VerificationStatus.md) |  | [optional] 
 **To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address. | [optional] 
