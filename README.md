@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.10.3
+- Package version: 1.11.0
 
 ## Installation
 
@@ -38,6 +38,11 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**Send**](docs/EmailsApi.md#send) | **Post** /emails | Send an email
 *SmsApi* | [**List**](docs/SmsApi.md#list) | **Get** /sms | List SMS records
 *SmsApi* | [**Send**](docs/SmsApi.md#send) | **Post** /sms | Send an SMS
+*UnsubscribersApi* | [**Create**](docs/UnsubscribersApi.md#create) | **Post** /unsubscribers | Create an unsubscriber
+*UnsubscribersApi* | [**DeleteByCustomerAndChannel**](docs/UnsubscribersApi.md#deletebycustomerandchannel) | **Delete** /unsubscribers/{customer}/{channel} | Delete an unsubscriber
+*UnsubscribersApi* | [**List**](docs/UnsubscribersApi.md#list) | **Get** /unsubscribers | List unsubscribers
+*UnsubscribersApi* | [**ListAllByCustomer**](docs/UnsubscribersApi.md#listallbycustomer) | **Get** /unsubscribers/{customer} | List all unsubscribers by customer
+*UnsubscribersApi* | [**RetrieveByCustomerAndChannel**](docs/UnsubscribersApi.md#retrievebycustomerandchannel) | **Get** /unsubscribers/{customer}/{channel} | Retrieve an unsubscriber
 *VerifyApi* | [**Check**](docs/VerifyApi.md#check) | **Post** /verify/verificationChecks | Check a verification
 *VerifyApi* | [**Send**](docs/VerifyApi.md#send) | **Post** /verify/verifications | Start a verification
 *VoicesApi* | [**List**](docs/VoicesApi.md#list) | **Get** /voices | List voice records
@@ -86,10 +91,16 @@ Class | Method | HTTP request | Description
  - [Mailbox](docs/Mailbox.md)
  - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
  - [Page](docs/Page.md)
+ - [PageCursor](docs/PageCursor.md)
  - [Sms](docs/Sms.md)
  - [SmsInbound](docs/SmsInbound.md)
  - [SmsPage](docs/SmsPage.md)
  - [SmsSendRequest](docs/SmsSendRequest.md)
+ - [Unsubscriber](docs/Unsubscriber.md)
+ - [UnsubscriberChannel](docs/UnsubscriberChannel.md)
+ - [UnsubscriberCreateRequest](docs/UnsubscriberCreateRequest.md)
+ - [UnsubscriberPage](docs/UnsubscriberPage.md)
+ - [UnsubscriberType](docs/UnsubscriberType.md)
  - [Verification](docs/Verification.md)
  - [VerificationChannel](docs/VerificationChannel.md)
  - [VerificationCheck](docs/VerificationCheck.md)

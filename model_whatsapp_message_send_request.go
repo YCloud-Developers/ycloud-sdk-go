@@ -20,23 +20,25 @@ type WhatsappMessageSendRequest struct {
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To string `json:"to"`
-	Type WhatsappMessageType `json:"type"`
-	Template *WhatsappMessageTemplate `json:"template,omitempty"`
-	Text *WhatsappMessageText `json:"text,omitempty"`
-	Image *WhatsappMessageMedia `json:"image,omitempty"`
-	Video *WhatsappMessageMedia `json:"video,omitempty"`
-	Audio *WhatsappMessageMedia `json:"audio,omitempty"`
-	Document *WhatsappMessageMedia `json:"document,omitempty"`
-	Sticker *WhatsappMessageMedia `json:"sticker,omitempty"`
-	Location *WhatsappMessageLocation `json:"location,omitempty"`
+	To          string                      `json:"to"`
+	Type        WhatsappMessageType         `json:"type"`
+	Template    *WhatsappMessageTemplate    `json:"template,omitempty"`
+	Text        *WhatsappMessageText        `json:"text,omitempty"`
+	Image       *WhatsappMessageMedia       `json:"image,omitempty"`
+	Video       *WhatsappMessageMedia       `json:"video,omitempty"`
+	Audio       *WhatsappMessageMedia       `json:"audio,omitempty"`
+	Document    *WhatsappMessageMedia       `json:"document,omitempty"`
+	Sticker     *WhatsappMessageMedia       `json:"sticker,omitempty"`
+	Location    *WhatsappMessageLocation    `json:"location,omitempty"`
 	Interactive *WhatsappMessageInteractive `json:"interactive,omitempty"`
 	// Required when `type` is `contacts`.
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
 	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
-	Context *WhatsappMessageContext `json:"context,omitempty"`
+	Context  *WhatsappMessageContext  `json:"context,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
+	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
+	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`
 }
 
 // NewWhatsappMessageSendRequest instantiates a new WhatsappMessageSendRequest object
@@ -547,6 +549,38 @@ func (o *WhatsappMessageSendRequest) SetExternalId(v string) {
 	o.ExternalId = &v
 }
 
+// GetFilterUnsubscribed returns the FilterUnsubscribed field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetFilterUnsubscribed() bool {
+	if o == nil || o.FilterUnsubscribed == nil {
+		var ret bool
+		return ret
+	}
+	return *o.FilterUnsubscribed
+}
+
+// GetFilterUnsubscribedOk returns a tuple with the FilterUnsubscribed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetFilterUnsubscribedOk() (*bool, bool) {
+	if o == nil || o.FilterUnsubscribed == nil {
+		return nil, false
+	}
+	return o.FilterUnsubscribed, true
+}
+
+// HasFilterUnsubscribed returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasFilterUnsubscribed() bool {
+	if o != nil && o.FilterUnsubscribed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilterUnsubscribed gets a reference to the given bool and assigns it to the FilterUnsubscribed field.
+func (o *WhatsappMessageSendRequest) SetFilterUnsubscribed(v bool) {
+	o.FilterUnsubscribed = &v
+}
+
 func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -597,6 +631,9 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	if o.ExternalId != nil {
 		toSerialize["externalId"] = o.ExternalId
 	}
+	if o.FilterUnsubscribed != nil {
+		toSerialize["filterUnsubscribed"] = o.FilterUnsubscribed
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -635,5 +672,3 @@ func (v *NullableWhatsappMessageSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

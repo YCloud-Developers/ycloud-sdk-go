@@ -58,6 +58,8 @@ type APIClient struct {
 
 	SmsApi *SmsApiService
 
+	UnsubscribersApi *UnsubscribersApiService
+
 	VerifyApi *VerifyApiService
 
 	VoicesApi *VoicesApiService
@@ -93,6 +95,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContactsApi = (*ContactsApiService)(&c.common)
 	c.EmailsApi = (*EmailsApiService)(&c.common)
 	c.SmsApi = (*SmsApiService)(&c.common)
+	c.UnsubscribersApi = (*UnsubscribersApiService)(&c.common)
 	c.VerifyApi = (*VerifyApiService)(&c.common)
 	c.VoicesApi = (*VoicesApiService)(&c.common)
 	c.WebhookEndpointsApi = (*WebhookEndpointsApiService)(&c.common)
@@ -221,9 +224,9 @@ func (c *APIClient) GetConfig() *Configuration {
 }
 
 type formFile struct {
-		fileBytes []byte
-		fileName string
-		formFileName string
+	fileBytes    []byte
+	fileName     string
+	formFileName string
 }
 
 // prepareRequest build the request
@@ -277,11 +280,11 @@ func (c *APIClient) prepareRequest(
 				w.Boundary()
 				part, err := w.CreateFormFile(formFile.formFileName, filepath.Base(formFile.fileName))
 				if err != nil {
-						return nil, err
+					return nil, err
 				}
 				_, err = part.Write(formFile.fileBytes)
 				if err != nil {
-						return nil, err
+					return nil, err
 				}
 			}
 		}
