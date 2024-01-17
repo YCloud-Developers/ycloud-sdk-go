@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 **SmsFallbackEnabled** | Pointer to **bool** | Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed. | [optional] 
 **SmsFallback** | Pointer to [**VerificationFallback**](VerificationFallback.md) |  | [optional] 
+**ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 
 ## Methods
 
@@ -252,6 +253,31 @@ SetSmsFallback sets SmsFallback field to given value.
 `func (o *Verification) HasSmsFallback() bool`
 
 HasSmsFallback returns a boolean if a field has been set.
+
+### GetExternalId
+
+`func (o *Verification) GetExternalId() string`
+
+GetExternalId returns the ExternalId field if non-nil, zero value otherwise.
+
+### GetExternalIdOk
+
+`func (o *Verification) GetExternalIdOk() (*string, bool)`
+
+GetExternalIdOk returns a tuple with the ExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalId
+
+`func (o *Verification) SetExternalId(v string)`
+
+SetExternalId sets ExternalId field to given value.
+
+### HasExternalId
+
+`func (o *Verification) HasExternalId() bool`
+
+HasExternalId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **BusinessVerificationStatus** | Pointer to [**MetaBusinessAccountVerificationStatus**](MetaBusinessAccountVerificationStatus.md) |  | [optional] 
 **Country** | Pointer to **string** | Country of the WhatsApp Business Account&#39;s owning Meta Business account. | [optional] 
 **OwnershipType** | Pointer to **string** | Ownership type of the WhatsApp Business Account. | [optional] 
+**PaymentMethodAttached** | Pointer to **bool** | Whether we have attached a payment method to the WhatsApp Business Account. | [optional] 
 **PrimaryFundingId** | Pointer to **string** | Primary funding ID for the WhatsApp Business Account paid service. | [optional] 
 **PurchaseOrderNumber** | Pointer to **string** | The purchase order number supplied by the business for payment management purposes. | [optional] 
 **TimezoneId** | Pointer to **string** | The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids). | [optional] 
@@ -240,6 +241,31 @@ SetOwnershipType sets OwnershipType field to given value.
 `func (o *WhatsappBusinessAccount) HasOwnershipType() bool`
 
 HasOwnershipType returns a boolean if a field has been set.
+
+### GetPaymentMethodAttached
+
+`func (o *WhatsappBusinessAccount) GetPaymentMethodAttached() bool`
+
+GetPaymentMethodAttached returns the PaymentMethodAttached field if non-nil, zero value otherwise.
+
+### GetPaymentMethodAttachedOk
+
+`func (o *WhatsappBusinessAccount) GetPaymentMethodAttachedOk() (*bool, bool)`
+
+GetPaymentMethodAttachedOk returns a tuple with the PaymentMethodAttached field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMethodAttached
+
+`func (o *WhatsappBusinessAccount) SetPaymentMethodAttached(v bool)`
+
+SetPaymentMethodAttached sets PaymentMethodAttached field to given value.
+
+### HasPaymentMethodAttached
+
+`func (o *WhatsappBusinessAccount) HasPaymentMethodAttached() bool`
+
+HasPaymentMethodAttached returns a boolean if a field has been set.
 
 ### GetPrimaryFundingId
 

@@ -17,28 +17,30 @@ import (
 
 // WhatsappPhoneNumber A WhatsApp Business Account (WABA) phone number. See also [WhatsApp Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers).
 type WhatsappPhoneNumber struct {
+	// Phone number ID.
+	Id *string `json:"id,omitempty"`
 	// Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// Display phone number.
 	DisplayPhoneNumber *string `json:"displayPhoneNumber,omitempty"`
 	// WhatsApp Business Account ID.
-	WabaId *string `json:"wabaId,omitempty"`
+	WabaId        *string                           `json:"wabaId,omitempty"`
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
 	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
 	// Verified name.
-	VerifiedName *string `json:"verifiedName,omitempty"`
+	VerifiedName           *string                                    `json:"verifiedName,omitempty"`
 	CodeVerificationStatus *WhatsappPhoneNumberCodeVerificationStatus `json:"codeVerificationStatus,omitempty"`
 	// Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
-	IsOfficialBusinessAccount *bool `json:"isOfficialBusinessAccount,omitempty"`
-	Status *WhatsappPhoneNumberStatus `json:"status,omitempty"`
-	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
-	NewNameStatus *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
-	Decision *WhatsappReviewDecision `json:"decision,omitempty"`
+	IsOfficialBusinessAccount *bool                          `json:"isOfficialBusinessAccount,omitempty"`
+	Status                    *WhatsappPhoneNumberStatus     `json:"status,omitempty"`
+	NameStatus                *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
+	NewNameStatus             *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
+	Decision                  *WhatsappReviewDecision        `json:"decision,omitempty"`
 	// Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
 	RequestedVerifiedName *string `json:"requestedVerifiedName,omitempty"`
 	// Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
-	RejectionReason *string `json:"rejectionReason,omitempty"`
+	RejectionReason    *string                                    `json:"rejectionReason,omitempty"`
 	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
 }
 
@@ -57,6 +59,38 @@ func NewWhatsappPhoneNumber() *WhatsappPhoneNumber {
 func NewWhatsappPhoneNumberWithDefaults() *WhatsappPhoneNumber {
 	this := WhatsappPhoneNumber{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetIdOk() (*string, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *WhatsappPhoneNumber) SetId(v string) {
+	o.Id = &v
 }
 
 // GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
@@ -541,6 +575,9 @@ func (o *WhatsappPhoneNumber) SetQualityUpdateEvent(v WhatsappPhoneNumberQuality
 
 func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
 	if o.PhoneNumber != nil {
 		toSerialize["phoneNumber"] = o.PhoneNumber
 	}
@@ -624,5 +661,3 @@ func (v *NullableWhatsappPhoneNumber) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

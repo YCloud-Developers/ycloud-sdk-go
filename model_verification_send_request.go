@@ -28,6 +28,8 @@ type VerificationSendRequest struct {
 	Signature *string `json:"signature,omitempty"`
 	// [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese
 	Language *string `json:"language,omitempty"`
+	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.
+	ExternalId *string `json:"externalId,omitempty"`
 }
 
 // NewVerificationSendRequest instantiates a new VerificationSendRequest object
@@ -225,6 +227,38 @@ func (o *VerificationSendRequest) SetLanguage(v string) {
 	o.Language = &v
 }
 
+// GetExternalId returns the ExternalId field value if set, zero value otherwise.
+func (o *VerificationSendRequest) GetExternalId() string {
+	if o == nil || o.ExternalId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerificationSendRequest) GetExternalIdOk() (*string, bool) {
+	if o == nil || o.ExternalId == nil {
+		return nil, false
+	}
+	return o.ExternalId, true
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *VerificationSendRequest) HasExternalId() bool {
+	if o != nil && o.ExternalId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given string and assigns it to the ExternalId field.
+func (o *VerificationSendRequest) SetExternalId(v string) {
+	o.ExternalId = &v
+}
+
 func (o VerificationSendRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -244,6 +278,9 @@ func (o VerificationSendRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.Language != nil {
 		toSerialize["language"] = o.Language
+	}
+	if o.ExternalId != nil {
+		toSerialize["externalId"] = o.ExternalId
 	}
 	return json.Marshal(toSerialize)
 }
@@ -283,5 +320,3 @@ func (v *NullableVerificationSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

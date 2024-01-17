@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** | Phone number ID. | [optional] 
 **PhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional] 
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
@@ -38,6 +39,31 @@ will change when the set of required properties is changed
 NewWhatsappPhoneNumberWithDefaults instantiates a new WhatsappPhoneNumber object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *WhatsappPhoneNumber) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *WhatsappPhoneNumber) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *WhatsappPhoneNumber) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *WhatsappPhoneNumber) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetPhoneNumber
 

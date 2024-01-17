@@ -31,6 +31,8 @@ type WhatsappBusinessAccount struct {
 	Country *string `json:"country,omitempty"`
 	// Ownership type of the WhatsApp Business Account.
 	OwnershipType *string `json:"ownershipType,omitempty"`
+	// Whether we have attached a payment method to the WhatsApp Business Account.
+	PaymentMethodAttached *bool `json:"paymentMethodAttached,omitempty"`
 	// Primary funding ID for the WhatsApp Business Account paid service.
 	PrimaryFundingId *string `json:"primaryFundingId,omitempty"`
 	// The purchase order number supplied by the business for payment management purposes.
@@ -319,6 +321,38 @@ func (o *WhatsappBusinessAccount) HasOwnershipType() bool {
 // SetOwnershipType gets a reference to the given string and assigns it to the OwnershipType field.
 func (o *WhatsappBusinessAccount) SetOwnershipType(v string) {
 	o.OwnershipType = &v
+}
+
+// GetPaymentMethodAttached returns the PaymentMethodAttached field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetPaymentMethodAttached() bool {
+	if o == nil || o.PaymentMethodAttached == nil {
+		var ret bool
+		return ret
+	}
+	return *o.PaymentMethodAttached
+}
+
+// GetPaymentMethodAttachedOk returns a tuple with the PaymentMethodAttached field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetPaymentMethodAttachedOk() (*bool, bool) {
+	if o == nil || o.PaymentMethodAttached == nil {
+		return nil, false
+	}
+	return o.PaymentMethodAttached, true
+}
+
+// HasPaymentMethodAttached returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasPaymentMethodAttached() bool {
+	if o != nil && o.PaymentMethodAttached != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentMethodAttached gets a reference to the given bool and assigns it to the PaymentMethodAttached field.
+func (o *WhatsappBusinessAccount) SetPaymentMethodAttached(v bool) {
+	o.PaymentMethodAttached = &v
 }
 
 // GetPrimaryFundingId returns the PrimaryFundingId field value if set, zero value otherwise.
@@ -634,6 +668,9 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	}
 	if o.OwnershipType != nil {
 		toSerialize["ownershipType"] = o.OwnershipType
+	}
+	if o.PaymentMethodAttached != nil {
+		toSerialize["paymentMethodAttached"] = o.PaymentMethodAttached
 	}
 	if o.PrimaryFundingId != nil {
 		toSerialize["primaryFundingId"] = o.PrimaryFundingId

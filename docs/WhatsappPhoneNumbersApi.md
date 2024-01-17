@@ -5,6 +5,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**List**](WhatsappPhoneNumbersApi.md#List) | **Get** /whatsapp/phoneNumbers | List phone numbers
+[**Register**](WhatsappPhoneNumbersApi.md#Register) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
 [**RetrieveCommerceSettings**](WhatsappPhoneNumbersApi.md#RetrieveCommerceSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Retrieve commerce settings
 [**RetrieveProfile**](WhatsappPhoneNumbersApi.md#RetrieveProfile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a phone number profile
@@ -70,6 +71,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappPhoneNumberPage**](WhatsappPhoneNumberPage.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Register
+
+> WhatsappPhoneNumber Register(ctx, wabaId, phoneNumber).Execute()
+
+Register a phone number
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "1234567890123456" // string | Phone number ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.Register(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.Register``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Register`: WhatsappPhoneNumber
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.Register`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRegisterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappPhoneNumber**](WhatsappPhoneNumber.md)
 
 ### Authorization
 

@@ -19,10 +19,10 @@ import (
 // Verification struct for Verification
 type Verification struct {
 	// ID of the verification.
-	Id string `json:"id"`
+	Id     string              `json:"id"`
 	Status *VerificationStatus `json:"status,omitempty"`
 	// Recipient of the verification.
-	To *string `json:"to,omitempty"`
+	To      *string              `json:"to,omitempty"`
 	Channel *VerificationChannel `json:"channel,omitempty"`
 	// The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	SendTime *time.Time `json:"sendTime,omitempty"`
@@ -31,8 +31,10 @@ type Verification struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
-	SmsFallbackEnabled *bool `json:"smsFallbackEnabled,omitempty"`
-	SmsFallback *VerificationFallback `json:"smsFallback,omitempty"`
+	SmsFallbackEnabled *bool                 `json:"smsFallbackEnabled,omitempty"`
+	SmsFallback        *VerificationFallback `json:"smsFallback,omitempty"`
+	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	ExternalId *string `json:"externalId,omitempty"`
 }
 
 // NewVerification instantiates a new Verification object
@@ -333,6 +335,38 @@ func (o *Verification) SetSmsFallback(v VerificationFallback) {
 	o.SmsFallback = &v
 }
 
+// GetExternalId returns the ExternalId field value if set, zero value otherwise.
+func (o *Verification) GetExternalId() string {
+	if o == nil || o.ExternalId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Verification) GetExternalIdOk() (*string, bool) {
+	if o == nil || o.ExternalId == nil {
+		return nil, false
+	}
+	return o.ExternalId, true
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *Verification) HasExternalId() bool {
+	if o != nil && o.ExternalId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given string and assigns it to the ExternalId field.
+func (o *Verification) SetExternalId(v string) {
+	o.ExternalId = &v
+}
+
 func (o Verification) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -361,6 +395,9 @@ func (o Verification) MarshalJSON() ([]byte, error) {
 	}
 	if o.SmsFallback != nil {
 		toSerialize["smsFallback"] = o.SmsFallback
+	}
+	if o.ExternalId != nil {
+		toSerialize["externalId"] = o.ExternalId
 	}
 	return json.Marshal(toSerialize)
 }
@@ -400,5 +437,3 @@ func (v *NullableVerification) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -16,12 +16,12 @@ import (
 	"fmt"
 )
 
-// WhatsappPhoneNumberCodeVerificationStatus To see if a phone number has been verified via OTP (one-time password), check that number's `code_verification_status` field.
+// WhatsappPhoneNumberCodeVerificationStatus To see if a phone number has been verified via OTP (one-time password).
 type WhatsappPhoneNumberCodeVerificationStatus string
 
 // List of WhatsappPhoneNumberCodeVerificationStatus
 const (
-	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_VERIFIED WhatsappPhoneNumberCodeVerificationStatus = "VERIFIED"
+	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_VERIFIED     WhatsappPhoneNumberCodeVerificationStatus = "VERIFIED"
 	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_NOT_VERIFIED WhatsappPhoneNumberCodeVerificationStatus = "NOT_VERIFIED"
 )
 
@@ -103,4 +103,3 @@ func (v *NullableWhatsappPhoneNumberCodeVerificationStatus) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
