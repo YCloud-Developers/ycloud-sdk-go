@@ -17,14 +17,14 @@ import (
 
 // EmailSendRequest struct for EmailSendRequest
 type EmailSendRequest struct {
-	// - The sender's email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.
+	// - The sender's email. Its domain should be one that has been registered and activated in your account. - The sender's email address is required while the sender's name is optional. For example, both `support@example.com` and `Sender<support@example.com>` work.
 	From string `json:"from"`
 	// - The intended recipients' email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.
 	To string `json:"to"`
 	// The email subject, which contains a short string identifying the topic of the message. Max length: 255.
 	Subject string `json:"subject"`
 	// - The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
-	Content string `json:"content"`
+	Content     string            `json:"content"`
 	ContentType *EmailContentType `json:"contentType,omitempty"`
 	// - The variable key-value pairs that will replace the variable placeholders in `content` for each recipient. Variable keys are those that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded, and they can not receive emails that contain variables. - This parameter's size will be calculated together with the parameter `content`. The whole size must not exceed 150 KB.
 	Variables []map[string]string `json:"variables,omitempty"`
@@ -491,5 +491,3 @@ func (v *NullableEmailSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

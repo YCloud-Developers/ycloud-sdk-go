@@ -102,12 +102,12 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "ycloud-sdk-go/1.11.1",
+		UserAgent:     "ycloud-sdk-go/1.11.2",
 		Debug:         false,
 		Servers: ServerConfigurations{
 			{
 				URL:         "https://api.ycloud.com/v2",
-				Description: "YCloud API base URL",
+				Description: "Base URL",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{},

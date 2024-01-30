@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    emailSendRequest := *ycloud.NewEmailSendRequest("YCloud<ycloud@ycloud-mail.com>", "to1@example.com,Nick<to2@example.com>", "Subject_example", "This is a test message from #nick#.") // EmailSendRequest | 
+    emailSendRequest := *ycloud.NewEmailSendRequest("SupportTeam<support@example.com>", "to1@example.com,Nick<to2@example.com>", "Subject_example", "This is a test message from #nick#.") // EmailSendRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

@@ -21,21 +21,22 @@ type WhatsappInboundMessageType string
 
 // List of WhatsappInboundMessageType
 const (
-	WHATSAPPINBOUNDMESSAGETYPE_TEXT WhatsappInboundMessageType = "text"
-	WHATSAPPINBOUNDMESSAGETYPE_IMAGE WhatsappInboundMessageType = "image"
-	WHATSAPPINBOUNDMESSAGETYPE_VIDEO WhatsappInboundMessageType = "video"
-	WHATSAPPINBOUNDMESSAGETYPE_AUDIO WhatsappInboundMessageType = "audio"
-	WHATSAPPINBOUNDMESSAGETYPE_DOCUMENT WhatsappInboundMessageType = "document"
-	WHATSAPPINBOUNDMESSAGETYPE_STICKER WhatsappInboundMessageType = "sticker"
-	WHATSAPPINBOUNDMESSAGETYPE_CONTACTS WhatsappInboundMessageType = "contacts"
-	WHATSAPPINBOUNDMESSAGETYPE_LOCATION WhatsappInboundMessageType = "location"
-	WHATSAPPINBOUNDMESSAGETYPE_INTERACTIVE WhatsappInboundMessageType = "interactive"
-	WHATSAPPINBOUNDMESSAGETYPE_BUTTON WhatsappInboundMessageType = "button"
-	WHATSAPPINBOUNDMESSAGETYPE_REACTION WhatsappInboundMessageType = "reaction"
-	WHATSAPPINBOUNDMESSAGETYPE_ORDER WhatsappInboundMessageType = "order"
-	WHATSAPPINBOUNDMESSAGETYPE_SYSTEM WhatsappInboundMessageType = "system"
-	WHATSAPPINBOUNDMESSAGETYPE_UNSUPPORTED WhatsappInboundMessageType = "unsupported"
-	WHATSAPPINBOUNDMESSAGETYPE_UNKNOWN WhatsappInboundMessageType = "unknown"
+	WHATSAPPINBOUNDMESSAGETYPE_TEXT            WhatsappInboundMessageType = "text"
+	WHATSAPPINBOUNDMESSAGETYPE_IMAGE           WhatsappInboundMessageType = "image"
+	WHATSAPPINBOUNDMESSAGETYPE_VIDEO           WhatsappInboundMessageType = "video"
+	WHATSAPPINBOUNDMESSAGETYPE_AUDIO           WhatsappInboundMessageType = "audio"
+	WHATSAPPINBOUNDMESSAGETYPE_DOCUMENT        WhatsappInboundMessageType = "document"
+	WHATSAPPINBOUNDMESSAGETYPE_STICKER         WhatsappInboundMessageType = "sticker"
+	WHATSAPPINBOUNDMESSAGETYPE_CONTACTS        WhatsappInboundMessageType = "contacts"
+	WHATSAPPINBOUNDMESSAGETYPE_LOCATION        WhatsappInboundMessageType = "location"
+	WHATSAPPINBOUNDMESSAGETYPE_INTERACTIVE     WhatsappInboundMessageType = "interactive"
+	WHATSAPPINBOUNDMESSAGETYPE_BUTTON          WhatsappInboundMessageType = "button"
+	WHATSAPPINBOUNDMESSAGETYPE_REACTION        WhatsappInboundMessageType = "reaction"
+	WHATSAPPINBOUNDMESSAGETYPE_REQUEST_WELCOME WhatsappInboundMessageType = "request_welcome"
+	WHATSAPPINBOUNDMESSAGETYPE_ORDER           WhatsappInboundMessageType = "order"
+	WHATSAPPINBOUNDMESSAGETYPE_SYSTEM          WhatsappInboundMessageType = "system"
+	WHATSAPPINBOUNDMESSAGETYPE_UNSUPPORTED     WhatsappInboundMessageType = "unsupported"
+	WHATSAPPINBOUNDMESSAGETYPE_UNKNOWN         WhatsappInboundMessageType = "unknown"
 )
 
 // All allowed values of WhatsappInboundMessageType enum
@@ -51,6 +52,7 @@ var AllowedWhatsappInboundMessageTypeEnumValues = []WhatsappInboundMessageType{
 	"interactive",
 	"button",
 	"reaction",
+	"request_welcome",
 	"order",
 	"system",
 	"unsupported",
@@ -129,4 +131,3 @@ func (v *NullableWhatsappInboundMessageType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

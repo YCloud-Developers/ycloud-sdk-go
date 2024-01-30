@@ -23,7 +23,7 @@ type SmsSendRequest struct {
 	Text string `json:"text"`
 	// [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
 	SenderId *string `json:"senderId,omitempty"`
-	// This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.
+	// This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `Brand`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your verification code is 123456`.
 	Signature *string `json:"signature,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
@@ -284,5 +284,3 @@ func (v *NullableSmsSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

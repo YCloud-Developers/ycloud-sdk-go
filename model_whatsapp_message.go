@@ -64,7 +64,7 @@ type WhatsappMessage struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency         *string           `json:"currency,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
-	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via the **WhatsApp** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
 	VerificationId *string `json:"verificationId,omitempty"`

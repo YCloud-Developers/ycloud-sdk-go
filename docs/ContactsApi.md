@@ -175,7 +175,7 @@ func main() {
     filterTags := "tag1,tag2" // string | Comma-separated list of tags. (optional)
     filterCountryCode := "GB" // string | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)
     filterPhoneNumber := "+447901614024" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (optional)
-    filterEmail := "support@ycloud.com" // string | The contact's email address. (optional)
+    filterEmail := "support@example.com" // string | The contact's email address. (optional)
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

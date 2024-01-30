@@ -30,7 +30,7 @@ type Verification struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
-	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
 	SmsFallbackEnabled *bool                 `json:"smsFallbackEnabled,omitempty"`
 	SmsFallback        *VerificationFallback `json:"smsFallback,omitempty"`
 	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.

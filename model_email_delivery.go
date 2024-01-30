@@ -21,7 +21,7 @@ type EmailDelivery struct {
 	EmailId string `json:"emailId"`
 	// A recipient's email address.
 	RecipientAddress string `json:"recipientAddress"`
-	// Delivery status of the email to the specific recipient address. - `sending`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from YCloud. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.
+	// Delivery status of the email to the specific recipient address. - `sending`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: Our system has received a delivery receipt indicating that message is delivered. - `undelivered`: Our system has received a delivery receipt indicating that message is not delivered.
 	Status *string `json:"status,omitempty"`
 	// Error code when the email is undeliverable.
 	ErrorCode *string `json:"errorCode,omitempty"`
@@ -29,7 +29,7 @@ type EmailDelivery struct {
 	ErrorMessage *string `json:"errorMessage,omitempty"`
 	// The `externalId` you specified when you sent the email.
 	ExternalId *string `json:"externalId,omitempty"`
-	// This can be either empty or one of `email`, or `verify`. Defaults to `email`. - `email`: Indicates that the message is sent via [Email](https://www.ycloud.com/email) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	// This can be either empty or one of `email`, or `verify`. Defaults to `email`. - `email`: Indicates that the message is sent via the **Email** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
 	VerificationId *string `json:"verificationId,omitempty"`
@@ -358,5 +358,3 @@ func (v *NullableEmailDelivery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

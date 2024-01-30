@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **SendTime** | Pointer to **time.Time** | The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **TotalPrice** | Pointer to **float64** | Total price of this verification. | [optional] 
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
-**SmsFallbackEnabled** | Pointer to **bool** | Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed. | [optional] 
+**SmsFallbackEnabled** | Pointer to **bool** | Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed. | [optional] 
 **SmsFallback** | Pointer to [**VerificationFallback**](VerificationFallback.md) |  | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 

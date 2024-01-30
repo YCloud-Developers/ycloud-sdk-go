@@ -34,7 +34,7 @@ type Sms struct {
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
-	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.
+	// Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: Our system has received a delivery receipt indicating that message is delivered. - `undelivered`: Our system has received a delivery receipt indicating that message is not delivered.
 	Status *string `json:"status,omitempty"`
 	// Error code when the message is undeliverable.
 	ErrorCode *string `json:"errorCode,omitempty"`
@@ -46,7 +46,7 @@ type Sms struct {
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
-	// This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+	// This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via the **SMS** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
 	VerificationId *string `json:"verificationId,omitempty"`
@@ -655,5 +655,3 @@ func (v *NullableSms) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

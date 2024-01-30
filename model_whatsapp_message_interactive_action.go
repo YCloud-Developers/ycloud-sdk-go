@@ -27,7 +27,7 @@ type WhatsappMessageInteractiveAction struct {
 	ProductRetailerId *string `json:"product_retailer_id,omitempty"`
 	// Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
 	Sections []WhatsappMessageInteractiveActionSection `json:"sections,omitempty"`
-	// Action name. Required for Call-To-Action (CTA) URL Button Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Buttons.
+	// Action name. Required for Call-To-Action (CTA) URL Button Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Buttons. - `send_location`: Use for Location Request Messages.
 	Name       *string                                     `json:"name,omitempty"`
 	Parameters *WhatsappMessageInteractiveActionParameters `json:"parameters,omitempty"`
 }

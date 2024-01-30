@@ -16,15 +16,15 @@ import (
 	"fmt"
 )
 
-// VerificationStatus Status of the verification. - `pending`: The verification message (SMS, Voice, etc.) is sent, waiting to be checked. This happens when you call the 'Start a verification' API successfully. - `approved`: The verification has been successfully checked. A `pending` verification status changes to `approved` when you call the 'Check a verification' API and receive a response with the `valid` parameter is `true`. An approved verification cannot be checked anymore. - `blocked`: The verification is blocked by user-defined rules such as denylist, and geographical permission restrictions. A blocked verification cannot be checked. - `expired`: The verification has expired and cannot be checked anymore. The expiration can be customized in [Verify Settings](https://www.ycloud.com/console/#/app/verify/setting). - `undelivered`: YCloud has received a delivery receipt indicating that the verification message was not delivered. An undelivered verification cannot be checked anymore.
+// VerificationStatus Status of the verification. - `pending`: The verification message (SMS, Voice, etc.) is sent, waiting to be checked. This happens when you call the 'Start a verification' API successfully. - `approved`: The verification has been successfully checked. A `pending` verification status changes to `approved` when you call the 'Check a verification' API and receive a response with the `valid` parameter is `true`. An approved verification cannot be checked anymore. - `blocked`: The verification is blocked by user-defined rules such as denylist, and geographical permission restrictions. A blocked verification cannot be checked. - `expired`: The verification has expired and cannot be checked anymore. - `undelivered`: Our system has received a delivery receipt indicating that the verification message was not delivered. An undelivered verification cannot be checked anymore.
 type VerificationStatus string
 
 // List of VerificationStatus
 const (
-	VERIFICATIONSTATUS_PENDING VerificationStatus = "pending"
-	VERIFICATIONSTATUS_APPROVED VerificationStatus = "approved"
-	VERIFICATIONSTATUS_BLOCKED VerificationStatus = "blocked"
-	VERIFICATIONSTATUS_EXPIRED VerificationStatus = "expired"
+	VERIFICATIONSTATUS_PENDING     VerificationStatus = "pending"
+	VERIFICATIONSTATUS_APPROVED    VerificationStatus = "approved"
+	VERIFICATIONSTATUS_BLOCKED     VerificationStatus = "blocked"
+	VERIFICATIONSTATUS_EXPIRED     VerificationStatus = "expired"
 	VERIFICATIONSTATUS_UNDELIVERED VerificationStatus = "undelivered"
 )
 
@@ -109,4 +109,3 @@ func (v *NullableVerificationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -63,7 +63,7 @@ func (r WhatsappPhoneNumbersApiListRequest) Execute() (*WhatsappPhoneNumberPage,
 /*
 List List phone numbers
 
-Returns a paginated list of WhatsApp business phone numbers you've registered on YCloud.
+Returns a paginated list of WhatsApp business phone numbers you've registered.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return WhatsappPhoneNumbersApiListRequest
@@ -322,7 +322,7 @@ func (r WhatsappPhoneNumbersApiRetrieveRequest) Execute() (*WhatsappPhoneNumber,
 /*
 Retrieve Retrieve a phone number
 
-Retrieves a WhatsApp business phone number you've registered on YCloud.
+Retrieves a WhatsApp business phone number you've registered.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param wabaId WhatsApp Business Account ID.
