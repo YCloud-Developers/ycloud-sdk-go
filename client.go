@@ -68,6 +68,8 @@ type APIClient struct {
 
 	WhatsappBusinessAccountsApi *WhatsappBusinessAccountsApiService
 
+	WhatsappInboundMessagesApi *WhatsappInboundMessagesApiService
+
 	WhatsappMessagesApi *WhatsappMessagesApiService
 
 	WhatsappPhoneNumbersApi *WhatsappPhoneNumbersApiService
@@ -100,6 +102,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.VoicesApi = (*VoicesApiService)(&c.common)
 	c.WebhookEndpointsApi = (*WebhookEndpointsApiService)(&c.common)
 	c.WhatsappBusinessAccountsApi = (*WhatsappBusinessAccountsApiService)(&c.common)
+	c.WhatsappInboundMessagesApi = (*WhatsappInboundMessagesApiService)(&c.common)
 	c.WhatsappMessagesApi = (*WhatsappMessagesApiService)(&c.common)
 	c.WhatsappPhoneNumbersApi = (*WhatsappPhoneNumbersApiService)(&c.common)
 	c.WhatsappTemplatesApi = (*WhatsappTemplatesApiService)(&c.common)

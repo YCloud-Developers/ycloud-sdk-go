@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.11.2
+- Package version: 1.12.0
 
 ## Installation
 
@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
 *WebhookEndpointsApi* | [**Update**](docs/WebhookEndpointsApi.md#update) | **Patch** /webhookEndpoints/{id} | Update a webhook endpoint
 *WhatsappBusinessAccountsApi* | [**List**](docs/WhatsappBusinessAccountsApi.md#list) | **Get** /whatsapp/businessAccounts | List WABAs
 *WhatsappBusinessAccountsApi* | [**Retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **Get** /whatsapp/businessAccounts/{id} | Retrieve a WABA
+*WhatsappInboundMessagesApi* | [**MarkAsRead**](docs/WhatsappInboundMessagesApi.md#markasread) | **Post** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read
 *WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a message
 *WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Enqueue a message
 *WhatsappMessagesApi* | [**SendDirectly**](docs/WhatsappMessagesApi.md#senddirectly) | **Post** /whatsapp/messages/sendDirectly | Send a message directly
