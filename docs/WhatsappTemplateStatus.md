@@ -15,7 +15,9 @@
 
 * `IN_APPEAL` (value: `"IN_APPEAL"`)
 
-* `PENDING_DELETION` (value: `"PENDING_DELETION"`)
+* `DELETED` (value: `"DELETED"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
