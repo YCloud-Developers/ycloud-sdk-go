@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    unsubscriberCreateRequest := *ycloud.NewUnsubscriberCreateRequest(ycloud.UnsubscriberType("PHONE_NUMBER"), "+447901614024", ycloud.UnsubscriberChannel("whatsapp")) // UnsubscriberCreateRequest | 
+    unsubscriberCreateRequest := *ycloud.NewUnsubscriberCreateRequest(ycloud.UnsubscriberType("PHONE_NUMBER"), "+16315551111", ycloud.UnsubscriberChannel("whatsapp")) // UnsubscriberCreateRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-    customer := "+447901614024" // string | The customer who has opted out.
+    customer := "+16315551111" // string | The customer who has opted out.
     channel := ycloud.UnsubscriberChannel("whatsapp") // UnsubscriberChannel | 
 
     configuration := ycloud.NewConfiguration()
@@ -176,7 +176,7 @@ func main() {
     limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
     pageAfter := "id:foo" // string | A cursor to fetch the next page in cursor pagination. For example, if you make a list request, receive 100 objects and `cursor.after=id:foo`, your subsequent call can include `pageAfter=id:foo` in order to fetch the next page of the list. (optional)
-    filterCustomer := "+447901614024" // string |  (optional)
+    filterCustomer := "+16315551111" // string |  (optional)
     filterChannel := ycloud.UnsubscriberChannel("whatsapp") // UnsubscriberChannel |  (optional)
     filterRegionCode := "filterRegionCode_example" // string |  (optional)
 
@@ -250,7 +250,7 @@ import (
 )
 
 func main() {
-    customer := "+447901614024" // string | The customer who has opted out.
+    customer := "+16315551111" // string | The customer who has opted out.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -320,7 +320,7 @@ import (
 )
 
 func main() {
-    customer := "+447901614024" // string | The customer who has opted out.
+    customer := "+16315551111" // string | The customer who has opted out.
     channel := ycloud.UnsubscriberChannel("whatsapp") // UnsubscriberChannel | 
 
     configuration := ycloud.NewConfiguration()

@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-    verificationSendRequest := *ycloud.NewVerificationSendRequest(ycloud.VerificationChannel("sms"), "+447901614024") // VerificationSendRequest | Verification request that needs to be sent.
+    verificationSendRequest := *ycloud.NewVerificationSendRequest(ycloud.VerificationChannel("sms"), "+16315551111") // VerificationSendRequest | Verification request that needs to be sent.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

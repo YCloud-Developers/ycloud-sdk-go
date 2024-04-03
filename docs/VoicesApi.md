@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-    voiceSendRequest := *ycloud.NewVoiceSendRequest("+447901614024", "123456") // VoiceSendRequest | Voice call request that needs to be sent.
+    voiceSendRequest := *ycloud.NewVoiceSendRequest("+16315551111", "123456") // VoiceSendRequest | Voice call request that needs to be sent.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

@@ -62,7 +62,9 @@ type WhatsappMessage struct {
 	// Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-	Currency         *string           `json:"currency,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	// The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
+	RegionCode       *string           `json:"regionCode,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via the **WhatsApp** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
@@ -1019,6 +1021,38 @@ func (o *WhatsappMessage) SetCurrency(v string) {
 	o.Currency = &v
 }
 
+// GetRegionCode returns the RegionCode field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetRegionCode() string {
+	if o == nil || o.RegionCode == nil {
+		var ret string
+		return ret
+	}
+	return *o.RegionCode
+}
+
+// GetRegionCodeOk returns a tuple with the RegionCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetRegionCodeOk() (*string, bool) {
+	if o == nil || o.RegionCode == nil {
+		return nil, false
+	}
+	return o.RegionCode, true
+}
+
+// HasRegionCode returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasRegionCode() bool {
+	if o != nil && o.RegionCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionCode gets a reference to the given string and assigns it to the RegionCode field.
+func (o *WhatsappMessage) SetRegionCode(v string) {
+	o.RegionCode = &v
+}
+
 // GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetWhatsappApiError() WhatsappApiError {
 	if o == nil || o.WhatsappApiError == nil {
@@ -1206,6 +1240,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.Currency != nil {
 		toSerialize["currency"] = o.Currency
+	}
+	if o.RegionCode != nil {
+		toSerialize["regionCode"] = o.RegionCode
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError

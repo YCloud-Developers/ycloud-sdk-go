@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
+**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
 
 ## Methods
 
@@ -278,6 +279,31 @@ SetCustomAttributes sets CustomAttributes field to given value.
 `func (o *Contact) HasCustomAttributes() bool`
 
 HasCustomAttributes returns a boolean if a field has been set.
+
+### GetOwnerEmail
+
+`func (o *Contact) GetOwnerEmail() string`
+
+GetOwnerEmail returns the OwnerEmail field if non-nil, zero value otherwise.
+
+### GetOwnerEmailOk
+
+`func (o *Contact) GetOwnerEmailOk() (*string, bool)`
+
+GetOwnerEmailOk returns a tuple with the OwnerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerEmail
+
+`func (o *Contact) SetOwnerEmail(v string)`
+
+SetOwnerEmail sets OwnerEmail field to given value.
+
+### HasOwnerEmail
+
+`func (o *Contact) HasOwnerEmail() bool`
+
+HasOwnerEmail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

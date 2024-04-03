@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+447901614024", "+447901614024", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
+    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", "+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+447901614024", "+447901614024", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
+    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", "+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

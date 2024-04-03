@@ -330,7 +330,7 @@ func main() {
     page := int32(56) // int32 | Page number of the results to be returned, 1-based. (optional) (default to 1)
     limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
-    filterWabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID. (optional)
+    filterWabaId := "whatsapp-business-account-id" // string | **Required**. WhatsApp Business Account ID. (optional)
     filterName := "sample_whatsapp_template" // string | Name of the template. (optional)
     filterLanguage := "en_US" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (optional)
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterWabaId** | **string** | WhatsApp Business Account ID. | 
+ **filterWabaId** | **string** | **Required**. WhatsApp Business Account ID. | 
  **filterName** | **string** | Name of the template. | 
  **filterLanguage** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
 

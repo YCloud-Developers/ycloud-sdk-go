@@ -173,8 +173,8 @@ func main() {
     limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
     filterTags := "tag1,tag2" // string | Comma-separated list of tags. (optional)
-    filterCountryCode := "GB" // string | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)
-    filterPhoneNumber := "+447901614024" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (optional)
+    filterCountryCode := "US" // string | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)
+    filterPhoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (optional)
     filterEmail := "support@example.com" // string | The contact's email address. (optional)
 
     configuration := ycloud.NewConfiguration()

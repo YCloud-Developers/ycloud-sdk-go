@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional] 
 **Tags** | Pointer to **[]string** | Contact&#39;s tags. Maximum items: 50. | [optional] 
 **CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. If present (i.e., not &#x60;null&#x60;), all previous attributes of this contact will be replaced. | [optional] 
+**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
 
 ## Methods
 
@@ -179,6 +180,31 @@ SetCustomAttributes sets CustomAttributes field to given value.
 `func (o *ContactUpdateRequest) HasCustomAttributes() bool`
 
 HasCustomAttributes returns a boolean if a field has been set.
+
+### GetOwnerEmail
+
+`func (o *ContactUpdateRequest) GetOwnerEmail() string`
+
+GetOwnerEmail returns the OwnerEmail field if non-nil, zero value otherwise.
+
+### GetOwnerEmailOk
+
+`func (o *ContactUpdateRequest) GetOwnerEmailOk() (*string, bool)`
+
+GetOwnerEmailOk returns a tuple with the OwnerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerEmail
+
+`func (o *ContactUpdateRequest) SetOwnerEmail(v string)`
+
+SetOwnerEmail sets OwnerEmail field to given value.
+
+### HasOwnerEmail
+
+`func (o *ContactUpdateRequest) HasOwnerEmail() bool`
+
+HasOwnerEmail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -38,6 +38,8 @@ type Contact struct {
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// Contact's custom attributes.
 	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
+	// The email address of the contact's owner.
+	OwnerEmail *string `json:"ownerEmail,omitempty"`
 }
 
 // NewContact instantiates a new Contact object
@@ -370,6 +372,38 @@ func (o *Contact) SetCustomAttributes(v []ContactCustomAttribute) {
 	o.CustomAttributes = v
 }
 
+// GetOwnerEmail returns the OwnerEmail field value if set, zero value otherwise.
+func (o *Contact) GetOwnerEmail() string {
+	if o == nil || o.OwnerEmail == nil {
+		var ret string
+		return ret
+	}
+	return *o.OwnerEmail
+}
+
+// GetOwnerEmailOk returns a tuple with the OwnerEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetOwnerEmailOk() (*string, bool) {
+	if o == nil || o.OwnerEmail == nil {
+		return nil, false
+	}
+	return o.OwnerEmail, true
+}
+
+// HasOwnerEmail returns a boolean if a field has been set.
+func (o *Contact) HasOwnerEmail() bool {
+	if o != nil && o.OwnerEmail != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOwnerEmail gets a reference to the given string and assigns it to the OwnerEmail field.
+func (o *Contact) SetOwnerEmail(v string) {
+	o.OwnerEmail = &v
+}
+
 func (o Contact) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -401,6 +435,9 @@ func (o Contact) MarshalJSON() ([]byte, error) {
 	}
 	if o.CustomAttributes != nil {
 		toSerialize["customAttributes"] = o.CustomAttributes
+	}
+	if o.OwnerEmail != nil {
+		toSerialize["ownerEmail"] = o.OwnerEmail
 	}
 	return json.Marshal(toSerialize)
 }
@@ -440,5 +477,3 @@ func (v *NullableContact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

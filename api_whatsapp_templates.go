@@ -589,7 +589,7 @@ func (r WhatsappTemplatesApiListRequest) IncludeTotal(includeTotal bool) Whatsap
 	return r
 }
 
-// WhatsApp Business Account ID.
+// **Required**. WhatsApp Business Account ID.
 func (r WhatsappTemplatesApiListRequest) FilterWabaId(filterWabaId string) WhatsappTemplatesApiListRequest {
 	r.filterWabaId = &filterWabaId
 	return r

@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-    smsSendRequest := *ycloud.NewSmsSendRequest("+447901614024", "Your verification code is 123456.") // SmsSendRequest | SMS request that needs to be sent.
+    smsSendRequest := *ycloud.NewSmsSendRequest("+16315551111", "Your verification code is 123456.") // SmsSendRequest | SMS request that needs to be sent.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)

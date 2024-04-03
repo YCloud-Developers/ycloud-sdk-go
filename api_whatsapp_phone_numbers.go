@@ -50,7 +50,7 @@ func (r WhatsappPhoneNumbersApiListRequest) IncludeTotal(includeTotal bool) What
 	return r
 }
 
-// WhatsApp Business Account ID.
+// **Required**. WhatsApp Business Account ID.
 func (r WhatsappPhoneNumbersApiListRequest) FilterWabaId(filterWabaId string) WhatsappPhoneNumbersApiListRequest {
 	r.filterWabaId = &filterWabaId
 	return r
