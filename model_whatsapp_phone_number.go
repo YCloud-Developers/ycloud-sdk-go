@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappPhoneNumber A WhatsApp Business Account (WABA) phone number. See also [WhatsApp Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers).
+// WhatsappPhoneNumber See [WhatsApp Business Phone Number](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 type WhatsappPhoneNumber struct {
 	// Phone number ID.
 	Id *string `json:"id,omitempty"`
@@ -26,7 +26,7 @@ type WhatsappPhoneNumber struct {
 	// WhatsApp Business Account ID.
 	WabaId        *string                           `json:"wabaId,omitempty"`
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
-	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
 	// Verified name.
 	VerifiedName           *string                                    `json:"verifiedName,omitempty"`
@@ -37,9 +37,9 @@ type WhatsappPhoneNumber struct {
 	NameStatus                *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
 	NewNameStatus             *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
 	Decision                  *WhatsappReviewDecision        `json:"decision,omitempty"`
-	// Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+	// Last requested verified name.
 	RequestedVerifiedName *string `json:"requestedVerifiedName,omitempty"`
-	// Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+	// Rejection reason.
 	RejectionReason    *string                                    `json:"rejectionReason,omitempty"`
 	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
 }

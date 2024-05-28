@@ -23,7 +23,7 @@ type WhatsappMessageTemplateComponent struct {
 	SubType *string `json:"sub_type,omitempty"`
 	// **Required when `type` = `button`. Not used for the other types.** Indicates order in which button should appear, if the template uses multiple buttons. Buttons are zero-indexed, so setting value to 0 will cause the button to appear first, and another button with an index of 1 will appear next, etc.
 	Index *int32 `json:"index,omitempty"`
-	// **Required when `type` = `button`, or there are variables in the corresponding template component, or the template `HEADER` format is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).** Array of parameter objects with the content of the message. For components of `type` = `button`, see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
+	// **Required when `type` = `button`, or there are variables in the corresponding template component, or the template `HEADER` format is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).** Array of parameter objects with the content of the message.
 	Parameters []WhatsappMessageTemplateComponentParameter `json:"parameters,omitempty"`
 	// Use for `carousel` components. Provides card components containing the parameters of the message.
 	Cards []WhatsappMessageTemplateComponentCard `json:"cards,omitempty"`

@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **BanDate** | Pointer to **string** | The date when the WABA is banned. | [optional] 
 **ViolationType** | Pointer to **string** | Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations). | [optional] 
 **Restrictions** | Pointer to [**[]WhatsappBusinessAccountRestrictionInfo**](WhatsappBusinessAccountRestrictionInfo.md) | Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement). | [optional] 
+**AuthIntlRateEligibilityCountries** | Pointer to [**[]WhatsappAuthIntlRateEligibilityCountry**](WhatsappAuthIntlRateEligibilityCountry.md) | Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). | [optional] 
+**PrimaryBusinessLocation** | Pointer to **string** | Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
 
 ## Methods
 
@@ -491,6 +493,56 @@ SetRestrictions sets Restrictions field to given value.
 `func (o *WhatsappBusinessAccount) HasRestrictions() bool`
 
 HasRestrictions returns a boolean if a field has been set.
+
+### GetAuthIntlRateEligibilityCountries
+
+`func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountries() []WhatsappAuthIntlRateEligibilityCountry`
+
+GetAuthIntlRateEligibilityCountries returns the AuthIntlRateEligibilityCountries field if non-nil, zero value otherwise.
+
+### GetAuthIntlRateEligibilityCountriesOk
+
+`func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountriesOk() (*[]WhatsappAuthIntlRateEligibilityCountry, bool)`
+
+GetAuthIntlRateEligibilityCountriesOk returns a tuple with the AuthIntlRateEligibilityCountries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthIntlRateEligibilityCountries
+
+`func (o *WhatsappBusinessAccount) SetAuthIntlRateEligibilityCountries(v []WhatsappAuthIntlRateEligibilityCountry)`
+
+SetAuthIntlRateEligibilityCountries sets AuthIntlRateEligibilityCountries field to given value.
+
+### HasAuthIntlRateEligibilityCountries
+
+`func (o *WhatsappBusinessAccount) HasAuthIntlRateEligibilityCountries() bool`
+
+HasAuthIntlRateEligibilityCountries returns a boolean if a field has been set.
+
+### GetPrimaryBusinessLocation
+
+`func (o *WhatsappBusinessAccount) GetPrimaryBusinessLocation() string`
+
+GetPrimaryBusinessLocation returns the PrimaryBusinessLocation field if non-nil, zero value otherwise.
+
+### GetPrimaryBusinessLocationOk
+
+`func (o *WhatsappBusinessAccount) GetPrimaryBusinessLocationOk() (*string, bool)`
+
+GetPrimaryBusinessLocationOk returns a tuple with the PrimaryBusinessLocation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrimaryBusinessLocation
+
+`func (o *WhatsappBusinessAccount) SetPrimaryBusinessLocation(v string)`
+
+SetPrimaryBusinessLocation sets PrimaryBusinessLocation field to given value.
+
+### HasPrimaryBusinessLocation
+
+`func (o *WhatsappBusinessAccount) HasPrimaryBusinessLocation() bool`
+
+HasPrimaryBusinessLocation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageText [WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object).
+// WhatsappMessageText WhatsApp Message Text Object.
 type WhatsappMessageText struct {
 	// Required for text messages. The text of the text message which can contain URLs which begin with http:// or https:// and formatting. See available formatting options here. If you include URLs in your text and want to include a preview box in text messages (preview_url: true), make sure the URL starts with http:// or https:// — https:// URLs are preferred. You must include a hostname, since IP addresses will not be matched. Maximum length: 4096 characters.
 	Body string `json:"body"`
@@ -143,5 +143,3 @@ func (v *NullableWhatsappMessageText) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

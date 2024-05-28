@@ -36,7 +36,6 @@ const (
 	WHATSAPPINBOUNDMESSAGETYPE_ORDER           WhatsappInboundMessageType = "order"
 	WHATSAPPINBOUNDMESSAGETYPE_SYSTEM          WhatsappInboundMessageType = "system"
 	WHATSAPPINBOUNDMESSAGETYPE_UNSUPPORTED     WhatsappInboundMessageType = "unsupported"
-	WHATSAPPINBOUNDMESSAGETYPE_UNKNOWN         WhatsappInboundMessageType = "unknown"
 )
 
 // All allowed values of WhatsappInboundMessageType enum
@@ -56,7 +55,6 @@ var AllowedWhatsappInboundMessageTypeEnumValues = []WhatsappInboundMessageType{
 	"order",
 	"system",
 	"unsupported",
-	"unknown",
 }
 
 func (v *WhatsappInboundMessageType) UnmarshalJSON(src []byte) error {

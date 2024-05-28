@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageLocation Use for `location` messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
+// WhatsappMessageLocation Use for `location` messages.
 type WhatsappMessageLocation struct {
 	// Latitude of the location.
 	Latitude float64 `json:"latitude"`
@@ -210,5 +210,3 @@ func (v *NullableWhatsappMessageLocation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,4 +1,4 @@
-module github.com/ycloud-cpaas/ycloud-sdk-go
+module github.com/ycloud-developers/ycloud-sdk-go
 
 go 1.13
 

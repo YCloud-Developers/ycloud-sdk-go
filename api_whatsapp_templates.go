@@ -438,7 +438,6 @@ EditByNameAndLanguage Edit a template
 
 Edits a WhatsApp template by name and language.
 Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
-See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param wabaId WhatsApp Business Account ID.
@@ -589,7 +588,7 @@ func (r WhatsappTemplatesApiListRequest) IncludeTotal(includeTotal bool) Whatsap
 	return r
 }
 
-// **Required**. WhatsApp Business Account ID.
+// **Required if you have more than 100 WABAs.** WhatsApp Business Account ID.
 func (r WhatsappTemplatesApiListRequest) FilterWabaId(filterWabaId string) WhatsappTemplatesApiListRequest {
 	r.filterWabaId = &filterWabaId
 	return r

@@ -31,14 +31,14 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
     page := int32(56) // int32 | Page number of the results to be returned, 1-based. (optional) (default to 1)
     limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
-    filterWabaId := "whatsapp-business-account-id" // string | **Required**. WhatsApp Business Account ID. (optional)
+    filterWabaId := "whatsapp-business-account-id" // string | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. (optional)
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterWabaId** | **string** | **Required**. WhatsApp Business Account ID. | 
+ **filterWabaId** | **string** | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. | 
 
 ### Return type
 
@@ -103,7 +103,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -176,7 +176,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -249,7 +249,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -322,7 +322,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -395,7 +395,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -470,7 +470,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {

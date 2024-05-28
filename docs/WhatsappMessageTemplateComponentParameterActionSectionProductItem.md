@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductRetailerId** | Pointer to **string** | SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). | [optional] 
+**ProductRetailerId** | Pointer to **string** | SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). | [optional] 
 
 ## Methods
 

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveFooter Optional. An object with the footer of the message. See also [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object).
+// WhatsappMessageInteractiveFooter Optional. An object with the footer of the message.
 type WhatsappMessageInteractiveFooter struct {
 	// The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters.
 	Text *string `json:"text,omitempty"`
@@ -113,5 +113,3 @@ func (v *NullableWhatsappMessageInteractiveFooter) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

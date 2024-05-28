@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappBusinessAccount Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119).
+// WhatsappBusinessAccount Represents a specific [WhatsApp Business Account (WABA)](https://developers.facebook.com/docs/whatsapp/overview/business-accounts).
 type WhatsappBusinessAccount struct {
 	// WhatApp Business Account ID.
 	Id *string `json:"id,omitempty"`
@@ -48,6 +48,10 @@ type WhatsappBusinessAccount struct {
 	ViolationType *string `json:"violationType,omitempty"`
 	// Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).
 	Restrictions []WhatsappBusinessAccountRestrictionInfo `json:"restrictions,omitempty"`
+	// Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code `ID`) - July 1, 2024 – India (country calling code +91, country code `IN`)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
+	AuthIntlRateEligibilityCountries []WhatsappAuthIntlRateEligibilityCountry `json:"authIntlRateEligibilityCountries,omitempty"`
+	// Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+	PrimaryBusinessLocation *string `json:"primaryBusinessLocation,omitempty"`
 }
 
 // NewWhatsappBusinessAccount instantiates a new WhatsappBusinessAccount object
@@ -643,6 +647,70 @@ func (o *WhatsappBusinessAccount) SetRestrictions(v []WhatsappBusinessAccountRes
 	o.Restrictions = v
 }
 
+// GetAuthIntlRateEligibilityCountries returns the AuthIntlRateEligibilityCountries field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountries() []WhatsappAuthIntlRateEligibilityCountry {
+	if o == nil || o.AuthIntlRateEligibilityCountries == nil {
+		var ret []WhatsappAuthIntlRateEligibilityCountry
+		return ret
+	}
+	return o.AuthIntlRateEligibilityCountries
+}
+
+// GetAuthIntlRateEligibilityCountriesOk returns a tuple with the AuthIntlRateEligibilityCountries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountriesOk() ([]WhatsappAuthIntlRateEligibilityCountry, bool) {
+	if o == nil || o.AuthIntlRateEligibilityCountries == nil {
+		return nil, false
+	}
+	return o.AuthIntlRateEligibilityCountries, true
+}
+
+// HasAuthIntlRateEligibilityCountries returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasAuthIntlRateEligibilityCountries() bool {
+	if o != nil && o.AuthIntlRateEligibilityCountries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthIntlRateEligibilityCountries gets a reference to the given []WhatsappAuthIntlRateEligibilityCountry and assigns it to the AuthIntlRateEligibilityCountries field.
+func (o *WhatsappBusinessAccount) SetAuthIntlRateEligibilityCountries(v []WhatsappAuthIntlRateEligibilityCountry) {
+	o.AuthIntlRateEligibilityCountries = v
+}
+
+// GetPrimaryBusinessLocation returns the PrimaryBusinessLocation field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetPrimaryBusinessLocation() string {
+	if o == nil || o.PrimaryBusinessLocation == nil {
+		var ret string
+		return ret
+	}
+	return *o.PrimaryBusinessLocation
+}
+
+// GetPrimaryBusinessLocationOk returns a tuple with the PrimaryBusinessLocation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetPrimaryBusinessLocationOk() (*string, bool) {
+	if o == nil || o.PrimaryBusinessLocation == nil {
+		return nil, false
+	}
+	return o.PrimaryBusinessLocation, true
+}
+
+// HasPrimaryBusinessLocation returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasPrimaryBusinessLocation() bool {
+	if o != nil && o.PrimaryBusinessLocation != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrimaryBusinessLocation gets a reference to the given string and assigns it to the PrimaryBusinessLocation field.
+func (o *WhatsappBusinessAccount) SetPrimaryBusinessLocation(v string) {
+	o.PrimaryBusinessLocation = &v
+}
+
 func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -698,6 +766,12 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	}
 	if o.Restrictions != nil {
 		toSerialize["restrictions"] = o.Restrictions
+	}
+	if o.AuthIntlRateEligibilityCountries != nil {
+		toSerialize["authIntlRateEligibilityCountries"] = o.AuthIntlRateEligibilityCountries
+	}
+	if o.PrimaryBusinessLocation != nil {
+		toSerialize["primaryBusinessLocation"] = o.PrimaryBusinessLocation
 	}
 	return json.Marshal(toSerialize)
 }

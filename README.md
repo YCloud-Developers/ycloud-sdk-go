@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.12.2
+- Package version: 1.13.0
 
 ## Installation
 
@@ -14,13 +14,13 @@ Install the following dependencies:
 ```shell
 go get golang.org/x/oauth2
 go get golang.org/x/net/context
-go get github.com/ycloud-cpaas/ycloud-sdk-go
+go get github.com/ycloud-developers/ycloud-sdk-go
 ```
 
 Add the following in import:
 
 ```golang
-import ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+import ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 ```
 
 ## Documentation for API Endpoints
@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
  - [WhatsappApiError](docs/WhatsappApiError.md)
+ - [WhatsappAuthIntlRateEligibilityCountry](docs/WhatsappAuthIntlRateEligibilityCountry.md)
  - [WhatsappBusinessAccount](docs/WhatsappBusinessAccount.md)
  - [WhatsappBusinessAccountBanState](docs/WhatsappBusinessAccountBanState.md)
  - [WhatsappBusinessAccountPage](docs/WhatsappBusinessAccountPage.md)
@@ -193,6 +194,7 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
  - [WhatsappPhoneNumberQualityUpdateEventEnum](docs/WhatsappPhoneNumberQualityUpdateEventEnum.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
+ - [WhatsappPricingCategory](docs/WhatsappPricingCategory.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)
  - [WhatsappReviewDecision](docs/WhatsappReviewDecision.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)
@@ -225,7 +227,7 @@ Class | Method | HTTP request | Description
 
 Configure API key:
 ```golang
-import ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+import ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 
 configuration := ycloud.NewConfiguration()
 configuration.AddDefaultHeader("X-API-Key", "YOUR_API_KEY")

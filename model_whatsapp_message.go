@@ -64,8 +64,9 @@ type WhatsappMessage struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	// The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
-	RegionCode       *string           `json:"regionCode,omitempty"`
-	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
+	RegionCode       *string                  `json:"regionCode,omitempty"`
+	PricingCategory  *WhatsappPricingCategory `json:"pricingCategory,omitempty"`
+	WhatsappApiError *WhatsappApiError        `json:"whatsappApiError,omitempty"`
 	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via the **WhatsApp** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
@@ -1053,6 +1054,38 @@ func (o *WhatsappMessage) SetRegionCode(v string) {
 	o.RegionCode = &v
 }
 
+// GetPricingCategory returns the PricingCategory field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetPricingCategory() WhatsappPricingCategory {
+	if o == nil || o.PricingCategory == nil {
+		var ret WhatsappPricingCategory
+		return ret
+	}
+	return *o.PricingCategory
+}
+
+// GetPricingCategoryOk returns a tuple with the PricingCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetPricingCategoryOk() (*WhatsappPricingCategory, bool) {
+	if o == nil || o.PricingCategory == nil {
+		return nil, false
+	}
+	return o.PricingCategory, true
+}
+
+// HasPricingCategory returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasPricingCategory() bool {
+	if o != nil && o.PricingCategory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPricingCategory gets a reference to the given WhatsappPricingCategory and assigns it to the PricingCategory field.
+func (o *WhatsappMessage) SetPricingCategory(v WhatsappPricingCategory) {
+	o.PricingCategory = &v
+}
+
 // GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetWhatsappApiError() WhatsappApiError {
 	if o == nil || o.WhatsappApiError == nil {
@@ -1243,6 +1276,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.RegionCode != nil {
 		toSerialize["regionCode"] = o.RegionCode
+	}
+	if o.PricingCategory != nil {
+		toSerialize["pricingCategory"] = o.PricingCategory
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageInteractiveActionSection [WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).
+// WhatsappMessageInteractiveActionSection WhatsApp Message Interactive Section Object.
 type WhatsappMessageInteractiveActionSection struct {
 	// **Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.
 	Title *string `json:"title,omitempty"`
@@ -187,5 +187,3 @@ func (v *NullableWhatsappMessageInteractiveActionSection) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

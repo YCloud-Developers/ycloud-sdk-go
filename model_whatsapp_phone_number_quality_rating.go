@@ -16,14 +16,14 @@ import (
 	"fmt"
 )
 
-// WhatsappPhoneNumberQualityRating Quality rating. One of `GREEN`, `YELLOW`, `RED`, or `UNKNOWN`. See also [Quality Rating](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits). - `GREEN`: High quality. - `YELLOW`: Medium quality. - `RED`: Low quality. - `UNKNOWN`: Unknown quality.
+// WhatsappPhoneNumberQualityRating Quality rating. One of `GREEN`, `YELLOW`, `RED`, or `UNKNOWN`. See also [Phone Number Quality Rating](https://www.facebook.com/business/help/896873687365001). - `GREEN`: High quality. - `YELLOW`: Medium quality. - `RED`: Low quality. - `UNKNOWN`: Unknown quality.
 type WhatsappPhoneNumberQualityRating string
 
 // List of WhatsappPhoneNumberQualityRating
 const (
-	WHATSAPPPHONENUMBERQUALITYRATING_GREEN WhatsappPhoneNumberQualityRating = "GREEN"
-	WHATSAPPPHONENUMBERQUALITYRATING_YELLOW WhatsappPhoneNumberQualityRating = "YELLOW"
-	WHATSAPPPHONENUMBERQUALITYRATING_RED WhatsappPhoneNumberQualityRating = "RED"
+	WHATSAPPPHONENUMBERQUALITYRATING_GREEN   WhatsappPhoneNumberQualityRating = "GREEN"
+	WHATSAPPPHONENUMBERQUALITYRATING_YELLOW  WhatsappPhoneNumberQualityRating = "YELLOW"
+	WHATSAPPPHONENUMBERQUALITYRATING_RED     WhatsappPhoneNumberQualityRating = "RED"
 	WHATSAPPPHONENUMBERQUALITYRATING_UNKNOWN WhatsappPhoneNumberQualityRating = "UNKNOWN"
 )
 
@@ -107,4 +107,3 @@ func (v *NullableWhatsappPhoneNumberQualityRating) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

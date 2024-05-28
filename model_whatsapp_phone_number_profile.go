@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappPhoneNumberProfile WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business's name or number in a conversation thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles).
+// WhatsappPhoneNumberProfile WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business's name or number in a conversation thread.
 type WhatsappPhoneNumberProfile struct {
 	// The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons.
 	About *string `json:"about,omitempty"`
@@ -26,8 +26,8 @@ type WhatsappPhoneNumberProfile struct {
 	// The contact email address (in valid email format) of the business. Character limit 128.
 	Email *string `json:"email,omitempty"`
 	// URL of the profile picture used to upload to Meta.
-	ProfilePictureUrl *string `json:"profilePictureUrl,omitempty"`
-	Vertical *WhatsappPhoneNumberProfileVertical `json:"vertical,omitempty"`
+	ProfilePictureUrl *string                             `json:"profilePictureUrl,omitempty"`
+	Vertical          *WhatsappPhoneNumberProfileVertical `json:"vertical,omitempty"`
 	// The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 255 characters each.
 	Websites []string `json:"websites,omitempty"`
 }
@@ -334,5 +334,3 @@ func (v *NullableWhatsappPhoneNumberProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

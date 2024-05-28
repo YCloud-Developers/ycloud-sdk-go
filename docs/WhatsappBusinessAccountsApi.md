@@ -26,7 +26,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {
@@ -98,7 +98,7 @@ import (
     "context"
     "fmt"
     "os"
-    ycloud "github.com/ycloud-cpaas/ycloud-sdk-go"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
 )
 
 func main() {

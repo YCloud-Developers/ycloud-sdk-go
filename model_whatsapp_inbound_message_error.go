@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappInboundMessageError When the message type field is set to `unknown` or `unsupported`, this object is included.
+// WhatsappInboundMessageError When the message type `unsupported`, this object is included.
 type WhatsappInboundMessageError struct {
 	// The error code.
 	Code *string `json:"code,omitempty"`

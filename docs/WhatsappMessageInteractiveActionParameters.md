@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayText** | Pointer to **string** | Text of the CTA URL button. Maximum length: 20 bytes. | [optional] 
 **Url** | Pointer to **string** | URL of the CTA URL button. | [optional] 
-**ThumbnailProductRetailerId** | Pointer to **string** | Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image. | [optional] 
+**ThumbnailProductRetailerId** | Pointer to **string** | Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). The thumbnail of this item will be used as the message&#39;s header image. | [optional] 
 
 ## Methods
 
