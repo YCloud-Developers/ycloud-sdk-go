@@ -39,6 +39,8 @@ type WhatsappMessageSendRequest struct {
 	ExternalId *string `json:"externalId,omitempty"`
 	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
 	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`
+	// **Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
+	FilterBlocked *bool `json:"filterBlocked,omitempty"`
 }
 
 // NewWhatsappMessageSendRequest instantiates a new WhatsappMessageSendRequest object
@@ -581,6 +583,38 @@ func (o *WhatsappMessageSendRequest) SetFilterUnsubscribed(v bool) {
 	o.FilterUnsubscribed = &v
 }
 
+// GetFilterBlocked returns the FilterBlocked field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetFilterBlocked() bool {
+	if o == nil || o.FilterBlocked == nil {
+		var ret bool
+		return ret
+	}
+	return *o.FilterBlocked
+}
+
+// GetFilterBlockedOk returns a tuple with the FilterBlocked field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetFilterBlockedOk() (*bool, bool) {
+	if o == nil || o.FilterBlocked == nil {
+		return nil, false
+	}
+	return o.FilterBlocked, true
+}
+
+// HasFilterBlocked returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasFilterBlocked() bool {
+	if o != nil && o.FilterBlocked != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFilterBlocked gets a reference to the given bool and assigns it to the FilterBlocked field.
+func (o *WhatsappMessageSendRequest) SetFilterBlocked(v bool) {
+	o.FilterBlocked = &v
+}
+
 func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -633,6 +667,9 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.FilterUnsubscribed != nil {
 		toSerialize["filterUnsubscribed"] = o.FilterUnsubscribed
+	}
+	if o.FilterBlocked != nil {
+		toSerialize["filterBlocked"] = o.FilterBlocked
 	}
 	return json.Marshal(toSerialize)
 }

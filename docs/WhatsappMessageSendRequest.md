@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
 **ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional] 
+**FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional] 
 
 ## Methods
 
@@ -450,6 +451,31 @@ SetFilterUnsubscribed sets FilterUnsubscribed field to given value.
 `func (o *WhatsappMessageSendRequest) HasFilterUnsubscribed() bool`
 
 HasFilterUnsubscribed returns a boolean if a field has been set.
+
+### GetFilterBlocked
+
+`func (o *WhatsappMessageSendRequest) GetFilterBlocked() bool`
+
+GetFilterBlocked returns the FilterBlocked field if non-nil, zero value otherwise.
+
+### GetFilterBlockedOk
+
+`func (o *WhatsappMessageSendRequest) GetFilterBlockedOk() (*bool, bool)`
+
+GetFilterBlockedOk returns a tuple with the FilterBlocked field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilterBlocked
+
+`func (o *WhatsappMessageSendRequest) SetFilterBlocked(v bool)`
+
+SetFilterBlocked sets FilterBlocked field to given value.
+
+### HasFilterBlocked
+
+`func (o *WhatsappMessageSendRequest) HasFilterBlocked() bool`
+
+HasFilterBlocked returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
