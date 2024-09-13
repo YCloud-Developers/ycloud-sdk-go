@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **CountryName** | Pointer to **string** | Full country name. | [optional] 
 **PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional] 
-**LastSeen** | Pointer to **time.Time** | The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**LastSeen** | Pointer to **time.Time** | The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**LastMessageToPhoneNumber** | Pointer to **string** | The business phone number that the contact last sent a message to. | [optional] 
 **Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
@@ -204,6 +205,31 @@ SetLastSeen sets LastSeen field to given value.
 `func (o *Contact) HasLastSeen() bool`
 
 HasLastSeen returns a boolean if a field has been set.
+
+### GetLastMessageToPhoneNumber
+
+`func (o *Contact) GetLastMessageToPhoneNumber() string`
+
+GetLastMessageToPhoneNumber returns the LastMessageToPhoneNumber field if non-nil, zero value otherwise.
+
+### GetLastMessageToPhoneNumberOk
+
+`func (o *Contact) GetLastMessageToPhoneNumberOk() (*string, bool)`
+
+GetLastMessageToPhoneNumberOk returns a tuple with the LastMessageToPhoneNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastMessageToPhoneNumber
+
+`func (o *Contact) SetLastMessageToPhoneNumber(v string)`
+
+SetLastMessageToPhoneNumber sets LastMessageToPhoneNumber field to given value.
+
+### HasLastMessageToPhoneNumber
+
+`func (o *Contact) HasLastMessageToPhoneNumber() bool`
+
+HasLastMessageToPhoneNumber returns a boolean if a field has been set.
 
 ### GetTags
 

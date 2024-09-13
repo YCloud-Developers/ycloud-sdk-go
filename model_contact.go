@@ -30,8 +30,10 @@ type Contact struct {
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// The contact's email address. If present, the email address must be unique.
 	Email *string `json:"email,omitempty"`
-	// The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
+	// The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	LastSeen *time.Time `json:"lastSeen,omitempty"`
+	// The business phone number that the contact last sent a message to.
+	LastMessageToPhoneNumber *string `json:"lastMessageToPhoneNumber,omitempty"`
 	// Contact's tags.
 	Tags []string `json:"tags,omitempty"`
 	// The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
@@ -276,6 +278,38 @@ func (o *Contact) SetLastSeen(v time.Time) {
 	o.LastSeen = &v
 }
 
+// GetLastMessageToPhoneNumber returns the LastMessageToPhoneNumber field value if set, zero value otherwise.
+func (o *Contact) GetLastMessageToPhoneNumber() string {
+	if o == nil || o.LastMessageToPhoneNumber == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastMessageToPhoneNumber
+}
+
+// GetLastMessageToPhoneNumberOk returns a tuple with the LastMessageToPhoneNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetLastMessageToPhoneNumberOk() (*string, bool) {
+	if o == nil || o.LastMessageToPhoneNumber == nil {
+		return nil, false
+	}
+	return o.LastMessageToPhoneNumber, true
+}
+
+// HasLastMessageToPhoneNumber returns a boolean if a field has been set.
+func (o *Contact) HasLastMessageToPhoneNumber() bool {
+	if o != nil && o.LastMessageToPhoneNumber != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMessageToPhoneNumber gets a reference to the given string and assigns it to the LastMessageToPhoneNumber field.
+func (o *Contact) SetLastMessageToPhoneNumber(v string) {
+	o.LastMessageToPhoneNumber = &v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *Contact) GetTags() []string {
 	if o == nil || o.Tags == nil {
@@ -426,6 +460,9 @@ func (o Contact) MarshalJSON() ([]byte, error) {
 	}
 	if o.LastSeen != nil {
 		toSerialize["lastSeen"] = o.LastSeen
+	}
+	if o.LastMessageToPhoneNumber != nil {
+		toSerialize["lastMessageToPhoneNumber"] = o.LastMessageToPhoneNumber
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags

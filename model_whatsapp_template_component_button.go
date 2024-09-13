@@ -35,6 +35,12 @@ type WhatsappTemplateComponentButton struct {
 	ZeroTapTermsAccepted *bool `json:"zero_tap_terms_accepted,omitempty"`
 	// Sample full URL for a `URL` button with a variable.
 	Example []string `json:"example,omitempty"`
+	// **Required for button type `FLOW`.** The unique ID of a Flow.
+	FlowId *string `json:"flow_id,omitempty"`
+	// **Use for button type `FLOW`.** Either `navigate` or `data_exchange`. Defaults to `navigate`.
+	FlowAction *string `json:"flow_action,omitempty"`
+	// **Required if `flow_action` is `navigate`.** The unique ID of the Screen in the Flow.
+	NavigateScreen *string `json:"navigate_screen,omitempty"`
 }
 
 // NewWhatsappTemplateComponentButton instantiates a new WhatsappTemplateComponentButton object
@@ -367,6 +373,102 @@ func (o *WhatsappTemplateComponentButton) SetExample(v []string) {
 	o.Example = v
 }
 
+// GetFlowId returns the FlowId field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetFlowId() string {
+	if o == nil || o.FlowId == nil {
+		var ret string
+		return ret
+	}
+	return *o.FlowId
+}
+
+// GetFlowIdOk returns a tuple with the FlowId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetFlowIdOk() (*string, bool) {
+	if o == nil || o.FlowId == nil {
+		return nil, false
+	}
+	return o.FlowId, true
+}
+
+// HasFlowId returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasFlowId() bool {
+	if o != nil && o.FlowId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFlowId gets a reference to the given string and assigns it to the FlowId field.
+func (o *WhatsappTemplateComponentButton) SetFlowId(v string) {
+	o.FlowId = &v
+}
+
+// GetFlowAction returns the FlowAction field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetFlowAction() string {
+	if o == nil || o.FlowAction == nil {
+		var ret string
+		return ret
+	}
+	return *o.FlowAction
+}
+
+// GetFlowActionOk returns a tuple with the FlowAction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetFlowActionOk() (*string, bool) {
+	if o == nil || o.FlowAction == nil {
+		return nil, false
+	}
+	return o.FlowAction, true
+}
+
+// HasFlowAction returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasFlowAction() bool {
+	if o != nil && o.FlowAction != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFlowAction gets a reference to the given string and assigns it to the FlowAction field.
+func (o *WhatsappTemplateComponentButton) SetFlowAction(v string) {
+	o.FlowAction = &v
+}
+
+// GetNavigateScreen returns the NavigateScreen field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetNavigateScreen() string {
+	if o == nil || o.NavigateScreen == nil {
+		var ret string
+		return ret
+	}
+	return *o.NavigateScreen
+}
+
+// GetNavigateScreenOk returns a tuple with the NavigateScreen field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetNavigateScreenOk() (*string, bool) {
+	if o == nil || o.NavigateScreen == nil {
+		return nil, false
+	}
+	return o.NavigateScreen, true
+}
+
+// HasNavigateScreen returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasNavigateScreen() bool {
+	if o != nil && o.NavigateScreen != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNavigateScreen gets a reference to the given string and assigns it to the NavigateScreen field.
+func (o *WhatsappTemplateComponentButton) SetNavigateScreen(v string) {
+	o.NavigateScreen = &v
+}
+
 func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -398,6 +500,15 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.Example != nil {
 		toSerialize["example"] = o.Example
+	}
+	if o.FlowId != nil {
+		toSerialize["flow_id"] = o.FlowId
+	}
+	if o.FlowAction != nil {
+		toSerialize["flow_action"] = o.FlowAction
+	}
+	if o.NavigateScreen != nil {
+		toSerialize["navigate_screen"] = o.NavigateScreen
 	}
 	return json.Marshal(toSerialize)
 }

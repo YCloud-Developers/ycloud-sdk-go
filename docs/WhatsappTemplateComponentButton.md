@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **SignatureHash** | Pointer to **string** | **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash). | [optional] 
 **ZeroTapTermsAccepted** | Pointer to **bool** | **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates. | [optional] 
 **Example** | Pointer to **[]string** | Sample full URL for a &#x60;URL&#x60; button with a variable. | [optional] 
+**FlowId** | Pointer to **string** | **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow. | [optional] 
+**FlowAction** | Pointer to **string** | **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;. | [optional] 
+**NavigateScreen** | Pointer to **string** | **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow. | [optional] 
 
 ## Methods
 
@@ -278,6 +281,81 @@ SetExample sets Example field to given value.
 `func (o *WhatsappTemplateComponentButton) HasExample() bool`
 
 HasExample returns a boolean if a field has been set.
+
+### GetFlowId
+
+`func (o *WhatsappTemplateComponentButton) GetFlowId() string`
+
+GetFlowId returns the FlowId field if non-nil, zero value otherwise.
+
+### GetFlowIdOk
+
+`func (o *WhatsappTemplateComponentButton) GetFlowIdOk() (*string, bool)`
+
+GetFlowIdOk returns a tuple with the FlowId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlowId
+
+`func (o *WhatsappTemplateComponentButton) SetFlowId(v string)`
+
+SetFlowId sets FlowId field to given value.
+
+### HasFlowId
+
+`func (o *WhatsappTemplateComponentButton) HasFlowId() bool`
+
+HasFlowId returns a boolean if a field has been set.
+
+### GetFlowAction
+
+`func (o *WhatsappTemplateComponentButton) GetFlowAction() string`
+
+GetFlowAction returns the FlowAction field if non-nil, zero value otherwise.
+
+### GetFlowActionOk
+
+`func (o *WhatsappTemplateComponentButton) GetFlowActionOk() (*string, bool)`
+
+GetFlowActionOk returns a tuple with the FlowAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlowAction
+
+`func (o *WhatsappTemplateComponentButton) SetFlowAction(v string)`
+
+SetFlowAction sets FlowAction field to given value.
+
+### HasFlowAction
+
+`func (o *WhatsappTemplateComponentButton) HasFlowAction() bool`
+
+HasFlowAction returns a boolean if a field has been set.
+
+### GetNavigateScreen
+
+`func (o *WhatsappTemplateComponentButton) GetNavigateScreen() string`
+
+GetNavigateScreen returns the NavigateScreen field if non-nil, zero value otherwise.
+
+### GetNavigateScreenOk
+
+`func (o *WhatsappTemplateComponentButton) GetNavigateScreenOk() (*string, bool)`
+
+GetNavigateScreenOk returns a tuple with the NavigateScreen field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNavigateScreen
+
+`func (o *WhatsappTemplateComponentButton) SetNavigateScreen(v string)`
+
+SetNavigateScreen sets NavigateScreen field to given value.
+
+### HasNavigateScreen
+
+`func (o *WhatsappTemplateComponentButton) HasNavigateScreen() bool`
+
+HasNavigateScreen returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

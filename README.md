@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.13.1
+- Package version: 1.14.0
 
 ## Installation
 
@@ -35,6 +35,13 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**List**](docs/ContactsApi.md#list) | **Get** /contact/contacts | List contacts
 *ContactsApi* | [**Retrieve**](docs/ContactsApi.md#retrieve) | **Get** /contact/contacts/{id} | Retrieve a contact
 *ContactsApi* | [**Update**](docs/ContactsApi.md#update) | **Patch** /contact/contacts/{id} | Update a contact
+*CustomEventsApi* | [**CreateDefinition**](docs/CustomEventsApi.md#createdefinition) | **Post** /event/definitions | Create an event definition
+*CustomEventsApi* | [**CreatePropertyDefinition**](docs/CustomEventsApi.md#createpropertydefinition) | **Post** /event/definitions/{name}/properties | Create an event property definition
+*CustomEventsApi* | [**PropertyDefinition**](docs/CustomEventsApi.md#propertydefinition) | **Delete** /event/definitions/{name}/properties/{propertyName} | Delete an event property definition
+*CustomEventsApi* | [**PropertyDefinition_0**](docs/CustomEventsApi.md#propertydefinition_0) | **Patch** /event/definitions/{name}/properties/{propertyName} | Update an event property definition
+*CustomEventsApi* | [**RetrieveDefinition**](docs/CustomEventsApi.md#retrievedefinition) | **Get** /event/definitions/{name} | Retrieve an event definition
+*CustomEventsApi* | [**SendEvent**](docs/CustomEventsApi.md#sendevent) | **Post** /event/events | Send an event
+*CustomEventsApi* | [**UpdateDefinition**](docs/CustomEventsApi.md#updatedefinition) | **Patch** /event/definitions/{name} | Update an event definition
 *EmailsApi* | [**Send**](docs/EmailsApi.md#send) | **Post** /emails | Send an email
 *SmsApi* | [**List**](docs/SmsApi.md#list) | **Get** /sms | List SMS records
 *SmsApi* | [**Send**](docs/SmsApi.md#send) | **Post** /sms | Send an SMS
@@ -82,6 +89,13 @@ Class | Method | HTTP request | Description
  - [ContactCustomAttribute](docs/ContactCustomAttribute.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
+ - [CustomEventDefinition](docs/CustomEventDefinition.md)
+ - [CustomEventDefinitionCreateRequest](docs/CustomEventDefinitionCreateRequest.md)
+ - [CustomEventDefinitionProperty](docs/CustomEventDefinitionProperty.md)
+ - [CustomEventDefinitionPropertyCreateRequest](docs/CustomEventDefinitionPropertyCreateRequest.md)
+ - [CustomEventDefinitionPropertyUpdateRequest](docs/CustomEventDefinitionPropertyUpdateRequest.md)
+ - [CustomEventDefinitionUpdateRequest](docs/CustomEventDefinitionUpdateRequest.md)
+ - [CustomEventSendRequest](docs/CustomEventSendRequest.md)
  - [Email](docs/Email.md)
  - [EmailContentType](docs/EmailContentType.md)
  - [EmailDelivery](docs/EmailDelivery.md)
@@ -161,6 +175,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
  - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
+ - [WhatsappMessageInteractiveActionParametersFlowActionPayload](docs/WhatsappMessageInteractiveActionParametersFlowActionPayload.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
  - [WhatsappMessageInteractiveActionSectionProductItem](docs/WhatsappMessageInteractiveActionSectionProductItem.md)
  - [WhatsappMessageInteractiveActionSectionRow](docs/WhatsappMessageInteractiveActionSectionRow.md)
