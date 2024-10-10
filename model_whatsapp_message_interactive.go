@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageInteractive Use for `interactive` messages.
 type WhatsappMessageInteractive struct {
-	// **Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages.
+	// **Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages. - `order_details`: Use for Order Details Messages. - `order_status`: Use for Order Status Messages.
 	Type   *string                           `json:"type,omitempty"`
 	Action *WhatsappMessageInteractiveAction `json:"action,omitempty"`
 	Body   *WhatsappMessageInteractiveBody   `json:"body,omitempty"`

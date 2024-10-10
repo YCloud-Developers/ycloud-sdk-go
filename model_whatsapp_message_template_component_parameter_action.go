@@ -25,6 +25,7 @@ type WhatsappMessageTemplateComponentParameterAction struct {
 	FlowToken *string `json:"flow_token,omitempty"`
 	// Use for `FLOW` buttons. JSON object with the data payload for the first screen.
 	FlowActionData map[string]map[string]interface{} `json:"flow_action_data,omitempty"`
+	OrderDetails   *WhatsappMessageOrderDetails      `json:"order_details,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameterAction instantiates a new WhatsappMessageTemplateComponentParameterAction object
@@ -172,6 +173,38 @@ func (o *WhatsappMessageTemplateComponentParameterAction) SetFlowActionData(v ma
 	o.FlowActionData = v
 }
 
+// GetOrderDetails returns the OrderDetails field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameterAction) GetOrderDetails() WhatsappMessageOrderDetails {
+	if o == nil || o.OrderDetails == nil {
+		var ret WhatsappMessageOrderDetails
+		return ret
+	}
+	return *o.OrderDetails
+}
+
+// GetOrderDetailsOk returns a tuple with the OrderDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameterAction) GetOrderDetailsOk() (*WhatsappMessageOrderDetails, bool) {
+	if o == nil || o.OrderDetails == nil {
+		return nil, false
+	}
+	return o.OrderDetails, true
+}
+
+// HasOrderDetails returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameterAction) HasOrderDetails() bool {
+	if o != nil && o.OrderDetails != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderDetails gets a reference to the given WhatsappMessageOrderDetails and assigns it to the OrderDetails field.
+func (o *WhatsappMessageTemplateComponentParameterAction) SetOrderDetails(v WhatsappMessageOrderDetails) {
+	o.OrderDetails = &v
+}
+
 func (o WhatsappMessageTemplateComponentParameterAction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ThumbnailProductRetailerId != nil {
@@ -185,6 +218,9 @@ func (o WhatsappMessageTemplateComponentParameterAction) MarshalJSON() ([]byte, 
 	}
 	if o.FlowActionData != nil {
 		toSerialize["flow_action_data"] = o.FlowActionData
+	}
+	if o.OrderDetails != nil {
+		toSerialize["order_details"] = o.OrderDetails
 	}
 	return json.Marshal(toSerialize)
 }

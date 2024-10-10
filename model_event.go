@@ -33,6 +33,7 @@ type Event struct {
 	WhatsappInboundMessage  *WhatsappInboundMessage  `json:"whatsappInboundMessage,omitempty"`
 	WhatsappMessage         *WhatsappMessage         `json:"whatsappMessage,omitempty"`
 	WhatsappPhoneNumber     *WhatsappPhoneNumber     `json:"whatsappPhoneNumber,omitempty"`
+	WhatsappPayment         *WhatsappPayment         `json:"whatsappPayment,omitempty"`
 	WhatsappTemplate        *WhatsappTemplate        `json:"whatsappTemplate,omitempty"`
 }
 
@@ -409,6 +410,38 @@ func (o *Event) SetWhatsappPhoneNumber(v WhatsappPhoneNumber) {
 	o.WhatsappPhoneNumber = &v
 }
 
+// GetWhatsappPayment returns the WhatsappPayment field value if set, zero value otherwise.
+func (o *Event) GetWhatsappPayment() WhatsappPayment {
+	if o == nil || o.WhatsappPayment == nil {
+		var ret WhatsappPayment
+		return ret
+	}
+	return *o.WhatsappPayment
+}
+
+// GetWhatsappPaymentOk returns a tuple with the WhatsappPayment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappPaymentOk() (*WhatsappPayment, bool) {
+	if o == nil || o.WhatsappPayment == nil {
+		return nil, false
+	}
+	return o.WhatsappPayment, true
+}
+
+// HasWhatsappPayment returns a boolean if a field has been set.
+func (o *Event) HasWhatsappPayment() bool {
+	if o != nil && o.WhatsappPayment != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappPayment gets a reference to the given WhatsappPayment and assigns it to the WhatsappPayment field.
+func (o *Event) SetWhatsappPayment(v WhatsappPayment) {
+	o.WhatsappPayment = &v
+}
+
 // GetWhatsappTemplate returns the WhatsappTemplate field value if set, zero value otherwise.
 func (o *Event) GetWhatsappTemplate() WhatsappTemplate {
 	if o == nil || o.WhatsappTemplate == nil {
@@ -478,6 +511,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappPhoneNumber != nil {
 		toSerialize["whatsappPhoneNumber"] = o.WhatsappPhoneNumber
+	}
+	if o.WhatsappPayment != nil {
+		toSerialize["whatsappPayment"] = o.WhatsappPayment
 	}
 	if o.WhatsappTemplate != nil {
 		toSerialize["whatsappTemplate"] = o.WhatsappTemplate

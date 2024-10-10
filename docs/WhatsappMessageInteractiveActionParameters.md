@@ -13,6 +13,13 @@ Name | Type | Description | Notes
 **FlowCta** | Pointer to **string** | Required for &#x60;flow&#x60; buttons. Text on the CTA button. For example: \&quot;Open flow!\&quot;. Maximum length: 20 characters. | [optional] 
 **FlowAction** | Pointer to **string** | Use for &#x60;flow&#x60; buttons. Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;. | [optional] 
 **FlowActionPayload** | Pointer to [**WhatsappMessageInteractiveActionParametersFlowActionPayload**](WhatsappMessageInteractiveActionParametersFlowActionPayload.md) |  | [optional] 
+**ReferenceId** | Pointer to **string** | Required for &#x60;review_and_pay&#x60; buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The &#x60;reference_id&#x60; must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \&quot;BM345A-12\&quot;) to ensure reference_id uniqueness. | [optional] 
+**Type** | Pointer to **string** | Required for &#x60;review_and_pay&#x60; buttons. The type of goods being paid for in this order. Current supported options are &#x60;digital-goods&#x60; and &#x60;physical-goods&#x60;. | [optional] 
+**Beneficiaries** | Pointer to [**[]WhatsappMessageOrderBeneficiary**](WhatsappMessageOrderBeneficiary.md) | Required for &#x60;review_and_pay&#x60; buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn&#39;t shown to users but is needed for legal and compliance reasons. | [optional] 
+**Currency** | Pointer to **string** | Required for &#x60;review_and_pay&#x60; buttons. The currency for this order. Currently the only supported value is &#x60;INR&#x60;. | [optional] 
+**TotalAmount** | Pointer to [**WhatsappMessageOrderAmount**](WhatsappMessageOrderAmount.md) |  | [optional] 
+**Order** | Pointer to [**WhatsappMessageOrderInfo**](WhatsappMessageOrderInfo.md) |  | [optional] 
+**PaymentSettings** | Pointer to [**[]WhatsappMessageOrderPaymentSetting**](WhatsappMessageOrderPaymentSetting.md) | Required for &#x60;review_and_pay&#x60; buttons. Payment settings for the order. | [optional] 
 
 ## Methods
 
@@ -257,6 +264,181 @@ SetFlowActionPayload sets FlowActionPayload field to given value.
 `func (o *WhatsappMessageInteractiveActionParameters) HasFlowActionPayload() bool`
 
 HasFlowActionPayload returns a boolean if a field has been set.
+
+### GetReferenceId
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetReferenceId() string`
+
+GetReferenceId returns the ReferenceId field if non-nil, zero value otherwise.
+
+### GetReferenceIdOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetReferenceIdOk() (*string, bool)`
+
+GetReferenceIdOk returns a tuple with the ReferenceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReferenceId
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetReferenceId(v string)`
+
+SetReferenceId sets ReferenceId field to given value.
+
+### HasReferenceId
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasReferenceId() bool`
+
+HasReferenceId returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetBeneficiaries
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetBeneficiaries() []WhatsappMessageOrderBeneficiary`
+
+GetBeneficiaries returns the Beneficiaries field if non-nil, zero value otherwise.
+
+### GetBeneficiariesOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetBeneficiariesOk() (*[]WhatsappMessageOrderBeneficiary, bool)`
+
+GetBeneficiariesOk returns a tuple with the Beneficiaries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBeneficiaries
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetBeneficiaries(v []WhatsappMessageOrderBeneficiary)`
+
+SetBeneficiaries sets Beneficiaries field to given value.
+
+### HasBeneficiaries
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasBeneficiaries() bool`
+
+HasBeneficiaries returns a boolean if a field has been set.
+
+### GetCurrency
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetCurrency() string`
+
+GetCurrency returns the Currency field if non-nil, zero value otherwise.
+
+### GetCurrencyOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetCurrencyOk() (*string, bool)`
+
+GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrency
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetCurrency(v string)`
+
+SetCurrency sets Currency field to given value.
+
+### HasCurrency
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasCurrency() bool`
+
+HasCurrency returns a boolean if a field has been set.
+
+### GetTotalAmount
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetTotalAmount() WhatsappMessageOrderAmount`
+
+GetTotalAmount returns the TotalAmount field if non-nil, zero value otherwise.
+
+### GetTotalAmountOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetTotalAmountOk() (*WhatsappMessageOrderAmount, bool)`
+
+GetTotalAmountOk returns a tuple with the TotalAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalAmount
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetTotalAmount(v WhatsappMessageOrderAmount)`
+
+SetTotalAmount sets TotalAmount field to given value.
+
+### HasTotalAmount
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasTotalAmount() bool`
+
+HasTotalAmount returns a boolean if a field has been set.
+
+### GetOrder
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetOrder() WhatsappMessageOrderInfo`
+
+GetOrder returns the Order field if non-nil, zero value otherwise.
+
+### GetOrderOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetOrderOk() (*WhatsappMessageOrderInfo, bool)`
+
+GetOrderOk returns a tuple with the Order field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrder
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetOrder(v WhatsappMessageOrderInfo)`
+
+SetOrder sets Order field to given value.
+
+### HasOrder
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasOrder() bool`
+
+HasOrder returns a boolean if a field has been set.
+
+### GetPaymentSettings
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetPaymentSettings() []WhatsappMessageOrderPaymentSetting`
+
+GetPaymentSettings returns the PaymentSettings field if non-nil, zero value otherwise.
+
+### GetPaymentSettingsOk
+
+`func (o *WhatsappMessageInteractiveActionParameters) GetPaymentSettingsOk() (*[]WhatsappMessageOrderPaymentSetting, bool)`
+
+GetPaymentSettingsOk returns a tuple with the PaymentSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentSettings
+
+`func (o *WhatsappMessageInteractiveActionParameters) SetPaymentSettings(v []WhatsappMessageOrderPaymentSetting)`
+
+SetPaymentSettings sets PaymentSettings field to given value.
+
+### HasPaymentSettings
+
+`func (o *WhatsappMessageInteractiveActionParameters) HasPaymentSettings() bool`
+
+HasPaymentSettings returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the template. | 
 **Language** | [**WhatsappMessageTemplateLanguage**](WhatsappMessageTemplateLanguage.md) |  | 
-**Components** | Pointer to [**[]WhatsappMessageTemplateComponent**](WhatsappMessageTemplateComponent.md) | **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message. | [optional] 
+**Components** | Pointer to [**[]WhatsappMessageTemplateComponent**](WhatsappMessageTemplateComponent.md) | **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message. | [optional] 
 
 ## Methods
 

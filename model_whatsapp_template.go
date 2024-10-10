@@ -23,8 +23,9 @@ type WhatsappTemplate struct {
 	// Name of the template.
 	Name string `json:"name"`
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	Language string                    `json:"language"`
-	Category *WhatsappTemplateCategory `json:"category,omitempty"`
+	Language    string                       `json:"language"`
+	Category    *WhatsappTemplateCategory    `json:"category,omitempty"`
+	SubCategory *WhatsappTemplateSubCategory `json:"subCategory,omitempty"`
 	// This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category.
 	PreviousCategory *string `json:"previousCategory,omitempty"`
 	// **Use only for template category is `AUTHENTICATION` or `UTILITY`.** If we are unable to deliver a message for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. By default, messages that use an authentication template have a default TTL of **10 minutes**, and messages that use a utility template have a default TTL of **30 days**. Set its value between `60` and `600` seconds (i.e., 1 to 10 minutes) for authentication templates, or `60` and `3600` seconds (i.e., 1 to 60 minutes) for utility templates. Alternatively, you can set this value to `-1`, which will set a custom TTL of 30 days for either type of template. We encourage you to set a time-to-live for all of your authentication templates, preferably equal to or less than your code expiration time, to ensure your customers only get a message when a code is still usable. Authentication templates created before October 23, 2024, have a default TTL of 30 days.
@@ -167,6 +168,38 @@ func (o *WhatsappTemplate) HasCategory() bool {
 // SetCategory gets a reference to the given WhatsappTemplateCategory and assigns it to the Category field.
 func (o *WhatsappTemplate) SetCategory(v WhatsappTemplateCategory) {
 	o.Category = &v
+}
+
+// GetSubCategory returns the SubCategory field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetSubCategory() WhatsappTemplateSubCategory {
+	if o == nil || o.SubCategory == nil {
+		var ret WhatsappTemplateSubCategory
+		return ret
+	}
+	return *o.SubCategory
+}
+
+// GetSubCategoryOk returns a tuple with the SubCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetSubCategoryOk() (*WhatsappTemplateSubCategory, bool) {
+	if o == nil || o.SubCategory == nil {
+		return nil, false
+	}
+	return o.SubCategory, true
+}
+
+// HasSubCategory returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasSubCategory() bool {
+	if o != nil && o.SubCategory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSubCategory gets a reference to the given WhatsappTemplateSubCategory and assigns it to the SubCategory field.
+func (o *WhatsappTemplate) SetSubCategory(v WhatsappTemplateSubCategory) {
+	o.SubCategory = &v
 }
 
 // GetPreviousCategory returns the PreviousCategory field value if set, zero value otherwise.
@@ -534,6 +567,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if o.Category != nil {
 		toSerialize["category"] = o.Category
+	}
+	if o.SubCategory != nil {
+		toSerialize["subCategory"] = o.SubCategory
 	}
 	if o.PreviousCategory != nil {
 		toSerialize["previousCategory"] = o.PreviousCategory

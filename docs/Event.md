@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
 **WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
 **WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
+**WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional] 
 **WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
 
 ## Methods
@@ -316,6 +317,31 @@ SetWhatsappPhoneNumber sets WhatsappPhoneNumber field to given value.
 `func (o *Event) HasWhatsappPhoneNumber() bool`
 
 HasWhatsappPhoneNumber returns a boolean if a field has been set.
+
+### GetWhatsappPayment
+
+`func (o *Event) GetWhatsappPayment() WhatsappPayment`
+
+GetWhatsappPayment returns the WhatsappPayment field if non-nil, zero value otherwise.
+
+### GetWhatsappPaymentOk
+
+`func (o *Event) GetWhatsappPaymentOk() (*WhatsappPayment, bool)`
+
+GetWhatsappPaymentOk returns a tuple with the WhatsappPayment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappPayment
+
+`func (o *Event) SetWhatsappPayment(v WhatsappPayment)`
+
+SetWhatsappPayment sets WhatsappPayment field to given value.
+
+### HasWhatsappPayment
+
+`func (o *Event) HasWhatsappPayment() bool`
+
+HasWhatsappPayment returns a boolean if a field has been set.
 
 ### GetWhatsappTemplate
 

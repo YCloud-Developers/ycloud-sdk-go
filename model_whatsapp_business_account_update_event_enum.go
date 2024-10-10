@@ -16,14 +16,16 @@ import (
 	"fmt"
 )
 
-// WhatsappBusinessAccountUpdateEventEnum Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more. - `DISABLED_UPDATE`: WhatsApp Business Account Banned. - `ACCOUNT_RESTRICTION`: WhatsApp Business Account Restricted Due To Policy Violations. - `ACCOUNT_VIOLATION`: WhatsApp Business Account Violates Policy.
+// WhatsappBusinessAccountUpdateEventEnum Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more. - `DISABLED_UPDATE`: WhatsApp Business Account Banned. - `ACCOUNT_RESTRICTION`: WhatsApp Business Account Restricted Due To Policy Violations. - `ACCOUNT_VIOLATION`: WhatsApp Business Account Violates Policy. - `AUTH_INTL_PRICE_ELIGIBILITY_UPDATE`: WhatsApp Business Account is eligible for the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - `BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE`: Business's [primary business location](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates#primary-business-location) is set.
 type WhatsappBusinessAccountUpdateEventEnum string
 
 // List of WhatsappBusinessAccountUpdateEventEnum
 const (
-	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_DISABLED_UPDATE     WhatsappBusinessAccountUpdateEventEnum = "DISABLED_UPDATE"
-	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_RESTRICTION WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_RESTRICTION"
-	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_VIOLATION   WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_VIOLATION"
+	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_DISABLED_UPDATE                          WhatsappBusinessAccountUpdateEventEnum = "DISABLED_UPDATE"
+	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_RESTRICTION                      WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_RESTRICTION"
+	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_ACCOUNT_VIOLATION                        WhatsappBusinessAccountUpdateEventEnum = "ACCOUNT_VIOLATION"
+	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_AUTH_INTL_PRICE_ELIGIBILITY_UPDATE       WhatsappBusinessAccountUpdateEventEnum = "AUTH_INTL_PRICE_ELIGIBILITY_UPDATE"
+	WHATSAPPBUSINESSACCOUNTUPDATEEVENTENUM_BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE WhatsappBusinessAccountUpdateEventEnum = "BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE"
 )
 
 // All allowed values of WhatsappBusinessAccountUpdateEventEnum enum
@@ -31,6 +33,8 @@ var AllowedWhatsappBusinessAccountUpdateEventEnumEnumValues = []WhatsappBusiness
 	"DISABLED_UPDATE",
 	"ACCOUNT_RESTRICTION",
 	"ACCOUNT_VIOLATION",
+	"AUTH_INTL_PRICE_ELIGIBILITY_UPDATE",
+	"BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE",
 }
 
 func (v *WhatsappBusinessAccountUpdateEventEnum) UnmarshalJSON(src []byte) error {

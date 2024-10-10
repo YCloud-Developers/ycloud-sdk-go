@@ -34,6 +34,18 @@ type WhatsappMessageInteractiveActionParameters struct {
 	// Use for `flow` buttons. Either `navigate` or `data_exchange`. Defaults to `navigate`.
 	FlowAction        *string                                                      `json:"flow_action,omitempty"`
 	FlowActionPayload *WhatsappMessageInteractiveActionParametersFlowActionPayload `json:"flow_action_payload,omitempty"`
+	// Required for `review_and_pay` buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The `reference_id` must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \"BM345A-12\") to ensure reference_id uniqueness.
+	ReferenceId *string `json:"reference_id,omitempty"`
+	// Required for `review_and_pay` buttons. The type of goods being paid for in this order. Current supported options are `digital-goods` and `physical-goods`.
+	Type *string `json:"type,omitempty"`
+	// Required for `review_and_pay` buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn't shown to users but is needed for legal and compliance reasons.
+	Beneficiaries []WhatsappMessageOrderBeneficiary `json:"beneficiaries,omitempty"`
+	// Required for `review_and_pay` buttons. The currency for this order. Currently the only supported value is `INR`.
+	Currency    *string                     `json:"currency,omitempty"`
+	TotalAmount *WhatsappMessageOrderAmount `json:"total_amount,omitempty"`
+	Order       *WhatsappMessageOrderInfo   `json:"order,omitempty"`
+	// Required for `review_and_pay` buttons. Payment settings for the order.
+	PaymentSettings []WhatsappMessageOrderPaymentSetting `json:"payment_settings,omitempty"`
 }
 
 // NewWhatsappMessageInteractiveActionParameters instantiates a new WhatsappMessageInteractiveActionParameters object
@@ -341,6 +353,230 @@ func (o *WhatsappMessageInteractiveActionParameters) SetFlowActionPayload(v What
 	o.FlowActionPayload = &v
 }
 
+// GetReferenceId returns the ReferenceId field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetReferenceId() string {
+	if o == nil || o.ReferenceId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ReferenceId
+}
+
+// GetReferenceIdOk returns a tuple with the ReferenceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetReferenceIdOk() (*string, bool) {
+	if o == nil || o.ReferenceId == nil {
+		return nil, false
+	}
+	return o.ReferenceId, true
+}
+
+// HasReferenceId returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasReferenceId() bool {
+	if o != nil && o.ReferenceId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReferenceId gets a reference to the given string and assigns it to the ReferenceId field.
+func (o *WhatsappMessageInteractiveActionParameters) SetReferenceId(v string) {
+	o.ReferenceId = &v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetType() string {
+	if o == nil || o.Type == nil {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetTypeOk() (*string, bool) {
+	if o == nil || o.Type == nil {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasType() bool {
+	if o != nil && o.Type != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *WhatsappMessageInteractiveActionParameters) SetType(v string) {
+	o.Type = &v
+}
+
+// GetBeneficiaries returns the Beneficiaries field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetBeneficiaries() []WhatsappMessageOrderBeneficiary {
+	if o == nil || o.Beneficiaries == nil {
+		var ret []WhatsappMessageOrderBeneficiary
+		return ret
+	}
+	return o.Beneficiaries
+}
+
+// GetBeneficiariesOk returns a tuple with the Beneficiaries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetBeneficiariesOk() ([]WhatsappMessageOrderBeneficiary, bool) {
+	if o == nil || o.Beneficiaries == nil {
+		return nil, false
+	}
+	return o.Beneficiaries, true
+}
+
+// HasBeneficiaries returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasBeneficiaries() bool {
+	if o != nil && o.Beneficiaries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBeneficiaries gets a reference to the given []WhatsappMessageOrderBeneficiary and assigns it to the Beneficiaries field.
+func (o *WhatsappMessageInteractiveActionParameters) SetBeneficiaries(v []WhatsappMessageOrderBeneficiary) {
+	o.Beneficiaries = v
+}
+
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetCurrency() string {
+	if o == nil || o.Currency == nil {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetCurrencyOk() (*string, bool) {
+	if o == nil || o.Currency == nil {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasCurrency() bool {
+	if o != nil && o.Currency != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *WhatsappMessageInteractiveActionParameters) SetCurrency(v string) {
+	o.Currency = &v
+}
+
+// GetTotalAmount returns the TotalAmount field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetTotalAmount() WhatsappMessageOrderAmount {
+	if o == nil || o.TotalAmount == nil {
+		var ret WhatsappMessageOrderAmount
+		return ret
+	}
+	return *o.TotalAmount
+}
+
+// GetTotalAmountOk returns a tuple with the TotalAmount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetTotalAmountOk() (*WhatsappMessageOrderAmount, bool) {
+	if o == nil || o.TotalAmount == nil {
+		return nil, false
+	}
+	return o.TotalAmount, true
+}
+
+// HasTotalAmount returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasTotalAmount() bool {
+	if o != nil && o.TotalAmount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalAmount gets a reference to the given WhatsappMessageOrderAmount and assigns it to the TotalAmount field.
+func (o *WhatsappMessageInteractiveActionParameters) SetTotalAmount(v WhatsappMessageOrderAmount) {
+	o.TotalAmount = &v
+}
+
+// GetOrder returns the Order field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetOrder() WhatsappMessageOrderInfo {
+	if o == nil || o.Order == nil {
+		var ret WhatsappMessageOrderInfo
+		return ret
+	}
+	return *o.Order
+}
+
+// GetOrderOk returns a tuple with the Order field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetOrderOk() (*WhatsappMessageOrderInfo, bool) {
+	if o == nil || o.Order == nil {
+		return nil, false
+	}
+	return o.Order, true
+}
+
+// HasOrder returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasOrder() bool {
+	if o != nil && o.Order != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOrder gets a reference to the given WhatsappMessageOrderInfo and assigns it to the Order field.
+func (o *WhatsappMessageInteractiveActionParameters) SetOrder(v WhatsappMessageOrderInfo) {
+	o.Order = &v
+}
+
+// GetPaymentSettings returns the PaymentSettings field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveActionParameters) GetPaymentSettings() []WhatsappMessageOrderPaymentSetting {
+	if o == nil || o.PaymentSettings == nil {
+		var ret []WhatsappMessageOrderPaymentSetting
+		return ret
+	}
+	return o.PaymentSettings
+}
+
+// GetPaymentSettingsOk returns a tuple with the PaymentSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveActionParameters) GetPaymentSettingsOk() ([]WhatsappMessageOrderPaymentSetting, bool) {
+	if o == nil || o.PaymentSettings == nil {
+		return nil, false
+	}
+	return o.PaymentSettings, true
+}
+
+// HasPaymentSettings returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveActionParameters) HasPaymentSettings() bool {
+	if o != nil && o.PaymentSettings != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentSettings gets a reference to the given []WhatsappMessageOrderPaymentSetting and assigns it to the PaymentSettings field.
+func (o *WhatsappMessageInteractiveActionParameters) SetPaymentSettings(v []WhatsappMessageOrderPaymentSetting) {
+	o.PaymentSettings = v
+}
+
 func (o WhatsappMessageInteractiveActionParameters) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.DisplayText != nil {
@@ -369,6 +605,27 @@ func (o WhatsappMessageInteractiveActionParameters) MarshalJSON() ([]byte, error
 	}
 	if o.FlowActionPayload != nil {
 		toSerialize["flow_action_payload"] = o.FlowActionPayload
+	}
+	if o.ReferenceId != nil {
+		toSerialize["reference_id"] = o.ReferenceId
+	}
+	if o.Type != nil {
+		toSerialize["type"] = o.Type
+	}
+	if o.Beneficiaries != nil {
+		toSerialize["beneficiaries"] = o.Beneficiaries
+	}
+	if o.Currency != nil {
+		toSerialize["currency"] = o.Currency
+	}
+	if o.TotalAmount != nil {
+		toSerialize["total_amount"] = o.TotalAmount
+	}
+	if o.Order != nil {
+		toSerialize["order"] = o.Order
+	}
+	if o.PaymentSettings != nil {
+		toSerialize["payment_settings"] = o.PaymentSettings
 	}
 	return json.Marshal(toSerialize)
 }

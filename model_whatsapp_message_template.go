@@ -20,7 +20,7 @@ type WhatsappMessageTemplate struct {
 	// Name of the template.
 	Name     string                          `json:"name"`
 	Language WhatsappMessageTemplateLanguage `json:"language"`
-	// **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+	// **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.
 	Components []WhatsappMessageTemplateComponent `json:"components,omitempty"`
 }
 
