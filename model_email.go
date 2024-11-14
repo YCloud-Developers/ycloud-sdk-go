@@ -19,7 +19,7 @@ import (
 // Email struct for Email
 type Email struct {
 	// Unique ID for the object.
-	Id string `json:"id"`
+	Id   string   `json:"id"`
 	From *Mailbox `json:"from,omitempty"`
 	// The intended recipients' email addresses.
 	To []Mailbox `json:"to,omitempty"`
@@ -32,9 +32,9 @@ type Email struct {
 	// The email subject, which contains a short string identifying the topic of the message.
 	Subject *string `json:"subject,omitempty"`
 	// This is a summary of your email. Max length: 70.
-	Summary *string `json:"summary,omitempty"`
+	Summary     *string           `json:"summary,omitempty"`
 	ContentType *EmailContentType `json:"contentType,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
@@ -623,5 +623,3 @@ func (v *NullableEmail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

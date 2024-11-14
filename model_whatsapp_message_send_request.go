@@ -35,7 +35,7 @@ type WhatsappMessageSendRequest struct {
 	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
 	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
 	Context  *WhatsappMessageContext  `json:"context,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
 	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`

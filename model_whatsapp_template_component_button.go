@@ -35,8 +35,12 @@ type WhatsappTemplateComponentButton struct {
 	ZeroTapTermsAccepted *bool `json:"zero_tap_terms_accepted,omitempty"`
 	// Sample full URL for a `URL` button with a variable.
 	Example []string `json:"example,omitempty"`
-	// **Required for button type `FLOW`.** The unique ID of a Flow.
+	// **Conditionally required for button type `FLOW`.** The unique ID of the Flow. Cannot be used if `flow_name` or `flow_json` parameters are provided. Only one of these parameters is allowed.
 	FlowId *string `json:"flow_id,omitempty"`
+	// **Conditionally required for button type `FLOW`.** The name of the Flow. Cannot be used if `flow_id` or `flow_json` parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates.
+	FlowName *string `json:"flow_name,omitempty"`
+	// **Conditionally required for button type `FLOW`.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if `flow_id` or `flow_name` parameters are provided. Only one of these parameters is allowed.
+	FlowJson *string `json:"flow_json,omitempty"`
 	// **Use for button type `FLOW`.** Either `navigate` or `data_exchange`. Defaults to `navigate`.
 	FlowAction *string `json:"flow_action,omitempty"`
 	// **Required if `flow_action` is `navigate`.** The unique ID of the Screen in the Flow.
@@ -405,6 +409,70 @@ func (o *WhatsappTemplateComponentButton) SetFlowId(v string) {
 	o.FlowId = &v
 }
 
+// GetFlowName returns the FlowName field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetFlowName() string {
+	if o == nil || o.FlowName == nil {
+		var ret string
+		return ret
+	}
+	return *o.FlowName
+}
+
+// GetFlowNameOk returns a tuple with the FlowName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetFlowNameOk() (*string, bool) {
+	if o == nil || o.FlowName == nil {
+		return nil, false
+	}
+	return o.FlowName, true
+}
+
+// HasFlowName returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasFlowName() bool {
+	if o != nil && o.FlowName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFlowName gets a reference to the given string and assigns it to the FlowName field.
+func (o *WhatsappTemplateComponentButton) SetFlowName(v string) {
+	o.FlowName = &v
+}
+
+// GetFlowJson returns the FlowJson field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetFlowJson() string {
+	if o == nil || o.FlowJson == nil {
+		var ret string
+		return ret
+	}
+	return *o.FlowJson
+}
+
+// GetFlowJsonOk returns a tuple with the FlowJson field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetFlowJsonOk() (*string, bool) {
+	if o == nil || o.FlowJson == nil {
+		return nil, false
+	}
+	return o.FlowJson, true
+}
+
+// HasFlowJson returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasFlowJson() bool {
+	if o != nil && o.FlowJson != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFlowJson gets a reference to the given string and assigns it to the FlowJson field.
+func (o *WhatsappTemplateComponentButton) SetFlowJson(v string) {
+	o.FlowJson = &v
+}
+
 // GetFlowAction returns the FlowAction field value if set, zero value otherwise.
 func (o *WhatsappTemplateComponentButton) GetFlowAction() string {
 	if o == nil || o.FlowAction == nil {
@@ -503,6 +571,12 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.FlowId != nil {
 		toSerialize["flow_id"] = o.FlowId
+	}
+	if o.FlowName != nil {
+		toSerialize["flow_name"] = o.FlowName
+	}
+	if o.FlowJson != nil {
+		toSerialize["flow_json"] = o.FlowJson
 	}
 	if o.FlowAction != nil {
 		toSerialize["flow_action"] = o.FlowAction

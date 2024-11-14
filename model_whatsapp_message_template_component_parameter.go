@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageTemplateComponentParameter struct for WhatsappMessageTemplateComponentParameter
 type WhatsappMessageTemplateComponentParameter struct {
-	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`.
+	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`. - `location`: Used when the template `HEADER` component is `LOCATION`.
 	Type *string `json:"type,omitempty"`
 	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
@@ -31,6 +31,7 @@ type WhatsappMessageTemplateComponentParameter struct {
 	LimitedTimeOffer *WhatsappMessageTemplateComponentParameterLimitedTimeOffer `json:"limited_time_offer,omitempty"`
 	Action           *WhatsappMessageTemplateComponentParameterAction           `json:"action,omitempty"`
 	OrderStatus      *WhatsappMessageOrderStatus                                `json:"order_status,omitempty"`
+	Location         *WhatsappMessageLocation                                   `json:"location,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
@@ -370,6 +371,38 @@ func (o *WhatsappMessageTemplateComponentParameter) SetOrderStatus(v WhatsappMes
 	o.OrderStatus = &v
 }
 
+// GetLocation returns the Location field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameter) GetLocation() WhatsappMessageLocation {
+	if o == nil || o.Location == nil {
+		var ret WhatsappMessageLocation
+		return ret
+	}
+	return *o.Location
+}
+
+// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameter) GetLocationOk() (*WhatsappMessageLocation, bool) {
+	if o == nil || o.Location == nil {
+		return nil, false
+	}
+	return o.Location, true
+}
+
+// HasLocation returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameter) HasLocation() bool {
+	if o != nil && o.Location != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLocation gets a reference to the given WhatsappMessageLocation and assigns it to the Location field.
+func (o *WhatsappMessageTemplateComponentParameter) SetLocation(v WhatsappMessageLocation) {
+	o.Location = &v
+}
+
 func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
@@ -401,6 +434,9 @@ func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error)
 	}
 	if o.OrderStatus != nil {
 		toSerialize["order_status"] = o.OrderStatus
+	}
+	if o.Location != nil {
+		toSerialize["location"] = o.Location
 	}
 	return json.Marshal(toSerialize)
 }

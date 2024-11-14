@@ -28,7 +28,7 @@ type VerificationSendRequest struct {
 	Signature *string `json:"signature,omitempty"`
 	// [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese
 	Language *string `json:"language,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.
 	ExternalId *string `json:"externalId,omitempty"`
 }
 

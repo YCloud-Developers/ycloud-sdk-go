@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Subject** | Pointer to **string** | The email subject, which contains a short string identifying the topic of the message. | [optional] 
 **Summary** | Pointer to **string** | This is a summary of your email. Max length: 70. | [optional] 
 **ContentType** | Pointer to [**EmailContentType**](EmailContentType.md) |  | [optional] 
-**ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
+**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **CallbackUrl** | Pointer to **string** | Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **TotalRecipients** | Pointer to **int32** | Total recipients of this message, including &#x60;to&#x60;, &#x60;cc&#x60; and &#x60;bcc&#x60;. | [optional] 

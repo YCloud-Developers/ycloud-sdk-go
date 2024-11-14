@@ -14,7 +14,9 @@ Name | Type | Description | Notes
 **SignatureHash** | Pointer to **string** | **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash). | [optional] 
 **ZeroTapTermsAccepted** | Pointer to **bool** | **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates. | [optional] 
 **Example** | Pointer to **[]string** | Sample full URL for a &#x60;URL&#x60; button with a variable. | [optional] 
-**FlowId** | Pointer to **string** | **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow. | [optional] 
+**FlowId** | Pointer to **string** | **Conditionally required for button type &#x60;FLOW&#x60;.** The unique ID of the Flow. Cannot be used if &#x60;flow_name&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. | [optional] 
+**FlowName** | Pointer to **string** | **Conditionally required for button type &#x60;FLOW&#x60;.** The name of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates. | [optional] 
+**FlowJson** | Pointer to **string** | **Conditionally required for button type &#x60;FLOW&#x60;.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_name&#x60; parameters are provided. Only one of these parameters is allowed. | [optional] 
 **FlowAction** | Pointer to **string** | **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;. | [optional] 
 **NavigateScreen** | Pointer to **string** | **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow. | [optional] 
 
@@ -306,6 +308,56 @@ SetFlowId sets FlowId field to given value.
 `func (o *WhatsappTemplateComponentButton) HasFlowId() bool`
 
 HasFlowId returns a boolean if a field has been set.
+
+### GetFlowName
+
+`func (o *WhatsappTemplateComponentButton) GetFlowName() string`
+
+GetFlowName returns the FlowName field if non-nil, zero value otherwise.
+
+### GetFlowNameOk
+
+`func (o *WhatsappTemplateComponentButton) GetFlowNameOk() (*string, bool)`
+
+GetFlowNameOk returns a tuple with the FlowName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlowName
+
+`func (o *WhatsappTemplateComponentButton) SetFlowName(v string)`
+
+SetFlowName sets FlowName field to given value.
+
+### HasFlowName
+
+`func (o *WhatsappTemplateComponentButton) HasFlowName() bool`
+
+HasFlowName returns a boolean if a field has been set.
+
+### GetFlowJson
+
+`func (o *WhatsappTemplateComponentButton) GetFlowJson() string`
+
+GetFlowJson returns the FlowJson field if non-nil, zero value otherwise.
+
+### GetFlowJsonOk
+
+`func (o *WhatsappTemplateComponentButton) GetFlowJsonOk() (*string, bool)`
+
+GetFlowJsonOk returns a tuple with the FlowJson field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlowJson
+
+`func (o *WhatsappTemplateComponentButton) SetFlowJson(v string)`
+
+SetFlowJson sets FlowJson field to given value.
+
+### HasFlowJson
+
+`func (o *WhatsappTemplateComponentButton) HasFlowJson() bool`
+
+HasFlowJson returns a boolean if a field has been set.
 
 ### GetFlowAction
 

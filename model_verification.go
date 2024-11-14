@@ -33,7 +33,7 @@ type Verification struct {
 	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
 	SmsFallbackEnabled *bool                 `json:"smsFallbackEnabled,omitempty"`
 	SmsFallback        *VerificationFallback `json:"smsFallback,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 }
 

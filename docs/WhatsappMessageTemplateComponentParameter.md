@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. | [optional] 
+**Type** | Pointer to **string** | **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;. | [optional] 
 **Text** | Pointer to **string** | **Required when &#x60;type&#x60; &#x3D; &#x60;text&#x60;.** The message&#39;s text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template. | [optional] 
 **Payload** | Pointer to **string** | Required for &#x60;quick_reply&#x60; buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button. | [optional] 
 **CouponCode** | Pointer to **string** | **Required when &#x60;type&#x60; &#x3D; &#x60;coupon_code&#x60;.** The coupon code to be copied when the customer taps the button. | [optional] 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **LimitedTimeOffer** | Pointer to [**WhatsappMessageTemplateComponentParameterLimitedTimeOffer**](WhatsappMessageTemplateComponentParameterLimitedTimeOffer.md) |  | [optional] 
 **Action** | Pointer to [**WhatsappMessageTemplateComponentParameterAction**](WhatsappMessageTemplateComponentParameterAction.md) |  | [optional] 
 **OrderStatus** | Pointer to [**WhatsappMessageOrderStatus**](WhatsappMessageOrderStatus.md) |  | [optional] 
+**Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional] 
 
 ## Methods
 
@@ -283,6 +284,31 @@ SetOrderStatus sets OrderStatus field to given value.
 `func (o *WhatsappMessageTemplateComponentParameter) HasOrderStatus() bool`
 
 HasOrderStatus returns a boolean if a field has been set.
+
+### GetLocation
+
+`func (o *WhatsappMessageTemplateComponentParameter) GetLocation() WhatsappMessageLocation`
+
+GetLocation returns the Location field if non-nil, zero value otherwise.
+
+### GetLocationOk
+
+`func (o *WhatsappMessageTemplateComponentParameter) GetLocationOk() (*WhatsappMessageLocation, bool)`
+
+GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocation
+
+`func (o *WhatsappMessageTemplateComponentParameter) SetLocation(v WhatsappMessageLocation)`
+
+SetLocation sets Location field to given value.
+
+### HasLocation
+
+`func (o *WhatsappMessageTemplateComponentParameter) HasLocation() bool`
+
+HasLocation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

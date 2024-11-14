@@ -25,7 +25,7 @@ type SmsSendRequest struct {
 	SenderId *string `json:"senderId,omitempty"`
 	// This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `Brand`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your verification code is 123456`.
 	Signature *string `json:"signature,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
 **Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
 **Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
-**ExternalId** | Pointer to **string** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
+**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
 **Status** | Pointer to [**WhatsappMessageStatus**](WhatsappMessageStatus.md) |  | [optional] 
 **ErrorCode** | Pointer to **string** | Error code when the message status is &#x60;failed&#x60;. | [optional] 
 **ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional] 

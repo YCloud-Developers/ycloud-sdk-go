@@ -23,7 +23,7 @@ type VoiceSendRequest struct {
 	VerificationCode string `json:"verificationCode"`
 	// [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh`: Chinese
 	Language *string `json:"language,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
@@ -247,5 +247,3 @@ func (v *NullableVoiceSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

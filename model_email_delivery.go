@@ -27,7 +27,7 @@ type EmailDelivery struct {
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Error message when the email is undeliverable.
 	ErrorMessage *string `json:"errorMessage,omitempty"`
-	// The `externalId` you specified when you sent the email.
+	// The `externalId` you set when you sent the email.
 	ExternalId *string `json:"externalId,omitempty"`
 	// This can be either empty or one of `email`, or `verify`. Defaults to `email`. - `email`: Indicates that the message is sent via the **Email** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`

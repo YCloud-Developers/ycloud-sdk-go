@@ -36,7 +36,7 @@ type EmailSendRequest struct {
 	ReplyTo *string `json:"replyTo,omitempty"`
 	// This is a summary of your email. Max length: 70.
 	Summary *string `json:"summary,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 	// Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`

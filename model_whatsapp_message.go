@@ -42,7 +42,7 @@ type WhatsappMessage struct {
 	Contacts     []WhatsappMessageContact    `json:"contacts,omitempty"`
 	Reaction     *WhatsappMessageReaction    `json:"reaction,omitempty"`
 	Context      *WhatsappMessageContext     `json:"context,omitempty"`
-	// A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string                `json:"externalId,omitempty"`
 	Status     *WhatsappMessageStatus `json:"status,omitempty"`
 	// Error code when the message status is `failed`.

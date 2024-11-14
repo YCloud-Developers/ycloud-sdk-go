@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.0
+- Package version: 1.15.1
 
 ## Installation
 
