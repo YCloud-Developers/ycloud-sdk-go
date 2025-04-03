@@ -20,8 +20,8 @@ type WhatsappPayment struct {
 	// WhatsApp Business Account ID.
 	WabaId string `json:"wabaId"`
 	// Unique identifier for the payment provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.
-	ReferenceId string                `json:"referenceId"`
-	Status      WhatsappPaymentStatus `json:"status"`
+	ReferenceId string `json:"referenceId"`
+	Status WhatsappPaymentStatus `json:"status"`
 	// Contains the latest transaction attempt for this payment.
 	Transactions []WhatsappPaymentTransaction `json:"transactions,omitempty"`
 }
@@ -202,3 +202,5 @@ func (v *NullableWhatsappPayment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

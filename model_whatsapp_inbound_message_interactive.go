@@ -18,9 +18,9 @@ import (
 // WhatsappInboundMessageInteractive When a customer has interacted with your message, this object is included in the message object.
 type WhatsappInboundMessageInteractive struct {
 	// The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list.
-	Type        *string                                       `json:"type,omitempty"`
+	Type *string `json:"type,omitempty"`
 	ButtonReply *WhatsappInboundMessageInteractiveButtonReply `json:"button_reply,omitempty"`
-	ListReply   *WhatsappInboundMessageInteractiveListReply   `json:"list_reply,omitempty"`
+	ListReply *WhatsappInboundMessageInteractiveListReply `json:"list_reply,omitempty"`
 }
 
 // NewWhatsappInboundMessageInteractive instantiates a new WhatsappInboundMessageInteractive object
@@ -185,3 +185,5 @@ func (v *NullableWhatsappInboundMessageInteractive) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

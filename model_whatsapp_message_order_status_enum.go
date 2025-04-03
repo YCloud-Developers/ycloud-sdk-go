@@ -21,12 +21,12 @@ type WhatsappMessageOrderStatusEnum string
 
 // List of WhatsappMessageOrderStatusEnum
 const (
-	WHATSAPPMESSAGEORDERSTATUSENUM_PENDING           WhatsappMessageOrderStatusEnum = "pending"
-	WHATSAPPMESSAGEORDERSTATUSENUM_PROCESSING        WhatsappMessageOrderStatusEnum = "processing"
+	WHATSAPPMESSAGEORDERSTATUSENUM_PENDING WhatsappMessageOrderStatusEnum = "pending"
+	WHATSAPPMESSAGEORDERSTATUSENUM_PROCESSING WhatsappMessageOrderStatusEnum = "processing"
 	WHATSAPPMESSAGEORDERSTATUSENUM_PARTIALLY_SHIPPED WhatsappMessageOrderStatusEnum = "partially_shipped"
-	WHATSAPPMESSAGEORDERSTATUSENUM_SHIPPED           WhatsappMessageOrderStatusEnum = "shipped"
-	WHATSAPPMESSAGEORDERSTATUSENUM_COMPLETED         WhatsappMessageOrderStatusEnum = "completed"
-	WHATSAPPMESSAGEORDERSTATUSENUM_CANCELED          WhatsappMessageOrderStatusEnum = "canceled"
+	WHATSAPPMESSAGEORDERSTATUSENUM_SHIPPED WhatsappMessageOrderStatusEnum = "shipped"
+	WHATSAPPMESSAGEORDERSTATUSENUM_COMPLETED WhatsappMessageOrderStatusEnum = "completed"
+	WHATSAPPMESSAGEORDERSTATUSENUM_CANCELED WhatsappMessageOrderStatusEnum = "canceled"
 )
 
 // All allowed values of WhatsappMessageOrderStatusEnum enum
@@ -111,3 +111,4 @@ func (v *NullableWhatsappMessageOrderStatusEnum) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

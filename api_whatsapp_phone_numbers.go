@@ -20,14 +20,15 @@ import (
 	"strings"
 )
 
+
 // WhatsappPhoneNumbersApiService WhatsappPhoneNumbersApi service
 type WhatsappPhoneNumbersApiService service
 
 type WhatsappPhoneNumbersApiListRequest struct {
-	ctx          context.Context
-	ApiService   *WhatsappPhoneNumbersApiService
-	page         *int32
-	limit        *int32
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	page *int32
+	limit *int32
 	includeTotal *bool
 	filterWabaId *string
 }
@@ -65,25 +66,24 @@ List List phone numbers
 
 Returns a paginated list of WhatsApp business phone numbers you've registered.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappPhoneNumbersApiListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappPhoneNumbersApiListRequest
 */
 func (a *WhatsappPhoneNumbersApiService) List(ctx context.Context) WhatsappPhoneNumbersApiListRequest {
 	return WhatsappPhoneNumbersApiListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappPhoneNumberPage
+//  @return WhatsappPhoneNumberPage
 func (a *WhatsappPhoneNumbersApiService) ListExecute(r WhatsappPhoneNumbersApiListRequest) (*WhatsappPhoneNumberPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappPhoneNumberPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumberPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.List")
@@ -178,9 +178,9 @@ func (a *WhatsappPhoneNumbersApiService) ListExecute(r WhatsappPhoneNumbersApiLi
 }
 
 type WhatsappPhoneNumbersApiRegisterRequest struct {
-	ctx         context.Context
-	ApiService  *WhatsappPhoneNumbersApiService
-	wabaId      string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
 	phoneNumber string
 }
 
@@ -193,29 +193,28 @@ Register Register a phone number
 
 Registers a WhatsApp business phone number.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number ID.
-	@return WhatsappPhoneNumbersApiRegisterRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number ID.
+ @return WhatsappPhoneNumbersApiRegisterRequest
 */
 func (a *WhatsappPhoneNumbersApiService) Register(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRegisterRequest {
 	return WhatsappPhoneNumbersApiRegisterRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappPhoneNumber
+//  @return WhatsappPhoneNumber
 func (a *WhatsappPhoneNumbersApiService) RegisterExecute(r WhatsappPhoneNumbersApiRegisterRequest) (*WhatsappPhoneNumber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappPhoneNumber
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.Register")
@@ -309,9 +308,9 @@ func (a *WhatsappPhoneNumbersApiService) RegisterExecute(r WhatsappPhoneNumbersA
 }
 
 type WhatsappPhoneNumbersApiRetrieveRequest struct {
-	ctx         context.Context
-	ApiService  *WhatsappPhoneNumbersApiService
-	wabaId      string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
 	phoneNumber string
 }
 
@@ -324,29 +323,28 @@ Retrieve Retrieve a phone number
 
 Retrieves a WhatsApp business phone number you've registered.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	@return WhatsappPhoneNumbersApiRetrieveRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiRetrieveRequest
 */
 func (a *WhatsappPhoneNumbersApiService) Retrieve(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRetrieveRequest {
 	return WhatsappPhoneNumbersApiRetrieveRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappPhoneNumber
+//  @return WhatsappPhoneNumber
 func (a *WhatsappPhoneNumbersApiService) RetrieveExecute(r WhatsappPhoneNumbersApiRetrieveRequest) (*WhatsappPhoneNumber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappPhoneNumber
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.Retrieve")
@@ -440,9 +438,9 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveExecute(r WhatsappPhoneNumbersA
 }
 
 type WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest struct {
-	ctx         context.Context
-	ApiService  *WhatsappPhoneNumbersApiService
-	wabaId      string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
 	phoneNumber string
 }
 
@@ -455,29 +453,28 @@ RetrieveCommerceSettings Retrieve commerce settings
 
 Retrieves a WhatsApp business phone number's commerce settings.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	@return WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest
 */
 func (a *WhatsappPhoneNumbersApiService) RetrieveCommerceSettings(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest {
 	return WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappCommerceSettings
+//  @return WhatsappCommerceSettings
 func (a *WhatsappPhoneNumbersApiService) RetrieveCommerceSettingsExecute(r WhatsappPhoneNumbersApiRetrieveCommerceSettingsRequest) (*WhatsappCommerceSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappCommerceSettings
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappCommerceSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.RetrieveCommerceSettings")
@@ -571,9 +568,9 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveCommerceSettingsExecute(r Whats
 }
 
 type WhatsappPhoneNumbersApiRetrieveProfileRequest struct {
-	ctx         context.Context
-	ApiService  *WhatsappPhoneNumbersApiService
-	wabaId      string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
 	phoneNumber string
 }
 
@@ -586,29 +583,28 @@ RetrieveProfile Retrieve a phone number profile
 
 Retrieves a WhatsApp business phone number's profile. Customers can view your business profile by clicking your business's name or number in a conversation thread.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	@return WhatsappPhoneNumbersApiRetrieveProfileRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiRetrieveProfileRequest
 */
 func (a *WhatsappPhoneNumbersApiService) RetrieveProfile(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiRetrieveProfileRequest {
 	return WhatsappPhoneNumbersApiRetrieveProfileRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappPhoneNumberProfile
+//  @return WhatsappPhoneNumberProfile
 func (a *WhatsappPhoneNumbersApiService) RetrieveProfileExecute(r WhatsappPhoneNumbersApiRetrieveProfileRequest) (*WhatsappPhoneNumberProfile, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappPhoneNumberProfile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumberProfile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.RetrieveProfile")
@@ -702,10 +698,10 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveProfileExecute(r WhatsappPhoneN
 }
 
 type WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest struct {
-	ctx                                   context.Context
-	ApiService                            *WhatsappPhoneNumbersApiService
-	wabaId                                string
-	phoneNumber                           string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
 	whatsappCommerceSettingsUpdateRequest *WhatsappCommerceSettingsUpdateRequest
 }
 
@@ -724,29 +720,28 @@ UpdateCommerceSettings Update commerce settings
 Updates a WhatsApp business phone number's commerce settings.
 Use this endpoint to enable or disable the shopping cart or the product catalog for a specific business phone number.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	@return WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest
 */
 func (a *WhatsappPhoneNumbersApiService) UpdateCommerceSettings(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest {
 	return WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappCommerceSettings
+//  @return WhatsappCommerceSettings
 func (a *WhatsappPhoneNumbersApiService) UpdateCommerceSettingsExecute(r WhatsappPhoneNumbersApiUpdateCommerceSettingsRequest) (*WhatsappCommerceSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappCommerceSettings
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappCommerceSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.UpdateCommerceSettings")
@@ -845,10 +840,10 @@ func (a *WhatsappPhoneNumbersApiService) UpdateCommerceSettingsExecute(r Whatsap
 }
 
 type WhatsappPhoneNumbersApiUpdateProfileRequest struct {
-	ctx                                     context.Context
-	ApiService                              *WhatsappPhoneNumbersApiService
-	wabaId                                  string
-	phoneNumber                             string
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
 	whatsappPhoneNumberProfileUpdateRequest *WhatsappPhoneNumberProfileUpdateRequest
 }
 
@@ -866,29 +861,28 @@ UpdateProfile Update a phone number profile
 
 Updates a WhatsApp business phone number profile.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	@return WhatsappPhoneNumbersApiUpdateProfileRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+ @return WhatsappPhoneNumbersApiUpdateProfileRequest
 */
 func (a *WhatsappPhoneNumbersApiService) UpdateProfile(ctx context.Context, wabaId string, phoneNumber string) WhatsappPhoneNumbersApiUpdateProfileRequest {
 	return WhatsappPhoneNumbersApiUpdateProfileRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		wabaId:      wabaId,
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
 		phoneNumber: phoneNumber,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappPhoneNumberProfile
+//  @return WhatsappPhoneNumberProfile
 func (a *WhatsappPhoneNumbersApiService) UpdateProfileExecute(r WhatsappPhoneNumbersApiUpdateProfileRequest) (*WhatsappPhoneNumberProfile, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappPhoneNumberProfile
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappPhoneNumberProfile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.UpdateProfile")

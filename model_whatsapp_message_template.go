@@ -18,7 +18,7 @@ import (
 // WhatsappMessageTemplate Use for sending a WhatsApp `template` message.
 type WhatsappMessageTemplate struct {
 	// Name of the template.
-	Name     string                          `json:"name"`
+	Name string `json:"name"`
 	Language WhatsappMessageTemplateLanguage `json:"language"`
 	// **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.
 	Components []WhatsappMessageTemplateComponent `json:"components,omitempty"`
@@ -172,3 +172,5 @@ func (v *NullableWhatsappMessageTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

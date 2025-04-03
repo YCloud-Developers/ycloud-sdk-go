@@ -24,23 +24,23 @@ type WhatsappPhoneNumber struct {
 	// Display phone number.
 	DisplayPhoneNumber *string `json:"displayPhoneNumber,omitempty"`
 	// WhatsApp Business Account ID.
-	WabaId        *string                           `json:"wabaId,omitempty"`
+	WabaId *string `json:"wabaId,omitempty"`
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
 	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
 	// Verified name.
-	VerifiedName           *string                                    `json:"verifiedName,omitempty"`
+	VerifiedName *string `json:"verifiedName,omitempty"`
 	CodeVerificationStatus *WhatsappPhoneNumberCodeVerificationStatus `json:"codeVerificationStatus,omitempty"`
 	// Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
-	IsOfficialBusinessAccount *bool                          `json:"isOfficialBusinessAccount,omitempty"`
-	Status                    *WhatsappPhoneNumberStatus     `json:"status,omitempty"`
-	NameStatus                *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
-	NewNameStatus             *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
-	Decision                  *WhatsappReviewDecision        `json:"decision,omitempty"`
+	IsOfficialBusinessAccount *bool `json:"isOfficialBusinessAccount,omitempty"`
+	Status *WhatsappPhoneNumberStatus `json:"status,omitempty"`
+	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
+	NewNameStatus *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
+	Decision *WhatsappReviewDecision `json:"decision,omitempty"`
 	// Last requested verified name.
 	RequestedVerifiedName *string `json:"requestedVerifiedName,omitempty"`
 	// Rejection reason.
-	RejectionReason    *string                                    `json:"rejectionReason,omitempty"`
+	RejectionReason *string `json:"rejectionReason,omitempty"`
 	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
 }
 
@@ -661,3 +661,5 @@ func (v *NullableWhatsappPhoneNumber) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

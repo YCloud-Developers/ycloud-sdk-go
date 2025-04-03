@@ -21,9 +21,9 @@ type WhatsappPhoneNumberCodeVerificationStatus string
 
 // List of WhatsappPhoneNumberCodeVerificationStatus
 const (
-	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_VERIFIED     WhatsappPhoneNumberCodeVerificationStatus = "VERIFIED"
+	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_VERIFIED WhatsappPhoneNumberCodeVerificationStatus = "VERIFIED"
 	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_NOT_VERIFIED WhatsappPhoneNumberCodeVerificationStatus = "NOT_VERIFIED"
-	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_EXPIRED      WhatsappPhoneNumberCodeVerificationStatus = "EXPIRED"
+	WHATSAPPPHONENUMBERCODEVERIFICATIONSTATUS_EXPIRED WhatsappPhoneNumberCodeVerificationStatus = "EXPIRED"
 )
 
 // All allowed values of WhatsappPhoneNumberCodeVerificationStatus enum
@@ -105,3 +105,4 @@ func (v *NullableWhatsappPhoneNumberCodeVerificationStatus) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

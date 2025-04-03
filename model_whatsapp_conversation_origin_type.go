@@ -22,10 +22,10 @@ type WhatsappConversationOriginType string
 // List of WhatsappConversationOriginType
 const (
 	WHATSAPPCONVERSATIONORIGINTYPE_REFERRAL_CONVERSION WhatsappConversationOriginType = "referral_conversion"
-	WHATSAPPCONVERSATIONORIGINTYPE_AUTHENTICATION      WhatsappConversationOriginType = "authentication"
-	WHATSAPPCONVERSATIONORIGINTYPE_MARKETING           WhatsappConversationOriginType = "marketing"
-	WHATSAPPCONVERSATIONORIGINTYPE_UTILITY             WhatsappConversationOriginType = "utility"
-	WHATSAPPCONVERSATIONORIGINTYPE_SERVICE             WhatsappConversationOriginType = "service"
+	WHATSAPPCONVERSATIONORIGINTYPE_AUTHENTICATION WhatsappConversationOriginType = "authentication"
+	WHATSAPPCONVERSATIONORIGINTYPE_MARKETING WhatsappConversationOriginType = "marketing"
+	WHATSAPPCONVERSATIONORIGINTYPE_UTILITY WhatsappConversationOriginType = "utility"
+	WHATSAPPCONVERSATIONORIGINTYPE_SERVICE WhatsappConversationOriginType = "service"
 )
 
 // All allowed values of WhatsappConversationOriginType enum
@@ -109,3 +109,4 @@ func (v *NullableWhatsappConversationOriginType) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

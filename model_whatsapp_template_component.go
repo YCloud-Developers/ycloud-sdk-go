@@ -28,9 +28,9 @@ type WhatsappTemplateComponent struct {
 	// **Optional. Only applicable in the `BODY` component of an AUTHENTICATION template.** Set to `true` if you want the template to include the string, *For your security, do not share this code.* Set to `false` to exclude the string.
 	AddSecurityRecommendation *bool `json:"add_security_recommendation,omitempty"`
 	// **Optional. Only applicable in the `FOOTER` component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
-	CodeExpirationMinutes *int32                                     `json:"code_expiration_minutes,omitempty"`
-	LimitedTimeOffer      *WhatsappTemplateComponentLimitedTimeOffer `json:"limited_time_offer,omitempty"`
-	Example               *WhatsappTemplateComponentExample          `json:"example,omitempty"`
+	CodeExpirationMinutes *int32 `json:"code_expiration_minutes,omitempty"`
+	LimitedTimeOffer *WhatsappTemplateComponentLimitedTimeOffer `json:"limited_time_offer,omitempty"`
+	Example *WhatsappTemplateComponentExample `json:"example,omitempty"`
 	// **Required for type `CAROUSEL`.** Carousel templates support up to 10 carousel cards.
 	Cards []WhatsappTemplateComponentCard `json:"cards,omitempty"`
 }
@@ -407,3 +407,5 @@ func (v *NullableWhatsappTemplateComponent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

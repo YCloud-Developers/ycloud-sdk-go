@@ -24,14 +24,14 @@ type WhatsappMessageTemplateComponentParameter struct {
 	// Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
 	Payload *string `json:"payload,omitempty"`
 	// **Required when `type` = `coupon_code`.** The coupon code to be copied when the customer taps the button.
-	CouponCode       *string                                                    `json:"coupon_code,omitempty"`
-	Image            *WhatsappMessageMedia                                      `json:"image,omitempty"`
-	Video            *WhatsappMessageMedia                                      `json:"video,omitempty"`
-	Document         *WhatsappMessageMedia                                      `json:"document,omitempty"`
+	CouponCode *string `json:"coupon_code,omitempty"`
+	Image *WhatsappMessageMedia `json:"image,omitempty"`
+	Video *WhatsappMessageMedia `json:"video,omitempty"`
+	Document *WhatsappMessageMedia `json:"document,omitempty"`
 	LimitedTimeOffer *WhatsappMessageTemplateComponentParameterLimitedTimeOffer `json:"limited_time_offer,omitempty"`
-	Action           *WhatsappMessageTemplateComponentParameterAction           `json:"action,omitempty"`
-	OrderStatus      *WhatsappMessageOrderStatus                                `json:"order_status,omitempty"`
-	Location         *WhatsappMessageLocation                                   `json:"location,omitempty"`
+	Action *WhatsappMessageTemplateComponentParameterAction `json:"action,omitempty"`
+	OrderStatus *WhatsappMessageOrderStatus `json:"order_status,omitempty"`
+	Location *WhatsappMessageLocation `json:"location,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameter instantiates a new WhatsappMessageTemplateComponentParameter object
@@ -476,3 +476,5 @@ func (v *NullableWhatsappMessageTemplateComponentParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

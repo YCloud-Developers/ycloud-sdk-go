@@ -26,13 +26,13 @@ type WhatsappPaymentTransaction struct {
 	// Time when transaction was created in epoch milliseconds.
 	CreatedTimestamp int64 `json:"createdTimestamp"`
 	// Time when transaction was last updated in epoch milliseconds.
-	UpdatedTimestamp int64                      `json:"updatedTimestamp"`
-	Amount           WhatsappMessageOrderAmount `json:"amount"`
+	UpdatedTimestamp int64 `json:"updatedTimestamp"`
+	Amount WhatsappMessageOrderAmount `json:"amount"`
 	// The currency for this payment. Currently the only supported value is `INR`.
 	Currency string `json:"currency"`
 	// Describes the type of payment method used by consumer to pay for the order. Can be one of `upi`, `card`, `wallet`, or `netbanking`. The payment method information might not be available for failed payments.
-	MethodType *string                          `json:"methodType,omitempty"`
-	Error      *WhatsappPaymentTransactionError `json:"error,omitempty"`
+	MethodType *string `json:"methodType,omitempty"`
+	Error *WhatsappPaymentTransactionError `json:"error,omitempty"`
 }
 
 // NewWhatsappPaymentTransaction instantiates a new WhatsappPaymentTransaction object
@@ -358,3 +358,5 @@ func (v *NullableWhatsappPaymentTransaction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

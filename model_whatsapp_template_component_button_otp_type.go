@@ -22,8 +22,8 @@ type WhatsappTemplateComponentButtonOtpType string
 // List of WhatsappTemplateComponentButtonOtpType
 const (
 	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_COPY_CODE WhatsappTemplateComponentButtonOtpType = "COPY_CODE"
-	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ONE_TAP   WhatsappTemplateComponentButtonOtpType = "ONE_TAP"
-	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ZERO_TAP  WhatsappTemplateComponentButtonOtpType = "ZERO_TAP"
+	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ONE_TAP WhatsappTemplateComponentButtonOtpType = "ONE_TAP"
+	WHATSAPPTEMPLATECOMPONENTBUTTONOTPTYPE_ZERO_TAP WhatsappTemplateComponentButtonOtpType = "ZERO_TAP"
 )
 
 // All allowed values of WhatsappTemplateComponentButtonOtpType enum
@@ -105,3 +105,4 @@ func (v *NullableWhatsappTemplateComponentButtonOtpType) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

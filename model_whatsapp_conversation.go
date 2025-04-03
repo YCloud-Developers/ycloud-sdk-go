@@ -19,8 +19,8 @@ import (
 // WhatsappConversation WhatsApp defines a conversation as a 24-hour session of messaging between a person and a business. See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 type WhatsappConversation struct {
 	// Unique ID for the object.
-	Id         *string                         `json:"id,omitempty"`
-	Type       *WhatsappConversationType       `json:"type,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Type *WhatsappConversationType `json:"type,omitempty"`
 	OriginType *WhatsappConversationOriginType `json:"originType,omitempty"`
 	// Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	ExpireTime *time.Time `json:"expireTime,omitempty"`
@@ -223,3 +223,5 @@ func (v *NullableWhatsappConversation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

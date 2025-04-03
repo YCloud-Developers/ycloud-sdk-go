@@ -19,22 +19,22 @@ import (
 // Event Represents a webhook event payload. Every event contains certain common properties: `id`, `type`, `apiVersion`, `createTime`. Each event may also contain some properties unique to the event. For example, `sms` is returned when `type` is `sms.message.updated`.
 type Event struct {
 	// Unique ID for the event.
-	Id   string    `json:"id"`
+	Id string `json:"id"`
 	Type EventType `json:"type"`
 	// The API version used to render this event.
 	ApiVersion string `json:"apiVersion"`
 	// The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
-	CreateTime              time.Time                `json:"createTime"`
-	EmailDelivery           *EmailDelivery           `json:"emailDelivery,omitempty"`
-	Sms                     *Sms                     `json:"sms,omitempty"`
-	SmsInbound              *SmsInbound              `json:"smsInbound,omitempty"`
-	Voice                   *Voice                   `json:"voice,omitempty"`
+	CreateTime time.Time `json:"createTime"`
+	EmailDelivery *EmailDelivery `json:"emailDelivery,omitempty"`
+	Sms *Sms `json:"sms,omitempty"`
+	SmsInbound *SmsInbound `json:"smsInbound,omitempty"`
+	Voice *Voice `json:"voice,omitempty"`
 	WhatsappBusinessAccount *WhatsappBusinessAccount `json:"whatsappBusinessAccount,omitempty"`
-	WhatsappInboundMessage  *WhatsappInboundMessage  `json:"whatsappInboundMessage,omitempty"`
-	WhatsappMessage         *WhatsappMessage         `json:"whatsappMessage,omitempty"`
-	WhatsappPhoneNumber     *WhatsappPhoneNumber     `json:"whatsappPhoneNumber,omitempty"`
-	WhatsappPayment         *WhatsappPayment         `json:"whatsappPayment,omitempty"`
-	WhatsappTemplate        *WhatsappTemplate        `json:"whatsappTemplate,omitempty"`
+	WhatsappInboundMessage *WhatsappInboundMessage `json:"whatsappInboundMessage,omitempty"`
+	WhatsappMessage *WhatsappMessage `json:"whatsappMessage,omitempty"`
+	WhatsappPhoneNumber *WhatsappPhoneNumber `json:"whatsappPhoneNumber,omitempty"`
+	WhatsappPayment *WhatsappPayment `json:"whatsappPayment,omitempty"`
+	WhatsappTemplate *WhatsappTemplate `json:"whatsappTemplate,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
@@ -556,3 +556,5 @@ func (v *NullableEvent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

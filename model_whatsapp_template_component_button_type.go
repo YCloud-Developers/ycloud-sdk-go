@@ -21,16 +21,16 @@ type WhatsappTemplateComponentButtonType string
 
 // List of WhatsappTemplateComponentButtonType
 const (
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_PHONE_NUMBER  WhatsappTemplateComponentButtonType = "PHONE_NUMBER"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_URL           WhatsappTemplateComponentButtonType = "URL"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_QUICK_REPLY   WhatsappTemplateComponentButtonType = "QUICK_REPLY"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_COPY_CODE     WhatsappTemplateComponentButtonType = "COPY_CODE"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_OTP           WhatsappTemplateComponentButtonType = "OTP"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_CATALOG       WhatsappTemplateComponentButtonType = "CATALOG"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_MPM           WhatsappTemplateComponentButtonType = "MPM"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_FLOW          WhatsappTemplateComponentButtonType = "FLOW"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_PHONE_NUMBER WhatsappTemplateComponentButtonType = "PHONE_NUMBER"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_URL WhatsappTemplateComponentButtonType = "URL"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_QUICK_REPLY WhatsappTemplateComponentButtonType = "QUICK_REPLY"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_COPY_CODE WhatsappTemplateComponentButtonType = "COPY_CODE"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_OTP WhatsappTemplateComponentButtonType = "OTP"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_CATALOG WhatsappTemplateComponentButtonType = "CATALOG"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_MPM WhatsappTemplateComponentButtonType = "MPM"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_FLOW WhatsappTemplateComponentButtonType = "FLOW"
 	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_ORDER_DETAILS WhatsappTemplateComponentButtonType = "ORDER_DETAILS"
-	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_VOICE_CALL    WhatsappTemplateComponentButtonType = "VOICE_CALL"
+	WHATSAPPTEMPLATECOMPONENTBUTTONTYPE_VOICE_CALL WhatsappTemplateComponentButtonType = "VOICE_CALL"
 )
 
 // All allowed values of WhatsappTemplateComponentButtonType enum
@@ -119,3 +119,4 @@ func (v *NullableWhatsappTemplateComponentButtonType) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

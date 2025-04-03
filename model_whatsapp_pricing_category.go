@@ -16,17 +16,18 @@ import (
 	"fmt"
 )
 
-// WhatsappPricingCategory WhatsApp pricing category. - `referral_conversion`: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - `authentication`: Indicates the conversation was billed at authentication rate. - `authentication_international`: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - `marketing`: Indicates the conversation was billed at authentication rate. - `utility`: Indicates the conversation was billed at utility rate. - `service`: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+// WhatsappPricingCategory WhatsApp pricing category. - `referral_conversion`: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - `authentication`: Indicates the conversation was billed at authentication rate. - `authentication_international`: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - `marketing`: Indicates the conversation was billed at authentication rate. - `marketing_lite`: Indicates the conversation was billed at marketing-lite rate. - `utility`: Indicates the conversation was billed at utility rate. - `service`: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 type WhatsappPricingCategory string
 
 // List of WhatsappPricingCategory
 const (
-	WHATSAPPPRICINGCATEGORY_REFERRAL_CONVERSION          WhatsappPricingCategory = "referral_conversion"
-	WHATSAPPPRICINGCATEGORY_AUTHENTICATION               WhatsappPricingCategory = "authentication"
+	WHATSAPPPRICINGCATEGORY_REFERRAL_CONVERSION WhatsappPricingCategory = "referral_conversion"
+	WHATSAPPPRICINGCATEGORY_AUTHENTICATION WhatsappPricingCategory = "authentication"
 	WHATSAPPPRICINGCATEGORY_AUTHENTICATION_INTERNATIONAL WhatsappPricingCategory = "authentication_international"
-	WHATSAPPPRICINGCATEGORY_MARKETING                    WhatsappPricingCategory = "marketing"
-	WHATSAPPPRICINGCATEGORY_UTILITY                      WhatsappPricingCategory = "utility"
-	WHATSAPPPRICINGCATEGORY_SERVICE                      WhatsappPricingCategory = "service"
+	WHATSAPPPRICINGCATEGORY_MARKETING WhatsappPricingCategory = "marketing"
+	WHATSAPPPRICINGCATEGORY_MARKETING_LITE WhatsappPricingCategory = "marketing_lite"
+	WHATSAPPPRICINGCATEGORY_UTILITY WhatsappPricingCategory = "utility"
+	WHATSAPPPRICINGCATEGORY_SERVICE WhatsappPricingCategory = "service"
 )
 
 // All allowed values of WhatsappPricingCategory enum
@@ -35,6 +36,7 @@ var AllowedWhatsappPricingCategoryEnumValues = []WhatsappPricingCategory{
 	"authentication",
 	"authentication_international",
 	"marketing",
+	"marketing_lite",
 	"utility",
 	"service",
 }
@@ -111,3 +113,4 @@ func (v *NullableWhatsappPricingCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

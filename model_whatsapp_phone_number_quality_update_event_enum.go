@@ -22,10 +22,10 @@ type WhatsappPhoneNumberQualityUpdateEventEnum string
 // List of WhatsappPhoneNumberQualityUpdateEventEnum
 const (
 	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_ONBOARDING WhatsappPhoneNumberQualityUpdateEventEnum = "ONBOARDING"
-	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_UPGRADE    WhatsappPhoneNumberQualityUpdateEventEnum = "UPGRADE"
-	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_DOWNGRADE  WhatsappPhoneNumberQualityUpdateEventEnum = "DOWNGRADE"
-	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_FLAGGED    WhatsappPhoneNumberQualityUpdateEventEnum = "FLAGGED"
-	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_UNFLAGGED  WhatsappPhoneNumberQualityUpdateEventEnum = "UNFLAGGED"
+	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_UPGRADE WhatsappPhoneNumberQualityUpdateEventEnum = "UPGRADE"
+	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_DOWNGRADE WhatsappPhoneNumberQualityUpdateEventEnum = "DOWNGRADE"
+	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_FLAGGED WhatsappPhoneNumberQualityUpdateEventEnum = "FLAGGED"
+	WHATSAPPPHONENUMBERQUALITYUPDATEEVENTENUM_UNFLAGGED WhatsappPhoneNumberQualityUpdateEventEnum = "UNFLAGGED"
 )
 
 // All allowed values of WhatsappPhoneNumberQualityUpdateEventEnum enum
@@ -109,3 +109,4 @@ func (v *NullableWhatsappPhoneNumberQualityUpdateEventEnum) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

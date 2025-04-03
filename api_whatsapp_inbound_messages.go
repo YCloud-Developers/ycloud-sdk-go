@@ -20,13 +20,14 @@ import (
 	"strings"
 )
 
+
 // WhatsappInboundMessagesApiService WhatsappInboundMessagesApi service
 type WhatsappInboundMessagesApiService service
 
 type WhatsappInboundMessagesApiMarkAsReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappInboundMessagesApiService
-	id         string
+	id string
 }
 
 func (r WhatsappInboundMessagesApiMarkAsReadRequest) Execute() (*http.Response, error) {
@@ -40,24 +41,24 @@ When you receive an inbound message from webhooks, you can use this endpoint to 
 
 Marking a message as read will also mark earlier messages in the conversation as read.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp's platform) is also acceptable.
-	@return WhatsappInboundMessagesApiMarkAsReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp's platform) is also acceptable.
+ @return WhatsappInboundMessagesApiMarkAsReadRequest
 */
 func (a *WhatsappInboundMessagesApiService) MarkAsRead(ctx context.Context, id string) WhatsappInboundMessagesApiMarkAsReadRequest {
 	return WhatsappInboundMessagesApiMarkAsReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
 func (a *WhatsappInboundMessagesApiService) MarkAsReadExecute(r WhatsappInboundMessagesApiMarkAsReadRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappInboundMessagesApiService.MarkAsRead")

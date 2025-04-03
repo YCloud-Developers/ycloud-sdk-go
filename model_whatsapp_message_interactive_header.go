@@ -20,9 +20,9 @@ type WhatsappMessageInteractiveHeader struct {
 	// **Required.** The header type you would like to use. - `text`: Used for List Messages, Reply Buttons, and Multi-Product Messages. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.
 	Type *string `json:"type,omitempty"`
 	// Text for the header. Formatting allows emojis, but not markdown.
-	Text     *string               `json:"text,omitempty"`
-	Image    *WhatsappMessageMedia `json:"image,omitempty"`
-	Video    *WhatsappMessageMedia `json:"video,omitempty"`
+	Text *string `json:"text,omitempty"`
+	Image *WhatsappMessageMedia `json:"image,omitempty"`
+	Video *WhatsappMessageMedia `json:"video,omitempty"`
 	Document *WhatsappMessageMedia `json:"document,omitempty"`
 }
 
@@ -258,3 +258,5 @@ func (v *NullableWhatsappMessageInteractiveHeader) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

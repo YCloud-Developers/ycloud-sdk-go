@@ -23,8 +23,8 @@ type WhatsappTemplateComponentButton struct {
 	// **Required for button type `URL`.** URL of website. There can be at most 1 variable at the end of the URL. Example: `https://www.luckyshrub.com/shop?promo={{1}}`. 2000 characters maximum.
 	Url *string `json:"url,omitempty"`
 	// **Required for button type `PHONE_NUMBER`.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
-	PhoneNumber *string                                 `json:"phone_number,omitempty"`
-	OtpType     *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
+	PhoneNumber *string `json:"phone_number,omitempty"`
+	OtpType *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
 	// **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
 	AutofillText *string `json:"autofill_text,omitempty"`
 	// **One-tap and zero-tap buttons only.** Your Android app's package name.
@@ -622,3 +622,5 @@ func (v *NullableWhatsappTemplateComponentButton) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

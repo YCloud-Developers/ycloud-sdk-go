@@ -17,10 +17,10 @@ import (
 
 // WhatsappMessageInteractive Use for `interactive` messages.
 type WhatsappMessageInteractive struct {
-	// **Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages. - `order_details`: Use for Order Details Messages. - `order_status`: Use for Order Status Messages. - `voice_call`: Use for Voice Call Messages.
-	Type   *string                           `json:"type,omitempty"`
+	// **Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages. - `order_details`: Use for Order Details Messages. - `order_status`: Use for Order Status Messages. - `voice_call`: Use for Voice Call Messages. - `flow`: Use for Flow Messages.
+	Type *string `json:"type,omitempty"`
 	Action *WhatsappMessageInteractiveAction `json:"action,omitempty"`
-	Body   *WhatsappMessageInteractiveBody   `json:"body,omitempty"`
+	Body *WhatsappMessageInteractiveBody `json:"body,omitempty"`
 	Header *WhatsappMessageInteractiveHeader `json:"header,omitempty"`
 	Footer *WhatsappMessageInteractiveFooter `json:"footer,omitempty"`
 }
@@ -257,3 +257,5 @@ func (v *NullableWhatsappMessageInteractive) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

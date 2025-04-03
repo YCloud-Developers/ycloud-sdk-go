@@ -22,8 +22,8 @@ type WhatsappTemplateCategory string
 // List of WhatsappTemplateCategory
 const (
 	WHATSAPPTEMPLATECATEGORY_AUTHENTICATION WhatsappTemplateCategory = "AUTHENTICATION"
-	WHATSAPPTEMPLATECATEGORY_MARKETING      WhatsappTemplateCategory = "MARKETING"
-	WHATSAPPTEMPLATECATEGORY_UTILITY        WhatsappTemplateCategory = "UTILITY"
+	WHATSAPPTEMPLATECATEGORY_MARKETING WhatsappTemplateCategory = "MARKETING"
+	WHATSAPPTEMPLATECATEGORY_UTILITY WhatsappTemplateCategory = "UTILITY"
 )
 
 // All allowed values of WhatsappTemplateCategory enum
@@ -105,3 +105,4 @@ func (v *NullableWhatsappTemplateCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

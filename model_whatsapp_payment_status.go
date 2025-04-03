@@ -22,7 +22,7 @@ type WhatsappPaymentStatus string
 // List of WhatsappPaymentStatus
 const (
 	WHATSAPPPAYMENTSTATUS_CAPTURED WhatsappPaymentStatus = "captured"
-	WHATSAPPPAYMENTSTATUS_PENDING  WhatsappPaymentStatus = "pending"
+	WHATSAPPPAYMENTSTATUS_PENDING WhatsappPaymentStatus = "pending"
 )
 
 // All allowed values of WhatsappPaymentStatus enum
@@ -103,3 +103,4 @@ func (v *NullableWhatsappPaymentStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

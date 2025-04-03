@@ -19,10 +19,10 @@ import (
 type WhatsappMessageContact struct {
 	Addresses []WhatsappMessageContactAddress `json:"addresses,omitempty"`
 	// `YYYY-MM-DD` formatted string.
-	Birthday *string                       `json:"birthday,omitempty"`
-	Emails   []WhatsappMessageContactEmail `json:"emails,omitempty"`
-	Name     WhatsappMessageContactName    `json:"name"`
-	Org      *WhatsappMessageContactOrg    `json:"org,omitempty"`
+	Birthday *string `json:"birthday,omitempty"`
+	Emails []WhatsappMessageContactEmail `json:"emails,omitempty"`
+	Name WhatsappMessageContactName `json:"name"`
+	Org *WhatsappMessageContactOrg `json:"org,omitempty"`
 	// Contact phone number(s) formatted as a phone object.
 	Phones []WhatsappMessageContactPhone `json:"phones,omitempty"`
 	// Contact URL(s) formatted as a urls object.
@@ -324,3 +324,5 @@ func (v *NullableWhatsappMessageContact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,15 +20,16 @@ import (
 	"strings"
 )
 
+
 // WhatsappBusinessAccountsApiService WhatsappBusinessAccountsApi service
 type WhatsappBusinessAccountsApiService service
 
 type WhatsappBusinessAccountsApiListRequest struct {
-	ctx                       context.Context
-	ApiService                *WhatsappBusinessAccountsApiService
-	page                      *int32
-	limit                     *int32
-	includeTotal              *bool
+	ctx context.Context
+	ApiService *WhatsappBusinessAccountsApiService
+	page *int32
+	limit *int32
+	includeTotal *bool
 	filterAccountReviewStatus *string
 }
 
@@ -65,25 +66,24 @@ List List WABAs
 
 Returns a paginated list of WhatsApp business accounts you've registered.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappBusinessAccountsApiListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappBusinessAccountsApiListRequest
 */
 func (a *WhatsappBusinessAccountsApiService) List(ctx context.Context) WhatsappBusinessAccountsApiListRequest {
 	return WhatsappBusinessAccountsApiListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappBusinessAccountPage
+//  @return WhatsappBusinessAccountPage
 func (a *WhatsappBusinessAccountsApiService) ListExecute(r WhatsappBusinessAccountsApiListRequest) (*WhatsappBusinessAccountPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappBusinessAccountPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappBusinessAccountPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappBusinessAccountsApiService.List")
@@ -178,9 +178,9 @@ func (a *WhatsappBusinessAccountsApiService) ListExecute(r WhatsappBusinessAccou
 }
 
 type WhatsappBusinessAccountsApiRetrieveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappBusinessAccountsApiService
-	id         string
+	id string
 }
 
 func (r WhatsappBusinessAccountsApiRetrieveRequest) Execute() (*WhatsappBusinessAccount, *http.Response, error) {
@@ -192,27 +192,26 @@ Retrieve Retrieve a WABA
 
 Retrieves a WABA you've registered.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id WhatsApp Business Account ID.
-	@return WhatsappBusinessAccountsApiRetrieveRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id WhatsApp Business Account ID.
+ @return WhatsappBusinessAccountsApiRetrieveRequest
 */
 func (a *WhatsappBusinessAccountsApiService) Retrieve(ctx context.Context, id string) WhatsappBusinessAccountsApiRetrieveRequest {
 	return WhatsappBusinessAccountsApiRetrieveRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappBusinessAccount
+//  @return WhatsappBusinessAccount
 func (a *WhatsappBusinessAccountsApiService) RetrieveExecute(r WhatsappBusinessAccountsApiRetrieveRequest) (*WhatsappBusinessAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappBusinessAccount
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappBusinessAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappBusinessAccountsApiService.Retrieve")

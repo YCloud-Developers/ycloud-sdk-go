@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.2
+- Package version: 1.15.3
 
 ## Installation
 
@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 *WhatsappBusinessAccountsApi* | [**List**](docs/WhatsappBusinessAccountsApi.md#list) | **Get** /whatsapp/businessAccounts | List WABAs
 *WhatsappBusinessAccountsApi* | [**Retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **Get** /whatsapp/businessAccounts/{id} | Retrieve a WABA
 *WhatsappInboundMessagesApi* | [**MarkAsRead**](docs/WhatsappInboundMessagesApi.md#markasread) | **Post** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read
+*WhatsappMediaApi* | [**Upload**](docs/WhatsappMediaApi.md#upload) | **Post** /whatsapp/media/{phoneNumber}/upload | Upload media
 *WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a message
 *WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Enqueue a message
 *WhatsappMessagesApi* | [**SendDirectly**](docs/WhatsappMessagesApi.md#senddirectly) | **Post** /whatsapp/messages/sendDirectly | Send a message directly
@@ -161,6 +162,8 @@ Class | Method | HTTP request | Description
  - [WhatsappInboundMessageSystem](docs/WhatsappInboundMessageSystem.md)
  - [WhatsappInboundMessageText](docs/WhatsappInboundMessageText.md)
  - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
+ - [WhatsappMedia](docs/WhatsappMedia.md)
+ - [WhatsappMediaUpload200Response](docs/WhatsappMediaUpload200Response.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
  - [WhatsappMessageContact](docs/WhatsappMessageContact.md)
  - [WhatsappMessageContactAddress](docs/WhatsappMessageContactAddress.md)

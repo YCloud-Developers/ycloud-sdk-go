@@ -23,11 +23,11 @@ type WhatsappMessageOrderInfo struct {
 	// Unique identifier of the Facebook catalog being used by the business. If you do not provide this field, you must provide the following fields inside the items object: `country_of_origin`, `importer_name`, and `importer_address`.
 	CatalogId *string `json:"catalog_id,omitempty"`
 	// Array of items in the order.
-	Items      []WhatsappMessageOrderItem      `json:"items,omitempty"`
-	Subtotal   *WhatsappMessageOrderAmount     `json:"subtotal,omitempty"`
-	Tax        *WhatsappMessageOrderAmount     `json:"tax,omitempty"`
-	Shipping   *WhatsappMessageOrderAmount     `json:"shipping,omitempty"`
-	Discount   *WhatsappMessageOrderAmount     `json:"discount,omitempty"`
+	Items []WhatsappMessageOrderItem `json:"items,omitempty"`
+	Subtotal *WhatsappMessageOrderAmount `json:"subtotal,omitempty"`
+	Tax *WhatsappMessageOrderAmount `json:"tax,omitempty"`
+	Shipping *WhatsappMessageOrderAmount `json:"shipping,omitempty"`
+	Discount *WhatsappMessageOrderAmount `json:"discount,omitempty"`
 	Expiration *WhatsappMessageOrderExpiration `json:"expiration,omitempty"`
 	// **Optional.** Text for sharing status related information. Could be useful while sending cancellation. Max character limit is 120 characters.
 	Description *string `json:"description,omitempty"`
@@ -440,3 +440,5 @@ func (v *NullableWhatsappMessageOrderInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

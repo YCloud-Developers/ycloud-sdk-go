@@ -18,8 +18,8 @@ import (
 // WhatsappMessageOrderStatus struct for WhatsappMessageOrderStatus
 type WhatsappMessageOrderStatus struct {
 	// Unique identifier for the order provided by the business.
-	ReferenceId *string                   `json:"reference_id,omitempty"`
-	Order       *WhatsappMessageOrderInfo `json:"order,omitempty"`
+	ReferenceId *string `json:"reference_id,omitempty"`
+	Order *WhatsappMessageOrderInfo `json:"order,omitempty"`
 }
 
 // NewWhatsappMessageOrderStatus instantiates a new WhatsappMessageOrderStatus object
@@ -149,3 +149,5 @@ func (v *NullableWhatsappMessageOrderStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

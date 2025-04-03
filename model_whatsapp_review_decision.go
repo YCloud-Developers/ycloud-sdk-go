@@ -23,12 +23,14 @@ type WhatsappReviewDecision string
 const (
 	WHATSAPPREVIEWDECISION_APPROVED WhatsappReviewDecision = "APPROVED"
 	WHATSAPPREVIEWDECISION_REJECTED WhatsappReviewDecision = "REJECTED"
+	WHATSAPPREVIEWDECISION_DEFERRED WhatsappReviewDecision = "DEFERRED"
 )
 
 // All allowed values of WhatsappReviewDecision enum
 var AllowedWhatsappReviewDecisionEnumValues = []WhatsappReviewDecision{
 	"APPROVED",
 	"REJECTED",
+	"DEFERRED",
 }
 
 func (v *WhatsappReviewDecision) UnmarshalJSON(src []byte) error {

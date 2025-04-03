@@ -21,13 +21,13 @@ type WhatsappTemplateStatus string
 
 // List of WhatsappTemplateStatus
 const (
-	WHATSAPPTEMPLATESTATUS_PENDING   WhatsappTemplateStatus = "PENDING"
-	WHATSAPPTEMPLATESTATUS_REJECTED  WhatsappTemplateStatus = "REJECTED"
-	WHATSAPPTEMPLATESTATUS_APPROVED  WhatsappTemplateStatus = "APPROVED"
-	WHATSAPPTEMPLATESTATUS_PAUSED    WhatsappTemplateStatus = "PAUSED"
-	WHATSAPPTEMPLATESTATUS_DISABLED  WhatsappTemplateStatus = "DISABLED"
+	WHATSAPPTEMPLATESTATUS_PENDING WhatsappTemplateStatus = "PENDING"
+	WHATSAPPTEMPLATESTATUS_REJECTED WhatsappTemplateStatus = "REJECTED"
+	WHATSAPPTEMPLATESTATUS_APPROVED WhatsappTemplateStatus = "APPROVED"
+	WHATSAPPTEMPLATESTATUS_PAUSED WhatsappTemplateStatus = "PAUSED"
+	WHATSAPPTEMPLATESTATUS_DISABLED WhatsappTemplateStatus = "DISABLED"
 	WHATSAPPTEMPLATESTATUS_IN_APPEAL WhatsappTemplateStatus = "IN_APPEAL"
-	WHATSAPPTEMPLATESTATUS_DELETED   WhatsappTemplateStatus = "DELETED"
+	WHATSAPPTEMPLATESTATUS_DELETED WhatsappTemplateStatus = "DELETED"
 )
 
 // All allowed values of WhatsappTemplateStatus enum
@@ -113,3 +113,4 @@ func (v *NullableWhatsappTemplateStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

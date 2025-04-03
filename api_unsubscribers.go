@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // UnsubscribersApiService UnsubscribersApi service
 type UnsubscribersApiService service
 
 type UnsubscribersApiCreateRequest struct {
-	ctx                       context.Context
-	ApiService                *UnsubscribersApiService
+	ctx context.Context
+	ApiService *UnsubscribersApiService
 	unsubscriberCreateRequest *UnsubscriberCreateRequest
 }
 
@@ -45,25 +46,24 @@ Creates an unsubscriber.
 An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business.
 **A customer and a channel form a unique identifier for an unsubscriber.**
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return UnsubscribersApiCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return UnsubscribersApiCreateRequest
 */
 func (a *UnsubscribersApiService) Create(ctx context.Context) UnsubscribersApiCreateRequest {
 	return UnsubscribersApiCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Unsubscriber
+//  @return Unsubscriber
 func (a *UnsubscribersApiService) CreateExecute(r UnsubscribersApiCreateRequest) (*Unsubscriber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Unsubscriber
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Unsubscriber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnsubscribersApiService.Create")
@@ -151,10 +151,10 @@ func (a *UnsubscribersApiService) CreateExecute(r UnsubscribersApiCreateRequest)
 }
 
 type UnsubscribersApiDeleteByCustomerAndChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UnsubscribersApiService
-	customer   string
-	channel    UnsubscriberChannel
+	customer string
+	channel UnsubscriberChannel
 }
 
 func (r UnsubscribersApiDeleteByCustomerAndChannelRequest) Execute() (*Unsubscriber, *http.Response, error) {
@@ -166,29 +166,28 @@ DeleteByCustomerAndChannel Delete an unsubscriber
 
 Deletes the unsubscriber for the specified customer and channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customer The customer who has opted out.
-	@param channel
-	@return UnsubscribersApiDeleteByCustomerAndChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param customer The customer who has opted out.
+ @param channel
+ @return UnsubscribersApiDeleteByCustomerAndChannelRequest
 */
 func (a *UnsubscribersApiService) DeleteByCustomerAndChannel(ctx context.Context, customer string, channel UnsubscriberChannel) UnsubscribersApiDeleteByCustomerAndChannelRequest {
 	return UnsubscribersApiDeleteByCustomerAndChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		customer:   customer,
-		channel:    channel,
+		ctx: ctx,
+		customer: customer,
+		channel: channel,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Unsubscriber
+//  @return Unsubscriber
 func (a *UnsubscribersApiService) DeleteByCustomerAndChannelExecute(r UnsubscribersApiDeleteByCustomerAndChannelRequest) (*Unsubscriber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Unsubscriber
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Unsubscriber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnsubscribersApiService.DeleteByCustomerAndChannel")
@@ -282,14 +281,14 @@ func (a *UnsubscribersApiService) DeleteByCustomerAndChannelExecute(r Unsubscrib
 }
 
 type UnsubscribersApiListRequest struct {
-	ctx              context.Context
-	ApiService       *UnsubscribersApiService
-	page             *int32
-	limit            *int32
-	includeTotal     *bool
-	pageAfter        *string
-	filterCustomer   *string
-	filterChannel    *UnsubscriberChannel
+	ctx context.Context
+	ApiService *UnsubscribersApiService
+	page *int32
+	limit *int32
+	includeTotal *bool
+	pageAfter *string
+	filterCustomer *string
+	filterChannel *UnsubscriberChannel
 	filterRegionCode *string
 }
 
@@ -341,25 +340,24 @@ List List unsubscribers
 
 Returns a paginated list of unsubscribers.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return UnsubscribersApiListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return UnsubscribersApiListRequest
 */
 func (a *UnsubscribersApiService) List(ctx context.Context) UnsubscribersApiListRequest {
 	return UnsubscribersApiListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UnsubscriberPage
+//  @return UnsubscriberPage
 func (a *UnsubscribersApiService) ListExecute(r UnsubscribersApiListRequest) (*UnsubscriberPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UnsubscriberPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UnsubscriberPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnsubscribersApiService.List")
@@ -463,9 +461,9 @@ func (a *UnsubscribersApiService) ListExecute(r UnsubscribersApiListRequest) (*U
 }
 
 type UnsubscribersApiListAllByCustomerRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UnsubscribersApiService
-	customer   string
+	customer string
 }
 
 func (r UnsubscribersApiListAllByCustomerRequest) Execute() ([]Unsubscriber, *http.Response, error) {
@@ -477,27 +475,26 @@ ListAllByCustomer List all unsubscribers by customer
 
 Returns all unsubscribers for the specified customer.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customer The customer who has opted out.
-	@return UnsubscribersApiListAllByCustomerRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param customer The customer who has opted out.
+ @return UnsubscribersApiListAllByCustomerRequest
 */
 func (a *UnsubscribersApiService) ListAllByCustomer(ctx context.Context, customer string) UnsubscribersApiListAllByCustomerRequest {
 	return UnsubscribersApiListAllByCustomerRequest{
 		ApiService: a,
-		ctx:        ctx,
-		customer:   customer,
+		ctx: ctx,
+		customer: customer,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Unsubscriber
+//  @return []Unsubscriber
 func (a *UnsubscribersApiService) ListAllByCustomerExecute(r UnsubscribersApiListAllByCustomerRequest) ([]Unsubscriber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Unsubscriber
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Unsubscriber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnsubscribersApiService.ListAllByCustomer")
@@ -590,10 +587,10 @@ func (a *UnsubscribersApiService) ListAllByCustomerExecute(r UnsubscribersApiLis
 }
 
 type UnsubscribersApiRetrieveByCustomerAndChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UnsubscribersApiService
-	customer   string
-	channel    UnsubscriberChannel
+	customer string
+	channel UnsubscriberChannel
 }
 
 func (r UnsubscribersApiRetrieveByCustomerAndChannelRequest) Execute() (*Unsubscriber, *http.Response, error) {
@@ -605,29 +602,28 @@ RetrieveByCustomerAndChannel Retrieve an unsubscriber
 
 Retrieves the unsubscriber for the specified customer and channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customer The customer who has opted out.
-	@param channel
-	@return UnsubscribersApiRetrieveByCustomerAndChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param customer The customer who has opted out.
+ @param channel
+ @return UnsubscribersApiRetrieveByCustomerAndChannelRequest
 */
 func (a *UnsubscribersApiService) RetrieveByCustomerAndChannel(ctx context.Context, customer string, channel UnsubscriberChannel) UnsubscribersApiRetrieveByCustomerAndChannelRequest {
 	return UnsubscribersApiRetrieveByCustomerAndChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		customer:   customer,
-		channel:    channel,
+		ctx: ctx,
+		customer: customer,
+		channel: channel,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Unsubscriber
+//  @return Unsubscriber
 func (a *UnsubscribersApiService) RetrieveByCustomerAndChannelExecute(r UnsubscribersApiRetrieveByCustomerAndChannelRequest) (*Unsubscriber, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Unsubscriber
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Unsubscriber
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnsubscribersApiService.RetrieveByCustomerAndChannel")

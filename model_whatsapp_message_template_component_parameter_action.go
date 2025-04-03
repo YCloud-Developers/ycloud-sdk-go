@@ -25,7 +25,7 @@ type WhatsappMessageTemplateComponentParameterAction struct {
 	FlowToken *string `json:"flow_token,omitempty"`
 	// Use for `FLOW` buttons. JSON object with the data payload for the first screen.
 	FlowActionData map[string]map[string]interface{} `json:"flow_action_data,omitempty"`
-	OrderDetails   *WhatsappMessageOrderDetails      `json:"order_details,omitempty"`
+	OrderDetails *WhatsappMessageOrderDetails `json:"order_details,omitempty"`
 }
 
 // NewWhatsappMessageTemplateComponentParameterAction instantiates a new WhatsappMessageTemplateComponentParameterAction object
@@ -260,3 +260,5 @@ func (v *NullableWhatsappMessageTemplateComponentParameterAction) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

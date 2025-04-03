@@ -23,26 +23,26 @@ type WhatsappTemplate struct {
 	// Name of the template.
 	Name string `json:"name"`
 	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	Language    string                       `json:"language"`
-	Category    *WhatsappTemplateCategory    `json:"category,omitempty"`
+	Language string `json:"language"`
+	Category *WhatsappTemplateCategory `json:"category,omitempty"`
 	SubCategory *WhatsappTemplateSubCategory `json:"subCategory,omitempty"`
 	// This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category.
 	PreviousCategory *string `json:"previousCategory,omitempty"`
 	// If we are unable to deliver a message for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. By default, messages that use an authentication template have a default TTL of **10 minutes**, and messages that use a utility or marketing template have a default TTL of **30 days**. Set its value between `30` and `900` seconds (i.e., 30 seconds to 15 minutes) for authentication templates, or `30` and `43200` seconds (i.e., 30 seconds to 12 hours) for utility templates, or `43200` and `2592000` seconds (i.e., 12 hours to 30 days) for marketing templates. Alternatively, you can set this value to `-1`, which will set a custom TTL of 30 days for either type of template. We encourage you to set a time-to-live for all of your authentication templates, preferably equal to or less than your code expiration time, to ensure your customers only get a message when a code is still usable. Authentication templates created before October 23, 2024, have a default TTL of 30 days.
 	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
 	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
-	Components    []WhatsappTemplateComponent    `json:"components,omitempty"`
-	Status        *WhatsappTemplateStatus        `json:"status,omitempty"`
+	Components []WhatsappTemplateComponent `json:"components,omitempty"`
+	Status *WhatsappTemplateStatus `json:"status,omitempty"`
 	QualityRating *WhatsappTemplateQualityRating `json:"qualityRating,omitempty"`
 	// The reason why the template is rejected.
 	Reason *string `json:"reason,omitempty"`
 	// The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
-	UpdateTime        *time.Time                             `json:"updateTime,omitempty"`
+	UpdateTime *time.Time `json:"updateTime,omitempty"`
 	StatusUpdateEvent *WhatsappTemplateStatusUpdateEventEnum `json:"statusUpdateEvent,omitempty"`
 	// The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.
-	DisableDate      *string           `json:"disableDate,omitempty"`
+	DisableDate *string `json:"disableDate,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 }
 
@@ -642,3 +642,5 @@ func (v *NullableWhatsappTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

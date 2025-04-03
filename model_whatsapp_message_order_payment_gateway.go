@@ -20,11 +20,11 @@ type WhatsappMessageOrderPaymentGateway struct {
 	// Payment type. Must set this to `billdesk`, `razorpay`, `payu`, or `zaakpay`, if you have linked your BillDesk, Razorpay, PayU, or Zaakpay payment gateway to accept payments.
 	Type string `json:"type"`
 	// The name of the pre-configured payment configuration to use for this order and must not exceed 60 characters. This value must match with a payment configuration set up on the WhatsApp Business Manager.
-	ConfigurationName string                                                    `json:"configuration_name"`
-	Billdesk          *WhatsappMessageOrderPaymentSettingPaymentGatewayBilldesk `json:"billdesk,omitempty"`
-	Payu              *WhatsappMessageOrderPaymentSettingPaymentGatewayPayu     `json:"payu,omitempty"`
-	Razorpay          *WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay `json:"razorpay,omitempty"`
-	Zaakpay           *WhatsappMessageOrderPaymentSettingPaymentGatewayZaakpay  `json:"zaakpay,omitempty"`
+	ConfigurationName string `json:"configuration_name"`
+	Billdesk *WhatsappMessageOrderPaymentSettingPaymentGatewayBilldesk `json:"billdesk,omitempty"`
+	Payu *WhatsappMessageOrderPaymentSettingPaymentGatewayPayu `json:"payu,omitempty"`
+	Razorpay *WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay `json:"razorpay,omitempty"`
+	Zaakpay *WhatsappMessageOrderPaymentSettingPaymentGatewayZaakpay `json:"zaakpay,omitempty"`
 }
 
 // NewWhatsappMessageOrderPaymentGateway instantiates a new WhatsappMessageOrderPaymentGateway object
@@ -280,3 +280,5 @@ func (v *NullableWhatsappMessageOrderPaymentGateway) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

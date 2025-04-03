@@ -27,24 +27,24 @@ type WhatsappMessage struct {
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To           string                      `json:"to"`
-	Conversation *WhatsappConversation       `json:"conversation,omitempty"`
-	Type         *WhatsappMessageType        `json:"type,omitempty"`
-	Template     *WhatsappMessageTemplate    `json:"template,omitempty"`
-	Text         *WhatsappMessageText        `json:"text,omitempty"`
-	Image        *WhatsappMessageMedia       `json:"image,omitempty"`
-	Video        *WhatsappMessageMedia       `json:"video,omitempty"`
-	Audio        *WhatsappMessageMedia       `json:"audio,omitempty"`
-	Document     *WhatsappMessageMedia       `json:"document,omitempty"`
-	Sticker      *WhatsappMessageMedia       `json:"sticker,omitempty"`
-	Location     *WhatsappMessageLocation    `json:"location,omitempty"`
-	Interactive  *WhatsappMessageInteractive `json:"interactive,omitempty"`
-	Contacts     []WhatsappMessageContact    `json:"contacts,omitempty"`
-	Reaction     *WhatsappMessageReaction    `json:"reaction,omitempty"`
-	Context      *WhatsappMessageContext     `json:"context,omitempty"`
+	To string `json:"to"`
+	Conversation *WhatsappConversation `json:"conversation,omitempty"`
+	Type *WhatsappMessageType `json:"type,omitempty"`
+	Template *WhatsappMessageTemplate `json:"template,omitempty"`
+	Text *WhatsappMessageText `json:"text,omitempty"`
+	Image *WhatsappMessageMedia `json:"image,omitempty"`
+	Video *WhatsappMessageMedia `json:"video,omitempty"`
+	Audio *WhatsappMessageMedia `json:"audio,omitempty"`
+	Document *WhatsappMessageMedia `json:"document,omitempty"`
+	Sticker *WhatsappMessageMedia `json:"sticker,omitempty"`
+	Location *WhatsappMessageLocation `json:"location,omitempty"`
+	Interactive *WhatsappMessageInteractive `json:"interactive,omitempty"`
+	Contacts []WhatsappMessageContact `json:"contacts,omitempty"`
+	Reaction *WhatsappMessageReaction `json:"reaction,omitempty"`
+	Context *WhatsappMessageContext `json:"context,omitempty"`
 	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
-	ExternalId *string                `json:"externalId,omitempty"`
-	Status     *WhatsappMessageStatus `json:"status,omitempty"`
+	ExternalId *string `json:"externalId,omitempty"`
+	Status *WhatsappMessageStatus `json:"status,omitempty"`
 	// Error code when the message status is `failed`.
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Error message when the message status is `failed`.
@@ -64,9 +64,9 @@ type WhatsappMessage struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	// The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
-	RegionCode       *string                  `json:"regionCode,omitempty"`
-	PricingCategory  *WhatsappPricingCategory `json:"pricingCategory,omitempty"`
-	WhatsappApiError *WhatsappApiError        `json:"whatsappApiError,omitempty"`
+	RegionCode *string `json:"regionCode,omitempty"`
+	PricingCategory *WhatsappPricingCategory `json:"pricingCategory,omitempty"`
+	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via the **WhatsApp** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
@@ -1327,3 +1327,5 @@ func (v *NullableWhatsappMessage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

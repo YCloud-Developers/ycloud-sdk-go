@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // WhatsappTemplatesApiService WhatsappTemplatesApi service
 type WhatsappTemplatesApiService service
 
 type WhatsappTemplatesApiCreateRequest struct {
-	ctx                           context.Context
-	ApiService                    *WhatsappTemplatesApiService
+	ctx context.Context
+	ApiService *WhatsappTemplatesApiService
 	whatsappTemplateCreateRequest *WhatsappTemplateCreateRequest
 }
 
@@ -43,25 +44,24 @@ Create Create a template
 
 Creates a WhatsApp template.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappTemplatesApiCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappTemplatesApiCreateRequest
 */
 func (a *WhatsappTemplatesApiService) Create(ctx context.Context) WhatsappTemplatesApiCreateRequest {
 	return WhatsappTemplatesApiCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappTemplate
+//  @return WhatsappTemplate
 func (a *WhatsappTemplatesApiService) CreateExecute(r WhatsappTemplatesApiCreateRequest) (*WhatsappTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappTemplate
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.Create")
@@ -149,10 +149,10 @@ func (a *WhatsappTemplatesApiService) CreateExecute(r WhatsappTemplatesApiCreate
 }
 
 type WhatsappTemplatesApiDeleteByNameRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappTemplatesApiService
-	wabaId     string
-	name       string
+	wabaId string
+	name string
 }
 
 func (r WhatsappTemplatesApiDeleteByNameRequest) Execute() ([]WhatsappTemplate, *http.Response, error) {
@@ -165,29 +165,28 @@ DeleteByName Delete templates by name
 Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted.
 HTTP status `404` is returned if no templates are found for the specific name.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param name Name of the template.
-	@return WhatsappTemplatesApiDeleteByNameRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param name Name of the template.
+ @return WhatsappTemplatesApiDeleteByNameRequest
 */
 func (a *WhatsappTemplatesApiService) DeleteByName(ctx context.Context, wabaId string, name string) WhatsappTemplatesApiDeleteByNameRequest {
 	return WhatsappTemplatesApiDeleteByNameRequest{
 		ApiService: a,
-		ctx:        ctx,
-		wabaId:     wabaId,
-		name:       name,
+		ctx: ctx,
+		wabaId: wabaId,
+		name: name,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []WhatsappTemplate
+//  @return []WhatsappTemplate
 func (a *WhatsappTemplatesApiService) DeleteByNameExecute(r WhatsappTemplatesApiDeleteByNameRequest) ([]WhatsappTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []WhatsappTemplate
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []WhatsappTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.DeleteByName")
@@ -281,11 +280,11 @@ func (a *WhatsappTemplatesApiService) DeleteByNameExecute(r WhatsappTemplatesApi
 }
 
 type WhatsappTemplatesApiDeleteByNameAndLanguageRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappTemplatesApiService
-	wabaId     string
-	name       string
-	language   string
+	wabaId string
+	name string
+	language string
 }
 
 func (r WhatsappTemplatesApiDeleteByNameAndLanguageRequest) Execute() (*WhatsappTemplate, *http.Response, error) {
@@ -297,31 +296,30 @@ DeleteByNameAndLanguage Delete a template
 
 Deletes a WhatsApp template by name and language.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param name Name of the template.
-	@param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	@return WhatsappTemplatesApiDeleteByNameAndLanguageRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param name Name of the template.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @return WhatsappTemplatesApiDeleteByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) DeleteByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiDeleteByNameAndLanguageRequest {
 	return WhatsappTemplatesApiDeleteByNameAndLanguageRequest{
 		ApiService: a,
-		ctx:        ctx,
-		wabaId:     wabaId,
-		name:       name,
-		language:   language,
+		ctx: ctx,
+		wabaId: wabaId,
+		name: name,
+		language: language,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappTemplate
+//  @return WhatsappTemplate
 func (a *WhatsappTemplatesApiService) DeleteByNameAndLanguageExecute(r WhatsappTemplatesApiDeleteByNameAndLanguageRequest) (*WhatsappTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappTemplate
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.DeleteByNameAndLanguage")
@@ -416,11 +414,11 @@ func (a *WhatsappTemplatesApiService) DeleteByNameAndLanguageExecute(r WhatsappT
 }
 
 type WhatsappTemplatesApiEditByNameAndLanguageRequest struct {
-	ctx                         context.Context
-	ApiService                  *WhatsappTemplatesApiService
-	wabaId                      string
-	name                        string
-	language                    string
+	ctx context.Context
+	ApiService *WhatsappTemplatesApiService
+	wabaId string
+	name string
+	language string
 	whatsappTemplateEditRequest *WhatsappTemplateEditRequest
 }
 
@@ -439,31 +437,30 @@ EditByNameAndLanguage Edit a template
 Edits a WhatsApp template by name and language.
 Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param name Name of the template.
-	@param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	@return WhatsappTemplatesApiEditByNameAndLanguageRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param name Name of the template.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @return WhatsappTemplatesApiEditByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) EditByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiEditByNameAndLanguageRequest {
 	return WhatsappTemplatesApiEditByNameAndLanguageRequest{
 		ApiService: a,
-		ctx:        ctx,
-		wabaId:     wabaId,
-		name:       name,
-		language:   language,
+		ctx: ctx,
+		wabaId: wabaId,
+		name: name,
+		language: language,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappTemplate
+//  @return WhatsappTemplate
 func (a *WhatsappTemplatesApiService) EditByNameAndLanguageExecute(r WhatsappTemplatesApiEditByNameAndLanguageRequest) (*WhatsappTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappTemplate
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.EditByNameAndLanguage")
@@ -560,13 +557,13 @@ func (a *WhatsappTemplatesApiService) EditByNameAndLanguageExecute(r WhatsappTem
 }
 
 type WhatsappTemplatesApiListRequest struct {
-	ctx            context.Context
-	ApiService     *WhatsappTemplatesApiService
-	page           *int32
-	limit          *int32
-	includeTotal   *bool
-	filterWabaId   *string
-	filterName     *string
+	ctx context.Context
+	ApiService *WhatsappTemplatesApiService
+	page *int32
+	limit *int32
+	includeTotal *bool
+	filterWabaId *string
+	filterName *string
 	filterLanguage *string
 }
 
@@ -615,25 +612,24 @@ List List templates
 
 Returns a paginated list of WhatsApp templates you've previously created.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappTemplatesApiListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappTemplatesApiListRequest
 */
 func (a *WhatsappTemplatesApiService) List(ctx context.Context) WhatsappTemplatesApiListRequest {
 	return WhatsappTemplatesApiListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappTemplatePage
+//  @return WhatsappTemplatePage
 func (a *WhatsappTemplatesApiService) ListExecute(r WhatsappTemplatesApiListRequest) (*WhatsappTemplatePage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappTemplatePage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappTemplatePage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.List")
@@ -734,11 +730,11 @@ func (a *WhatsappTemplatesApiService) ListExecute(r WhatsappTemplatesApiListRequ
 }
 
 type WhatsappTemplatesApiRetrieveByNameAndLanguageRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappTemplatesApiService
-	wabaId     string
-	name       string
-	language   string
+	wabaId string
+	name string
+	language string
 }
 
 func (r WhatsappTemplatesApiRetrieveByNameAndLanguageRequest) Execute() (*WhatsappTemplate, *http.Response, error) {
@@ -750,31 +746,30 @@ RetrieveByNameAndLanguage Retrieve a template
 
 Retrieves a WhatsApp template by name and language.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param wabaId WhatsApp Business Account ID.
-	@param name Name of the template.
-	@param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-	@return WhatsappTemplatesApiRetrieveByNameAndLanguageRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param name Name of the template.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @return WhatsappTemplatesApiRetrieveByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) RetrieveByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiRetrieveByNameAndLanguageRequest {
 	return WhatsappTemplatesApiRetrieveByNameAndLanguageRequest{
 		ApiService: a,
-		ctx:        ctx,
-		wabaId:     wabaId,
-		name:       name,
-		language:   language,
+		ctx: ctx,
+		wabaId: wabaId,
+		name: name,
+		language: language,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappTemplate
+//  @return WhatsappTemplate
 func (a *WhatsappTemplatesApiService) RetrieveByNameAndLanguageExecute(r WhatsappTemplatesApiRetrieveByNameAndLanguageRequest) (*WhatsappTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappTemplate
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappTemplatesApiService.RetrieveByNameAndLanguage")

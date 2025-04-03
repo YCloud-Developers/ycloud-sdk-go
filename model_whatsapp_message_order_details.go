@@ -18,10 +18,10 @@ import (
 // WhatsappMessageOrderDetails Contains the order details when sending a template message with a `order_details` button.
 type WhatsappMessageOrderDetails struct {
 	// The currency for this order. Currently the only supported value is `INR`.
-	Currency string                   `json:"currency"`
-	Order    WhatsappMessageOrderInfo `json:"order"`
+	Currency string `json:"currency"`
+	Order WhatsappMessageOrderInfo `json:"order"`
 	// Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The `reference_id` must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \"BM345A-12\") to ensure reference_id uniqueness.
-	ReferenceId string                     `json:"reference_id"`
+	ReferenceId string `json:"reference_id"`
 	TotalAmount WhatsappMessageOrderAmount `json:"total_amount"`
 	// The type of goods being paid for in this order. Current supported options are `digital-goods` and `physical-goods`.
 	Type string `json:"type"`
@@ -254,3 +254,5 @@ func (v *NullableWhatsappMessageOrderDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

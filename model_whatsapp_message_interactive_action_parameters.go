@@ -34,7 +34,7 @@ type WhatsappMessageInteractiveActionParameters struct {
 	// Required for `flow` buttons. Text on the CTA button. For example: \"Open flow!\". Maximum length: 20 characters.
 	FlowCta *string `json:"flow_cta,omitempty"`
 	// Use for `flow` buttons. Either `navigate` or `data_exchange`. Defaults to `navigate`.
-	FlowAction        *string                                                      `json:"flow_action,omitempty"`
+	FlowAction *string `json:"flow_action,omitempty"`
 	FlowActionPayload *WhatsappMessageInteractiveActionParametersFlowActionPayload `json:"flow_action_payload,omitempty"`
 	// Required for `review_and_pay` buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The `reference_id` must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \"BM345A-12\") to ensure reference_id uniqueness.
 	ReferenceId *string `json:"reference_id,omitempty"`
@@ -43,9 +43,9 @@ type WhatsappMessageInteractiveActionParameters struct {
 	// Required for `review_and_pay` buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn't shown to users but is needed for legal and compliance reasons.
 	Beneficiaries []WhatsappMessageOrderBeneficiary `json:"beneficiaries,omitempty"`
 	// Required for `review_and_pay` buttons. The currency for this order. Currently the only supported value is `INR`.
-	Currency    *string                     `json:"currency,omitempty"`
+	Currency *string `json:"currency,omitempty"`
 	TotalAmount *WhatsappMessageOrderAmount `json:"total_amount,omitempty"`
-	Order       *WhatsappMessageOrderInfo   `json:"order,omitempty"`
+	Order *WhatsappMessageOrderInfo `json:"order,omitempty"`
 	// Required for `review_and_pay` buttons. Payment settings for the order.
 	PaymentSettings []WhatsappMessageOrderPaymentSetting `json:"payment_settings,omitempty"`
 }
@@ -702,3 +702,5 @@ func (v *NullableWhatsappMessageInteractiveActionParameters) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

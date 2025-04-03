@@ -19,10 +19,10 @@ import (
 // Verification struct for Verification
 type Verification struct {
 	// ID of the verification.
-	Id     string              `json:"id"`
+	Id string `json:"id"`
 	Status *VerificationStatus `json:"status,omitempty"`
 	// Recipient of the verification.
-	To      *string              `json:"to,omitempty"`
+	To *string `json:"to,omitempty"`
 	Channel *VerificationChannel `json:"channel,omitempty"`
 	// The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	SendTime *time.Time `json:"sendTime,omitempty"`
@@ -31,8 +31,8 @@ type Verification struct {
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
 	// Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
-	SmsFallbackEnabled *bool                 `json:"smsFallbackEnabled,omitempty"`
-	SmsFallback        *VerificationFallback `json:"smsFallback,omitempty"`
+	SmsFallbackEnabled *bool `json:"smsFallbackEnabled,omitempty"`
+	SmsFallback *VerificationFallback `json:"smsFallback,omitempty"`
 	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
 }
@@ -437,3 +437,5 @@ func (v *NullableVerification) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

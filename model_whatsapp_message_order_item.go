@@ -20,9 +20,9 @@ type WhatsappMessageOrderItem struct {
 	// Content ID for an item in the order from your catalog.
 	RetailerId *string `json:"retailer_id,omitempty"`
 	// The item's name to be displayed to the user. Cannot exceed 60 characters.
-	Name       string                      `json:"name"`
-	Image      *WhatsappMessageMedia       `json:"image,omitempty"`
-	Amount     WhatsappMessageOrderAmount  `json:"amount"`
+	Name string `json:"name"`
+	Image *WhatsappMessageMedia `json:"image,omitempty"`
+	Amount WhatsappMessageOrderAmount `json:"amount"`
 	SaleAmount *WhatsappMessageOrderAmount `json:"sale_amount,omitempty"`
 	// The number of items in the order.
 	Quantity int32 `json:"quantity"`
@@ -385,3 +385,5 @@ func (v *NullableWhatsappMessageOrderItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

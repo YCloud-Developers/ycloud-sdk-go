@@ -20,8 +20,8 @@ import (
 type Unsubscriber struct {
 	Type *UnsubscriberType `json:"type,omitempty"`
 	// The customer who has opted out. For `type=PHONE_NUMBER`, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	Customer *string              `json:"customer,omitempty"`
-	Channel  *UnsubscriberChannel `json:"channel,omitempty"`
+	Customer *string `json:"customer,omitempty"`
+	Channel *UnsubscriberChannel `json:"channel,omitempty"`
 	// The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	RegionCode *string `json:"regionCode,omitempty"`
 	// The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
@@ -260,3 +260,5 @@ func (v *NullableUnsubscriber) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

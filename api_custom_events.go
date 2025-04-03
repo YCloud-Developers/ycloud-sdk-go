@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // CustomEventsApiService CustomEventsApi service
 type CustomEventsApiService service
 
 type CustomEventsApiCreateDefinitionRequest struct {
-	ctx                                context.Context
-	ApiService                         *CustomEventsApiService
+	ctx context.Context
+	ApiService *CustomEventsApiService
 	customEventDefinitionCreateRequest *CustomEventDefinitionCreateRequest
 }
 
@@ -43,25 +44,24 @@ CreateDefinition Create an event definition
 
 Creates a custom event definition.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return CustomEventsApiCreateDefinitionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return CustomEventsApiCreateDefinitionRequest
 */
 func (a *CustomEventsApiService) CreateDefinition(ctx context.Context) CustomEventsApiCreateDefinitionRequest {
 	return CustomEventsApiCreateDefinitionRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CustomEventDefinition
+//  @return CustomEventDefinition
 func (a *CustomEventsApiService) CreateDefinitionExecute(r CustomEventsApiCreateDefinitionRequest) (*CustomEventDefinition, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CustomEventDefinition
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CustomEventDefinition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.CreateDefinition")
@@ -149,9 +149,9 @@ func (a *CustomEventsApiService) CreateDefinitionExecute(r CustomEventsApiCreate
 }
 
 type CustomEventsApiCreatePropertyDefinitionRequest struct {
-	ctx                                        context.Context
-	ApiService                                 *CustomEventsApiService
-	name                                       string
+	ctx context.Context
+	ApiService *CustomEventsApiService
+	name string
 	customEventDefinitionPropertyCreateRequest *CustomEventDefinitionPropertyCreateRequest
 }
 
@@ -169,27 +169,26 @@ CreatePropertyDefinition Create an event property definition
 
 Defines a new property for the event definition.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param name Name of the custom event.
-	@return CustomEventsApiCreatePropertyDefinitionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param name Name of the custom event.
+ @return CustomEventsApiCreatePropertyDefinitionRequest
 */
 func (a *CustomEventsApiService) CreatePropertyDefinition(ctx context.Context, name string) CustomEventsApiCreatePropertyDefinitionRequest {
 	return CustomEventsApiCreatePropertyDefinitionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		name:       name,
+		ctx: ctx,
+		name: name,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CustomEventDefinitionProperty
+//  @return CustomEventDefinitionProperty
 func (a *CustomEventsApiService) CreatePropertyDefinitionExecute(r CustomEventsApiCreatePropertyDefinitionRequest) (*CustomEventDefinitionProperty, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CustomEventDefinitionProperty
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CustomEventDefinitionProperty
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.CreatePropertyDefinition")
@@ -287,9 +286,9 @@ func (a *CustomEventsApiService) CreatePropertyDefinitionExecute(r CustomEventsA
 }
 
 type CustomEventsApiPropertyDefinitionRequest struct {
-	ctx          context.Context
-	ApiService   *CustomEventsApiService
-	name         string
+	ctx context.Context
+	ApiService *CustomEventsApiService
+	name string
 	propertyName string
 }
 
@@ -302,16 +301,16 @@ PropertyDefinition Delete an event property definition
 
 Deletes a property of the event definition.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param name Name of the custom event.
-	@param propertyName Name of the custom event property.
-	@return CustomEventsApiPropertyDefinitionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param name Name of the custom event.
+ @param propertyName Name of the custom event property.
+ @return CustomEventsApiPropertyDefinitionRequest
 */
 func (a *CustomEventsApiService) PropertyDefinition(ctx context.Context, name string, propertyName string) CustomEventsApiPropertyDefinitionRequest {
 	return CustomEventsApiPropertyDefinitionRequest{
-		ApiService:   a,
-		ctx:          ctx,
-		name:         name,
+		ApiService: a,
+		ctx: ctx,
+		name: name,
 		propertyName: propertyName,
 	}
 }
@@ -319,9 +318,9 @@ func (a *CustomEventsApiService) PropertyDefinition(ctx context.Context, name st
 // Execute executes the request
 func (a *CustomEventsApiService) PropertyDefinitionExecute(r CustomEventsApiPropertyDefinitionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.PropertyDefinition")
@@ -406,10 +405,10 @@ func (a *CustomEventsApiService) PropertyDefinitionExecute(r CustomEventsApiProp
 }
 
 type CustomEventsApiPropertyDefinition_0Request struct {
-	ctx                                        context.Context
-	ApiService                                 *CustomEventsApiService
-	name                                       string
-	propertyName                               string
+	ctx context.Context
+	ApiService *CustomEventsApiService
+	name string
+	propertyName string
 	customEventDefinitionPropertyUpdateRequest *CustomEventDefinitionPropertyUpdateRequest
 }
 
@@ -427,29 +426,28 @@ PropertyDefinition_0 Update an event property definition
 
 Updates an event property definition's label and description.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param name Name of the custom event.
-	@param propertyName Name of the custom event property.
-	@return CustomEventsApiPropertyDefinition_0Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param name Name of the custom event.
+ @param propertyName Name of the custom event property.
+ @return CustomEventsApiPropertyDefinition_0Request
 */
 func (a *CustomEventsApiService) PropertyDefinition_1(ctx context.Context, name string, propertyName string) CustomEventsApiPropertyDefinition_0Request {
 	return CustomEventsApiPropertyDefinition_0Request{
-		ApiService:   a,
-		ctx:          ctx,
-		name:         name,
+		ApiService: a,
+		ctx: ctx,
+		name: name,
 		propertyName: propertyName,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CustomEventDefinitionProperty
+//  @return CustomEventDefinitionProperty
 func (a *CustomEventsApiService) PropertyDefinition_1Execute(r CustomEventsApiPropertyDefinition_0Request) (*CustomEventDefinitionProperty, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CustomEventDefinitionProperty
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CustomEventDefinitionProperty
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.PropertyDefinition_1")
@@ -548,9 +546,9 @@ func (a *CustomEventsApiService) PropertyDefinition_1Execute(r CustomEventsApiPr
 }
 
 type CustomEventsApiRetrieveDefinitionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *CustomEventsApiService
-	name       string
+	name string
 }
 
 func (r CustomEventsApiRetrieveDefinitionRequest) Execute() (*CustomEventDefinition, *http.Response, error) {
@@ -562,27 +560,26 @@ RetrieveDefinition Retrieve an event definition
 
 Retrieves a custom event definition you previously created.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param name Name of the custom event.
-	@return CustomEventsApiRetrieveDefinitionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param name Name of the custom event.
+ @return CustomEventsApiRetrieveDefinitionRequest
 */
 func (a *CustomEventsApiService) RetrieveDefinition(ctx context.Context, name string) CustomEventsApiRetrieveDefinitionRequest {
 	return CustomEventsApiRetrieveDefinitionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		name:       name,
+		ctx: ctx,
+		name: name,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CustomEventDefinition
+//  @return CustomEventDefinition
 func (a *CustomEventsApiService) RetrieveDefinitionExecute(r CustomEventsApiRetrieveDefinitionRequest) (*CustomEventDefinition, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CustomEventDefinition
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CustomEventDefinition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.RetrieveDefinition")
@@ -675,8 +672,8 @@ func (a *CustomEventsApiService) RetrieveDefinitionExecute(r CustomEventsApiRetr
 }
 
 type CustomEventsApiSendEventRequest struct {
-	ctx                    context.Context
-	ApiService             *CustomEventsApiService
+	ctx context.Context
+	ApiService *CustomEventsApiService
 	customEventSendRequest *CustomEventSendRequest
 }
 
@@ -694,22 +691,22 @@ SendEvent Send an event
 
 Sends an event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return CustomEventsApiSendEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return CustomEventsApiSendEventRequest
 */
 func (a *CustomEventsApiService) SendEvent(ctx context.Context) CustomEventsApiSendEventRequest {
 	return CustomEventsApiSendEventRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CustomEventsApiService) SendEventExecute(r CustomEventsApiSendEventRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.SendEvent")
@@ -788,9 +785,9 @@ func (a *CustomEventsApiService) SendEventExecute(r CustomEventsApiSendEventRequ
 }
 
 type CustomEventsApiUpdateDefinitionRequest struct {
-	ctx                                context.Context
-	ApiService                         *CustomEventsApiService
-	name                               string
+	ctx context.Context
+	ApiService *CustomEventsApiService
+	name string
 	customEventDefinitionUpdateRequest *CustomEventDefinitionUpdateRequest
 }
 
@@ -808,27 +805,26 @@ UpdateDefinition Update an event definition
 
 Updates an event definition's label and description.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param name Name of the custom event.
-	@return CustomEventsApiUpdateDefinitionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param name Name of the custom event.
+ @return CustomEventsApiUpdateDefinitionRequest
 */
 func (a *CustomEventsApiService) UpdateDefinition(ctx context.Context, name string) CustomEventsApiUpdateDefinitionRequest {
 	return CustomEventsApiUpdateDefinitionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		name:       name,
+		ctx: ctx,
+		name: name,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CustomEventDefinition
+//  @return CustomEventDefinition
 func (a *CustomEventsApiService) UpdateDefinitionExecute(r CustomEventsApiUpdateDefinitionRequest) (*CustomEventDefinition, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CustomEventDefinition
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CustomEventDefinition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomEventsApiService.UpdateDefinition")

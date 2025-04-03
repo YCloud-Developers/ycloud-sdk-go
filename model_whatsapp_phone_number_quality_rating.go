@@ -21,9 +21,9 @@ type WhatsappPhoneNumberQualityRating string
 
 // List of WhatsappPhoneNumberQualityRating
 const (
-	WHATSAPPPHONENUMBERQUALITYRATING_GREEN   WhatsappPhoneNumberQualityRating = "GREEN"
-	WHATSAPPPHONENUMBERQUALITYRATING_YELLOW  WhatsappPhoneNumberQualityRating = "YELLOW"
-	WHATSAPPPHONENUMBERQUALITYRATING_RED     WhatsappPhoneNumberQualityRating = "RED"
+	WHATSAPPPHONENUMBERQUALITYRATING_GREEN WhatsappPhoneNumberQualityRating = "GREEN"
+	WHATSAPPPHONENUMBERQUALITYRATING_YELLOW WhatsappPhoneNumberQualityRating = "YELLOW"
+	WHATSAPPPHONENUMBERQUALITYRATING_RED WhatsappPhoneNumberQualityRating = "RED"
 	WHATSAPPPHONENUMBERQUALITYRATING_UNKNOWN WhatsappPhoneNumberQualityRating = "UNKNOWN"
 )
 
@@ -107,3 +107,4 @@ func (v *NullableWhatsappPhoneNumberQualityRating) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

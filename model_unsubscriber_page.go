@@ -18,8 +18,8 @@ import (
 // UnsubscriberPage Represents a given page of unsubscriber objects.
 type UnsubscriberPage struct {
 	// An array containing unsubscriber objects.
-	Items  []Unsubscriber `json:"items,omitempty"`
-	Cursor *PageCursor    `json:"cursor,omitempty"`
+	Items []Unsubscriber `json:"items,omitempty"`
+	Cursor *PageCursor `json:"cursor,omitempty"`
 	// The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.
 	Offset int32 `json:"offset"`
 	// A limit on the number of items to be returned, between 1 and 100, defaults to 10.
@@ -276,3 +276,5 @@ func (v *NullableUnsubscriberPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

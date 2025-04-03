@@ -19,8 +19,8 @@ import (
 type UnsubscriberCreateRequest struct {
 	Type UnsubscriberType `json:"type"`
 	// The customer who has opted out. For `type=PHONE_NUMBER`, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	Customer string              `json:"customer"`
-	Channel  UnsubscriberChannel `json:"channel"`
+	Customer string `json:"customer"`
+	Channel UnsubscriberChannel `json:"channel"`
 	// The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	RegionCode *string `json:"regionCode,omitempty"`
 }
@@ -201,3 +201,5 @@ func (v *NullableUnsubscriberCreateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -18,7 +18,7 @@ import (
 // WhatsappMessageOrderPaymentSetting Payment settings for the order.
 type WhatsappMessageOrderPaymentSetting struct {
 	// Must be set to `payment_gateway`.
-	Type           string                             `json:"type"`
+	Type string `json:"type"`
 	PaymentGateway WhatsappMessageOrderPaymentGateway `json:"payment_gateway"`
 }
 
@@ -135,3 +135,5 @@ func (v *NullableWhatsappMessageOrderPaymentSetting) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

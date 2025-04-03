@@ -22,8 +22,8 @@ type WhatsappConversationType string
 // List of WhatsappConversationType
 const (
 	WHATSAPPCONVERSATIONTYPE_FREE_ENTRY WhatsappConversationType = "FREE_ENTRY"
-	WHATSAPPCONVERSATIONTYPE_FREE_TIER  WhatsappConversationType = "FREE_TIER"
-	WHATSAPPCONVERSATIONTYPE_REGULAR    WhatsappConversationType = "REGULAR"
+	WHATSAPPCONVERSATIONTYPE_FREE_TIER WhatsappConversationType = "FREE_TIER"
+	WHATSAPPCONVERSATIONTYPE_REGULAR WhatsappConversationType = "REGULAR"
 )
 
 // All allowed values of WhatsappConversationType enum
@@ -105,3 +105,4 @@ func (v *NullableWhatsappConversationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

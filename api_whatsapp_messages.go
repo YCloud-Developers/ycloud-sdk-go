@@ -20,13 +20,14 @@ import (
 	"strings"
 )
 
+
 // WhatsappMessagesApiService WhatsappMessagesApi service
 type WhatsappMessagesApiService service
 
 type WhatsappMessagesApiRetrieveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WhatsappMessagesApiService
-	id         string
+	id string
 }
 
 func (r WhatsappMessagesApiRetrieveRequest) Execute() (*WhatsappMessage, *http.Response, error) {
@@ -38,27 +39,26 @@ Retrieve Retrieve a message
 
 Retrieves a WhatsApp message you've previously sent.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id ID of the object.
-	@return WhatsappMessagesApiRetrieveRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the object.
+ @return WhatsappMessagesApiRetrieveRequest
 */
 func (a *WhatsappMessagesApiService) Retrieve(ctx context.Context, id string) WhatsappMessagesApiRetrieveRequest {
 	return WhatsappMessagesApiRetrieveRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappMessage
+//  @return WhatsappMessage
 func (a *WhatsappMessagesApiService) RetrieveExecute(r WhatsappMessagesApiRetrieveRequest) (*WhatsappMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappMessage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappMessagesApiService.Retrieve")
@@ -151,8 +151,8 @@ func (a *WhatsappMessagesApiService) RetrieveExecute(r WhatsappMessagesApiRetrie
 }
 
 type WhatsappMessagesApiSendRequest struct {
-	ctx                        context.Context
-	ApiService                 *WhatsappMessagesApiService
+	ctx context.Context
+	ApiService *WhatsappMessagesApiService
 	whatsappMessageSendRequest *WhatsappMessageSendRequest
 }
 
@@ -172,25 +172,24 @@ Enqueues an outbound WhatsApp message for sending.
 
 Queued messages will be submitted to the WhatsApp Business API asynchronously.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappMessagesApiSendRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappMessagesApiSendRequest
 */
 func (a *WhatsappMessagesApiService) Send(ctx context.Context) WhatsappMessagesApiSendRequest {
 	return WhatsappMessagesApiSendRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappMessage
+//  @return WhatsappMessage
 func (a *WhatsappMessagesApiService) SendExecute(r WhatsappMessagesApiSendRequest) (*WhatsappMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappMessage
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappMessagesApiService.Send")
@@ -278,8 +277,8 @@ func (a *WhatsappMessagesApiService) SendExecute(r WhatsappMessagesApiSendReques
 }
 
 type WhatsappMessagesApiSendDirectlyRequest struct {
-	ctx                        context.Context
-	ApiService                 *WhatsappMessagesApiService
+	ctx context.Context
+	ApiService *WhatsappMessagesApiService
 	whatsappMessageSendRequest *WhatsappMessageSendRequest
 }
 
@@ -301,25 +300,24 @@ The message is submitted to the WhatsApp Business API synchronously. Typically u
 
 The response body field `error.whatsappApiError` is included if we tried to request the WhatsApp Business API and got an error response.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return WhatsappMessagesApiSendDirectlyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WhatsappMessagesApiSendDirectlyRequest
 */
 func (a *WhatsappMessagesApiService) SendDirectly(ctx context.Context) WhatsappMessagesApiSendDirectlyRequest {
 	return WhatsappMessagesApiSendDirectlyRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WhatsappMessage
+//  @return WhatsappMessage
 func (a *WhatsappMessagesApiService) SendDirectlyExecute(r WhatsappMessagesApiSendDirectlyRequest) (*WhatsappMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WhatsappMessage
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappMessagesApiService.SendDirectly")

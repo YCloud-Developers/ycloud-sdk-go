@@ -28,7 +28,7 @@ type WhatsappMessageInteractiveAction struct {
 	// Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
 	Sections []WhatsappMessageInteractiveActionSection `json:"sections,omitempty"`
 	// Action name. Required for Call-To-Action (CTA) buttons. - `cta_url`: Use for Call-To-Action (CTA) URL buttons. - `send_location`: Use for Location Request buttons. - `flow`: Use for Flow buttons. - `review_and_pay`: Use for Order Details buttons. - `review_order`: Use for Order Status buttons. - `voice_call`: Use for Voice Call buttons.
-	Name       *string                                     `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	Parameters *WhatsappMessageInteractiveActionParameters `json:"parameters,omitempty"`
 }
 
@@ -334,3 +334,5 @@ func (v *NullableWhatsappMessageInteractiveAction) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

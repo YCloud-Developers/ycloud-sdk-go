@@ -220,3 +220,5 @@ func (v *NullableWhatsappMessageOrderPaymentSettingPaymentGatewayPayu) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,10 +21,10 @@ type VerificationStatus string
 
 // List of VerificationStatus
 const (
-	VERIFICATIONSTATUS_PENDING     VerificationStatus = "pending"
-	VERIFICATIONSTATUS_APPROVED    VerificationStatus = "approved"
-	VERIFICATIONSTATUS_BLOCKED     VerificationStatus = "blocked"
-	VERIFICATIONSTATUS_EXPIRED     VerificationStatus = "expired"
+	VERIFICATIONSTATUS_PENDING VerificationStatus = "pending"
+	VERIFICATIONSTATUS_APPROVED VerificationStatus = "approved"
+	VERIFICATIONSTATUS_BLOCKED VerificationStatus = "blocked"
+	VERIFICATIONSTATUS_EXPIRED VerificationStatus = "expired"
 	VERIFICATIONSTATUS_UNDELIVERED VerificationStatus = "undelivered"
 )
 
@@ -109,3 +109,4 @@ func (v *NullableVerificationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
