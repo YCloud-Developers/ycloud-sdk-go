@@ -66,6 +66,8 @@ type WhatsappMessage struct {
 	// The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
 	RegionCode *string `json:"regionCode,omitempty"`
 	PricingCategory *WhatsappPricingCategory `json:"pricingCategory,omitempty"`
+	PricingModel *WhatsappPricingModel `json:"pricingModel,omitempty"`
+	PricingType *WhatsappPricingType `json:"pricingType,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
 	// This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via the **WhatsApp** product. - `verify`: Indicates that the message is sent via the **Verify** product.
 	BizType *string `json:"bizType,omitempty"`
@@ -1086,6 +1088,70 @@ func (o *WhatsappMessage) SetPricingCategory(v WhatsappPricingCategory) {
 	o.PricingCategory = &v
 }
 
+// GetPricingModel returns the PricingModel field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetPricingModel() WhatsappPricingModel {
+	if o == nil || o.PricingModel == nil {
+		var ret WhatsappPricingModel
+		return ret
+	}
+	return *o.PricingModel
+}
+
+// GetPricingModelOk returns a tuple with the PricingModel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetPricingModelOk() (*WhatsappPricingModel, bool) {
+	if o == nil || o.PricingModel == nil {
+		return nil, false
+	}
+	return o.PricingModel, true
+}
+
+// HasPricingModel returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasPricingModel() bool {
+	if o != nil && o.PricingModel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPricingModel gets a reference to the given WhatsappPricingModel and assigns it to the PricingModel field.
+func (o *WhatsappMessage) SetPricingModel(v WhatsappPricingModel) {
+	o.PricingModel = &v
+}
+
+// GetPricingType returns the PricingType field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetPricingType() WhatsappPricingType {
+	if o == nil || o.PricingType == nil {
+		var ret WhatsappPricingType
+		return ret
+	}
+	return *o.PricingType
+}
+
+// GetPricingTypeOk returns a tuple with the PricingType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetPricingTypeOk() (*WhatsappPricingType, bool) {
+	if o == nil || o.PricingType == nil {
+		return nil, false
+	}
+	return o.PricingType, true
+}
+
+// HasPricingType returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasPricingType() bool {
+	if o != nil && o.PricingType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPricingType gets a reference to the given WhatsappPricingType and assigns it to the PricingType field.
+func (o *WhatsappMessage) SetPricingType(v WhatsappPricingType) {
+	o.PricingType = &v
+}
+
 // GetWhatsappApiError returns the WhatsappApiError field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetWhatsappApiError() WhatsappApiError {
 	if o == nil || o.WhatsappApiError == nil {
@@ -1279,6 +1345,12 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.PricingCategory != nil {
 		toSerialize["pricingCategory"] = o.PricingCategory
+	}
+	if o.PricingModel != nil {
+		toSerialize["pricingModel"] = o.PricingModel
+	}
+	if o.PricingType != nil {
+		toSerialize["pricingType"] = o.PricingType
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError

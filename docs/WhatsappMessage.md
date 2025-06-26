@@ -36,6 +36,8 @@ Name | Type | Description | Notes
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
 **RegionCode** | Pointer to **string** | The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number. | [optional] 
 **PricingCategory** | Pointer to [**WhatsappPricingCategory**](WhatsappPricingCategory.md) |  | [optional] 
+**PricingModel** | Pointer to [**WhatsappPricingModel**](WhatsappPricingModel.md) |  | [optional] 
+**PricingType** | Pointer to [**WhatsappPricingType**](WhatsappPricingType.md) |  | [optional] 
 **WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
 **BizType** | Pointer to **string** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via the **WhatsApp** product. - &#x60;verify&#x60;: Indicates that the message is sent via the **Verify** product. | [optional] 
 **VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional] 
@@ -838,6 +840,56 @@ SetPricingCategory sets PricingCategory field to given value.
 `func (o *WhatsappMessage) HasPricingCategory() bool`
 
 HasPricingCategory returns a boolean if a field has been set.
+
+### GetPricingModel
+
+`func (o *WhatsappMessage) GetPricingModel() WhatsappPricingModel`
+
+GetPricingModel returns the PricingModel field if non-nil, zero value otherwise.
+
+### GetPricingModelOk
+
+`func (o *WhatsappMessage) GetPricingModelOk() (*WhatsappPricingModel, bool)`
+
+GetPricingModelOk returns a tuple with the PricingModel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricingModel
+
+`func (o *WhatsappMessage) SetPricingModel(v WhatsappPricingModel)`
+
+SetPricingModel sets PricingModel field to given value.
+
+### HasPricingModel
+
+`func (o *WhatsappMessage) HasPricingModel() bool`
+
+HasPricingModel returns a boolean if a field has been set.
+
+### GetPricingType
+
+`func (o *WhatsappMessage) GetPricingType() WhatsappPricingType`
+
+GetPricingType returns the PricingType field if non-nil, zero value otherwise.
+
+### GetPricingTypeOk
+
+`func (o *WhatsappMessage) GetPricingTypeOk() (*WhatsappPricingType, bool)`
+
+GetPricingTypeOk returns a tuple with the PricingType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricingType
+
+`func (o *WhatsappMessage) SetPricingType(v WhatsappPricingType)`
+
+SetPricingType sets PricingType field to given value.
+
+### HasPricingType
+
+`func (o *WhatsappMessage) HasPricingType() bool`
+
+HasPricingType returns a boolean if a field has been set.
 
 ### GetWhatsappApiError
 

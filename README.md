@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.3
+- Package version: 1.15.4
 
 ## Installation
 
@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 *WhatsappBusinessAccountsApi* | [**List**](docs/WhatsappBusinessAccountsApi.md#list) | **Get** /whatsapp/businessAccounts | List WABAs
 *WhatsappBusinessAccountsApi* | [**Retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **Get** /whatsapp/businessAccounts/{id} | Retrieve a WABA
 *WhatsappInboundMessagesApi* | [**MarkAsRead**](docs/WhatsappInboundMessagesApi.md#markasread) | **Post** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read
+*WhatsappInboundMessagesApi* | [**TypingIndicator**](docs/WhatsappInboundMessagesApi.md#typingindicator) | **Post** /whatsapp/inboundMessages/{id}/typingIndicator | Mark message as read and display a typing indicator
 *WhatsappMediaApi* | [**Upload**](docs/WhatsappMediaApi.md#upload) | **Post** /whatsapp/media/{phoneNumber}/upload | Upload media
 *WhatsappMessagesApi* | [**Retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **Get** /whatsapp/messages/{id} | Retrieve a message
 *WhatsappMessagesApi* | [**Send**](docs/WhatsappMessagesApi.md#send) | **Post** /whatsapp/messages | Enqueue a message
@@ -231,6 +232,8 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberQualityUpdateEventEnum](docs/WhatsappPhoneNumberQualityUpdateEventEnum.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappPricingCategory](docs/WhatsappPricingCategory.md)
+ - [WhatsappPricingModel](docs/WhatsappPricingModel.md)
+ - [WhatsappPricingType](docs/WhatsappPricingType.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)
  - [WhatsappReviewDecision](docs/WhatsappReviewDecision.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)
