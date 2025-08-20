@@ -17,10 +17,12 @@ import (
 
 // WhatsappInboundMessageInteractive When a customer has interacted with your message, this object is included in the message object.
 type WhatsappInboundMessageInteractive struct {
-	// The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list.
+	// The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list. - `nfm_reply`: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - `call_permission_reply`: Sent when a customer responds to a call permission request.
 	Type *string `json:"type,omitempty"`
 	ButtonReply *WhatsappInboundMessageInteractiveButtonReply `json:"button_reply,omitempty"`
 	ListReply *WhatsappInboundMessageInteractiveListReply `json:"list_reply,omitempty"`
+	NfmReply *WhatsappInboundMessageInteractiveNfmReply `json:"nfm_reply,omitempty"`
+	CallPermissionReply *WhatsappInboundMessageInteractiveCallPermissionReply `json:"call_permission_reply,omitempty"`
 }
 
 // NewWhatsappInboundMessageInteractive instantiates a new WhatsappInboundMessageInteractive object
@@ -136,6 +138,70 @@ func (o *WhatsappInboundMessageInteractive) SetListReply(v WhatsappInboundMessag
 	o.ListReply = &v
 }
 
+// GetNfmReply returns the NfmReply field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageInteractive) GetNfmReply() WhatsappInboundMessageInteractiveNfmReply {
+	if o == nil || o.NfmReply == nil {
+		var ret WhatsappInboundMessageInteractiveNfmReply
+		return ret
+	}
+	return *o.NfmReply
+}
+
+// GetNfmReplyOk returns a tuple with the NfmReply field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageInteractive) GetNfmReplyOk() (*WhatsappInboundMessageInteractiveNfmReply, bool) {
+	if o == nil || o.NfmReply == nil {
+		return nil, false
+	}
+	return o.NfmReply, true
+}
+
+// HasNfmReply returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageInteractive) HasNfmReply() bool {
+	if o != nil && o.NfmReply != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNfmReply gets a reference to the given WhatsappInboundMessageInteractiveNfmReply and assigns it to the NfmReply field.
+func (o *WhatsappInboundMessageInteractive) SetNfmReply(v WhatsappInboundMessageInteractiveNfmReply) {
+	o.NfmReply = &v
+}
+
+// GetCallPermissionReply returns the CallPermissionReply field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageInteractive) GetCallPermissionReply() WhatsappInboundMessageInteractiveCallPermissionReply {
+	if o == nil || o.CallPermissionReply == nil {
+		var ret WhatsappInboundMessageInteractiveCallPermissionReply
+		return ret
+	}
+	return *o.CallPermissionReply
+}
+
+// GetCallPermissionReplyOk returns a tuple with the CallPermissionReply field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageInteractive) GetCallPermissionReplyOk() (*WhatsappInboundMessageInteractiveCallPermissionReply, bool) {
+	if o == nil || o.CallPermissionReply == nil {
+		return nil, false
+	}
+	return o.CallPermissionReply, true
+}
+
+// HasCallPermissionReply returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageInteractive) HasCallPermissionReply() bool {
+	if o != nil && o.CallPermissionReply != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallPermissionReply gets a reference to the given WhatsappInboundMessageInteractiveCallPermissionReply and assigns it to the CallPermissionReply field.
+func (o *WhatsappInboundMessageInteractive) SetCallPermissionReply(v WhatsappInboundMessageInteractiveCallPermissionReply) {
+	o.CallPermissionReply = &v
+}
+
 func (o WhatsappInboundMessageInteractive) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type != nil {
@@ -146,6 +212,12 @@ func (o WhatsappInboundMessageInteractive) MarshalJSON() ([]byte, error) {
 	}
 	if o.ListReply != nil {
 		toSerialize["list_reply"] = o.ListReply
+	}
+	if o.NfmReply != nil {
+		toSerialize["nfm_reply"] = o.NfmReply
+	}
+	if o.CallPermissionReply != nil {
+		toSerialize["call_permission_reply"] = o.CallPermissionReply
 	}
 	return json.Marshal(toSerialize)
 }

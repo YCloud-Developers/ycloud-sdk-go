@@ -24,6 +24,8 @@ type WebhookEndpoint struct {
 	Url *string `json:"url,omitempty"`
 	// The list of events to enable for this endpoint.
 	EnabledEvents []string `json:"enabledEvents,omitempty"`
+	// Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When `enabledEvents` contains `contact.attributes_changed`, this field is required and must contain at least one event property configuration for that event type.
+	EventProperties []EventProperty `json:"eventProperties,omitempty"`
 	// An optional description of what the webhook is used for.
 	Description *string `json:"description,omitempty"`
 	Status *WebhookEndpointStatus `json:"status,omitempty"`
@@ -139,6 +141,38 @@ func (o *WebhookEndpoint) HasEnabledEvents() bool {
 // SetEnabledEvents gets a reference to the given []string and assigns it to the EnabledEvents field.
 func (o *WebhookEndpoint) SetEnabledEvents(v []string) {
 	o.EnabledEvents = v
+}
+
+// GetEventProperties returns the EventProperties field value if set, zero value otherwise.
+func (o *WebhookEndpoint) GetEventProperties() []EventProperty {
+	if o == nil || o.EventProperties == nil {
+		var ret []EventProperty
+		return ret
+	}
+	return o.EventProperties
+}
+
+// GetEventPropertiesOk returns a tuple with the EventProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookEndpoint) GetEventPropertiesOk() ([]EventProperty, bool) {
+	if o == nil || o.EventProperties == nil {
+		return nil, false
+	}
+	return o.EventProperties, true
+}
+
+// HasEventProperties returns a boolean if a field has been set.
+func (o *WebhookEndpoint) HasEventProperties() bool {
+	if o != nil && o.EventProperties != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEventProperties gets a reference to the given []EventProperty and assigns it to the EventProperties field.
+func (o *WebhookEndpoint) SetEventProperties(v []EventProperty) {
+	o.EventProperties = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -311,6 +345,9 @@ func (o WebhookEndpoint) MarshalJSON() ([]byte, error) {
 	}
 	if o.EnabledEvents != nil {
 		toSerialize["enabledEvents"] = o.EnabledEvents
+	}
+	if o.EventProperties != nil {
+		toSerialize["eventProperties"] = o.EventProperties
 	}
 	if o.Description != nil {
 		toSerialize["description"] = o.Description

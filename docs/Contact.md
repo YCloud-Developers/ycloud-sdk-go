@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
 **OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
+**SourceType** | Pointer to [**ContactSourceType**](ContactSourceType.md) |  | [optional] 
+**SourceId** | Pointer to **string** | 来源标识符。与联系人创建来源相关的唯一标识符。 | [optional] 
+**SourceUrl** | Pointer to **string** | 来源URL。联系人创建时的来源链接地址。 | [optional] 
 
 ## Methods
 
@@ -330,6 +333,81 @@ SetOwnerEmail sets OwnerEmail field to given value.
 `func (o *Contact) HasOwnerEmail() bool`
 
 HasOwnerEmail returns a boolean if a field has been set.
+
+### GetSourceType
+
+`func (o *Contact) GetSourceType() ContactSourceType`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *Contact) GetSourceTypeOk() (*ContactSourceType, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *Contact) SetSourceType(v ContactSourceType)`
+
+SetSourceType sets SourceType field to given value.
+
+### HasSourceType
+
+`func (o *Contact) HasSourceType() bool`
+
+HasSourceType returns a boolean if a field has been set.
+
+### GetSourceId
+
+`func (o *Contact) GetSourceId() string`
+
+GetSourceId returns the SourceId field if non-nil, zero value otherwise.
+
+### GetSourceIdOk
+
+`func (o *Contact) GetSourceIdOk() (*string, bool)`
+
+GetSourceIdOk returns a tuple with the SourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceId
+
+`func (o *Contact) SetSourceId(v string)`
+
+SetSourceId sets SourceId field to given value.
+
+### HasSourceId
+
+`func (o *Contact) HasSourceId() bool`
+
+HasSourceId returns a boolean if a field has been set.
+
+### GetSourceUrl
+
+`func (o *Contact) GetSourceUrl() string`
+
+GetSourceUrl returns the SourceUrl field if non-nil, zero value otherwise.
+
+### GetSourceUrlOk
+
+`func (o *Contact) GetSourceUrlOk() (*string, bool)`
+
+GetSourceUrlOk returns a tuple with the SourceUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceUrl
+
+`func (o *Contact) SetSourceUrl(v string)`
+
+SetSourceUrl sets SourceUrl field to given value.
+
+### HasSourceUrl
+
+`func (o *Contact) HasSourceUrl() bool`
+
+HasSourceUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** | Pointer to **string** | The URL of the webhook endpoint. | [optional] 
 **EnabledEvents** | Pointer to [**[]EventType**](EventType.md) | The list of events to enable for this endpoint. | [optional] 
+**EventProperties** | Pointer to [**[]EventProperty**](EventProperty.md) | Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When &#x60;enabledEvents&#x60; contains &#x60;contact.attributes_changed&#x60;, this field is required and must contain at least one event property configuration for that event type. | [optional] 
 **Description** | Pointer to **string** | An optional description of what the webhook is used for. | [optional] 
 **Status** | Pointer to [**WebhookEndpointStatus**](WebhookEndpointStatus.md) |  | [optional] 
 
@@ -77,6 +78,31 @@ SetEnabledEvents sets EnabledEvents field to given value.
 `func (o *WebhookEndpointUpdateRequest) HasEnabledEvents() bool`
 
 HasEnabledEvents returns a boolean if a field has been set.
+
+### GetEventProperties
+
+`func (o *WebhookEndpointUpdateRequest) GetEventProperties() []EventProperty`
+
+GetEventProperties returns the EventProperties field if non-nil, zero value otherwise.
+
+### GetEventPropertiesOk
+
+`func (o *WebhookEndpointUpdateRequest) GetEventPropertiesOk() (*[]EventProperty, bool)`
+
+GetEventPropertiesOk returns a tuple with the EventProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventProperties
+
+`func (o *WebhookEndpointUpdateRequest) SetEventProperties(v []EventProperty)`
+
+SetEventProperties sets EventProperties field to given value.
+
+### HasEventProperties
+
+`func (o *WebhookEndpointUpdateRequest) HasEventProperties() bool`
+
+HasEventProperties returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -20,6 +20,8 @@ type WhatsappTemplateEditRequest struct {
 	Components []WhatsappTemplateComponent `json:"components"`
 	// If we are unable to deliver a message for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. By default, messages that use an authentication template have a default TTL of **10 minutes**, and messages that use a utility or marketing template have a default TTL of **30 days**. Set its value between `30` and `900` seconds (i.e., 30 seconds to 15 minutes) for authentication templates, or `30` and `43200` seconds (i.e., 30 seconds to 12 hours) for utility templates, or `43200` and `2592000` seconds (i.e., 12 hours to 30 days) for marketing templates. Alternatively, you can set this value to `-1`, which will set a custom TTL of 30 days for either type of template. We encourage you to set a time-to-live for all of your authentication templates, preferably equal to or less than your code expiration time, to ensure your customers only get a message when a code is still usable. Authentication templates created before October 23, 2024, have a default TTL of 30 days.
 	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
+	// **Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights.
+	CtaUrlLinkTrackingOptedOut *bool `json:"ctaUrlLinkTrackingOptedOut,omitempty"`
 }
 
 // NewWhatsappTemplateEditRequest instantiates a new WhatsappTemplateEditRequest object
@@ -96,6 +98,38 @@ func (o *WhatsappTemplateEditRequest) SetMessageSendTtlSeconds(v int32) {
 	o.MessageSendTtlSeconds = &v
 }
 
+// GetCtaUrlLinkTrackingOptedOut returns the CtaUrlLinkTrackingOptedOut field value if set, zero value otherwise.
+func (o *WhatsappTemplateEditRequest) GetCtaUrlLinkTrackingOptedOut() bool {
+	if o == nil || o.CtaUrlLinkTrackingOptedOut == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CtaUrlLinkTrackingOptedOut
+}
+
+// GetCtaUrlLinkTrackingOptedOutOk returns a tuple with the CtaUrlLinkTrackingOptedOut field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateEditRequest) GetCtaUrlLinkTrackingOptedOutOk() (*bool, bool) {
+	if o == nil || o.CtaUrlLinkTrackingOptedOut == nil {
+		return nil, false
+	}
+	return o.CtaUrlLinkTrackingOptedOut, true
+}
+
+// HasCtaUrlLinkTrackingOptedOut returns a boolean if a field has been set.
+func (o *WhatsappTemplateEditRequest) HasCtaUrlLinkTrackingOptedOut() bool {
+	if o != nil && o.CtaUrlLinkTrackingOptedOut != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCtaUrlLinkTrackingOptedOut gets a reference to the given bool and assigns it to the CtaUrlLinkTrackingOptedOut field.
+func (o *WhatsappTemplateEditRequest) SetCtaUrlLinkTrackingOptedOut(v bool) {
+	o.CtaUrlLinkTrackingOptedOut = &v
+}
+
 func (o WhatsappTemplateEditRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -103,6 +137,9 @@ func (o WhatsappTemplateEditRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.MessageSendTtlSeconds != nil {
 		toSerialize["messageSendTtlSeconds"] = o.MessageSendTtlSeconds
+	}
+	if o.CtaUrlLinkTrackingOptedOut != nil {
+		toSerialize["ctaUrlLinkTrackingOptedOut"] = o.CtaUrlLinkTrackingOptedOut
 	}
 	return json.Marshal(toSerialize)
 }

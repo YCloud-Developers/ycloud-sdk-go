@@ -35,6 +35,9 @@ type Event struct {
 	WhatsappPhoneNumber *WhatsappPhoneNumber `json:"whatsappPhoneNumber,omitempty"`
 	WhatsappPayment *WhatsappPayment `json:"whatsappPayment,omitempty"`
 	WhatsappTemplate *WhatsappTemplate `json:"whatsappTemplate,omitempty"`
+	ContactAttributesChanged *ContactAttributesChanged `json:"contactAttributesChanged,omitempty"`
+	ContactCreated *ContactCreated `json:"contactCreated,omitempty"`
+	ContactDeleted *ContactDeleted `json:"contactDeleted,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
@@ -474,6 +477,102 @@ func (o *Event) SetWhatsappTemplate(v WhatsappTemplate) {
 	o.WhatsappTemplate = &v
 }
 
+// GetContactAttributesChanged returns the ContactAttributesChanged field value if set, zero value otherwise.
+func (o *Event) GetContactAttributesChanged() ContactAttributesChanged {
+	if o == nil || o.ContactAttributesChanged == nil {
+		var ret ContactAttributesChanged
+		return ret
+	}
+	return *o.ContactAttributesChanged
+}
+
+// GetContactAttributesChangedOk returns a tuple with the ContactAttributesChanged field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactAttributesChangedOk() (*ContactAttributesChanged, bool) {
+	if o == nil || o.ContactAttributesChanged == nil {
+		return nil, false
+	}
+	return o.ContactAttributesChanged, true
+}
+
+// HasContactAttributesChanged returns a boolean if a field has been set.
+func (o *Event) HasContactAttributesChanged() bool {
+	if o != nil && o.ContactAttributesChanged != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactAttributesChanged gets a reference to the given ContactAttributesChanged and assigns it to the ContactAttributesChanged field.
+func (o *Event) SetContactAttributesChanged(v ContactAttributesChanged) {
+	o.ContactAttributesChanged = &v
+}
+
+// GetContactCreated returns the ContactCreated field value if set, zero value otherwise.
+func (o *Event) GetContactCreated() ContactCreated {
+	if o == nil || o.ContactCreated == nil {
+		var ret ContactCreated
+		return ret
+	}
+	return *o.ContactCreated
+}
+
+// GetContactCreatedOk returns a tuple with the ContactCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactCreatedOk() (*ContactCreated, bool) {
+	if o == nil || o.ContactCreated == nil {
+		return nil, false
+	}
+	return o.ContactCreated, true
+}
+
+// HasContactCreated returns a boolean if a field has been set.
+func (o *Event) HasContactCreated() bool {
+	if o != nil && o.ContactCreated != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactCreated gets a reference to the given ContactCreated and assigns it to the ContactCreated field.
+func (o *Event) SetContactCreated(v ContactCreated) {
+	o.ContactCreated = &v
+}
+
+// GetContactDeleted returns the ContactDeleted field value if set, zero value otherwise.
+func (o *Event) GetContactDeleted() ContactDeleted {
+	if o == nil || o.ContactDeleted == nil {
+		var ret ContactDeleted
+		return ret
+	}
+	return *o.ContactDeleted
+}
+
+// GetContactDeletedOk returns a tuple with the ContactDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactDeletedOk() (*ContactDeleted, bool) {
+	if o == nil || o.ContactDeleted == nil {
+		return nil, false
+	}
+	return o.ContactDeleted, true
+}
+
+// HasContactDeleted returns a boolean if a field has been set.
+func (o *Event) HasContactDeleted() bool {
+	if o != nil && o.ContactDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactDeleted gets a reference to the given ContactDeleted and assigns it to the ContactDeleted field.
+func (o *Event) SetContactDeleted(v ContactDeleted) {
+	o.ContactDeleted = &v
+}
+
 func (o Event) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -517,6 +616,15 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappTemplate != nil {
 		toSerialize["whatsappTemplate"] = o.WhatsappTemplate
+	}
+	if o.ContactAttributesChanged != nil {
+		toSerialize["contactAttributesChanged"] = o.ContactAttributesChanged
+	}
+	if o.ContactCreated != nil {
+		toSerialize["contactCreated"] = o.ContactCreated
+	}
+	if o.ContactDeleted != nil {
+		toSerialize["contactDeleted"] = o.ContactDeleted
 	}
 	return json.Marshal(toSerialize)
 }

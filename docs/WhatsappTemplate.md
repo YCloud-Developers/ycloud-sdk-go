@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**OfficialTemplateId** | Pointer to **string** | Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp&#39;s system. | [optional] 
 **WabaId** | **string** | WhatsApp Business Account ID. | 
 **Name** | **string** | Name of the template. | 
 **Language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
@@ -39,6 +40,31 @@ will change when the set of required properties is changed
 NewWhatsappTemplateWithDefaults instantiates a new WhatsappTemplate object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOfficialTemplateId
+
+`func (o *WhatsappTemplate) GetOfficialTemplateId() string`
+
+GetOfficialTemplateId returns the OfficialTemplateId field if non-nil, zero value otherwise.
+
+### GetOfficialTemplateIdOk
+
+`func (o *WhatsappTemplate) GetOfficialTemplateIdOk() (*string, bool)`
+
+GetOfficialTemplateIdOk returns a tuple with the OfficialTemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOfficialTemplateId
+
+`func (o *WhatsappTemplate) SetOfficialTemplateId(v string)`
+
+SetOfficialTemplateId sets OfficialTemplateId field to given value.
+
+### HasOfficialTemplateId
+
+`func (o *WhatsappTemplate) HasOfficialTemplateId() bool`
+
+HasOfficialTemplateId returns a boolean if a field has been set.
 
 ### GetWabaId
 

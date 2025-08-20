@@ -4,12 +4,74 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AttributesList**](ContactsApi.md#AttributesList) | **Get** /contact/contacts/attributes | List contact attributes
 [**Create**](ContactsApi.md#Create) | **Post** /contact/contacts | Create a contact
 [**Delete**](ContactsApi.md#Delete) | **Delete** /contact/contacts/{id} | Delete a contact
 [**List**](ContactsApi.md#List) | **Get** /contact/contacts | List contacts
 [**Retrieve**](ContactsApi.md#Retrieve) | **Get** /contact/contacts/{id} | Retrieve a contact
 [**Update**](ContactsApi.md#Update) | **Patch** /contact/contacts/{id} | Update a contact
 
+
+
+## AttributesList
+
+> []ContactAttribute AttributesList(ctx).Execute()
+
+List contact attributes
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.ContactsApi.AttributesList(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ContactsApi.AttributesList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AttributesList`: []ContactAttribute
+    fmt.Fprintf(os.Stdout, "Response from `ContactsApi.AttributesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAttributesListRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]ContactAttribute**](ContactAttribute.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## Create

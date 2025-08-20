@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappInboundMessageSystem When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user’s identity has potentially changed on WhatsApp.
+// WhatsappInboundMessageSystem When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user's identity has potentially changed on WhatsApp.
 type WhatsappInboundMessageSystem struct {
 	// Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.
 	Body *string `json:"body,omitempty"`

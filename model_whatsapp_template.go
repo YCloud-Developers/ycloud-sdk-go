@@ -18,6 +18,8 @@ import (
 
 // WhatsappTemplate See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).
 type WhatsappTemplate struct {
+	// Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp's system.
+	OfficialTemplateId *string `json:"officialTemplateId,omitempty"`
 	// WhatsApp Business Account ID.
 	WabaId string `json:"wabaId"`
 	// Name of the template.
@@ -64,6 +66,38 @@ func NewWhatsappTemplate(wabaId string, name string, language string) *WhatsappT
 func NewWhatsappTemplateWithDefaults() *WhatsappTemplate {
 	this := WhatsappTemplate{}
 	return &this
+}
+
+// GetOfficialTemplateId returns the OfficialTemplateId field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetOfficialTemplateId() string {
+	if o == nil || o.OfficialTemplateId == nil {
+		var ret string
+		return ret
+	}
+	return *o.OfficialTemplateId
+}
+
+// GetOfficialTemplateIdOk returns a tuple with the OfficialTemplateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetOfficialTemplateIdOk() (*string, bool) {
+	if o == nil || o.OfficialTemplateId == nil {
+		return nil, false
+	}
+	return o.OfficialTemplateId, true
+}
+
+// HasOfficialTemplateId returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasOfficialTemplateId() bool {
+	if o != nil && o.OfficialTemplateId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOfficialTemplateId gets a reference to the given string and assigns it to the OfficialTemplateId field.
+func (o *WhatsappTemplate) SetOfficialTemplateId(v string) {
+	o.OfficialTemplateId = &v
 }
 
 // GetWabaId returns the WabaId field value
@@ -556,6 +590,9 @@ func (o *WhatsappTemplate) SetWhatsappApiError(v WhatsappApiError) {
 
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.OfficialTemplateId != nil {
+		toSerialize["officialTemplateId"] = o.OfficialTemplateId
+	}
 	if true {
 		toSerialize["wabaId"] = o.WabaId
 	}

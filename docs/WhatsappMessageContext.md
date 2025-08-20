@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MessageId** | Pointer to **string** | Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform. | [optional] 
+**MessageId** | Pointer to **string** | Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform. | [optional] 
 
 ## Methods
 

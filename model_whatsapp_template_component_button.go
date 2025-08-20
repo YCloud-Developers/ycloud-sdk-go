@@ -27,10 +27,14 @@ type WhatsappTemplateComponentButton struct {
 	OtpType *WhatsappTemplateComponentButtonOtpType `json:"otp_type,omitempty"`
 	// **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
 	AutofillText *string `json:"autofill_text,omitempty"`
-	// **One-tap and zero-tap buttons only.** Your Android app's package name.
+	// **Deprecated since 2025-07-23. Use `supported_apps` instead.** **One-tap and zero-tap buttons only.** Your Android app's package name.
+	// Deprecated
 	PackageName *string `json:"package_name,omitempty"`
-	// **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
+	// **Deprecated since 2025-07-23. Use `supported_apps` instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
+	// Deprecated
 	SignatureHash *string `json:"signature_hash,omitempty"`
+	// **One-tap and zero-tap buttons only.** List of supported apps.
+	SupportedApps []WhatsappTemplateComponentButtonOtpSupportedApp `json:"supported_apps,omitempty"`
 	// **Zero-tap buttons only.** Set to `true` to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it's your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to `false`, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
 	ZeroTapTermsAccepted *bool `json:"zero_tap_terms_accepted,omitempty"`
 	// Sample full URL for a `URL` button with a variable.
@@ -250,6 +254,7 @@ func (o *WhatsappTemplateComponentButton) SetAutofillText(v string) {
 }
 
 // GetPackageName returns the PackageName field value if set, zero value otherwise.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) GetPackageName() string {
 	if o == nil || o.PackageName == nil {
 		var ret string
@@ -260,6 +265,7 @@ func (o *WhatsappTemplateComponentButton) GetPackageName() string {
 
 // GetPackageNameOk returns a tuple with the PackageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) GetPackageNameOk() (*string, bool) {
 	if o == nil || o.PackageName == nil {
 		return nil, false
@@ -277,11 +283,13 @@ func (o *WhatsappTemplateComponentButton) HasPackageName() bool {
 }
 
 // SetPackageName gets a reference to the given string and assigns it to the PackageName field.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) SetPackageName(v string) {
 	o.PackageName = &v
 }
 
 // GetSignatureHash returns the SignatureHash field value if set, zero value otherwise.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) GetSignatureHash() string {
 	if o == nil || o.SignatureHash == nil {
 		var ret string
@@ -292,6 +300,7 @@ func (o *WhatsappTemplateComponentButton) GetSignatureHash() string {
 
 // GetSignatureHashOk returns a tuple with the SignatureHash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) GetSignatureHashOk() (*string, bool) {
 	if o == nil || o.SignatureHash == nil {
 		return nil, false
@@ -309,8 +318,41 @@ func (o *WhatsappTemplateComponentButton) HasSignatureHash() bool {
 }
 
 // SetSignatureHash gets a reference to the given string and assigns it to the SignatureHash field.
+// Deprecated
 func (o *WhatsappTemplateComponentButton) SetSignatureHash(v string) {
 	o.SignatureHash = &v
+}
+
+// GetSupportedApps returns the SupportedApps field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetSupportedApps() []WhatsappTemplateComponentButtonOtpSupportedApp {
+	if o == nil || o.SupportedApps == nil {
+		var ret []WhatsappTemplateComponentButtonOtpSupportedApp
+		return ret
+	}
+	return o.SupportedApps
+}
+
+// GetSupportedAppsOk returns a tuple with the SupportedApps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetSupportedAppsOk() ([]WhatsappTemplateComponentButtonOtpSupportedApp, bool) {
+	if o == nil || o.SupportedApps == nil {
+		return nil, false
+	}
+	return o.SupportedApps, true
+}
+
+// HasSupportedApps returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasSupportedApps() bool {
+	if o != nil && o.SupportedApps != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedApps gets a reference to the given []WhatsappTemplateComponentButtonOtpSupportedApp and assigns it to the SupportedApps field.
+func (o *WhatsappTemplateComponentButton) SetSupportedApps(v []WhatsappTemplateComponentButtonOtpSupportedApp) {
+	o.SupportedApps = v
 }
 
 // GetZeroTapTermsAccepted returns the ZeroTapTermsAccepted field value if set, zero value otherwise.
@@ -562,6 +604,9 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.SignatureHash != nil {
 		toSerialize["signature_hash"] = o.SignatureHash
+	}
+	if o.SupportedApps != nil {
+		toSerialize["supported_apps"] = o.SupportedApps
 	}
 	if o.ZeroTapTermsAccepted != nil {
 		toSerialize["zero_tap_terms_accepted"] = o.ZeroTapTermsAccepted

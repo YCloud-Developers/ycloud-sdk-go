@@ -42,6 +42,11 @@ type Contact struct {
 	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
 	// The email address of the contact's owner.
 	OwnerEmail *string `json:"ownerEmail,omitempty"`
+	SourceType *ContactSourceType `json:"sourceType,omitempty"`
+	// 来源标识符。与联系人创建来源相关的唯一标识符。
+	SourceId *string `json:"sourceId,omitempty"`
+	// 来源URL。联系人创建时的来源链接地址。
+	SourceUrl *string `json:"sourceUrl,omitempty"`
 }
 
 // NewContact instantiates a new Contact object
@@ -438,6 +443,102 @@ func (o *Contact) SetOwnerEmail(v string) {
 	o.OwnerEmail = &v
 }
 
+// GetSourceType returns the SourceType field value if set, zero value otherwise.
+func (o *Contact) GetSourceType() ContactSourceType {
+	if o == nil || o.SourceType == nil {
+		var ret ContactSourceType
+		return ret
+	}
+	return *o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetSourceTypeOk() (*ContactSourceType, bool) {
+	if o == nil || o.SourceType == nil {
+		return nil, false
+	}
+	return o.SourceType, true
+}
+
+// HasSourceType returns a boolean if a field has been set.
+func (o *Contact) HasSourceType() bool {
+	if o != nil && o.SourceType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceType gets a reference to the given ContactSourceType and assigns it to the SourceType field.
+func (o *Contact) SetSourceType(v ContactSourceType) {
+	o.SourceType = &v
+}
+
+// GetSourceId returns the SourceId field value if set, zero value otherwise.
+func (o *Contact) GetSourceId() string {
+	if o == nil || o.SourceId == nil {
+		var ret string
+		return ret
+	}
+	return *o.SourceId
+}
+
+// GetSourceIdOk returns a tuple with the SourceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetSourceIdOk() (*string, bool) {
+	if o == nil || o.SourceId == nil {
+		return nil, false
+	}
+	return o.SourceId, true
+}
+
+// HasSourceId returns a boolean if a field has been set.
+func (o *Contact) HasSourceId() bool {
+	if o != nil && o.SourceId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceId gets a reference to the given string and assigns it to the SourceId field.
+func (o *Contact) SetSourceId(v string) {
+	o.SourceId = &v
+}
+
+// GetSourceUrl returns the SourceUrl field value if set, zero value otherwise.
+func (o *Contact) GetSourceUrl() string {
+	if o == nil || o.SourceUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.SourceUrl
+}
+
+// GetSourceUrlOk returns a tuple with the SourceUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetSourceUrlOk() (*string, bool) {
+	if o == nil || o.SourceUrl == nil {
+		return nil, false
+	}
+	return o.SourceUrl, true
+}
+
+// HasSourceUrl returns a boolean if a field has been set.
+func (o *Contact) HasSourceUrl() bool {
+	if o != nil && o.SourceUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceUrl gets a reference to the given string and assigns it to the SourceUrl field.
+func (o *Contact) SetSourceUrl(v string) {
+	o.SourceUrl = &v
+}
+
 func (o Contact) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -475,6 +576,15 @@ func (o Contact) MarshalJSON() ([]byte, error) {
 	}
 	if o.OwnerEmail != nil {
 		toSerialize["ownerEmail"] = o.OwnerEmail
+	}
+	if o.SourceType != nil {
+		toSerialize["sourceType"] = o.SourceType
+	}
+	if o.SourceId != nil {
+		toSerialize["sourceId"] = o.SourceId
+	}
+	if o.SourceUrl != nil {
+		toSerialize["sourceUrl"] = o.SourceUrl
 	}
 	return json.Marshal(toSerialize)
 }

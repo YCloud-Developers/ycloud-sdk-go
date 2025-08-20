@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **PhoneNumber** | Pointer to **string** | **Required for button type &#x60;PHONE_NUMBER&#x60;.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum. | [optional] 
 **OtpType** | Pointer to [**WhatsappTemplateComponentButtonOtpType**](WhatsappTemplateComponentButtonOtpType.md) |  | [optional] 
 **AutofillText** | Pointer to **string** | **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters. | [optional] 
-**PackageName** | Pointer to **string** | **One-tap and zero-tap buttons only.** Your Android app&#39;s package name. | [optional] 
-**SignatureHash** | Pointer to **string** | **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash). | [optional] 
+**PackageName** | Pointer to **string** | **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your Android app&#39;s package name. | [optional] 
+**SignatureHash** | Pointer to **string** | **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash). | [optional] 
+**SupportedApps** | Pointer to [**[]WhatsappTemplateComponentButtonOtpSupportedApp**](WhatsappTemplateComponentButtonOtpSupportedApp.md) | **One-tap and zero-tap buttons only.** List of supported apps. | [optional] 
 **ZeroTapTermsAccepted** | Pointer to **bool** | **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates. | [optional] 
 **Example** | Pointer to **[]string** | Sample full URL for a &#x60;URL&#x60; button with a variable. | [optional] 
 **FlowId** | Pointer to **string** | **Conditionally required for button type &#x60;FLOW&#x60;.** The unique ID of the Flow. Cannot be used if &#x60;flow_name&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. | [optional] 
@@ -233,6 +234,31 @@ SetSignatureHash sets SignatureHash field to given value.
 `func (o *WhatsappTemplateComponentButton) HasSignatureHash() bool`
 
 HasSignatureHash returns a boolean if a field has been set.
+
+### GetSupportedApps
+
+`func (o *WhatsappTemplateComponentButton) GetSupportedApps() []WhatsappTemplateComponentButtonOtpSupportedApp`
+
+GetSupportedApps returns the SupportedApps field if non-nil, zero value otherwise.
+
+### GetSupportedAppsOk
+
+`func (o *WhatsappTemplateComponentButton) GetSupportedAppsOk() (*[]WhatsappTemplateComponentButtonOtpSupportedApp, bool)`
+
+GetSupportedAppsOk returns a tuple with the SupportedApps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedApps
+
+`func (o *WhatsappTemplateComponentButton) SetSupportedApps(v []WhatsappTemplateComponentButtonOtpSupportedApp)`
+
+SetSupportedApps sets SupportedApps field to given value.
+
+### HasSupportedApps
+
+`func (o *WhatsappTemplateComponentButton) HasSupportedApps() bool`
+
+HasSupportedApps returns a boolean if a field has been set.
 
 ### GetZeroTapTermsAccepted
 

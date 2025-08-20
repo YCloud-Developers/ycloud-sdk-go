@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageContext Used to mention a specific message you are replying to. The reply can be any message type.
 type WhatsappMessageContext struct {
-	// Specifies the `wamid` of the message your are replying to. `wamid` is the original message ID on WhatsApp’s platform.
+	// Specifies the `wamid` of the message your are replying to. `wamid` is the original message ID on WhatsApp's platform.
 	MessageId *string `json:"message_id,omitempty"`
 }
 

@@ -13,136 +13,101 @@ package ycloud
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
-// WhatsappMessageMedia Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).
+// WhatsappMessageMedia - Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
 type WhatsappMessageMedia struct {
-	// The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
-	Link string `json:"link"`
-	// Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.
-	Caption *string `json:"caption,omitempty"`
-	// Describes the filename for the specific document. Use only with `document` media.
-	Filename *string `json:"filename,omitempty"`
+	WhatsappMessageMediaOneOf *WhatsappMessageMediaOneOf
+	WhatsappMessageMediaOneOf1 *WhatsappMessageMediaOneOf1
 }
 
-// NewWhatsappMessageMedia instantiates a new WhatsappMessageMedia object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewWhatsappMessageMedia(link string) *WhatsappMessageMedia {
-	this := WhatsappMessageMedia{}
-	this.Link = link
-	return &this
+// WhatsappMessageMediaOneOfAsWhatsappMessageMedia is a convenience function that returns WhatsappMessageMediaOneOf wrapped in WhatsappMessageMedia
+func WhatsappMessageMediaOneOfAsWhatsappMessageMedia(v *WhatsappMessageMediaOneOf) WhatsappMessageMedia {
+	return WhatsappMessageMedia{
+		WhatsappMessageMediaOneOf: v,
+	}
 }
 
-// NewWhatsappMessageMediaWithDefaults instantiates a new WhatsappMessageMedia object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewWhatsappMessageMediaWithDefaults() *WhatsappMessageMedia {
-	this := WhatsappMessageMedia{}
-	return &this
+// WhatsappMessageMediaOneOf1AsWhatsappMessageMedia is a convenience function that returns WhatsappMessageMediaOneOf1 wrapped in WhatsappMessageMedia
+func WhatsappMessageMediaOneOf1AsWhatsappMessageMedia(v *WhatsappMessageMediaOneOf1) WhatsappMessageMedia {
+	return WhatsappMessageMedia{
+		WhatsappMessageMediaOneOf1: v,
+	}
 }
 
-// GetLink returns the Link field value
-func (o *WhatsappMessageMedia) GetLink() string {
-	if o == nil {
-		var ret string
-		return ret
+
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *WhatsappMessageMedia) UnmarshalJSON(data []byte) error {
+	var err error
+	match := 0
+	// try to unmarshal data into WhatsappMessageMediaOneOf
+	err = newStrictDecoder(data).Decode(&dst.WhatsappMessageMediaOneOf)
+	if err == nil {
+		jsonWhatsappMessageMediaOneOf, _ := json.Marshal(dst.WhatsappMessageMediaOneOf)
+		if string(jsonWhatsappMessageMediaOneOf) == "{}" { // empty struct
+			dst.WhatsappMessageMediaOneOf = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.WhatsappMessageMediaOneOf = nil
 	}
 
-	return o.Link
-}
-
-// GetLinkOk returns a tuple with the Link field value
-// and a boolean to check if the value has been set.
-func (o *WhatsappMessageMedia) GetLinkOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Link, true
-}
-
-// SetLink sets field value
-func (o *WhatsappMessageMedia) SetLink(v string) {
-	o.Link = v
-}
-
-// GetCaption returns the Caption field value if set, zero value otherwise.
-func (o *WhatsappMessageMedia) GetCaption() string {
-	if o == nil || o.Caption == nil {
-		var ret string
-		return ret
-	}
-	return *o.Caption
-}
-
-// GetCaptionOk returns a tuple with the Caption field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *WhatsappMessageMedia) GetCaptionOk() (*string, bool) {
-	if o == nil || o.Caption == nil {
-		return nil, false
-	}
-	return o.Caption, true
-}
-
-// HasCaption returns a boolean if a field has been set.
-func (o *WhatsappMessageMedia) HasCaption() bool {
-	if o != nil && o.Caption != nil {
-		return true
+	// try to unmarshal data into WhatsappMessageMediaOneOf1
+	err = newStrictDecoder(data).Decode(&dst.WhatsappMessageMediaOneOf1)
+	if err == nil {
+		jsonWhatsappMessageMediaOneOf1, _ := json.Marshal(dst.WhatsappMessageMediaOneOf1)
+		if string(jsonWhatsappMessageMediaOneOf1) == "{}" { // empty struct
+			dst.WhatsappMessageMediaOneOf1 = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.WhatsappMessageMediaOneOf1 = nil
 	}
 
-	return false
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.WhatsappMessageMediaOneOf = nil
+		dst.WhatsappMessageMediaOneOf1 = nil
+
+		return fmt.Errorf("Data matches more than one schema in oneOf(WhatsappMessageMedia)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("Data failed to match schemas in oneOf(WhatsappMessageMedia)")
+	}
 }
 
-// SetCaption gets a reference to the given string and assigns it to the Caption field.
-func (o *WhatsappMessageMedia) SetCaption(v string) {
-	o.Caption = &v
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src WhatsappMessageMedia) MarshalJSON() ([]byte, error) {
+	if src.WhatsappMessageMediaOneOf != nil {
+		return json.Marshal(&src.WhatsappMessageMediaOneOf)
+	}
+
+	if src.WhatsappMessageMediaOneOf1 != nil {
+		return json.Marshal(&src.WhatsappMessageMediaOneOf1)
+	}
+
+	return nil, nil // no data in oneOf schemas
 }
 
-// GetFilename returns the Filename field value if set, zero value otherwise.
-func (o *WhatsappMessageMedia) GetFilename() string {
-	if o == nil || o.Filename == nil {
-		var ret string
-		return ret
+// Get the actual instance
+func (obj *WhatsappMessageMedia) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return *o.Filename
-}
-
-// GetFilenameOk returns a tuple with the Filename field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *WhatsappMessageMedia) GetFilenameOk() (*string, bool) {
-	if o == nil || o.Filename == nil {
-		return nil, false
-	}
-	return o.Filename, true
-}
-
-// HasFilename returns a boolean if a field has been set.
-func (o *WhatsappMessageMedia) HasFilename() bool {
-	if o != nil && o.Filename != nil {
-		return true
+	if obj.WhatsappMessageMediaOneOf != nil {
+		return obj.WhatsappMessageMediaOneOf
 	}
 
-	return false
-}
+	if obj.WhatsappMessageMediaOneOf1 != nil {
+		return obj.WhatsappMessageMediaOneOf1
+	}
 
-// SetFilename gets a reference to the given string and assigns it to the Filename field.
-func (o *WhatsappMessageMedia) SetFilename(v string) {
-	o.Filename = &v
-}
-
-func (o WhatsappMessageMedia) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["link"] = o.Link
-	}
-	if o.Caption != nil {
-		toSerialize["caption"] = o.Caption
-	}
-	if o.Filename != nil {
-		toSerialize["filename"] = o.Filename
-	}
-	return json.Marshal(toSerialize)
+	// all schemas are nil
+	return nil
 }
 
 type NullableWhatsappMessageMedia struct {

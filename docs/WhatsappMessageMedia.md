@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Link** | **string** | The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. | 
+**Id** | **string** | Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/). | 
+**Link** | **string** | Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL. | 
 **Caption** | Pointer to **string** | Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages. | [optional] 
 **Filename** | Pointer to **string** | Describes the filename for the specific document. Use only with &#x60;document&#x60; media. | [optional] 
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewWhatsappMessageMedia
 
-`func NewWhatsappMessageMedia(link string, ) *WhatsappMessageMedia`
+`func NewWhatsappMessageMedia(id string, link string, ) *WhatsappMessageMedia`
 
 NewWhatsappMessageMedia instantiates a new WhatsappMessageMedia object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +27,26 @@ will change when the set of required properties is changed
 NewWhatsappMessageMediaWithDefaults instantiates a new WhatsappMessageMedia object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *WhatsappMessageMedia) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *WhatsappMessageMedia) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *WhatsappMessageMedia) SetId(v string)`
+
+SetId sets Id field to given value.
+
 
 ### GetLink
 

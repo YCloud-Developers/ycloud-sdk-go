@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
 [**RetrieveCommerceSettings**](WhatsappPhoneNumbersApi.md#RetrieveCommerceSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Retrieve commerce settings
 [**RetrieveProfile**](WhatsappPhoneNumbersApi.md#RetrieveProfile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a phone number profile
+[**RetrieveSettings**](WhatsappPhoneNumbersApi.md#RetrieveSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings
+[**SaveSettings**](WhatsappPhoneNumbersApi.md#SaveSettings) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings
 [**UpdateCommerceSettings**](WhatsappPhoneNumbersApi.md#UpdateCommerceSettings) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
 [**UpdateProfile**](WhatsappPhoneNumbersApi.md#UpdateProfile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
 
@@ -371,6 +373,154 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RetrieveSettings
+
+> WhatsappPhoneNumberSettings RetrieveSettings(ctx, wabaId, phoneNumber).Execute()
+
+Retrieve phone number settings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+6283138205170" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveSettings(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.RetrieveSettings``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RetrieveSettings`: WhatsappPhoneNumberSettings
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.RetrieveSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRetrieveSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SaveSettings
+
+> WhatsappPhoneNumberSettings SaveSettings(ctx, wabaId, phoneNumber).WhatsappPhoneNumberSettings(whatsappPhoneNumberSettings).Execute()
+
+Save phone number settings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+6283138205150" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    whatsappPhoneNumberSettings := *ycloud.NewWhatsappPhoneNumberSettings() // WhatsappPhoneNumberSettings | Phone number settings to save.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.SaveSettings(context.Background(), wabaId, phoneNumber).WhatsappPhoneNumberSettings(whatsappPhoneNumberSettings).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.SaveSettings``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SaveSettings`: WhatsappPhoneNumberSettings
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.SaveSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSaveSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **whatsappPhoneNumberSettings** | [**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md) | Phone number settings to save. | 
+
+### Return type
+
+[**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

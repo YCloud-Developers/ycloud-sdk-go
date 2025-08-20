@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
 **WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional] 
 **WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
+**ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional] 
+**ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional] 
+**ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional] 
 
 ## Methods
 
@@ -367,6 +370,81 @@ SetWhatsappTemplate sets WhatsappTemplate field to given value.
 `func (o *Event) HasWhatsappTemplate() bool`
 
 HasWhatsappTemplate returns a boolean if a field has been set.
+
+### GetContactAttributesChanged
+
+`func (o *Event) GetContactAttributesChanged() ContactAttributesChanged`
+
+GetContactAttributesChanged returns the ContactAttributesChanged field if non-nil, zero value otherwise.
+
+### GetContactAttributesChangedOk
+
+`func (o *Event) GetContactAttributesChangedOk() (*ContactAttributesChanged, bool)`
+
+GetContactAttributesChangedOk returns a tuple with the ContactAttributesChanged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactAttributesChanged
+
+`func (o *Event) SetContactAttributesChanged(v ContactAttributesChanged)`
+
+SetContactAttributesChanged sets ContactAttributesChanged field to given value.
+
+### HasContactAttributesChanged
+
+`func (o *Event) HasContactAttributesChanged() bool`
+
+HasContactAttributesChanged returns a boolean if a field has been set.
+
+### GetContactCreated
+
+`func (o *Event) GetContactCreated() ContactCreated`
+
+GetContactCreated returns the ContactCreated field if non-nil, zero value otherwise.
+
+### GetContactCreatedOk
+
+`func (o *Event) GetContactCreatedOk() (*ContactCreated, bool)`
+
+GetContactCreatedOk returns a tuple with the ContactCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactCreated
+
+`func (o *Event) SetContactCreated(v ContactCreated)`
+
+SetContactCreated sets ContactCreated field to given value.
+
+### HasContactCreated
+
+`func (o *Event) HasContactCreated() bool`
+
+HasContactCreated returns a boolean if a field has been set.
+
+### GetContactDeleted
+
+`func (o *Event) GetContactDeleted() ContactDeleted`
+
+GetContactDeleted returns the ContactDeleted field if non-nil, zero value otherwise.
+
+### GetContactDeletedOk
+
+`func (o *Event) GetContactDeletedOk() (*ContactDeleted, bool)`
+
+GetContactDeletedOk returns a tuple with the ContactDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactDeleted
+
+`func (o *Event) SetContactDeleted(v ContactDeleted)`
+
+SetContactDeleted sets ContactDeleted field to given value.
+
+### HasContactDeleted
+
+`func (o *Event) HasContactDeleted() bool`
+
+HasContactDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
