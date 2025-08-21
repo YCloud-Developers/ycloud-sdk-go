@@ -43,9 +43,9 @@ type Contact struct {
 	// The email address of the contact's owner.
 	OwnerEmail *string `json:"ownerEmail,omitempty"`
 	SourceType *ContactSourceType `json:"sourceType,omitempty"`
-	// 来源标识符。与联系人创建来源相关的唯一标识符。
+	// Source identifier. A unique identifier related to the contact creation source.
 	SourceId *string `json:"sourceId,omitempty"`
-	// 来源URL。联系人创建时的来源链接地址。
+	// Source URL. The source link address where the contact was created.
 	SourceUrl *string `json:"sourceUrl,omitempty"`
 }
 

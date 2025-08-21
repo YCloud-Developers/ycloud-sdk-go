@@ -17,8 +17,10 @@ import (
 
 // ContactAttributeChange Represents a single attribute change, containing the old value, new value, and change actions.
 type ContactAttributeChange struct {
-	OldValue *ContactAttributeChangeOldValue `json:"oldValue,omitempty"`
-	NewValue *ContactAttributeChangeNewValue `json:"newValue,omitempty"`
+	// The previous value of the attribute before the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
+	OldValue interface{} `json:"oldValue,omitempty"`
+	// The new value of the attribute after the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
+	NewValue interface{} `json:"newValue,omitempty"`
 	// An array of change actions that describe what operations were performed on this attribute.
 	Extra []AttributeChangeAction `json:"extra,omitempty"`
 }
@@ -40,22 +42,23 @@ func NewContactAttributeChangeWithDefaults() *ContactAttributeChange {
 	return &this
 }
 
-// GetOldValue returns the OldValue field value if set, zero value otherwise.
-func (o *ContactAttributeChange) GetOldValue() ContactAttributeChangeOldValue {
-	if o == nil || o.OldValue == nil {
-		var ret ContactAttributeChangeOldValue
+// GetOldValue returns the OldValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContactAttributeChange) GetOldValue() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.OldValue
+	return o.OldValue
 }
 
 // GetOldValueOk returns a tuple with the OldValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactAttributeChange) GetOldValueOk() (*ContactAttributeChangeOldValue, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContactAttributeChange) GetOldValueOk() (*interface{}, bool) {
 	if o == nil || o.OldValue == nil {
 		return nil, false
 	}
-	return o.OldValue, true
+	return &o.OldValue, true
 }
 
 // HasOldValue returns a boolean if a field has been set.
@@ -67,27 +70,28 @@ func (o *ContactAttributeChange) HasOldValue() bool {
 	return false
 }
 
-// SetOldValue gets a reference to the given ContactAttributeChangeOldValue and assigns it to the OldValue field.
-func (o *ContactAttributeChange) SetOldValue(v ContactAttributeChangeOldValue) {
-	o.OldValue = &v
+// SetOldValue gets a reference to the given interface{} and assigns it to the OldValue field.
+func (o *ContactAttributeChange) SetOldValue(v interface{}) {
+	o.OldValue = v
 }
 
-// GetNewValue returns the NewValue field value if set, zero value otherwise.
-func (o *ContactAttributeChange) GetNewValue() ContactAttributeChangeNewValue {
-	if o == nil || o.NewValue == nil {
-		var ret ContactAttributeChangeNewValue
+// GetNewValue returns the NewValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContactAttributeChange) GetNewValue() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.NewValue
+	return o.NewValue
 }
 
 // GetNewValueOk returns a tuple with the NewValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactAttributeChange) GetNewValueOk() (*ContactAttributeChangeNewValue, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContactAttributeChange) GetNewValueOk() (*interface{}, bool) {
 	if o == nil || o.NewValue == nil {
 		return nil, false
 	}
-	return o.NewValue, true
+	return &o.NewValue, true
 }
 
 // HasNewValue returns a boolean if a field has been set.
@@ -99,9 +103,9 @@ func (o *ContactAttributeChange) HasNewValue() bool {
 	return false
 }
 
-// SetNewValue gets a reference to the given ContactAttributeChangeNewValue and assigns it to the NewValue field.
-func (o *ContactAttributeChange) SetNewValue(v ContactAttributeChangeNewValue) {
-	o.NewValue = &v
+// SetNewValue gets a reference to the given interface{} and assigns it to the NewValue field.
+func (o *ContactAttributeChange) SetNewValue(v interface{}) {
+	o.NewValue = v
 }
 
 // GetExtra returns the Extra field value if set, zero value otherwise.

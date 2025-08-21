@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.5
+- Package version: 1.15.6
 
 ## Installation
 
@@ -107,8 +107,6 @@ Class | Method | HTTP request | Description
  - [Contact](docs/Contact.md)
  - [ContactAttribute](docs/ContactAttribute.md)
  - [ContactAttributeChange](docs/ContactAttributeChange.md)
- - [ContactAttributeChangeNewValue](docs/ContactAttributeChangeNewValue.md)
- - [ContactAttributeChangeOldValue](docs/ContactAttributeChangeOldValue.md)
  - [ContactAttributesChanged](docs/ContactAttributesChanged.md)
  - [ContactCreateRequest](docs/ContactCreateRequest.md)
  - [ContactCreated](docs/ContactCreated.md)
