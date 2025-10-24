@@ -26,6 +26,12 @@ type WhatsappBusinessAccount struct {
 	// Namespace string for the message templates that belong to the WhatsApp Business Account.
 	MessageTemplateNamespace *string `json:"messageTemplateNamespace,omitempty"`
 	AccountReviewStatus *WhatsappBusinessAccountReviewStatus `json:"accountReviewStatus,omitempty"`
+	// Business Portfolio ID.
+	BusinessId *string `json:"businessId,omitempty"`
+	// Business Portfolio Name.
+	BusinessName *string `json:"businessName,omitempty"`
+	// Business Portfolio Status,Default:APPROVED
+	BusinessStatus *string `json:"businessStatus,omitempty"`
 	BusinessVerificationStatus *MetaBusinessAccountVerificationStatus `json:"businessVerificationStatus,omitempty"`
 	// Country of the WhatsApp Business Account's owning Meta Business account.
 	Country *string `json:"country,omitempty"`
@@ -52,6 +58,8 @@ type WhatsappBusinessAccount struct {
 	AuthIntlRateEligibilityCountries []WhatsappAuthIntlRateEligibilityCountry `json:"authIntlRateEligibilityCountries,omitempty"`
 	// Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	PrimaryBusinessLocation *string `json:"primaryBusinessLocation,omitempty"`
+	// The owning business portfolio's messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - `TIER_NOT_SET`: The business phone number has not been used to send a message yet. - `TIER_50`: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - `TIER_2K`: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - `TIER_10K`: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - `TIER_100K`: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - `TIER_UNLIMITED`: The business phone number has higher throughput with unlimited business-initiated conversations.
+	WhatsappBusinessManagerMessagingLimit *string `json:"whatsappBusinessManagerMessagingLimit,omitempty"`
 }
 
 // NewWhatsappBusinessAccount instantiates a new WhatsappBusinessAccount object
@@ -229,6 +237,102 @@ func (o *WhatsappBusinessAccount) HasAccountReviewStatus() bool {
 // SetAccountReviewStatus gets a reference to the given WhatsappBusinessAccountReviewStatus and assigns it to the AccountReviewStatus field.
 func (o *WhatsappBusinessAccount) SetAccountReviewStatus(v WhatsappBusinessAccountReviewStatus) {
 	o.AccountReviewStatus = &v
+}
+
+// GetBusinessId returns the BusinessId field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetBusinessId() string {
+	if o == nil || o.BusinessId == nil {
+		var ret string
+		return ret
+	}
+	return *o.BusinessId
+}
+
+// GetBusinessIdOk returns a tuple with the BusinessId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetBusinessIdOk() (*string, bool) {
+	if o == nil || o.BusinessId == nil {
+		return nil, false
+	}
+	return o.BusinessId, true
+}
+
+// HasBusinessId returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasBusinessId() bool {
+	if o != nil && o.BusinessId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessId gets a reference to the given string and assigns it to the BusinessId field.
+func (o *WhatsappBusinessAccount) SetBusinessId(v string) {
+	o.BusinessId = &v
+}
+
+// GetBusinessName returns the BusinessName field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetBusinessName() string {
+	if o == nil || o.BusinessName == nil {
+		var ret string
+		return ret
+	}
+	return *o.BusinessName
+}
+
+// GetBusinessNameOk returns a tuple with the BusinessName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetBusinessNameOk() (*string, bool) {
+	if o == nil || o.BusinessName == nil {
+		return nil, false
+	}
+	return o.BusinessName, true
+}
+
+// HasBusinessName returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasBusinessName() bool {
+	if o != nil && o.BusinessName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessName gets a reference to the given string and assigns it to the BusinessName field.
+func (o *WhatsappBusinessAccount) SetBusinessName(v string) {
+	o.BusinessName = &v
+}
+
+// GetBusinessStatus returns the BusinessStatus field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetBusinessStatus() string {
+	if o == nil || o.BusinessStatus == nil {
+		var ret string
+		return ret
+	}
+	return *o.BusinessStatus
+}
+
+// GetBusinessStatusOk returns a tuple with the BusinessStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetBusinessStatusOk() (*string, bool) {
+	if o == nil || o.BusinessStatus == nil {
+		return nil, false
+	}
+	return o.BusinessStatus, true
+}
+
+// HasBusinessStatus returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasBusinessStatus() bool {
+	if o != nil && o.BusinessStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessStatus gets a reference to the given string and assigns it to the BusinessStatus field.
+func (o *WhatsappBusinessAccount) SetBusinessStatus(v string) {
+	o.BusinessStatus = &v
 }
 
 // GetBusinessVerificationStatus returns the BusinessVerificationStatus field value if set, zero value otherwise.
@@ -711,6 +815,38 @@ func (o *WhatsappBusinessAccount) SetPrimaryBusinessLocation(v string) {
 	o.PrimaryBusinessLocation = &v
 }
 
+// GetWhatsappBusinessManagerMessagingLimit returns the WhatsappBusinessManagerMessagingLimit field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetWhatsappBusinessManagerMessagingLimit() string {
+	if o == nil || o.WhatsappBusinessManagerMessagingLimit == nil {
+		var ret string
+		return ret
+	}
+	return *o.WhatsappBusinessManagerMessagingLimit
+}
+
+// GetWhatsappBusinessManagerMessagingLimitOk returns a tuple with the WhatsappBusinessManagerMessagingLimit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetWhatsappBusinessManagerMessagingLimitOk() (*string, bool) {
+	if o == nil || o.WhatsappBusinessManagerMessagingLimit == nil {
+		return nil, false
+	}
+	return o.WhatsappBusinessManagerMessagingLimit, true
+}
+
+// HasWhatsappBusinessManagerMessagingLimit returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasWhatsappBusinessManagerMessagingLimit() bool {
+	if o != nil && o.WhatsappBusinessManagerMessagingLimit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappBusinessManagerMessagingLimit gets a reference to the given string and assigns it to the WhatsappBusinessManagerMessagingLimit field.
+func (o *WhatsappBusinessAccount) SetWhatsappBusinessManagerMessagingLimit(v string) {
+	o.WhatsappBusinessManagerMessagingLimit = &v
+}
+
 func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -727,6 +863,15 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	}
 	if o.AccountReviewStatus != nil {
 		toSerialize["accountReviewStatus"] = o.AccountReviewStatus
+	}
+	if o.BusinessId != nil {
+		toSerialize["businessId"] = o.BusinessId
+	}
+	if o.BusinessName != nil {
+		toSerialize["businessName"] = o.BusinessName
+	}
+	if o.BusinessStatus != nil {
+		toSerialize["businessStatus"] = o.BusinessStatus
 	}
 	if o.BusinessVerificationStatus != nil {
 		toSerialize["businessVerificationStatus"] = o.BusinessVerificationStatus
@@ -772,6 +917,9 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	}
 	if o.PrimaryBusinessLocation != nil {
 		toSerialize["primaryBusinessLocation"] = o.PrimaryBusinessLocation
+	}
+	if o.WhatsappBusinessManagerMessagingLimit != nil {
+		toSerialize["whatsappBusinessManagerMessagingLimit"] = o.WhatsappBusinessManagerMessagingLimit
 	}
 	return json.Marshal(toSerialize)
 }

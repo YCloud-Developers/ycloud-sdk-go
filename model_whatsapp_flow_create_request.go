@@ -29,6 +29,8 @@ type WhatsappFlowCreateRequest struct {
 	Publish *bool `json:"publish,omitempty"`
 	// ID of source Flow to clone. You must have permission to access the specified Flow.
 	CloneFlowId *string `json:"cloneFlowId,omitempty"`
+	// The endpoint URI for the Flow.
+	EndpointUri *string `json:"endpointUri,omitempty"`
 }
 
 // NewWhatsappFlowCreateRequest instantiates a new WhatsappFlowCreateRequest object
@@ -223,6 +225,38 @@ func (o *WhatsappFlowCreateRequest) SetCloneFlowId(v string) {
 	o.CloneFlowId = &v
 }
 
+// GetEndpointUri returns the EndpointUri field value if set, zero value otherwise.
+func (o *WhatsappFlowCreateRequest) GetEndpointUri() string {
+	if o == nil || o.EndpointUri == nil {
+		var ret string
+		return ret
+	}
+	return *o.EndpointUri
+}
+
+// GetEndpointUriOk returns a tuple with the EndpointUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappFlowCreateRequest) GetEndpointUriOk() (*string, bool) {
+	if o == nil || o.EndpointUri == nil {
+		return nil, false
+	}
+	return o.EndpointUri, true
+}
+
+// HasEndpointUri returns a boolean if a field has been set.
+func (o *WhatsappFlowCreateRequest) HasEndpointUri() bool {
+	if o != nil && o.EndpointUri != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpointUri gets a reference to the given string and assigns it to the EndpointUri field.
+func (o *WhatsappFlowCreateRequest) SetEndpointUri(v string) {
+	o.EndpointUri = &v
+}
+
 func (o WhatsappFlowCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -242,6 +276,9 @@ func (o WhatsappFlowCreateRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.CloneFlowId != nil {
 		toSerialize["cloneFlowId"] = o.CloneFlowId
+	}
+	if o.EndpointUri != nil {
+		toSerialize["endpointUri"] = o.EndpointUri
 	}
 	return json.Marshal(toSerialize)
 }

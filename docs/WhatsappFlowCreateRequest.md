@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FlowJson** | Pointer to **string** | JSON string of the Flow structure. | [optional] 
 **Publish** | Pointer to **bool** | If true, the Flow will be created in PUBLISHED state. | [optional] [default to false]
 **CloneFlowId** | Pointer to **string** | ID of source Flow to clone. You must have permission to access the specified Flow. | [optional] 
+**EndpointUri** | Pointer to **string** | The endpoint URI for the Flow. | [optional] 
 
 ## Methods
 
@@ -164,6 +165,31 @@ SetCloneFlowId sets CloneFlowId field to given value.
 `func (o *WhatsappFlowCreateRequest) HasCloneFlowId() bool`
 
 HasCloneFlowId returns a boolean if a field has been set.
+
+### GetEndpointUri
+
+`func (o *WhatsappFlowCreateRequest) GetEndpointUri() string`
+
+GetEndpointUri returns the EndpointUri field if non-nil, zero value otherwise.
+
+### GetEndpointUriOk
+
+`func (o *WhatsappFlowCreateRequest) GetEndpointUriOk() (*string, bool)`
+
+GetEndpointUriOk returns a tuple with the EndpointUri field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointUri
+
+`func (o *WhatsappFlowCreateRequest) SetEndpointUri(v string)`
+
+SetEndpointUri sets EndpointUri field to given value.
+
+### HasEndpointUri
+
+`func (o *WhatsappFlowCreateRequest) HasEndpointUri() bool`
+
+HasEndpointUri returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

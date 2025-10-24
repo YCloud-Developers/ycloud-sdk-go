@@ -19,6 +19,12 @@ import (
 type WhatsappPhoneNumberProfile struct {
 	// The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons.
 	About *string `json:"about,omitempty"`
+	// The verified name
+	VerifiedName *string `json:"verifiedName,omitempty"`
+	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
+	// The modified name
+	NewName *string `json:"newName,omitempty"`
+	NewNameStatus *WhatsappPhoneNumberNameStatus `json:"newNameStatus,omitempty"`
 	// Address of the business. Character limit 256.
 	Address *string `json:"address,omitempty"`
 	// Description of the business. Character limit 512.
@@ -79,6 +85,134 @@ func (o *WhatsappPhoneNumberProfile) HasAbout() bool {
 // SetAbout gets a reference to the given string and assigns it to the About field.
 func (o *WhatsappPhoneNumberProfile) SetAbout(v string) {
 	o.About = &v
+}
+
+// GetVerifiedName returns the VerifiedName field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberProfile) GetVerifiedName() string {
+	if o == nil || o.VerifiedName == nil {
+		var ret string
+		return ret
+	}
+	return *o.VerifiedName
+}
+
+// GetVerifiedNameOk returns a tuple with the VerifiedName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberProfile) GetVerifiedNameOk() (*string, bool) {
+	if o == nil || o.VerifiedName == nil {
+		return nil, false
+	}
+	return o.VerifiedName, true
+}
+
+// HasVerifiedName returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberProfile) HasVerifiedName() bool {
+	if o != nil && o.VerifiedName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVerifiedName gets a reference to the given string and assigns it to the VerifiedName field.
+func (o *WhatsappPhoneNumberProfile) SetVerifiedName(v string) {
+	o.VerifiedName = &v
+}
+
+// GetNameStatus returns the NameStatus field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberProfile) GetNameStatus() WhatsappPhoneNumberNameStatus {
+	if o == nil || o.NameStatus == nil {
+		var ret WhatsappPhoneNumberNameStatus
+		return ret
+	}
+	return *o.NameStatus
+}
+
+// GetNameStatusOk returns a tuple with the NameStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberProfile) GetNameStatusOk() (*WhatsappPhoneNumberNameStatus, bool) {
+	if o == nil || o.NameStatus == nil {
+		return nil, false
+	}
+	return o.NameStatus, true
+}
+
+// HasNameStatus returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberProfile) HasNameStatus() bool {
+	if o != nil && o.NameStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNameStatus gets a reference to the given WhatsappPhoneNumberNameStatus and assigns it to the NameStatus field.
+func (o *WhatsappPhoneNumberProfile) SetNameStatus(v WhatsappPhoneNumberNameStatus) {
+	o.NameStatus = &v
+}
+
+// GetNewName returns the NewName field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberProfile) GetNewName() string {
+	if o == nil || o.NewName == nil {
+		var ret string
+		return ret
+	}
+	return *o.NewName
+}
+
+// GetNewNameOk returns a tuple with the NewName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberProfile) GetNewNameOk() (*string, bool) {
+	if o == nil || o.NewName == nil {
+		return nil, false
+	}
+	return o.NewName, true
+}
+
+// HasNewName returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberProfile) HasNewName() bool {
+	if o != nil && o.NewName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNewName gets a reference to the given string and assigns it to the NewName field.
+func (o *WhatsappPhoneNumberProfile) SetNewName(v string) {
+	o.NewName = &v
+}
+
+// GetNewNameStatus returns the NewNameStatus field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberProfile) GetNewNameStatus() WhatsappPhoneNumberNameStatus {
+	if o == nil || o.NewNameStatus == nil {
+		var ret WhatsappPhoneNumberNameStatus
+		return ret
+	}
+	return *o.NewNameStatus
+}
+
+// GetNewNameStatusOk returns a tuple with the NewNameStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberProfile) GetNewNameStatusOk() (*WhatsappPhoneNumberNameStatus, bool) {
+	if o == nil || o.NewNameStatus == nil {
+		return nil, false
+	}
+	return o.NewNameStatus, true
+}
+
+// HasNewNameStatus returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberProfile) HasNewNameStatus() bool {
+	if o != nil && o.NewNameStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNewNameStatus gets a reference to the given WhatsappPhoneNumberNameStatus and assigns it to the NewNameStatus field.
+func (o *WhatsappPhoneNumberProfile) SetNewNameStatus(v WhatsappPhoneNumberNameStatus) {
+	o.NewNameStatus = &v
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
@@ -277,6 +411,18 @@ func (o WhatsappPhoneNumberProfile) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.About != nil {
 		toSerialize["about"] = o.About
+	}
+	if o.VerifiedName != nil {
+		toSerialize["verifiedName"] = o.VerifiedName
+	}
+	if o.NameStatus != nil {
+		toSerialize["nameStatus"] = o.NameStatus
+	}
+	if o.NewName != nil {
+		toSerialize["newName"] = o.NewName
+	}
+	if o.NewNameStatus != nil {
+		toSerialize["newNameStatus"] = o.NewNameStatus
 	}
 	if o.Address != nil {
 		toSerialize["address"] = o.Address

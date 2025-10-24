@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.6
+- Package version: 1.15.7
 
 ## Installation
 
@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 *WhatsappPhoneNumbersApi* | [**RetrieveSettings**](docs/WhatsappPhoneNumbersApi.md#retrievesettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings
 *WhatsappPhoneNumbersApi* | [**SaveSettings**](docs/WhatsappPhoneNumbersApi.md#savesettings) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings
 *WhatsappPhoneNumbersApi* | [**UpdateCommerceSettings**](docs/WhatsappPhoneNumbersApi.md#updatecommercesettings) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
+*WhatsappPhoneNumbersApi* | [**UpdateDisplayName**](docs/WhatsappPhoneNumbersApi.md#updatedisplayname) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName | Update a phone number display name
 *WhatsappPhoneNumbersApi* | [**UpdateProfile**](docs/WhatsappPhoneNumbersApi.md#updateprofile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
 *WhatsappTemplatesApi* | [**Create**](docs/WhatsappTemplatesApi.md#create) | **Post** /whatsapp/templates | Create a template
 *WhatsappTemplatesApi* | [**DeleteByName**](docs/WhatsappTemplatesApi.md#deletebyname) | **Delete** /whatsapp/templates/{wabaId}/{name} | Delete templates by name
@@ -114,6 +115,8 @@ Class | Method | HTTP request | Description
  - [ContactDeleted](docs/ContactDeleted.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactSourceType](docs/ContactSourceType.md)
+ - [ContactUnsubscribeCreated](docs/ContactUnsubscribeCreated.md)
+ - [ContactUnsubscribeDeleted](docs/ContactUnsubscribeDeleted.md)
  - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
  - [CustomEventDefinition](docs/CustomEventDefinition.md)
  - [CustomEventDefinitionCreateRequest](docs/CustomEventDefinitionCreateRequest.md)
@@ -208,6 +211,7 @@ Class | Method | HTTP request | Description
  - [WhatsappInboundMessageSystem](docs/WhatsappInboundMessageSystem.md)
  - [WhatsappInboundMessageText](docs/WhatsappInboundMessageText.md)
  - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
+ - [WhatsappListFlowItem](docs/WhatsappListFlowItem.md)
  - [WhatsappMedia](docs/WhatsappMedia.md)
  - [WhatsappMediaUpload200Response](docs/WhatsappMediaUpload200Response.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
@@ -233,8 +237,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
- - [WhatsappMessageMediaOneOf](docs/WhatsappMessageMediaOneOf.md)
- - [WhatsappMessageMediaOneOf1](docs/WhatsappMessageMediaOneOf1.md)
+ - [WhatsappMessageMediaAllOf](docs/WhatsappMessageMediaAllOf.md)
  - [WhatsappMessageOrderAmount](docs/WhatsappMessageOrderAmount.md)
  - [WhatsappMessageOrderBeneficiary](docs/WhatsappMessageOrderBeneficiary.md)
  - [WhatsappMessageOrderDetails](docs/WhatsappMessageOrderDetails.md)
@@ -268,6 +271,8 @@ Class | Method | HTTP request | Description
  - [WhatsappPaymentStatus](docs/WhatsappPaymentStatus.md)
  - [WhatsappPaymentTransaction](docs/WhatsappPaymentTransaction.md)
  - [WhatsappPaymentTransactionError](docs/WhatsappPaymentTransactionError.md)
+ - [WhatsappPhoneNameUpdateRequest](docs/WhatsappPhoneNameUpdateRequest.md)
+ - [WhatsappPhoneNameUpdateResponse](docs/WhatsappPhoneNameUpdateResponse.md)
  - [WhatsappPhoneNumber](docs/WhatsappPhoneNumber.md)
  - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
  - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)

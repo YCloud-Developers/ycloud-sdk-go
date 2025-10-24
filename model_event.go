@@ -38,6 +38,8 @@ type Event struct {
 	ContactAttributesChanged *ContactAttributesChanged `json:"contactAttributesChanged,omitempty"`
 	ContactCreated *ContactCreated `json:"contactCreated,omitempty"`
 	ContactDeleted *ContactDeleted `json:"contactDeleted,omitempty"`
+	ContactUnsubscribeCreated *ContactUnsubscribeCreated `json:"contactUnsubscribeCreated,omitempty"`
+	ContactUnsubscribeDeleted *ContactUnsubscribeDeleted `json:"contactUnsubscribeDeleted,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
@@ -573,6 +575,70 @@ func (o *Event) SetContactDeleted(v ContactDeleted) {
 	o.ContactDeleted = &v
 }
 
+// GetContactUnsubscribeCreated returns the ContactUnsubscribeCreated field value if set, zero value otherwise.
+func (o *Event) GetContactUnsubscribeCreated() ContactUnsubscribeCreated {
+	if o == nil || o.ContactUnsubscribeCreated == nil {
+		var ret ContactUnsubscribeCreated
+		return ret
+	}
+	return *o.ContactUnsubscribeCreated
+}
+
+// GetContactUnsubscribeCreatedOk returns a tuple with the ContactUnsubscribeCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactUnsubscribeCreatedOk() (*ContactUnsubscribeCreated, bool) {
+	if o == nil || o.ContactUnsubscribeCreated == nil {
+		return nil, false
+	}
+	return o.ContactUnsubscribeCreated, true
+}
+
+// HasContactUnsubscribeCreated returns a boolean if a field has been set.
+func (o *Event) HasContactUnsubscribeCreated() bool {
+	if o != nil && o.ContactUnsubscribeCreated != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactUnsubscribeCreated gets a reference to the given ContactUnsubscribeCreated and assigns it to the ContactUnsubscribeCreated field.
+func (o *Event) SetContactUnsubscribeCreated(v ContactUnsubscribeCreated) {
+	o.ContactUnsubscribeCreated = &v
+}
+
+// GetContactUnsubscribeDeleted returns the ContactUnsubscribeDeleted field value if set, zero value otherwise.
+func (o *Event) GetContactUnsubscribeDeleted() ContactUnsubscribeDeleted {
+	if o == nil || o.ContactUnsubscribeDeleted == nil {
+		var ret ContactUnsubscribeDeleted
+		return ret
+	}
+	return *o.ContactUnsubscribeDeleted
+}
+
+// GetContactUnsubscribeDeletedOk returns a tuple with the ContactUnsubscribeDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactUnsubscribeDeletedOk() (*ContactUnsubscribeDeleted, bool) {
+	if o == nil || o.ContactUnsubscribeDeleted == nil {
+		return nil, false
+	}
+	return o.ContactUnsubscribeDeleted, true
+}
+
+// HasContactUnsubscribeDeleted returns a boolean if a field has been set.
+func (o *Event) HasContactUnsubscribeDeleted() bool {
+	if o != nil && o.ContactUnsubscribeDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactUnsubscribeDeleted gets a reference to the given ContactUnsubscribeDeleted and assigns it to the ContactUnsubscribeDeleted field.
+func (o *Event) SetContactUnsubscribeDeleted(v ContactUnsubscribeDeleted) {
+	o.ContactUnsubscribeDeleted = &v
+}
+
 func (o Event) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -625,6 +691,12 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.ContactDeleted != nil {
 		toSerialize["contactDeleted"] = o.ContactDeleted
+	}
+	if o.ContactUnsubscribeCreated != nil {
+		toSerialize["contactUnsubscribeCreated"] = o.ContactUnsubscribeCreated
+	}
+	if o.ContactUnsubscribeDeleted != nil {
+		toSerialize["contactUnsubscribeDeleted"] = o.ContactUnsubscribeDeleted
 	}
 	return json.Marshal(toSerialize)
 }

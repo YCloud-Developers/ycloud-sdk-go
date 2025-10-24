@@ -21,6 +21,8 @@ type WhatsappFlowUpdateMetadataRequest struct {
 	Name *string `json:"name,omitempty"`
 	// Flow categories.
 	Categories []WhatsappFlowCategory `json:"categories,omitempty"`
+	// The endpoint URI for the Flow.
+	EndpointUri *string `json:"endpointUri,omitempty"`
 }
 
 // NewWhatsappFlowUpdateMetadataRequest instantiates a new WhatsappFlowUpdateMetadataRequest object
@@ -104,6 +106,38 @@ func (o *WhatsappFlowUpdateMetadataRequest) SetCategories(v []WhatsappFlowCatego
 	o.Categories = v
 }
 
+// GetEndpointUri returns the EndpointUri field value if set, zero value otherwise.
+func (o *WhatsappFlowUpdateMetadataRequest) GetEndpointUri() string {
+	if o == nil || o.EndpointUri == nil {
+		var ret string
+		return ret
+	}
+	return *o.EndpointUri
+}
+
+// GetEndpointUriOk returns a tuple with the EndpointUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappFlowUpdateMetadataRequest) GetEndpointUriOk() (*string, bool) {
+	if o == nil || o.EndpointUri == nil {
+		return nil, false
+	}
+	return o.EndpointUri, true
+}
+
+// HasEndpointUri returns a boolean if a field has been set.
+func (o *WhatsappFlowUpdateMetadataRequest) HasEndpointUri() bool {
+	if o != nil && o.EndpointUri != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpointUri gets a reference to the given string and assigns it to the EndpointUri field.
+func (o *WhatsappFlowUpdateMetadataRequest) SetEndpointUri(v string) {
+	o.EndpointUri = &v
+}
+
 func (o WhatsappFlowUpdateMetadataRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name != nil {
@@ -111,6 +145,9 @@ func (o WhatsappFlowUpdateMetadataRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.Categories != nil {
 		toSerialize["categories"] = o.Categories
+	}
+	if o.EndpointUri != nil {
+		toSerialize["endpointUri"] = o.EndpointUri
 	}
 	return json.Marshal(toSerialize)
 }

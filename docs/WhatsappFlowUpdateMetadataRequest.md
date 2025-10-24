@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Flow name. | [optional] 
 **Categories** | Pointer to [**[]WhatsappFlowCategory**](WhatsappFlowCategory.md) | Flow categories. | [optional] 
+**EndpointUri** | Pointer to **string** | The endpoint URI for the Flow. | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetCategories sets Categories field to given value.
 `func (o *WhatsappFlowUpdateMetadataRequest) HasCategories() bool`
 
 HasCategories returns a boolean if a field has been set.
+
+### GetEndpointUri
+
+`func (o *WhatsappFlowUpdateMetadataRequest) GetEndpointUri() string`
+
+GetEndpointUri returns the EndpointUri field if non-nil, zero value otherwise.
+
+### GetEndpointUriOk
+
+`func (o *WhatsappFlowUpdateMetadataRequest) GetEndpointUriOk() (*string, bool)`
+
+GetEndpointUriOk returns a tuple with the EndpointUri field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointUri
+
+`func (o *WhatsappFlowUpdateMetadataRequest) SetEndpointUri(v string)`
+
+SetEndpointUri sets EndpointUri field to given value.
+
+### HasEndpointUri
+
+`func (o *WhatsappFlowUpdateMetadataRequest) HasEndpointUri() bool`
+
+HasEndpointUri returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

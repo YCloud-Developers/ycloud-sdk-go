@@ -18,7 +18,7 @@ import (
 // WhatsappFlowList200Response struct for WhatsappFlowList200Response
 type WhatsappFlowList200Response struct {
 	// List of flows.
-	Items []WhatsappFlow `json:"items,omitempty"`
+	Items []WhatsappListFlowItem `json:"items,omitempty"`
 }
 
 // NewWhatsappFlowList200Response instantiates a new WhatsappFlowList200Response object
@@ -39,9 +39,9 @@ func NewWhatsappFlowList200ResponseWithDefaults() *WhatsappFlowList200Response {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *WhatsappFlowList200Response) GetItems() []WhatsappFlow {
+func (o *WhatsappFlowList200Response) GetItems() []WhatsappListFlowItem {
 	if o == nil || o.Items == nil {
-		var ret []WhatsappFlow
+		var ret []WhatsappListFlowItem
 		return ret
 	}
 	return o.Items
@@ -49,7 +49,7 @@ func (o *WhatsappFlowList200Response) GetItems() []WhatsappFlow {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WhatsappFlowList200Response) GetItemsOk() ([]WhatsappFlow, bool) {
+func (o *WhatsappFlowList200Response) GetItemsOk() ([]WhatsappListFlowItem, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -65,8 +65,8 @@ func (o *WhatsappFlowList200Response) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []WhatsappFlow and assigns it to the Items field.
-func (o *WhatsappFlowList200Response) SetItems(v []WhatsappFlow) {
+// SetItems gets a reference to the given []WhatsappListFlowItem and assigns it to the Items field.
+func (o *WhatsappFlowList200Response) SetItems(v []WhatsappListFlowItem) {
 	o.Items = v
 }
 

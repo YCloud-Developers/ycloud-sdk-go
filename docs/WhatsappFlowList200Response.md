@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]WhatsappFlow**](WhatsappFlow.md) | List of flows. | [optional] 
+**Items** | Pointer to [**[]WhatsappListFlowItem**](WhatsappListFlowItem.md) | List of flows. | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *WhatsappFlowList200Response) GetItems() []WhatsappFlow`
+`func (o *WhatsappFlowList200Response) GetItems() []WhatsappListFlowItem`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *WhatsappFlowList200Response) GetItemsOk() (*[]WhatsappFlow, bool)`
+`func (o *WhatsappFlowList200Response) GetItemsOk() (*[]WhatsappListFlowItem, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *WhatsappFlowList200Response) SetItems(v []WhatsappFlow)`
+`func (o *WhatsappFlowList200Response) SetItems(v []WhatsappListFlowItem)`
 
 SetItems sets Items field to given value.
 

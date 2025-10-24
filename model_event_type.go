@@ -41,6 +41,8 @@ const (
 	EVENTTYPE_CONTACT_ATTRIBUTES_CHANGED EventType = "contact.attributes_changed"
 	EVENTTYPE_CONTACT_CREATED EventType = "contact.created"
 	EVENTTYPE_CONTACT_DELETED EventType = "contact.deleted"
+	EVENTTYPE_CONTACT_UNSUBSCRIBE_CREATED EventType = "contact.unsubscribe.created"
+	EVENTTYPE_CONTACT_UNSUBSCRIBE_DELETED EventType = "contact.unsubscribe.deleted"
 )
 
 // All allowed values of EventType enum
@@ -65,6 +67,8 @@ var AllowedEventTypeEnumValues = []EventType{
 	"contact.attributes_changed",
 	"contact.created",
 	"contact.deleted",
+	"contact.unsubscribe.created",
+	"contact.unsubscribe.deleted",
 }
 
 func (v *EventType) UnmarshalJSON(src []byte) error {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Customer** | Pointer to **string** | The customer who has opted out. For &#x60;type&#x3D;PHONE_NUMBER&#x60;, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **Channel** | Pointer to [**UnsubscriberChannel**](UnsubscriberChannel.md) |  | [optional] 
 **RegionCode** | Pointer to **string** | The customer&#39;s region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
+**Source** | Pointer to **string** | The source from which a customer resumed their subscription - &#x60;Whatsapp&#x60;: The customer resumed their subscription on the whatsapp client - &#x60;API&#x60;: You remove the customer from the unsubscribe list through the OpenAPI of YCloud - &#x60;Manual&#x60;: You remove the customer from the unsubscribe list on the Contact page of YCloud. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 
 ## Methods
@@ -128,6 +129,31 @@ SetRegionCode sets RegionCode field to given value.
 `func (o *Unsubscriber) HasRegionCode() bool`
 
 HasRegionCode returns a boolean if a field has been set.
+
+### GetSource
+
+`func (o *Unsubscriber) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *Unsubscriber) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *Unsubscriber) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *Unsubscriber) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
 
 ### GetCreateTime
 

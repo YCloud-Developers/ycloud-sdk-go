@@ -24,6 +24,8 @@ type Unsubscriber struct {
 	Channel *UnsubscriberChannel `json:"channel,omitempty"`
 	// The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	RegionCode *string `json:"regionCode,omitempty"`
+	// The source from which a customer resumed their subscription - `Whatsapp`: The customer resumed their subscription on the whatsapp client - `API`: You remove the customer from the unsubscribe list through the OpenAPI of YCloud - `Manual`: You remove the customer from the unsubscribe list on the Contact page of YCloud.
+	Source *string `json:"source,omitempty"`
 	// The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime *time.Time `json:"createTime,omitempty"`
 }
@@ -173,6 +175,38 @@ func (o *Unsubscriber) SetRegionCode(v string) {
 	o.RegionCode = &v
 }
 
+// GetSource returns the Source field value if set, zero value otherwise.
+func (o *Unsubscriber) GetSource() string {
+	if o == nil || o.Source == nil {
+		var ret string
+		return ret
+	}
+	return *o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Unsubscriber) GetSourceOk() (*string, bool) {
+	if o == nil || o.Source == nil {
+		return nil, false
+	}
+	return o.Source, true
+}
+
+// HasSource returns a boolean if a field has been set.
+func (o *Unsubscriber) HasSource() bool {
+	if o != nil && o.Source != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSource gets a reference to the given string and assigns it to the Source field.
+func (o *Unsubscriber) SetSource(v string) {
+	o.Source = &v
+}
+
 // GetCreateTime returns the CreateTime field value if set, zero value otherwise.
 func (o *Unsubscriber) GetCreateTime() time.Time {
 	if o == nil || o.CreateTime == nil {
@@ -218,6 +252,9 @@ func (o Unsubscriber) MarshalJSON() ([]byte, error) {
 	}
 	if o.RegionCode != nil {
 		toSerialize["regionCode"] = o.RegionCode
+	}
+	if o.Source != nil {
+		toSerialize["source"] = o.Source
 	}
 	if o.CreateTime != nil {
 		toSerialize["createTime"] = o.CreateTime

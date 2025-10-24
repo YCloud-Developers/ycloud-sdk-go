@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional] 
 **ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional] 
 **ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional] 
+**ContactUnsubscribeCreated** | Pointer to [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  | [optional] 
+**ContactUnsubscribeDeleted** | Pointer to [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  | [optional] 
 
 ## Methods
 
@@ -445,6 +447,56 @@ SetContactDeleted sets ContactDeleted field to given value.
 `func (o *Event) HasContactDeleted() bool`
 
 HasContactDeleted returns a boolean if a field has been set.
+
+### GetContactUnsubscribeCreated
+
+`func (o *Event) GetContactUnsubscribeCreated() ContactUnsubscribeCreated`
+
+GetContactUnsubscribeCreated returns the ContactUnsubscribeCreated field if non-nil, zero value otherwise.
+
+### GetContactUnsubscribeCreatedOk
+
+`func (o *Event) GetContactUnsubscribeCreatedOk() (*ContactUnsubscribeCreated, bool)`
+
+GetContactUnsubscribeCreatedOk returns a tuple with the ContactUnsubscribeCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactUnsubscribeCreated
+
+`func (o *Event) SetContactUnsubscribeCreated(v ContactUnsubscribeCreated)`
+
+SetContactUnsubscribeCreated sets ContactUnsubscribeCreated field to given value.
+
+### HasContactUnsubscribeCreated
+
+`func (o *Event) HasContactUnsubscribeCreated() bool`
+
+HasContactUnsubscribeCreated returns a boolean if a field has been set.
+
+### GetContactUnsubscribeDeleted
+
+`func (o *Event) GetContactUnsubscribeDeleted() ContactUnsubscribeDeleted`
+
+GetContactUnsubscribeDeleted returns the ContactUnsubscribeDeleted field if non-nil, zero value otherwise.
+
+### GetContactUnsubscribeDeletedOk
+
+`func (o *Event) GetContactUnsubscribeDeletedOk() (*ContactUnsubscribeDeleted, bool)`
+
+GetContactUnsubscribeDeletedOk returns a tuple with the ContactUnsubscribeDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactUnsubscribeDeleted
+
+`func (o *Event) SetContactUnsubscribeDeleted(v ContactUnsubscribeDeleted)`
+
+SetContactUnsubscribeDeleted sets ContactUnsubscribeDeleted field to given value.
+
+### HasContactUnsubscribeDeleted
+
+`func (o *Event) HasContactUnsubscribeDeleted() bool`
+
+HasContactUnsubscribeDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

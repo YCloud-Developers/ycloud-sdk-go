@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **Currency** | Pointer to **string** | The currency in which the payment transactions for the WhatsApp Business Account will be processed. | [optional] 
 **MessageTemplateNamespace** | Pointer to **string** | Namespace string for the message templates that belong to the WhatsApp Business Account. | [optional] 
 **AccountReviewStatus** | Pointer to [**WhatsappBusinessAccountReviewStatus**](WhatsappBusinessAccountReviewStatus.md) |  | [optional] 
+**BusinessId** | Pointer to **string** | Business Portfolio ID. | [optional] 
+**BusinessName** | Pointer to **string** | Business Portfolio Name. | [optional] 
+**BusinessStatus** | Pointer to **string** | Business Portfolio Status,Default:APPROVED | [optional] 
 **BusinessVerificationStatus** | Pointer to [**MetaBusinessAccountVerificationStatus**](MetaBusinessAccountVerificationStatus.md) |  | [optional] 
 **Country** | Pointer to **string** | Country of the WhatsApp Business Account&#39;s owning Meta Business account. | [optional] 
 **OwnershipType** | Pointer to **string** | Ownership type of the WhatsApp Business Account. | [optional] 
@@ -24,6 +27,7 @@ Name | Type | Description | Notes
 **Restrictions** | Pointer to [**[]WhatsappBusinessAccountRestrictionInfo**](WhatsappBusinessAccountRestrictionInfo.md) | Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement). | [optional] 
 **AuthIntlRateEligibilityCountries** | Pointer to [**[]WhatsappAuthIntlRateEligibilityCountry**](WhatsappAuthIntlRateEligibilityCountry.md) | Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). | [optional] 
 **PrimaryBusinessLocation** | Pointer to **string** | Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
+**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
 
 ## Methods
 
@@ -168,6 +172,81 @@ SetAccountReviewStatus sets AccountReviewStatus field to given value.
 `func (o *WhatsappBusinessAccount) HasAccountReviewStatus() bool`
 
 HasAccountReviewStatus returns a boolean if a field has been set.
+
+### GetBusinessId
+
+`func (o *WhatsappBusinessAccount) GetBusinessId() string`
+
+GetBusinessId returns the BusinessId field if non-nil, zero value otherwise.
+
+### GetBusinessIdOk
+
+`func (o *WhatsappBusinessAccount) GetBusinessIdOk() (*string, bool)`
+
+GetBusinessIdOk returns a tuple with the BusinessId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessId
+
+`func (o *WhatsappBusinessAccount) SetBusinessId(v string)`
+
+SetBusinessId sets BusinessId field to given value.
+
+### HasBusinessId
+
+`func (o *WhatsappBusinessAccount) HasBusinessId() bool`
+
+HasBusinessId returns a boolean if a field has been set.
+
+### GetBusinessName
+
+`func (o *WhatsappBusinessAccount) GetBusinessName() string`
+
+GetBusinessName returns the BusinessName field if non-nil, zero value otherwise.
+
+### GetBusinessNameOk
+
+`func (o *WhatsappBusinessAccount) GetBusinessNameOk() (*string, bool)`
+
+GetBusinessNameOk returns a tuple with the BusinessName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessName
+
+`func (o *WhatsappBusinessAccount) SetBusinessName(v string)`
+
+SetBusinessName sets BusinessName field to given value.
+
+### HasBusinessName
+
+`func (o *WhatsappBusinessAccount) HasBusinessName() bool`
+
+HasBusinessName returns a boolean if a field has been set.
+
+### GetBusinessStatus
+
+`func (o *WhatsappBusinessAccount) GetBusinessStatus() string`
+
+GetBusinessStatus returns the BusinessStatus field if non-nil, zero value otherwise.
+
+### GetBusinessStatusOk
+
+`func (o *WhatsappBusinessAccount) GetBusinessStatusOk() (*string, bool)`
+
+GetBusinessStatusOk returns a tuple with the BusinessStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessStatus
+
+`func (o *WhatsappBusinessAccount) SetBusinessStatus(v string)`
+
+SetBusinessStatus sets BusinessStatus field to given value.
+
+### HasBusinessStatus
+
+`func (o *WhatsappBusinessAccount) HasBusinessStatus() bool`
+
+HasBusinessStatus returns a boolean if a field has been set.
 
 ### GetBusinessVerificationStatus
 
@@ -543,6 +622,31 @@ SetPrimaryBusinessLocation sets PrimaryBusinessLocation field to given value.
 `func (o *WhatsappBusinessAccount) HasPrimaryBusinessLocation() bool`
 
 HasPrimaryBusinessLocation returns a boolean if a field has been set.
+
+### GetWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappBusinessAccount) GetWhatsappBusinessManagerMessagingLimit() string`
+
+GetWhatsappBusinessManagerMessagingLimit returns the WhatsappBusinessManagerMessagingLimit field if non-nil, zero value otherwise.
+
+### GetWhatsappBusinessManagerMessagingLimitOk
+
+`func (o *WhatsappBusinessAccount) GetWhatsappBusinessManagerMessagingLimitOk() (*string, bool)`
+
+GetWhatsappBusinessManagerMessagingLimitOk returns a tuple with the WhatsappBusinessManagerMessagingLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappBusinessAccount) SetWhatsappBusinessManagerMessagingLimit(v string)`
+
+SetWhatsappBusinessManagerMessagingLimit sets WhatsappBusinessManagerMessagingLimit field to given value.
+
+### HasWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappBusinessAccount) HasWhatsappBusinessManagerMessagingLimit() bool`
+
+HasWhatsappBusinessManagerMessagingLimit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

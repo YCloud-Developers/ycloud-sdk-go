@@ -28,8 +28,12 @@ type WhatsappPhoneNumber struct {
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
 	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
+	// The owning business portfolio's messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - `TIER_NOT_SET`: The business phone number has not been used to send a message yet. - `TIER_50`: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - `TIER_2K`: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - `TIER_10K`: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - `TIER_100K`: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - `TIER_UNLIMITED`: The business phone number has higher throughput with unlimited business-initiated conversations.
+	WhatsappBusinessManagerMessagingLimit *string `json:"whatsappBusinessManagerMessagingLimit,omitempty"`
 	// Verified name.
 	VerifiedName *string `json:"verifiedName,omitempty"`
+	// The modified name
+	NewName *string `json:"newName,omitempty"`
 	CodeVerificationStatus *WhatsappPhoneNumberCodeVerificationStatus `json:"codeVerificationStatus,omitempty"`
 	// Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
 	IsOfficialBusinessAccount *bool `json:"isOfficialBusinessAccount,omitempty"`
@@ -253,6 +257,38 @@ func (o *WhatsappPhoneNumber) SetMessagingLimit(v string) {
 	o.MessagingLimit = &v
 }
 
+// GetWhatsappBusinessManagerMessagingLimit returns the WhatsappBusinessManagerMessagingLimit field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetWhatsappBusinessManagerMessagingLimit() string {
+	if o == nil || o.WhatsappBusinessManagerMessagingLimit == nil {
+		var ret string
+		return ret
+	}
+	return *o.WhatsappBusinessManagerMessagingLimit
+}
+
+// GetWhatsappBusinessManagerMessagingLimitOk returns a tuple with the WhatsappBusinessManagerMessagingLimit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetWhatsappBusinessManagerMessagingLimitOk() (*string, bool) {
+	if o == nil || o.WhatsappBusinessManagerMessagingLimit == nil {
+		return nil, false
+	}
+	return o.WhatsappBusinessManagerMessagingLimit, true
+}
+
+// HasWhatsappBusinessManagerMessagingLimit returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasWhatsappBusinessManagerMessagingLimit() bool {
+	if o != nil && o.WhatsappBusinessManagerMessagingLimit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappBusinessManagerMessagingLimit gets a reference to the given string and assigns it to the WhatsappBusinessManagerMessagingLimit field.
+func (o *WhatsappPhoneNumber) SetWhatsappBusinessManagerMessagingLimit(v string) {
+	o.WhatsappBusinessManagerMessagingLimit = &v
+}
+
 // GetVerifiedName returns the VerifiedName field value if set, zero value otherwise.
 func (o *WhatsappPhoneNumber) GetVerifiedName() string {
 	if o == nil || o.VerifiedName == nil {
@@ -283,6 +319,38 @@ func (o *WhatsappPhoneNumber) HasVerifiedName() bool {
 // SetVerifiedName gets a reference to the given string and assigns it to the VerifiedName field.
 func (o *WhatsappPhoneNumber) SetVerifiedName(v string) {
 	o.VerifiedName = &v
+}
+
+// GetNewName returns the NewName field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetNewName() string {
+	if o == nil || o.NewName == nil {
+		var ret string
+		return ret
+	}
+	return *o.NewName
+}
+
+// GetNewNameOk returns a tuple with the NewName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetNewNameOk() (*string, bool) {
+	if o == nil || o.NewName == nil {
+		return nil, false
+	}
+	return o.NewName, true
+}
+
+// HasNewName returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasNewName() bool {
+	if o != nil && o.NewName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNewName gets a reference to the given string and assigns it to the NewName field.
+func (o *WhatsappPhoneNumber) SetNewName(v string) {
+	o.NewName = &v
 }
 
 // GetCodeVerificationStatus returns the CodeVerificationStatus field value if set, zero value otherwise.
@@ -593,8 +661,14 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	if o.MessagingLimit != nil {
 		toSerialize["messagingLimit"] = o.MessagingLimit
 	}
+	if o.WhatsappBusinessManagerMessagingLimit != nil {
+		toSerialize["whatsappBusinessManagerMessagingLimit"] = o.WhatsappBusinessManagerMessagingLimit
+	}
 	if o.VerifiedName != nil {
 		toSerialize["verifiedName"] = o.VerifiedName
+	}
+	if o.NewName != nil {
+		toSerialize["newName"] = o.NewName
 	}
 	if o.CodeVerificationStatus != nil {
 		toSerialize["codeVerificationStatus"] = o.CodeVerificationStatus

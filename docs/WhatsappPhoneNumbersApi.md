@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**RetrieveSettings**](WhatsappPhoneNumbersApi.md#RetrieveSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings
 [**SaveSettings**](WhatsappPhoneNumbersApi.md#SaveSettings) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings
 [**UpdateCommerceSettings**](WhatsappPhoneNumbersApi.md#UpdateCommerceSettings) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
+[**UpdateDisplayName**](WhatsappPhoneNumbersApi.md#UpdateDisplayName) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName | Update a phone number display name
 [**UpdateProfile**](WhatsappPhoneNumbersApi.md#UpdateProfile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
 
 
@@ -588,6 +589,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappCommerceSettings**](WhatsappCommerceSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateDisplayName
+
+> WhatsappPhoneNameUpdateResponse UpdateDisplayName(ctx, wabaId, phoneNumber).WhatsappPhoneNameUpdateRequest(whatsappPhoneNameUpdateRequest).Execute()
+
+Update a phone number display name
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    whatsappPhoneNameUpdateRequest := *ycloud.NewWhatsappPhoneNameUpdateRequest() // WhatsappPhoneNameUpdateRequest | 
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.UpdateDisplayName(context.Background(), wabaId, phoneNumber).WhatsappPhoneNameUpdateRequest(whatsappPhoneNameUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.UpdateDisplayName``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateDisplayName`: WhatsappPhoneNameUpdateResponse
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.UpdateDisplayName`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateDisplayNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **whatsappPhoneNameUpdateRequest** | [**WhatsappPhoneNameUpdateRequest**](WhatsappPhoneNameUpdateRequest.md) |  | 
+
+### Return type
+
+[**WhatsappPhoneNameUpdateResponse**](WhatsappPhoneNameUpdateResponse.md)
 
 ### Authorization
 

@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
 **QualityRating** | Pointer to [**WhatsappPhoneNumberQualityRating**](WhatsappPhoneNumberQualityRating.md) |  | [optional] 
 **MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
+**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
 **VerifiedName** | Pointer to **string** | Verified name. | [optional] 
+**NewName** | Pointer to **string** | The modified name | [optional] 
 **CodeVerificationStatus** | Pointer to [**WhatsappPhoneNumberCodeVerificationStatus**](WhatsappPhoneNumberCodeVerificationStatus.md) |  | [optional] 
 **IsOfficialBusinessAccount** | Pointer to **bool** | Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information. | [optional] 
 **Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional] 
@@ -190,6 +192,31 @@ SetMessagingLimit sets MessagingLimit field to given value.
 
 HasMessagingLimit returns a boolean if a field has been set.
 
+### GetWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappPhoneNumber) GetWhatsappBusinessManagerMessagingLimit() string`
+
+GetWhatsappBusinessManagerMessagingLimit returns the WhatsappBusinessManagerMessagingLimit field if non-nil, zero value otherwise.
+
+### GetWhatsappBusinessManagerMessagingLimitOk
+
+`func (o *WhatsappPhoneNumber) GetWhatsappBusinessManagerMessagingLimitOk() (*string, bool)`
+
+GetWhatsappBusinessManagerMessagingLimitOk returns a tuple with the WhatsappBusinessManagerMessagingLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappPhoneNumber) SetWhatsappBusinessManagerMessagingLimit(v string)`
+
+SetWhatsappBusinessManagerMessagingLimit sets WhatsappBusinessManagerMessagingLimit field to given value.
+
+### HasWhatsappBusinessManagerMessagingLimit
+
+`func (o *WhatsappPhoneNumber) HasWhatsappBusinessManagerMessagingLimit() bool`
+
+HasWhatsappBusinessManagerMessagingLimit returns a boolean if a field has been set.
+
 ### GetVerifiedName
 
 `func (o *WhatsappPhoneNumber) GetVerifiedName() string`
@@ -214,6 +241,31 @@ SetVerifiedName sets VerifiedName field to given value.
 `func (o *WhatsappPhoneNumber) HasVerifiedName() bool`
 
 HasVerifiedName returns a boolean if a field has been set.
+
+### GetNewName
+
+`func (o *WhatsappPhoneNumber) GetNewName() string`
+
+GetNewName returns the NewName field if non-nil, zero value otherwise.
+
+### GetNewNameOk
+
+`func (o *WhatsappPhoneNumber) GetNewNameOk() (*string, bool)`
+
+GetNewNameOk returns a tuple with the NewName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewName
+
+`func (o *WhatsappPhoneNumber) SetNewName(v string)`
+
+SetNewName sets NewName field to given value.
+
+### HasNewName
+
+`func (o *WhatsappPhoneNumber) HasNewName() bool`
+
+HasNewName returns a boolean if a field has been set.
 
 ### GetCodeVerificationStatus
 

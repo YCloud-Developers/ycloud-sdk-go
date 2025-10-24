@@ -5,6 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **About** | Pointer to **string** | The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. | [optional] 
+**VerifiedName** | Pointer to **string** | The verified name | [optional] 
+**NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
+**NewName** | Pointer to **string** | The modified name | [optional] 
+**NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
 **Address** | Pointer to **string** | Address of the business. Character limit 256. | [optional] 
 **Description** | Pointer to **string** | Description of the business. Character limit 512. | [optional] 
 **Email** | Pointer to **string** | The contact email address (in valid email format) of the business. Character limit 128. | [optional] 
@@ -55,6 +59,106 @@ SetAbout sets About field to given value.
 `func (o *WhatsappPhoneNumberProfile) HasAbout() bool`
 
 HasAbout returns a boolean if a field has been set.
+
+### GetVerifiedName
+
+`func (o *WhatsappPhoneNumberProfile) GetVerifiedName() string`
+
+GetVerifiedName returns the VerifiedName field if non-nil, zero value otherwise.
+
+### GetVerifiedNameOk
+
+`func (o *WhatsappPhoneNumberProfile) GetVerifiedNameOk() (*string, bool)`
+
+GetVerifiedNameOk returns a tuple with the VerifiedName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerifiedName
+
+`func (o *WhatsappPhoneNumberProfile) SetVerifiedName(v string)`
+
+SetVerifiedName sets VerifiedName field to given value.
+
+### HasVerifiedName
+
+`func (o *WhatsappPhoneNumberProfile) HasVerifiedName() bool`
+
+HasVerifiedName returns a boolean if a field has been set.
+
+### GetNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) GetNameStatus() WhatsappPhoneNumberNameStatus`
+
+GetNameStatus returns the NameStatus field if non-nil, zero value otherwise.
+
+### GetNameStatusOk
+
+`func (o *WhatsappPhoneNumberProfile) GetNameStatusOk() (*WhatsappPhoneNumberNameStatus, bool)`
+
+GetNameStatusOk returns a tuple with the NameStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) SetNameStatus(v WhatsappPhoneNumberNameStatus)`
+
+SetNameStatus sets NameStatus field to given value.
+
+### HasNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) HasNameStatus() bool`
+
+HasNameStatus returns a boolean if a field has been set.
+
+### GetNewName
+
+`func (o *WhatsappPhoneNumberProfile) GetNewName() string`
+
+GetNewName returns the NewName field if non-nil, zero value otherwise.
+
+### GetNewNameOk
+
+`func (o *WhatsappPhoneNumberProfile) GetNewNameOk() (*string, bool)`
+
+GetNewNameOk returns a tuple with the NewName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewName
+
+`func (o *WhatsappPhoneNumberProfile) SetNewName(v string)`
+
+SetNewName sets NewName field to given value.
+
+### HasNewName
+
+`func (o *WhatsappPhoneNumberProfile) HasNewName() bool`
+
+HasNewName returns a boolean if a field has been set.
+
+### GetNewNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) GetNewNameStatus() WhatsappPhoneNumberNameStatus`
+
+GetNewNameStatus returns the NewNameStatus field if non-nil, zero value otherwise.
+
+### GetNewNameStatusOk
+
+`func (o *WhatsappPhoneNumberProfile) GetNewNameStatusOk() (*WhatsappPhoneNumberNameStatus, bool)`
+
+GetNewNameStatusOk returns a tuple with the NewNameStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) SetNewNameStatus(v WhatsappPhoneNumberNameStatus)`
+
+SetNewNameStatus sets NewNameStatus field to given value.
+
+### HasNewNameStatus
+
+`func (o *WhatsappPhoneNumberProfile) HasNewNameStatus() bool`
+
+HasNewNameStatus returns a boolean if a field has been set.
 
 ### GetAddress
 
