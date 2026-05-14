@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | **string** | A human-readable description of the error. | 
-**Code** | **string** | An error code. | 
-**Type** | Pointer to **string** | Error type. | [optional] 
-**ErrorSubcode** | Pointer to **string** | Additional code about the error. | [optional] 
-**ErrorUserMsg** | Pointer to **string** | The message to display to the user. The language of the message is based on the locale of the API request. | [optional] 
-**ErrorUserTitle** | Pointer to **string** | The title of the dialog, if shown. The language of the message is based on the locale of the API request. | [optional] 
-**FbtraceId** | Pointer to **string** | Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging. | [optional] 
-**ErrorData** | Pointer to **map[string]interface{}** | Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error. | [optional] 
+**Message** | **string** | A human-readable description of the error. |
+**Code** | **string** | An error code. |
+**Type** | Pointer to **string** | Error type. | [optional]
+**ErrorSubcode** | Pointer to **string** | Additional code about the error. | [optional]
+**ErrorUserMsg** | Pointer to **string** | The message to display to the user. The language of the message is based on the locale of the API request. | [optional]
+**ErrorUserTitle** | Pointer to **string** | The title of the dialog, if shown. The language of the message is based on the locale of the API request. | [optional]
+**FbtraceId** | Pointer to **string** | Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging. | [optional]
+**ErrorData** | Pointer to **map[string]interface{}** | Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error. | [optional]
 
 ## Methods
 

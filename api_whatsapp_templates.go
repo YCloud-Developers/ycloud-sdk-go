@@ -299,7 +299,7 @@ Deletes a WhatsApp template by name and language.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
  @param name Name of the template.
- @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
  @return WhatsappTemplatesApiDeleteByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) DeleteByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiDeleteByNameAndLanguageRequest {
@@ -437,10 +437,12 @@ EditByNameAndLanguage Edit a template
 Edits a WhatsApp template by name and language.
 Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
 
+Only templates in `APPROVED`, `REJECTED`, or `PAUSED` status can be edited. `ARCHIVED` templates cannot be edited.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
  @param name Name of the template.
- @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
  @return WhatsappTemplatesApiEditByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) EditByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiEditByNameAndLanguageRequest {
@@ -565,6 +567,7 @@ type WhatsappTemplatesApiListRequest struct {
 	filterWabaId *string
 	filterName *string
 	filterLanguage *string
+	filterStatus *string
 }
 
 // Page number of the results to be returned, 1-based.
@@ -597,9 +600,15 @@ func (r WhatsappTemplatesApiListRequest) FilterName(filterName string) WhatsappT
 	return r
 }
 
-// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+// Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
 func (r WhatsappTemplatesApiListRequest) FilterLanguage(filterLanguage string) WhatsappTemplatesApiListRequest {
 	r.filterLanguage = &filterLanguage
+	return r
+}
+
+// Comma-separated template statuses to filter by. Supported values include &#x60;PENDING&#x60;, &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, &#x60;ARCHIVED&#x60;, &#x60;IN_APPEAL&#x60;, and &#x60;DELETED&#x60;.
+func (r WhatsappTemplatesApiListRequest) FilterStatus(filterStatus string) WhatsappTemplatesApiListRequest {
+	r.filterStatus = &filterStatus
 	return r
 }
 
@@ -611,6 +620,8 @@ func (r WhatsappTemplatesApiListRequest) Execute() (*WhatsappTemplatePage, *http
 List List templates
 
 Returns a paginated list of WhatsApp templates you've previously created.
+
+Archived templates are included when they match the query. Use `filter.status=ARCHIVED` to list archived templates explicitly.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WhatsappTemplatesApiListRequest
@@ -660,6 +671,9 @@ func (a *WhatsappTemplatesApiService) ListExecute(r WhatsappTemplatesApiListRequ
 	}
 	if r.filterLanguage != nil {
 		localVarQueryParams.Add("filter.language", parameterToString(*r.filterLanguage, ""))
+	}
+	if r.filterStatus != nil {
+		localVarQueryParams.Add("filter.status", parameterToString(*r.filterStatus, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -746,10 +760,12 @@ RetrieveByNameAndLanguage Retrieve a template
 
 Retrieves a WhatsApp template by name and language.
 
+The returned template `status` may be `ARCHIVED`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
  @param name Name of the template.
- @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+ @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
  @return WhatsappTemplatesApiRetrieveByNameAndLanguageRequest
 */
 func (a *WhatsappTemplatesApiService) RetrieveByNameAndLanguage(ctx context.Context, wabaId string, name string, language string) WhatsappTemplatesApiRetrieveByNameAndLanguageRequest {

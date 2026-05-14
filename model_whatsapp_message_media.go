@@ -15,26 +15,24 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageMedia Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
+// WhatsappMessageMedia Use for `image`, `gif`, `video`, `audio`, `document`, or `sticker` messages. See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
 type WhatsappMessageMedia struct {
-	// Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.
+	// **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.
+	Id *string `json:"id,omitempty"`
+	// **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence and `link` will be ignored.
+	Link *string `json:"link,omitempty"`
+	// Describes the specified `image`, `gif`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.
 	Caption *string `json:"caption,omitempty"`
 	// Describes the filename for the specific document. Use only with `document` media.
 	Filename *string `json:"filename,omitempty"`
-	// Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-	Id string `json:"id"`
-	// Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-	Link string `json:"link"`
 }
 
 // NewWhatsappMessageMedia instantiates a new WhatsappMessageMedia object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageMedia(id string, link string) *WhatsappMessageMedia {
+func NewWhatsappMessageMedia() *WhatsappMessageMedia {
 	this := WhatsappMessageMedia{}
-	this.Id = id
-	this.Link = link
 	return &this
 }
 
@@ -44,6 +42,70 @@ func NewWhatsappMessageMedia(id string, link string) *WhatsappMessageMedia {
 func NewWhatsappMessageMediaWithDefaults() *WhatsappMessageMedia {
 	this := WhatsappMessageMedia{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *WhatsappMessageMedia) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageMedia) GetIdOk() (*string, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *WhatsappMessageMedia) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *WhatsappMessageMedia) SetId(v string) {
+	o.Id = &v
+}
+
+// GetLink returns the Link field value if set, zero value otherwise.
+func (o *WhatsappMessageMedia) GetLink() string {
+	if o == nil || o.Link == nil {
+		var ret string
+		return ret
+	}
+	return *o.Link
+}
+
+// GetLinkOk returns a tuple with the Link field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageMedia) GetLinkOk() (*string, bool) {
+	if o == nil || o.Link == nil {
+		return nil, false
+	}
+	return o.Link, true
+}
+
+// HasLink returns a boolean if a field has been set.
+func (o *WhatsappMessageMedia) HasLink() bool {
+	if o != nil && o.Link != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLink gets a reference to the given string and assigns it to the Link field.
+func (o *WhatsappMessageMedia) SetLink(v string) {
+	o.Link = &v
 }
 
 // GetCaption returns the Caption field value if set, zero value otherwise.
@@ -110,67 +172,19 @@ func (o *WhatsappMessageMedia) SetFilename(v string) {
 	o.Filename = &v
 }
 
-// GetId returns the Id field value
-func (o *WhatsappMessageMedia) GetId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *WhatsappMessageMedia) GetIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *WhatsappMessageMedia) SetId(v string) {
-	o.Id = v
-}
-
-// GetLink returns the Link field value
-func (o *WhatsappMessageMedia) GetLink() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Link
-}
-
-// GetLinkOk returns a tuple with the Link field value
-// and a boolean to check if the value has been set.
-func (o *WhatsappMessageMedia) GetLinkOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Link, true
-}
-
-// SetLink sets field value
-func (o *WhatsappMessageMedia) SetLink(v string) {
-	o.Link = v
-}
-
 func (o WhatsappMessageMedia) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
+	if o.Link != nil {
+		toSerialize["link"] = o.Link
+	}
 	if o.Caption != nil {
 		toSerialize["caption"] = o.Caption
 	}
 	if o.Filename != nil {
 		toSerialize["filename"] = o.Filename
-	}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["link"] = o.Link
 	}
 	return json.Marshal(toSerialize)
 }

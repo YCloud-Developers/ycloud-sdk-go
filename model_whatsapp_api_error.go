@@ -31,7 +31,7 @@ type WhatsappApiError struct {
 	ErrorUserTitle *string `json:"error_user_title,omitempty"`
 	// Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging.
 	FbtraceId *string `json:"fbtrace_id,omitempty"`
-	// Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property `details` describing the reason for the error.
+	// Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property `details` describing the reason for the error.
 	ErrorData map[string]interface{} `json:"error_data,omitempty"`
 }
 

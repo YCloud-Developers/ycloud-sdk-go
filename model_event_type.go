@@ -38,11 +38,17 @@ const (
 	EVENTTYPE_WHATSAPP_TEMPLATE_CATEGORY_UPDATED EventType = "whatsapp.template.category_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_QUALITY_UPDATED EventType = "whatsapp.template.quality_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_REVIEWED EventType = "whatsapp.template.reviewed"
+	EVENTTYPE_WHATSAPP_CALL_CONNECT EventType = "whatsapp.call.connect"
+	EVENTTYPE_WHATSAPP_CALL_TERMINATE EventType = "whatsapp.call.terminate"
+	EVENTTYPE_WHATSAPP_CALL_STATUS_UPDATED EventType = "whatsapp.call.status.updated"
+	EVENTTYPE_WHATSAPP_FLOW_STATUS_CHANGE EventType = "whatsapp.flow.status_change"
+	EVENTTYPE_WHATSAPP_PAYMENT_UPDATED EventType = "whatsapp.payment.updated"
 	EVENTTYPE_CONTACT_ATTRIBUTES_CHANGED EventType = "contact.attributes_changed"
 	EVENTTYPE_CONTACT_CREATED EventType = "contact.created"
 	EVENTTYPE_CONTACT_DELETED EventType = "contact.deleted"
 	EVENTTYPE_CONTACT_UNSUBSCRIBE_CREATED EventType = "contact.unsubscribe.created"
 	EVENTTYPE_CONTACT_UNSUBSCRIBE_DELETED EventType = "contact.unsubscribe.deleted"
+	EVENTTYPE_WHATSAPP_USER_PREFERENCES EventType = "whatsapp.user.preferences"
 )
 
 // All allowed values of EventType enum
@@ -64,11 +70,17 @@ var AllowedEventTypeEnumValues = []EventType{
 	"whatsapp.template.category_updated",
 	"whatsapp.template.quality_updated",
 	"whatsapp.template.reviewed",
+	"whatsapp.call.connect",
+	"whatsapp.call.terminate",
+	"whatsapp.call.status.updated",
+	"whatsapp.flow.status_change",
+	"whatsapp.payment.updated",
 	"contact.attributes_changed",
 	"contact.created",
 	"contact.deleted",
 	"contact.unsubscribe.created",
 	"contact.unsubscribe.deleted",
+	"whatsapp.user.preferences",
 }
 
 func (v *EventType) UnmarshalJSON(src []byte) error {

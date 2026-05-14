@@ -28,7 +28,7 @@ type Sms struct {
 	SenderId *string `json:"senderId,omitempty"`
 	// [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	RegionCode *string `json:"regionCode,omitempty"`
-	// Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+	// Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info.
 	TotalSegments *int32 `json:"totalSegments,omitempty"`
 	// Total price of this message.
 	TotalPrice *float64 `json:"totalPrice,omitempty"`

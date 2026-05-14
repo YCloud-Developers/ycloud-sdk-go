@@ -172,6 +172,8 @@ Enqueues an outbound WhatsApp message for sending.
 
 Queued messages will be submitted to the WhatsApp Business API asynchronously.
 
+For WhatsApp `template` messages, the referenced template must be in `APPROVED` status. `ARCHIVED` templates cannot be sent.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WhatsappMessagesApiSendRequest
 */

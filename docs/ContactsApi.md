@@ -95,7 +95,7 @@ import (
 )
 
 func main() {
-    contactCreateRequest := *ycloud.NewContactCreateRequest("+16315551111") // ContactCreateRequest | 
+    contactCreateRequest := *ycloud.NewContactCreateRequest("+16315551111") // ContactCreateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -120,7 +120,7 @@ Other parameters are passed through a pointer to a apiCreateRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactCreateRequest** | [**ContactCreateRequest**](ContactCreateRequest.md) |  | 
+ **contactCreateRequest** | [**ContactCreateRequest**](ContactCreateRequest.md) |  |
 
 ### Return type
 
@@ -161,7 +161,7 @@ import (
 )
 
 func main() {
-    id := "1693364594105000026" // string | ID of the contact.
+    id := "1693364594105000026/+16315551111" // string | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -181,7 +181,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the contact. | 
+**id** | **string** | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 |
 
 ### Other Parameters
 
@@ -234,7 +234,7 @@ func main() {
     page := int32(56) // int32 | Page number of the results to be returned, 1-based. (optional) (default to 1)
     limit := int32(56) // int32 | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional) (default to 10)
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
-    filterTags := "tag1,tag2" // string | Comma-separated list of tags. (optional)
+    filterTags := "tag1_id,tag2_id" // string | Comma-separated list of tags' id. (optional)
     filterCountryCode := "US" // string | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)
     filterPhoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (optional)
     filterEmail := "support@example.com" // string | The contact's email address. (optional)
@@ -265,10 +265,10 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterTags** | **string** | Comma-separated list of tags. | 
- **filterCountryCode** | **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | 
- **filterPhoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
- **filterEmail** | **string** | The contact&#39;s email address. | 
+ **filterTags** | **string** | Comma-separated list of tags&#39; id. |
+ **filterCountryCode** | **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
+ **filterPhoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+ **filterEmail** | **string** | The contact&#39;s email address. |
 
 ### Return type
 
@@ -309,7 +309,7 @@ import (
 )
 
 func main() {
-    id := "1693364594105000026" // string | ID of the contact.
+    id := "1693364594105000026/+16315551111" // string | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -329,7 +329,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the contact. | 
+**id** | **string** | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 |
 
 ### Other Parameters
 
@@ -379,7 +379,7 @@ import (
 )
 
 func main() {
-    id := "1693364594105000026" // string | ID of the contact.
+    id := "1693364594105000026/+16315551111" // string | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
     contactUpdateRequest := *ycloud.NewContactUpdateRequest() // ContactUpdateRequest |  (optional)
 
     configuration := ycloud.NewConfiguration()
@@ -400,7 +400,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the contact. | 
+**id** | **string** | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 |
 
 ### Other Parameters
 
@@ -410,7 +410,7 @@ Other parameters are passed through a pointer to a apiUpdateRequest struct via t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **contactUpdateRequest** | [**ContactUpdateRequest**](ContactUpdateRequest.md) |  | 
+ **contactUpdateRequest** | [**ContactUpdateRequest**](ContactUpdateRequest.md) |  |
 
 ### Return type
 

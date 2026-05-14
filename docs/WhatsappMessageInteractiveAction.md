@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionButton**](WhatsappMessageInteractiveActionButton.md) | Required for Reply Buttons. You can have up to 3 buttons. | [optional] 
-**Button** | Pointer to **string** | Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters. | [optional] 
-**CatalogId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce). | [optional] 
-**ProductRetailerId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. | [optional] 
-**Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSection**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. | [optional] 
-**Name** | Pointer to **string** | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons. - &#x60;voice_call&#x60;: Use for Voice Call buttons. | [optional] 
-**Parameters** | Pointer to [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  | [optional] 
+**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionButton**](WhatsappMessageInteractiveActionButton.md) | Required for Reply Buttons. You can have up to 3 buttons. | [optional]
+**Button** | Pointer to **string** | Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters. | [optional]
+**CatalogId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce). | [optional]
+**ProductRetailerId** | Pointer to **string** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. | [optional]
+**Sections** | Pointer to [**[]WhatsappMessageInteractiveActionSection**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. | [optional]
+**Name** | Pointer to **string** | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons. - &#x60;voice_call&#x60;: Use for Voice Call buttons. | [optional]
+**Parameters** | Pointer to [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  | [optional]
+**Cards** | Pointer to [**[]WhatsappMessageInteractiveActionCard**](WhatsappMessageInteractiveActionCard.md) | Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10. | [optional]
 
 ## Methods
 
@@ -205,6 +206,31 @@ SetParameters sets Parameters field to given value.
 `func (o *WhatsappMessageInteractiveAction) HasParameters() bool`
 
 HasParameters returns a boolean if a field has been set.
+
+### GetCards
+
+`func (o *WhatsappMessageInteractiveAction) GetCards() []WhatsappMessageInteractiveActionCard`
+
+GetCards returns the Cards field if non-nil, zero value otherwise.
+
+### GetCardsOk
+
+`func (o *WhatsappMessageInteractiveAction) GetCardsOk() (*[]WhatsappMessageInteractiveActionCard, bool)`
+
+GetCardsOk returns a tuple with the Cards field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCards
+
+`func (o *WhatsappMessageInteractiveAction) SetCards(v []WhatsappMessageInteractiveActionCard)`
+
+SetCards sets Cards field to given value.
+
+### HasCards
+
+`func (o *WhatsappMessageInteractiveAction) HasCards() bool`
+
+HasCards returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

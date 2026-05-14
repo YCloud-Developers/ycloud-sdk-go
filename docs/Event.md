@@ -4,25 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID for the event. | 
-**Type** | [**EventType**](EventType.md) |  | 
-**ApiVersion** | **string** | The API version used to render this event. | 
-**CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | 
-**EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional] 
-**Sms** | Pointer to [**Sms**](Sms.md) |  | [optional] 
-**SmsInbound** | Pointer to [**SmsInbound**](SmsInbound.md) |  | [optional] 
-**Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
-**WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional] 
-**WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
-**WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
-**WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
-**WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional] 
-**WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
-**ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional] 
-**ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional] 
-**ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional] 
-**ContactUnsubscribeCreated** | Pointer to [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  | [optional] 
-**ContactUnsubscribeDeleted** | Pointer to [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  | [optional] 
+**Id** | **string** | Unique ID for the event. |
+**Type** | [**EventType**](EventType.md) |  |
+**ApiVersion** | **string** | The API version used to render this event. |
+**CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |
+**EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional]
+**Sms** | Pointer to [**Sms**](Sms.md) |  | [optional]
+**SmsInbound** | Pointer to [**SmsInbound**](SmsInbound.md) |  | [optional]
+**Voice** | Pointer to [**Voice**](Voice.md) |  | [optional]
+**WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional]
+**WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional]
+**WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional]
+**WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional]
+**WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional]
+**WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional]
+**ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional]
+**ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional]
+**ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional]
+**ContactUnsubscribeCreated** | Pointer to [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  | [optional]
+**ContactUnsubscribeDeleted** | Pointer to [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  | [optional]
+**WhatsappUserPreference** | Pointer to [**WhatsappUserPreference**](WhatsappUserPreference.md) |  | [optional]
 
 ## Methods
 
@@ -497,6 +498,31 @@ SetContactUnsubscribeDeleted sets ContactUnsubscribeDeleted field to given value
 `func (o *Event) HasContactUnsubscribeDeleted() bool`
 
 HasContactUnsubscribeDeleted returns a boolean if a field has been set.
+
+### GetWhatsappUserPreference
+
+`func (o *Event) GetWhatsappUserPreference() WhatsappUserPreference`
+
+GetWhatsappUserPreference returns the WhatsappUserPreference field if non-nil, zero value otherwise.
+
+### GetWhatsappUserPreferenceOk
+
+`func (o *Event) GetWhatsappUserPreferenceOk() (*WhatsappUserPreference, bool)`
+
+GetWhatsappUserPreferenceOk returns a tuple with the WhatsappUserPreference field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhatsappUserPreference
+
+`func (o *Event) SetWhatsappUserPreference(v WhatsappUserPreference)`
+
+SetWhatsappUserPreference sets WhatsappUserPreference field to given value.
+
+### HasWhatsappUserPreference
+
+`func (o *Event) HasWhatsappUserPreference() bool`
+
+HasWhatsappUserPreference returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

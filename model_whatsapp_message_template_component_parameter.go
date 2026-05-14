@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageTemplateComponentParameter struct for WhatsappMessageTemplateComponentParameter
 type WhatsappMessageTemplateComponentParameter struct {
-	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`. - `location`: Used when the template `HEADER` component is `LOCATION`.
+	// **Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `gif`: Used when the template `HEADER` component is `GIF`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`. - `location`: Used when the template `HEADER` component is `LOCATION`.
 	Type *string `json:"type,omitempty"`
 	// **Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
 	Text *string `json:"text,omitempty"`
@@ -26,6 +26,7 @@ type WhatsappMessageTemplateComponentParameter struct {
 	// **Required when `type` = `coupon_code`.** The coupon code to be copied when the customer taps the button.
 	CouponCode *string `json:"coupon_code,omitempty"`
 	Image *WhatsappMessageMedia `json:"image,omitempty"`
+	Gif *WhatsappMessageMedia `json:"gif,omitempty"`
 	Video *WhatsappMessageMedia `json:"video,omitempty"`
 	Document *WhatsappMessageMedia `json:"document,omitempty"`
 	LimitedTimeOffer *WhatsappMessageTemplateComponentParameterLimitedTimeOffer `json:"limited_time_offer,omitempty"`
@@ -209,6 +210,38 @@ func (o *WhatsappMessageTemplateComponentParameter) HasImage() bool {
 // SetImage gets a reference to the given WhatsappMessageMedia and assigns it to the Image field.
 func (o *WhatsappMessageTemplateComponentParameter) SetImage(v WhatsappMessageMedia) {
 	o.Image = &v
+}
+
+// GetGif returns the Gif field value if set, zero value otherwise.
+func (o *WhatsappMessageTemplateComponentParameter) GetGif() WhatsappMessageMedia {
+	if o == nil || o.Gif == nil {
+		var ret WhatsappMessageMedia
+		return ret
+	}
+	return *o.Gif
+}
+
+// GetGifOk returns a tuple with the Gif field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageTemplateComponentParameter) GetGifOk() (*WhatsappMessageMedia, bool) {
+	if o == nil || o.Gif == nil {
+		return nil, false
+	}
+	return o.Gif, true
+}
+
+// HasGif returns a boolean if a field has been set.
+func (o *WhatsappMessageTemplateComponentParameter) HasGif() bool {
+	if o != nil && o.Gif != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGif gets a reference to the given WhatsappMessageMedia and assigns it to the Gif field.
+func (o *WhatsappMessageTemplateComponentParameter) SetGif(v WhatsappMessageMedia) {
+	o.Gif = &v
 }
 
 // GetVideo returns the Video field value if set, zero value otherwise.
@@ -419,6 +452,9 @@ func (o WhatsappMessageTemplateComponentParameter) MarshalJSON() ([]byte, error)
 	}
 	if o.Image != nil {
 		toSerialize["image"] = o.Image
+	}
+	if o.Gif != nil {
+		toSerialize["gif"] = o.Gif
 	}
 	if o.Video != nil {
 		toSerialize["video"] = o.Video

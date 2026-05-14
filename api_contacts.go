@@ -277,7 +277,7 @@ Delete Delete a contact
 Deletes a contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact.
+ @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
  @return ContactsApiDeleteRequest
 */
 func (a *ContactsApiService) Delete(ctx context.Context, id string) ContactsApiDeleteRequest {
@@ -420,7 +420,7 @@ func (r ContactsApiListRequest) IncludeTotal(includeTotal bool) ContactsApiListR
 	return r
 }
 
-// Comma-separated list of tags.
+// Comma-separated list of tags&#39; id.
 func (r ContactsApiListRequest) FilterTags(filterTags string) ContactsApiListRequest {
 	r.filterTags = &filterTags
 	return r
@@ -589,7 +589,7 @@ Retrieve Retrieve a contact
 Retrieves a contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact.
+ @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
  @return ContactsApiRetrieveRequest
 */
 func (a *ContactsApiService) Retrieve(ctx context.Context, id string) ContactsApiRetrieveRequest {
@@ -724,7 +724,7 @@ Update Update a contact
 Updates a contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact.
+ @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
  @return ContactsApiUpdateRequest
 */
 func (a *ContactsApiService) Update(ctx context.Context, id string) ContactsApiUpdateRequest {

@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-    whatsappTemplateCreateRequest := *ycloud.NewWhatsappTemplateCreateRequest("whatsapp-business-account-id", "sample_whatsapp_template", "en_US", ycloud.WhatsappTemplateCategory("AUTHENTICATION"), []ycloud.WhatsappTemplateComponent{*ycloud.NewWhatsappTemplateComponent()}) // WhatsappTemplateCreateRequest | 
+    whatsappTemplateCreateRequest := *ycloud.NewWhatsappTemplateCreateRequest("whatsapp-business-account-id", "sample_whatsapp_template", "en", ycloud.WhatsappTemplateCategory("AUTHENTICATION"), []ycloud.WhatsappTemplateComponent{*ycloud.NewWhatsappTemplateComponent()}) // WhatsappTemplateCreateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -59,7 +59,7 @@ Other parameters are passed through a pointer to a apiCreateRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappTemplateCreateRequest** | [**WhatsappTemplateCreateRequest**](WhatsappTemplateCreateRequest.md) |  | 
+ **whatsappTemplateCreateRequest** | [**WhatsappTemplateCreateRequest**](WhatsappTemplateCreateRequest.md) |  |
 
 ### Return type
 
@@ -121,8 +121,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**name** | **string** | Name of the template. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**name** | **string** | Name of the template. |
 
 ### Other Parameters
 
@@ -175,7 +175,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     name := "sample_whatsapp_template" // string | Name of the template.
-    language := "en_US" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    language := "en" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -195,9 +195,9 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**name** | **string** | Name of the template. | 
-**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**name** | **string** | Name of the template. |
+**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. |
 
 ### Other Parameters
 
@@ -251,7 +251,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     name := "sample_whatsapp_template" // string | Name of the template.
-    language := "en_US" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    language := "en" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
     whatsappTemplateEditRequest := *ycloud.NewWhatsappTemplateEditRequest([]ycloud.WhatsappTemplateComponent{*ycloud.NewWhatsappTemplateComponent()}) // WhatsappTemplateEditRequest |  (optional)
 
     configuration := ycloud.NewConfiguration()
@@ -272,9 +272,9 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**name** | **string** | Name of the template. | 
-**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**name** | **string** | Name of the template. |
+**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. |
 
 ### Other Parameters
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 
 
- **whatsappTemplateEditRequest** | [**WhatsappTemplateEditRequest**](WhatsappTemplateEditRequest.md) |  | 
+ **whatsappTemplateEditRequest** | [**WhatsappTemplateEditRequest**](WhatsappTemplateEditRequest.md) |  |
 
 ### Return type
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ## List
 
-> WhatsappTemplatePage List(ctx).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterWabaId(filterWabaId).FilterName(filterName).FilterLanguage(filterLanguage).Execute()
+> WhatsappTemplatePage List(ctx).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterWabaId(filterWabaId).FilterName(filterName).FilterLanguage(filterLanguage).FilterStatus(filterStatus).Execute()
 
 List templates
 
@@ -332,11 +332,12 @@ func main() {
     includeTotal := true // bool | Return results inside an object that contains the total result count or not. (optional) (default to false)
     filterWabaId := "whatsapp-business-account-id" // string | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. (optional)
     filterName := "sample_whatsapp_template" // string | Name of the template. (optional)
-    filterLanguage := "en_US" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (optional)
+    filterLanguage := "en" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (optional)
+    filterStatus := "APPROVED,ARCHIVED" // string | Comma-separated template statuses to filter by. Supported values include `PENDING`, `REJECTED`, `APPROVED`, `PAUSED`, `DISABLED`, `ARCHIVED`, `IN_APPEAL`, and `DELETED`. (optional)
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.WhatsappTemplatesApi.List(context.Background()).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterWabaId(filterWabaId).FilterName(filterName).FilterLanguage(filterLanguage).Execute()
+    resp, r, err := apiClient.WhatsappTemplatesApi.List(context.Background()).Page(page).Limit(limit).IncludeTotal(includeTotal).FilterWabaId(filterWabaId).FilterName(filterName).FilterLanguage(filterLanguage).FilterStatus(filterStatus).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WhatsappTemplatesApi.List``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -360,9 +361,10 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterWabaId** | **string** | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. | 
- **filterName** | **string** | Name of the template. | 
- **filterLanguage** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+ **filterWabaId** | **string** | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. |
+ **filterName** | **string** | Name of the template. |
+ **filterLanguage** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. |
+ **filterStatus** | **string** | Comma-separated template statuses to filter by. Supported values include &#x60;PENDING&#x60;, &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, &#x60;ARCHIVED&#x60;, &#x60;IN_APPEAL&#x60;, and &#x60;DELETED&#x60;. |
 
 ### Return type
 
@@ -405,7 +407,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     name := "sample_whatsapp_template" // string | Name of the template.
-    language := "en_US" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    language := "en" // string | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -425,9 +427,9 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**name** | **string** | Name of the template. | 
-**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**name** | **string** | Name of the template. |
+**language** | **string** | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. |
 
 ### Other Parameters
 

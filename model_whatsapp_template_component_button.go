@@ -49,6 +49,7 @@ type WhatsappTemplateComponentButton struct {
 	FlowAction *string `json:"flow_action,omitempty"`
 	// **Required if `flow_action` is `navigate`.** The unique ID of the Screen in the Flow.
 	NavigateScreen *string `json:"navigate_screen,omitempty"`
+	AppDeepLink *WhatsappTemplateComponentButtonAppDeepLink `json:"app_deep_link,omitempty"`
 }
 
 // NewWhatsappTemplateComponentButton instantiates a new WhatsappTemplateComponentButton object
@@ -579,6 +580,38 @@ func (o *WhatsappTemplateComponentButton) SetNavigateScreen(v string) {
 	o.NavigateScreen = &v
 }
 
+// GetAppDeepLink returns the AppDeepLink field value if set, zero value otherwise.
+func (o *WhatsappTemplateComponentButton) GetAppDeepLink() WhatsappTemplateComponentButtonAppDeepLink {
+	if o == nil || o.AppDeepLink == nil {
+		var ret WhatsappTemplateComponentButtonAppDeepLink
+		return ret
+	}
+	return *o.AppDeepLink
+}
+
+// GetAppDeepLinkOk returns a tuple with the AppDeepLink field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateComponentButton) GetAppDeepLinkOk() (*WhatsappTemplateComponentButtonAppDeepLink, bool) {
+	if o == nil || o.AppDeepLink == nil {
+		return nil, false
+	}
+	return o.AppDeepLink, true
+}
+
+// HasAppDeepLink returns a boolean if a field has been set.
+func (o *WhatsappTemplateComponentButton) HasAppDeepLink() bool {
+	if o != nil && o.AppDeepLink != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAppDeepLink gets a reference to the given WhatsappTemplateComponentButtonAppDeepLink and assigns it to the AppDeepLink field.
+func (o *WhatsappTemplateComponentButton) SetAppDeepLink(v WhatsappTemplateComponentButtonAppDeepLink) {
+	o.AppDeepLink = &v
+}
+
 func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -628,6 +661,9 @@ func (o WhatsappTemplateComponentButton) MarshalJSON() ([]byte, error) {
 	}
 	if o.NavigateScreen != nil {
 		toSerialize["navigate_screen"] = o.NavigateScreen
+	}
+	if o.AppDeepLink != nil {
+		toSerialize["app_deep_link"] = o.AppDeepLink
 	}
 	return json.Marshal(toSerialize)
 }

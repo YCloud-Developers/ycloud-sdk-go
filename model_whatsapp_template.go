@@ -24,7 +24,7 @@ type WhatsappTemplate struct {
 	WabaId string `json:"wabaId"`
 	// Name of the template.
 	Name string `json:"name"`
-	// Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+	// Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
 	Language string `json:"language"`
 	Category *WhatsappTemplateCategory `json:"category,omitempty"`
 	SubCategory *WhatsappTemplateSubCategory `json:"subCategory,omitempty"`
