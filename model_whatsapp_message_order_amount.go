@@ -19,7 +19,7 @@ import (
 type WhatsappMessageOrderAmount struct {
 	// Must be `100` for `INR`.
 	Offset int32 `json:"offset"`
-	// Positive integer representing the amount value multiplied by offset.  For example, ₹12.34 has value 1234.
+	// Positive integer representing the amount value multiplied by offset. For example, ₹12.34 has value 1234.
 	Value int32 `json:"value"`
 	// Use only for `tax`, `shipping`, or `discount`. Description of the amount. Max character limit is 60 characters.
 	Description *string `json:"description,omitempty"`

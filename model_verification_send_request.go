@@ -22,7 +22,7 @@ type VerificationSendRequest struct {
 	To string `json:"to"`
 	// Verification code to be sent. This field is optional. If not provided, we will automatically generate a code.
 	Code *string `json:"code,omitempty"`
-	// [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+	// [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
 	SenderId *string `json:"senderId,omitempty"`
 	// This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `Brand`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your verification code is 123456`.
 	Signature *string `json:"signature,omitempty"`

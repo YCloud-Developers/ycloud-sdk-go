@@ -40,6 +40,7 @@ type Event struct {
 	ContactDeleted *ContactDeleted `json:"contactDeleted,omitempty"`
 	ContactUnsubscribeCreated *ContactUnsubscribeCreated `json:"contactUnsubscribeCreated,omitempty"`
 	ContactUnsubscribeDeleted *ContactUnsubscribeDeleted `json:"contactUnsubscribeDeleted,omitempty"`
+	WhatsappUserPreference *WhatsappUserPreference `json:"whatsappUserPreference,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
@@ -639,6 +640,38 @@ func (o *Event) SetContactUnsubscribeDeleted(v ContactUnsubscribeDeleted) {
 	o.ContactUnsubscribeDeleted = &v
 }
 
+// GetWhatsappUserPreference returns the WhatsappUserPreference field value if set, zero value otherwise.
+func (o *Event) GetWhatsappUserPreference() WhatsappUserPreference {
+	if o == nil || o.WhatsappUserPreference == nil {
+		var ret WhatsappUserPreference
+		return ret
+	}
+	return *o.WhatsappUserPreference
+}
+
+// GetWhatsappUserPreferenceOk returns a tuple with the WhatsappUserPreference field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappUserPreferenceOk() (*WhatsappUserPreference, bool) {
+	if o == nil || o.WhatsappUserPreference == nil {
+		return nil, false
+	}
+	return o.WhatsappUserPreference, true
+}
+
+// HasWhatsappUserPreference returns a boolean if a field has been set.
+func (o *Event) HasWhatsappUserPreference() bool {
+	if o != nil && o.WhatsappUserPreference != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappUserPreference gets a reference to the given WhatsappUserPreference and assigns it to the WhatsappUserPreference field.
+func (o *Event) SetWhatsappUserPreference(v WhatsappUserPreference) {
+	o.WhatsappUserPreference = &v
+}
+
 func (o Event) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -697,6 +730,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.ContactUnsubscribeDeleted != nil {
 		toSerialize["contactUnsubscribeDeleted"] = o.ContactUnsubscribeDeleted
+	}
+	if o.WhatsappUserPreference != nil {
+		toSerialize["whatsappUserPreference"] = o.WhatsappUserPreference
 	}
 	return json.Marshal(toSerialize)
 }

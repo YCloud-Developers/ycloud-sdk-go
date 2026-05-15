@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.15.7
+- Package version: 1.15.9
 
 ## Installation
 
@@ -227,6 +227,13 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
+ - [WhatsappMessageInteractiveActionCard](docs/WhatsappMessageInteractiveActionCard.md)
+ - [WhatsappMessageInteractiveActionCardAction](docs/WhatsappMessageInteractiveActionCardAction.md)
+ - [WhatsappMessageInteractiveActionCardActionButton](docs/WhatsappMessageInteractiveActionCardActionButton.md)
+ - [WhatsappMessageInteractiveActionCardActionButtonQuickReply](docs/WhatsappMessageInteractiveActionCardActionButtonQuickReply.md)
+ - [WhatsappMessageInteractiveActionCardActionParameters](docs/WhatsappMessageInteractiveActionCardActionParameters.md)
+ - [WhatsappMessageInteractiveActionCardBody](docs/WhatsappMessageInteractiveActionCardBody.md)
+ - [WhatsappMessageInteractiveActionCardHeader](docs/WhatsappMessageInteractiveActionCardHeader.md)
  - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
  - [WhatsappMessageInteractiveActionParametersFlowActionPayload](docs/WhatsappMessageInteractiveActionParametersFlowActionPayload.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
@@ -237,7 +244,6 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
- - [WhatsappMessageMediaAllOf](docs/WhatsappMessageMediaAllOf.md)
  - [WhatsappMessageOrderAmount](docs/WhatsappMessageOrderAmount.md)
  - [WhatsappMessageOrderBeneficiary](docs/WhatsappMessageOrderBeneficiary.md)
  - [WhatsappMessageOrderDetails](docs/WhatsappMessageOrderDetails.md)
@@ -294,6 +300,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
  - [WhatsappTemplateComponentButton](docs/WhatsappTemplateComponentButton.md)
+ - [WhatsappTemplateComponentButtonAppDeepLink](docs/WhatsappTemplateComponentButtonAppDeepLink.md)
  - [WhatsappTemplateComponentButtonOtpSupportedApp](docs/WhatsappTemplateComponentButtonOtpSupportedApp.md)
  - [WhatsappTemplateComponentButtonOtpType](docs/WhatsappTemplateComponentButtonOtpType.md)
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
@@ -308,6 +315,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
  - [WhatsappTemplateStatusUpdateEventEnum](docs/WhatsappTemplateStatusUpdateEventEnum.md)
  - [WhatsappTemplateSubCategory](docs/WhatsappTemplateSubCategory.md)
+ - [WhatsappUserPreference](docs/WhatsappUserPreference.md)
 
 
 ## Documentation For Authorization

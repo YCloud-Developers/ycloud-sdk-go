@@ -30,6 +30,8 @@ type WhatsappMessageInteractiveAction struct {
 	// Action name. Required for Call-To-Action (CTA) buttons. - `cta_url`: Use for Call-To-Action (CTA) URL buttons. - `send_location`: Use for Location Request buttons. - `flow`: Use for Flow buttons. - `review_and_pay`: Use for Order Details buttons. - `review_order`: Use for Order Status buttons. - `voice_call`: Use for Voice Call buttons.
 	Name *string `json:"name,omitempty"`
 	Parameters *WhatsappMessageInteractiveActionParameters `json:"parameters,omitempty"`
+	// Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10.
+	Cards []WhatsappMessageInteractiveActionCard `json:"cards,omitempty"`
 }
 
 // NewWhatsappMessageInteractiveAction instantiates a new WhatsappMessageInteractiveAction object
@@ -273,6 +275,38 @@ func (o *WhatsappMessageInteractiveAction) SetParameters(v WhatsappMessageIntera
 	o.Parameters = &v
 }
 
+// GetCards returns the Cards field value if set, zero value otherwise.
+func (o *WhatsappMessageInteractiveAction) GetCards() []WhatsappMessageInteractiveActionCard {
+	if o == nil || o.Cards == nil {
+		var ret []WhatsappMessageInteractiveActionCard
+		return ret
+	}
+	return o.Cards
+}
+
+// GetCardsOk returns a tuple with the Cards field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageInteractiveAction) GetCardsOk() ([]WhatsappMessageInteractiveActionCard, bool) {
+	if o == nil || o.Cards == nil {
+		return nil, false
+	}
+	return o.Cards, true
+}
+
+// HasCards returns a boolean if a field has been set.
+func (o *WhatsappMessageInteractiveAction) HasCards() bool {
+	if o != nil && o.Cards != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCards gets a reference to the given []WhatsappMessageInteractiveActionCard and assigns it to the Cards field.
+func (o *WhatsappMessageInteractiveAction) SetCards(v []WhatsappMessageInteractiveActionCard) {
+	o.Cards = v
+}
+
 func (o WhatsappMessageInteractiveAction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Buttons != nil {
@@ -295,6 +329,9 @@ func (o WhatsappMessageInteractiveAction) MarshalJSON() ([]byte, error) {
 	}
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
+	}
+	if o.Cards != nil {
+		toSerialize["cards"] = o.Cards
 	}
 	return json.Marshal(toSerialize)
 }

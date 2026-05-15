@@ -19,9 +19,9 @@ import (
 type AttributeChangeAction struct {
 	// The type of change action performed.
 	Action string `json:"action"`
-	// The ID of the item when the attribute is 'tags'.  This field is only present for tag-related changes.
+	// The ID of the item when the attribute is 'tags'. This field is only present for tag-related changes.
 	Id *string `json:"id,omitempty"`
-	// The value of the item when the attribute is 'tags'.  This field is only present for tag-related changes.
+	// The value of the item when the attribute is 'tags'. This field is only present for tag-related changes.
 	Value *string `json:"value,omitempty"`
 }
 

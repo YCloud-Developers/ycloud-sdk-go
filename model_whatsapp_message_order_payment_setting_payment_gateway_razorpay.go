@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay Additional info for Razorpay.
 type WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay struct {
-	// Receipt number that corresponds to this order, set for your internal reference.  Maximum length of 40 characters supported with minimum length greater than 0 characters.
+	// Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters.
 	Receipt *string `json:"receipt,omitempty"`
 	// The object can be key value pairs with maximum 15 keys and each value limits to 256 characters.
 	Notes *map[string]string `json:"notes,omitempty"`

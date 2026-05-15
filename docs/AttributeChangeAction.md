@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | **string** | The type of change action performed. | 
-**Id** | Pointer to **string** | The ID of the item when the attribute is &#39;tags&#39;.  This field is only present for tag-related changes. | [optional] 
-**Value** | Pointer to **string** | The value of the item when the attribute is &#39;tags&#39;.  This field is only present for tag-related changes. | [optional] 
+**Action** | **string** | The type of change action performed. |
+**Id** | Pointer to **string** | The ID of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes. | [optional]
+**Value** | Pointer to **string** | The value of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes. | [optional]
 
 ## Methods
 
