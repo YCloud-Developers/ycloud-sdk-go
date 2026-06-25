@@ -27,7 +27,18 @@ type WhatsappMessage struct {
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To string `json:"to"`
+	To *string `json:"to,omitempty"`
+	// The recipient value submitted in the request when a BSUID or parent BSUID was used.
+	Recipient *string `json:"recipient,omitempty"`
+	// The recipient's WhatsApp Business-scoped user ID (BSUID).
+	RecipientUserId *string `json:"recipientUserId,omitempty"`
+	// Alias of `recipientUserId` kept for compatibility.
+	ToUserId *string `json:"toUserId,omitempty"`
+	// The recipient's parent WhatsApp Business-scoped user ID.
+	ParentRecipientUserId *string `json:"parentRecipientUserId,omitempty"`
+	// Alias of `parentRecipientUserId` kept for compatibility.
+	ToParentUserId *string `json:"toParentUserId,omitempty"`
+	CustomerProfile *WhatsappProfile `json:"customerProfile,omitempty"`
 	Conversation *WhatsappConversation `json:"conversation,omitempty"`
 	Type *WhatsappMessageType `json:"type,omitempty"`
 	Template *WhatsappMessageTemplate `json:"template,omitempty"`
@@ -79,12 +90,11 @@ type WhatsappMessage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessage(id string, wabaId string, from string, to string) *WhatsappMessage {
+func NewWhatsappMessage(id string, wabaId string, from string) *WhatsappMessage {
 	this := WhatsappMessage{}
 	this.Id = id
 	this.WabaId = wabaId
 	this.From = from
-	this.To = to
 	return &this
 }
 
@@ -200,28 +210,228 @@ func (o *WhatsappMessage) SetFrom(v string) {
 	o.From = v
 }
 
-// GetTo returns the To field value
+// GetTo returns the To field value if set, zero value otherwise.
 func (o *WhatsappMessage) GetTo() string {
-	if o == nil {
+	if o == nil || o.To == nil {
 		var ret string
 		return ret
 	}
-
-	return o.To
+	return *o.To
 }
 
-// GetToOk returns a tuple with the To field value
+// GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessage) GetToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.To == nil {
 		return nil, false
 	}
-	return &o.To, true
+	return o.To, true
 }
 
-// SetTo sets field value
+// HasTo returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasTo() bool {
+	if o != nil && o.To != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTo gets a reference to the given string and assigns it to the To field.
 func (o *WhatsappMessage) SetTo(v string) {
-	o.To = v
+	o.To = &v
+}
+
+// GetRecipient returns the Recipient field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetRecipient() string {
+	if o == nil || o.Recipient == nil {
+		var ret string
+		return ret
+	}
+	return *o.Recipient
+}
+
+// GetRecipientOk returns a tuple with the Recipient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetRecipientOk() (*string, bool) {
+	if o == nil || o.Recipient == nil {
+		return nil, false
+	}
+	return o.Recipient, true
+}
+
+// HasRecipient returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasRecipient() bool {
+	if o != nil && o.Recipient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecipient gets a reference to the given string and assigns it to the Recipient field.
+func (o *WhatsappMessage) SetRecipient(v string) {
+	o.Recipient = &v
+}
+
+// GetRecipientUserId returns the RecipientUserId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetRecipientUserId() string {
+	if o == nil || o.RecipientUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecipientUserId
+}
+
+// GetRecipientUserIdOk returns a tuple with the RecipientUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetRecipientUserIdOk() (*string, bool) {
+	if o == nil || o.RecipientUserId == nil {
+		return nil, false
+	}
+	return o.RecipientUserId, true
+}
+
+// HasRecipientUserId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasRecipientUserId() bool {
+	if o != nil && o.RecipientUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecipientUserId gets a reference to the given string and assigns it to the RecipientUserId field.
+func (o *WhatsappMessage) SetRecipientUserId(v string) {
+	o.RecipientUserId = &v
+}
+
+// GetToUserId returns the ToUserId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetToUserId() string {
+	if o == nil || o.ToUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ToUserId
+}
+
+// GetToUserIdOk returns a tuple with the ToUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetToUserIdOk() (*string, bool) {
+	if o == nil || o.ToUserId == nil {
+		return nil, false
+	}
+	return o.ToUserId, true
+}
+
+// HasToUserId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasToUserId() bool {
+	if o != nil && o.ToUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToUserId gets a reference to the given string and assigns it to the ToUserId field.
+func (o *WhatsappMessage) SetToUserId(v string) {
+	o.ToUserId = &v
+}
+
+// GetParentRecipientUserId returns the ParentRecipientUserId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetParentRecipientUserId() string {
+	if o == nil || o.ParentRecipientUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ParentRecipientUserId
+}
+
+// GetParentRecipientUserIdOk returns a tuple with the ParentRecipientUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetParentRecipientUserIdOk() (*string, bool) {
+	if o == nil || o.ParentRecipientUserId == nil {
+		return nil, false
+	}
+	return o.ParentRecipientUserId, true
+}
+
+// HasParentRecipientUserId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasParentRecipientUserId() bool {
+	if o != nil && o.ParentRecipientUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetParentRecipientUserId gets a reference to the given string and assigns it to the ParentRecipientUserId field.
+func (o *WhatsappMessage) SetParentRecipientUserId(v string) {
+	o.ParentRecipientUserId = &v
+}
+
+// GetToParentUserId returns the ToParentUserId field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetToParentUserId() string {
+	if o == nil || o.ToParentUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ToParentUserId
+}
+
+// GetToParentUserIdOk returns a tuple with the ToParentUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetToParentUserIdOk() (*string, bool) {
+	if o == nil || o.ToParentUserId == nil {
+		return nil, false
+	}
+	return o.ToParentUserId, true
+}
+
+// HasToParentUserId returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasToParentUserId() bool {
+	if o != nil && o.ToParentUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetToParentUserId gets a reference to the given string and assigns it to the ToParentUserId field.
+func (o *WhatsappMessage) SetToParentUserId(v string) {
+	o.ToParentUserId = &v
+}
+
+// GetCustomerProfile returns the CustomerProfile field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetCustomerProfile() WhatsappProfile {
+	if o == nil || o.CustomerProfile == nil {
+		var ret WhatsappProfile
+		return ret
+	}
+	return *o.CustomerProfile
+}
+
+// GetCustomerProfileOk returns a tuple with the CustomerProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetCustomerProfileOk() (*WhatsappProfile, bool) {
+	if o == nil || o.CustomerProfile == nil {
+		return nil, false
+	}
+	return o.CustomerProfile, true
+}
+
+// HasCustomerProfile returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasCustomerProfile() bool {
+	if o != nil && o.CustomerProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerProfile gets a reference to the given WhatsappProfile and assigns it to the CustomerProfile field.
+func (o *WhatsappMessage) SetCustomerProfile(v WhatsappProfile) {
+	o.CustomerProfile = &v
 }
 
 // GetConversation returns the Conversation field value if set, zero value otherwise.
@@ -1262,8 +1472,26 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["from"] = o.From
 	}
-	if true {
+	if o.To != nil {
 		toSerialize["to"] = o.To
+	}
+	if o.Recipient != nil {
+		toSerialize["recipient"] = o.Recipient
+	}
+	if o.RecipientUserId != nil {
+		toSerialize["recipientUserId"] = o.RecipientUserId
+	}
+	if o.ToUserId != nil {
+		toSerialize["toUserId"] = o.ToUserId
+	}
+	if o.ParentRecipientUserId != nil {
+		toSerialize["parentRecipientUserId"] = o.ParentRecipientUserId
+	}
+	if o.ToParentUserId != nil {
+		toSerialize["toParentUserId"] = o.ToParentUserId
+	}
+	if o.CustomerProfile != nil {
+		toSerialize["customerProfile"] = o.CustomerProfile
 	}
 	if o.Conversation != nil {
 		toSerialize["conversation"] = o.Conversation

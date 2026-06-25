@@ -26,11 +26,13 @@ type WhatsappInboundMessage struct {
 	WabaId *string `json:"wabaId,omitempty"`
 	// The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From *string `json:"from,omitempty"`
+	// The customer's WhatsApp Business-scoped user ID (BSUID).
+	FromUserId *string `json:"fromUserId,omitempty"`
+	// The customer's parent WhatsApp Business-scoped user ID.
+	FromParentUserId *string `json:"fromParentUserId,omitempty"`
 	CustomerProfile *WhatsappProfile `json:"customerProfile,omitempty"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To *string `json:"to,omitempty"`
-	// WhatsApp group ID. Included when the inbound message was sent in a group.
-	GroupId *string `json:"groupId,omitempty"`
 	// The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	SendTime *time.Time `json:"sendTime,omitempty"`
 	Type *WhatsappInboundMessageType `json:"type,omitempty"`
@@ -190,6 +192,70 @@ func (o *WhatsappInboundMessage) SetFrom(v string) {
 	o.From = &v
 }
 
+// GetFromUserId returns the FromUserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetFromUserId() string {
+	if o == nil || o.FromUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.FromUserId
+}
+
+// GetFromUserIdOk returns a tuple with the FromUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetFromUserIdOk() (*string, bool) {
+	if o == nil || o.FromUserId == nil {
+		return nil, false
+	}
+	return o.FromUserId, true
+}
+
+// HasFromUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasFromUserId() bool {
+	if o != nil && o.FromUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFromUserId gets a reference to the given string and assigns it to the FromUserId field.
+func (o *WhatsappInboundMessage) SetFromUserId(v string) {
+	o.FromUserId = &v
+}
+
+// GetFromParentUserId returns the FromParentUserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetFromParentUserId() string {
+	if o == nil || o.FromParentUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.FromParentUserId
+}
+
+// GetFromParentUserIdOk returns a tuple with the FromParentUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetFromParentUserIdOk() (*string, bool) {
+	if o == nil || o.FromParentUserId == nil {
+		return nil, false
+	}
+	return o.FromParentUserId, true
+}
+
+// HasFromParentUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasFromParentUserId() bool {
+	if o != nil && o.FromParentUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFromParentUserId gets a reference to the given string and assigns it to the FromParentUserId field.
+func (o *WhatsappInboundMessage) SetFromParentUserId(v string) {
+	o.FromParentUserId = &v
+}
+
 // GetCustomerProfile returns the CustomerProfile field value if set, zero value otherwise.
 func (o *WhatsappInboundMessage) GetCustomerProfile() WhatsappProfile {
 	if o == nil || o.CustomerProfile == nil {
@@ -252,38 +318,6 @@ func (o *WhatsappInboundMessage) HasTo() bool {
 // SetTo gets a reference to the given string and assigns it to the To field.
 func (o *WhatsappInboundMessage) SetTo(v string) {
 	o.To = &v
-}
-
-// GetGroupId returns the GroupId field value if set, zero value otherwise.
-func (o *WhatsappInboundMessage) GetGroupId() string {
-	if o == nil || o.GroupId == nil {
-		var ret string
-		return ret
-	}
-	return *o.GroupId
-}
-
-// GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool) {
-	if o == nil || o.GroupId == nil {
-		return nil, false
-	}
-	return o.GroupId, true
-}
-
-// HasGroupId returns a boolean if a field has been set.
-func (o *WhatsappInboundMessage) HasGroupId() bool {
-	if o != nil && o.GroupId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetGroupId gets a reference to the given string and assigns it to the GroupId field.
-func (o *WhatsappInboundMessage) SetGroupId(v string) {
-	o.GroupId = &v
 }
 
 // GetSendTime returns the SendTime field value if set, zero value otherwise.
@@ -876,14 +910,17 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	if o.From != nil {
 		toSerialize["from"] = o.From
 	}
+	if o.FromUserId != nil {
+		toSerialize["fromUserId"] = o.FromUserId
+	}
+	if o.FromParentUserId != nil {
+		toSerialize["fromParentUserId"] = o.FromParentUserId
+	}
 	if o.CustomerProfile != nil {
 		toSerialize["customerProfile"] = o.CustomerProfile
 	}
 	if o.To != nil {
 		toSerialize["to"] = o.To
-	}
-	if o.GroupId != nil {
-		toSerialize["groupId"] = o.GroupId
 	}
 	if o.SendTime != nil {
 		toSerialize["sendTime"] = o.SendTime

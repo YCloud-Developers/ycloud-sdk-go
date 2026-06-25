@@ -56,7 +56,7 @@ a=rtcp-fb:111 transport-cc
 a=fmtp:111 minptime=10;useinbandfec=1
 a=rtpmap:126 telephone-event/8000
 a=ssrc:436995058 cname:BIzAP4IgR06SrZ1S
-") // WhatsappCallingPreAcceptRequest | 
+") // WhatsappCallingPreAcceptRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -81,7 +81,7 @@ Other parameters are passed through a pointer to a apiAcceptRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappCallingPreAcceptRequest** | [**WhatsappCallingPreAcceptRequest**](WhatsappCallingPreAcceptRequest.md) |  | 
+ **whatsappCallingPreAcceptRequest** | [**WhatsappCallingPreAcceptRequest**](WhatsappCallingPreAcceptRequest.md) |  |
 
 ### Return type
 
@@ -122,7 +122,7 @@ import (
 )
 
 func main() {
-    whatsappCallingConnectRequest := *ycloud.NewWhatsappCallingConnectRequest("+6283138205150", "+6281361905133", "offer", "v=0
+    whatsappCallingConnectRequest := *ycloud.NewWhatsappCallingConnectRequest("+6283138205150", "offer", "v=0
 o=- 4054442297240208280 2 IN IP4 127.0.0.1
 s=-
 t=0 0
@@ -159,7 +159,7 @@ a=rtpmap:110 telephone-event/48000
 a=rtpmap:126 telephone-event/8000
 a=ssrc:3208712354 cname:bg/Ix8uTnsTsiMoe
 a=ssrc:3208712354 msid:6c364341-f90d-48e6-b497-76e047e3c31a fa42cdbe-8696-4ee8-bce0-0919d86a223f
-") // WhatsappCallingConnectRequest | 
+") // WhatsappCallingConnectRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -184,7 +184,7 @@ Other parameters are passed through a pointer to a apiConnectRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappCallingConnectRequest** | [**WhatsappCallingConnectRequest**](WhatsappCallingConnectRequest.md) |  | 
+ **whatsappCallingConnectRequest** | [**WhatsappCallingConnectRequest**](WhatsappCallingConnectRequest.md) |  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ a=rtcp-fb:111 transport-cc
 a=fmtp:111 minptime=10;useinbandfec=1
 a=rtpmap:126 telephone-event/8000
 a=ssrc:436995058 cname:BIzAP4IgR06SrZ1S
-") // WhatsappCallingPreAcceptRequest | 
+") // WhatsappCallingPreAcceptRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -273,7 +273,7 @@ Other parameters are passed through a pointer to a apiPreAcceptRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappCallingPreAcceptRequest** | [**WhatsappCallingPreAcceptRequest**](WhatsappCallingPreAcceptRequest.md) |  | 
+ **whatsappCallingPreAcceptRequest** | [**WhatsappCallingPreAcceptRequest**](WhatsappCallingPreAcceptRequest.md) |  |
 
 ### Return type
 
@@ -314,7 +314,7 @@ import (
 )
 
 func main() {
-    whatsappCallingTerminateRequest := *ycloud.NewWhatsappCallingTerminateRequest("461269257068832", "wacid.HBgNNjI4MTM2MTkwNTEzMxUCABEYIDNENjg2OEMzNTFFRDkwRkUxRUE1RTgxNjY1NjJCQUJBHBgNNjI4MzEzODIwNTE1MBUCABUeAA==") // WhatsappCallingTerminateRequest | 
+    whatsappCallingTerminateRequest := *ycloud.NewWhatsappCallingTerminateRequest("461269257068832", "wacid.HBgNNjI4MTM2MTkwNTEzMxUCABEYIDNENjg2OEMzNTFFRDkwRkUxRUE1RTgxNjY1NjJCQUJBHBgNNjI4MzEzODIwNTE1MBUCABUeAA==") // WhatsappCallingTerminateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -339,7 +339,7 @@ Other parameters are passed through a pointer to a apiRejectRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappCallingTerminateRequest** | [**WhatsappCallingTerminateRequest**](WhatsappCallingTerminateRequest.md) |  | 
+ **whatsappCallingTerminateRequest** | [**WhatsappCallingTerminateRequest**](WhatsappCallingTerminateRequest.md) |  |
 
 ### Return type
 
@@ -380,7 +380,7 @@ import (
 )
 
 func main() {
-    whatsappCallingTerminateRequest := *ycloud.NewWhatsappCallingTerminateRequest("461269257068832", "wacid.HBgNNjI4MTM2MTkwNTEzMxUCABEYIDNENjg2OEMzNTFFRDkwRkUxRUE1RTgxNjY1NjJCQUJBHBgNNjI4MzEzODIwNTE1MBUCABUeAA==") // WhatsappCallingTerminateRequest | 
+    whatsappCallingTerminateRequest := *ycloud.NewWhatsappCallingTerminateRequest("461269257068832", "wacid.HBgNNjI4MTM2MTkwNTEzMxUCABEYIDNENjg2OEMzNTFFRDkwRkUxRUE1RTgxNjY1NjJCQUJBHBgNNjI4MzEzODIwNTE1MBUCABUeAA==") // WhatsappCallingTerminateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -405,7 +405,7 @@ Other parameters are passed through a pointer to a apiTerminateRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappCallingTerminateRequest** | [**WhatsappCallingTerminateRequest**](WhatsappCallingTerminateRequest.md) |  | 
+ **whatsappCallingTerminateRequest** | [**WhatsappCallingTerminateRequest**](WhatsappCallingTerminateRequest.md) |  |
 
 ### Return type
 

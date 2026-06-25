@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**From** | **string** | The caller&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**To** | **string** | The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**SdpType** | **string** | The SDP type, must be \&quot;offer\&quot; for connection requests. | 
-**Sdp** | **string** | The Session Description Protocol (SDP) offer information compliant with [RFC 8866](https://datatracker.ietf.org/doc/html/rfc8866). Contains media session parameters for establishing the WebRTC connection. | 
+**From** | **string** | The caller&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**To** | Pointer to **string** | The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided. | [optional]
+**Recipient** | Pointer to **string** | The callee&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided. | [optional]
+**SdpType** | **string** | The SDP type, must be \&quot;offer\&quot; for connection requests. |
+**Sdp** | **string** | The Session Description Protocol (SDP) offer information compliant with [RFC 8866](https://datatracker.ietf.org/doc/html/rfc8866). Contains media session parameters for establishing the WebRTC connection. |
 
 ## Methods
 
 ### NewWhatsappCallingConnectRequest
 
-`func NewWhatsappCallingConnectRequest(from string, to string, sdpType string, sdp string, ) *WhatsappCallingConnectRequest`
+`func NewWhatsappCallingConnectRequest(from string, sdpType string, sdp string, ) *WhatsappCallingConnectRequest`
 
 NewWhatsappCallingConnectRequest instantiates a new WhatsappCallingConnectRequest object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +68,36 @@ and a boolean to check if the value has been set.
 
 SetTo sets To field to given value.
 
+### HasTo
+
+`func (o *WhatsappCallingConnectRequest) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
+
+### GetRecipient
+
+`func (o *WhatsappCallingConnectRequest) GetRecipient() string`
+
+GetRecipient returns the Recipient field if non-nil, zero value otherwise.
+
+### GetRecipientOk
+
+`func (o *WhatsappCallingConnectRequest) GetRecipientOk() (*string, bool)`
+
+GetRecipientOk returns a tuple with the Recipient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipient
+
+`func (o *WhatsappCallingConnectRequest) SetRecipient(v string)`
+
+SetRecipient sets Recipient field to given value.
+
+### HasRecipient
+
+`func (o *WhatsappCallingConnectRequest) HasRecipient() bool`
+
+HasRecipient returns a boolean if a field has been set.
 
 ### GetSdpType
 

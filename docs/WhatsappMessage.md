@@ -4,49 +4,55 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID of the message. | 
-**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional] 
-**WabaId** | **string** | WhatsApp Business Account ID. | 
-**From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**Conversation** | Pointer to [**WhatsappConversation**](WhatsappConversation.md) |  | [optional] 
-**Type** | Pointer to [**WhatsappMessageType**](WhatsappMessageType.md) |  | [optional] 
-**Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional] 
-**Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional] 
-**Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional] 
-**Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional] 
-**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
-**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
-**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
-**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
-**Status** | Pointer to [**WhatsappMessageStatus**](WhatsappMessageStatus.md) |  | [optional] 
-**ErrorCode** | Pointer to **string** | Error code when the message status is &#x60;failed&#x60;. | [optional] 
-**ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional] 
-**CreateTime** | Pointer to **time.Time** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**UpdateTime** | Pointer to **time.Time** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**SendTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**DeliverTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**ReadTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**TotalPrice** | Pointer to **float64** | Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.** | [optional] 
-**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional] 
-**RegionCode** | Pointer to **string** | The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number. | [optional] 
-**PricingCategory** | Pointer to [**WhatsappPricingCategory**](WhatsappPricingCategory.md) |  | [optional] 
-**PricingModel** | Pointer to [**WhatsappPricingModel**](WhatsappPricingModel.md) |  | [optional] 
-**PricingType** | Pointer to [**WhatsappPricingType**](WhatsappPricingType.md) |  | [optional] 
-**WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional] 
-**BizType** | Pointer to **string** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via the **WhatsApp** product. - &#x60;verify&#x60;: Indicates that the message is sent via the **Verify** product. | [optional] 
-**VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional] 
+**Id** | **string** | Unique ID of the message. |
+**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional]
+**WabaId** | **string** | WhatsApp Business Account ID. |
+**From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**Recipient** | Pointer to **string** | The recipient value submitted in the request when a BSUID or parent BSUID was used. | [optional]
+**RecipientUserId** | Pointer to **string** | The recipient&#39;s WhatsApp Business-scoped user ID (BSUID). | [optional]
+**ToUserId** | Pointer to **string** | Alias of &#x60;recipientUserId&#x60; kept for compatibility. | [optional]
+**ParentRecipientUserId** | Pointer to **string** | The recipient&#39;s parent WhatsApp Business-scoped user ID. | [optional]
+**ToParentUserId** | Pointer to **string** | Alias of &#x60;parentRecipientUserId&#x60; kept for compatibility. | [optional]
+**CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional]
+**Conversation** | Pointer to [**WhatsappConversation**](WhatsappConversation.md) |  | [optional]
+**Type** | Pointer to [**WhatsappMessageType**](WhatsappMessageType.md) |  | [optional]
+**Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional]
+**Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional]
+**Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional]
+**Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional]
+**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional]
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional]
+**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional]
+**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional]
+**Status** | Pointer to [**WhatsappMessageStatus**](WhatsappMessageStatus.md) |  | [optional]
+**ErrorCode** | Pointer to **string** | Error code when the message status is &#x60;failed&#x60;. | [optional]
+**ErrorMessage** | Pointer to **string** | Error message when the message status is &#x60;failed&#x60;. | [optional]
+**CreateTime** | Pointer to **time.Time** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**UpdateTime** | Pointer to **time.Time** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**SendTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**DeliverTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**ReadTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**TotalPrice** | Pointer to **float64** | Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.** | [optional]
+**Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional]
+**RegionCode** | Pointer to **string** | The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number. | [optional]
+**PricingCategory** | Pointer to [**WhatsappPricingCategory**](WhatsappPricingCategory.md) |  | [optional]
+**PricingModel** | Pointer to [**WhatsappPricingModel**](WhatsappPricingModel.md) |  | [optional]
+**PricingType** | Pointer to [**WhatsappPricingType**](WhatsappPricingType.md) |  | [optional]
+**WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional]
+**BizType** | Pointer to **string** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via the **WhatsApp** product. - &#x60;verify&#x60;: Indicates that the message is sent via the **Verify** product. | [optional]
+**VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional]
 
 ## Methods
 
 ### NewWhatsappMessage
 
-`func NewWhatsappMessage(id string, wabaId string, from string, to string, ) *WhatsappMessage`
+`func NewWhatsappMessage(id string, wabaId string, from string, ) *WhatsappMessage`
 
 NewWhatsappMessage instantiates a new WhatsappMessage object
 This constructor will assign default values to properties that have it defined,
@@ -165,6 +171,161 @@ and a boolean to check if the value has been set.
 
 SetTo sets To field to given value.
 
+### HasTo
+
+`func (o *WhatsappMessage) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
+
+### GetRecipient
+
+`func (o *WhatsappMessage) GetRecipient() string`
+
+GetRecipient returns the Recipient field if non-nil, zero value otherwise.
+
+### GetRecipientOk
+
+`func (o *WhatsappMessage) GetRecipientOk() (*string, bool)`
+
+GetRecipientOk returns a tuple with the Recipient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipient
+
+`func (o *WhatsappMessage) SetRecipient(v string)`
+
+SetRecipient sets Recipient field to given value.
+
+### HasRecipient
+
+`func (o *WhatsappMessage) HasRecipient() bool`
+
+HasRecipient returns a boolean if a field has been set.
+
+### GetRecipientUserId
+
+`func (o *WhatsappMessage) GetRecipientUserId() string`
+
+GetRecipientUserId returns the RecipientUserId field if non-nil, zero value otherwise.
+
+### GetRecipientUserIdOk
+
+`func (o *WhatsappMessage) GetRecipientUserIdOk() (*string, bool)`
+
+GetRecipientUserIdOk returns a tuple with the RecipientUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipientUserId
+
+`func (o *WhatsappMessage) SetRecipientUserId(v string)`
+
+SetRecipientUserId sets RecipientUserId field to given value.
+
+### HasRecipientUserId
+
+`func (o *WhatsappMessage) HasRecipientUserId() bool`
+
+HasRecipientUserId returns a boolean if a field has been set.
+
+### GetToUserId
+
+`func (o *WhatsappMessage) GetToUserId() string`
+
+GetToUserId returns the ToUserId field if non-nil, zero value otherwise.
+
+### GetToUserIdOk
+
+`func (o *WhatsappMessage) GetToUserIdOk() (*string, bool)`
+
+GetToUserIdOk returns a tuple with the ToUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToUserId
+
+`func (o *WhatsappMessage) SetToUserId(v string)`
+
+SetToUserId sets ToUserId field to given value.
+
+### HasToUserId
+
+`func (o *WhatsappMessage) HasToUserId() bool`
+
+HasToUserId returns a boolean if a field has been set.
+
+### GetParentRecipientUserId
+
+`func (o *WhatsappMessage) GetParentRecipientUserId() string`
+
+GetParentRecipientUserId returns the ParentRecipientUserId field if non-nil, zero value otherwise.
+
+### GetParentRecipientUserIdOk
+
+`func (o *WhatsappMessage) GetParentRecipientUserIdOk() (*string, bool)`
+
+GetParentRecipientUserIdOk returns a tuple with the ParentRecipientUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentRecipientUserId
+
+`func (o *WhatsappMessage) SetParentRecipientUserId(v string)`
+
+SetParentRecipientUserId sets ParentRecipientUserId field to given value.
+
+### HasParentRecipientUserId
+
+`func (o *WhatsappMessage) HasParentRecipientUserId() bool`
+
+HasParentRecipientUserId returns a boolean if a field has been set.
+
+### GetToParentUserId
+
+`func (o *WhatsappMessage) GetToParentUserId() string`
+
+GetToParentUserId returns the ToParentUserId field if non-nil, zero value otherwise.
+
+### GetToParentUserIdOk
+
+`func (o *WhatsappMessage) GetToParentUserIdOk() (*string, bool)`
+
+GetToParentUserIdOk returns a tuple with the ToParentUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToParentUserId
+
+`func (o *WhatsappMessage) SetToParentUserId(v string)`
+
+SetToParentUserId sets ToParentUserId field to given value.
+
+### HasToParentUserId
+
+`func (o *WhatsappMessage) HasToParentUserId() bool`
+
+HasToParentUserId returns a boolean if a field has been set.
+
+### GetCustomerProfile
+
+`func (o *WhatsappMessage) GetCustomerProfile() WhatsappProfile`
+
+GetCustomerProfile returns the CustomerProfile field if non-nil, zero value otherwise.
+
+### GetCustomerProfileOk
+
+`func (o *WhatsappMessage) GetCustomerProfileOk() (*WhatsappProfile, bool)`
+
+GetCustomerProfileOk returns a tuple with the CustomerProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerProfile
+
+`func (o *WhatsappMessage) SetCustomerProfile(v WhatsappProfile)`
+
+SetCustomerProfile sets CustomerProfile field to given value.
+
+### HasCustomerProfile
+
+`func (o *WhatsappMessage) HasCustomerProfile() bool`
+
+HasCustomerProfile returns a boolean if a field has been set.
 
 ### GetConversation
 

@@ -15,12 +15,15 @@ import (
 	"encoding/json"
 )
 
-// WhatsappMessageSendRequest struct for WhatsappMessageSendRequest
+// WhatsappMessageSendRequest Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
 type WhatsappMessageSendRequest struct {
 	// The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
-	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To string `json:"to"`
+	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when `recipient` is not provided.
+	To *string `json:"to,omitempty"`
+	// The recipient's WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when `to` is not provided.
+	Recipient *string `json:"recipient,omitempty"`
+	CustomerProfile *WhatsappProfile `json:"customerProfile,omitempty"`
 	Type WhatsappMessageType `json:"type"`
 	Template *WhatsappMessageTemplate `json:"template,omitempty"`
 	Text *WhatsappMessageText `json:"text,omitempty"`
@@ -47,10 +50,9 @@ type WhatsappMessageSendRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappMessageSendRequest(from string, to string, type_ WhatsappMessageType) *WhatsappMessageSendRequest {
+func NewWhatsappMessageSendRequest(from string, type_ WhatsappMessageType) *WhatsappMessageSendRequest {
 	this := WhatsappMessageSendRequest{}
 	this.From = from
-	this.To = to
 	this.Type = type_
 	return &this
 }
@@ -87,28 +89,100 @@ func (o *WhatsappMessageSendRequest) SetFrom(v string) {
 	o.From = v
 }
 
-// GetTo returns the To field value
+// GetTo returns the To field value if set, zero value otherwise.
 func (o *WhatsappMessageSendRequest) GetTo() string {
-	if o == nil {
+	if o == nil || o.To == nil {
 		var ret string
 		return ret
 	}
-
-	return o.To
+	return *o.To
 }
 
-// GetToOk returns a tuple with the To field value
+// GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappMessageSendRequest) GetToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.To == nil {
 		return nil, false
 	}
-	return &o.To, true
+	return o.To, true
 }
 
-// SetTo sets field value
+// HasTo returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasTo() bool {
+	if o != nil && o.To != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTo gets a reference to the given string and assigns it to the To field.
 func (o *WhatsappMessageSendRequest) SetTo(v string) {
-	o.To = v
+	o.To = &v
+}
+
+// GetRecipient returns the Recipient field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetRecipient() string {
+	if o == nil || o.Recipient == nil {
+		var ret string
+		return ret
+	}
+	return *o.Recipient
+}
+
+// GetRecipientOk returns a tuple with the Recipient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetRecipientOk() (*string, bool) {
+	if o == nil || o.Recipient == nil {
+		return nil, false
+	}
+	return o.Recipient, true
+}
+
+// HasRecipient returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasRecipient() bool {
+	if o != nil && o.Recipient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecipient gets a reference to the given string and assigns it to the Recipient field.
+func (o *WhatsappMessageSendRequest) SetRecipient(v string) {
+	o.Recipient = &v
+}
+
+// GetCustomerProfile returns the CustomerProfile field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetCustomerProfile() WhatsappProfile {
+	if o == nil || o.CustomerProfile == nil {
+		var ret WhatsappProfile
+		return ret
+	}
+	return *o.CustomerProfile
+}
+
+// GetCustomerProfileOk returns a tuple with the CustomerProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetCustomerProfileOk() (*WhatsappProfile, bool) {
+	if o == nil || o.CustomerProfile == nil {
+		return nil, false
+	}
+	return o.CustomerProfile, true
+}
+
+// HasCustomerProfile returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasCustomerProfile() bool {
+	if o != nil && o.CustomerProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerProfile gets a reference to the given WhatsappProfile and assigns it to the CustomerProfile field.
+func (o *WhatsappMessageSendRequest) SetCustomerProfile(v WhatsappProfile) {
+	o.CustomerProfile = &v
 }
 
 // GetType returns the Type field value
@@ -620,8 +694,14 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["from"] = o.From
 	}
-	if true {
+	if o.To != nil {
 		toSerialize["to"] = o.To
+	}
+	if o.Recipient != nil {
+		toSerialize["recipient"] = o.Recipient
+	}
+	if o.CustomerProfile != nil {
+		toSerialize["customerProfile"] = o.CustomerProfile
 	}
 	if true {
 		toSerialize["type"] = o.Type

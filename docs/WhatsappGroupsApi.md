@@ -42,7 +42,7 @@ import (
 func main() {
     businessPhoneNumber := "+16315551111" // string | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     groupId := "120363345678901234@g.us" // string | WhatsApp group ID.
-    whatsappGroupJoinRequestActionRequest := *ycloud.NewWhatsappGroupJoinRequestActionRequest([]string{"JoinRequests_example"}) // WhatsappGroupJoinRequestActionRequest | 
+    whatsappGroupJoinRequestActionRequest := *ycloud.NewWhatsappGroupJoinRequestActionRequest([]string{"JoinRequests_example"}) // WhatsappGroupJoinRequestActionRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -62,8 +62,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappGroupJoinRequestActionRequest** | [**WhatsappGroupJoinRequestActionRequest**](WhatsappGroupJoinRequestActionRequest.md) |  | 
+ **whatsappGroupJoinRequestActionRequest** | [**WhatsappGroupJoinRequestActionRequest**](WhatsappGroupJoinRequestActionRequest.md) |  |
 
 ### Return type
 
@@ -116,7 +116,7 @@ import (
 
 func main() {
     businessPhoneNumber := "+16315551111" // string | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappGroupCreateRequest := *ycloud.NewWhatsappGroupCreateRequest("New Purchase Inquiry") // WhatsappGroupCreateRequest | 
+    whatsappGroupCreateRequest := *ycloud.NewWhatsappGroupCreateRequest("New Purchase Inquiry") // WhatsappGroupCreateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -136,7 +136,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -146,7 +146,7 @@ Other parameters are passed through a pointer to a apiCreateRequest struct via t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **whatsappGroupCreateRequest** | [**WhatsappGroupCreateRequest**](WhatsappGroupCreateRequest.md) |  | 
+ **whatsappGroupCreateRequest** | [**WhatsappGroupCreateRequest**](WhatsappGroupCreateRequest.md) |  |
 
 ### Return type
 
@@ -208,8 +208,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -283,7 +283,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -294,8 +294,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **limit** | **int32** | A limit on the number of results to be returned, between 1 and 1024. Defaults to 25. | [default to 25]
- **before** | **string** | A cursor to fetch the previous page. | 
- **after** | **string** | A cursor to fetch the next page. | 
+ **before** | **string** | A cursor to fetch the previous page. |
+ **after** | **string** | A cursor to fetch the next page. |
 
 ### Return type
 
@@ -360,8 +360,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -373,8 +373,8 @@ Name | Type | Description  | Notes
 
 
  **limit** | **int32** | A limit on the number of results to be returned, between 1 and 1024. Defaults to 25. | [default to 25]
- **before** | **string** | A cursor to fetch the previous page. | 
- **after** | **string** | A cursor to fetch the next page. | 
+ **before** | **string** | A cursor to fetch the previous page. |
+ **after** | **string** | A cursor to fetch the next page. |
 
 ### Return type
 
@@ -417,7 +417,7 @@ import (
 func main() {
     businessPhoneNumber := "+16315551111" // string | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     groupId := "120363345678901234@g.us" // string | WhatsApp group ID.
-    whatsappGroupJoinRequestActionRequest := *ycloud.NewWhatsappGroupJoinRequestActionRequest([]string{"JoinRequests_example"}) // WhatsappGroupJoinRequestActionRequest | 
+    whatsappGroupJoinRequestActionRequest := *ycloud.NewWhatsappGroupJoinRequestActionRequest([]string{"JoinRequests_example"}) // WhatsappGroupJoinRequestActionRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -437,8 +437,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappGroupJoinRequestActionRequest** | [**WhatsappGroupJoinRequestActionRequest**](WhatsappGroupJoinRequestActionRequest.md) |  | 
+ **whatsappGroupJoinRequestActionRequest** | [**WhatsappGroupJoinRequestActionRequest**](WhatsappGroupJoinRequestActionRequest.md) |  |
 
 ### Return type
 
@@ -491,7 +491,7 @@ import (
 
 func main() {
     groupId := "120363345678901234@g.us" // string | WhatsApp group ID.
-    whatsappGroupRemoveParticipantsRequest := *ycloud.NewWhatsappGroupRemoveParticipantsRequest([]ycloud.WhatsappGroupRemoveParticipant{*ycloud.NewWhatsappGroupRemoveParticipant()}) // WhatsappGroupRemoveParticipantsRequest | 
+    whatsappGroupRemoveParticipantsRequest := *ycloud.NewWhatsappGroupRemoveParticipantsRequest([]ycloud.WhatsappGroupRemoveParticipant{*ycloud.NewWhatsappGroupRemoveParticipant()}) // WhatsappGroupRemoveParticipantsRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -511,7 +511,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupId** | **string** | WhatsApp group ID. | 
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -521,7 +521,7 @@ Other parameters are passed through a pointer to a apiRemoveParticipantsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **whatsappGroupRemoveParticipantsRequest** | [**WhatsappGroupRemoveParticipantsRequest**](WhatsappGroupRemoveParticipantsRequest.md) |  | 
+ **whatsappGroupRemoveParticipantsRequest** | [**WhatsappGroupRemoveParticipantsRequest**](WhatsappGroupRemoveParticipantsRequest.md) |  |
 
 ### Return type
 
@@ -583,8 +583,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -656,8 +656,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -729,8 +729,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -782,7 +782,7 @@ import (
 
 func main() {
     businessPhoneNumber := "+16315551111" // string | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappGroupInviteLinkMessageRequest := *ycloud.NewWhatsappGroupInviteLinkMessageRequest("+16315551111", "group_invite_link", "en_US", []ycloud.WhatsappMessageTemplateComponentParameter{*ycloud.NewWhatsappMessageTemplateComponentParameter()}) // WhatsappGroupInviteLinkMessageRequest | 
+    whatsappGroupInviteLinkMessageRequest := *ycloud.NewWhatsappGroupInviteLinkMessageRequest("group_invite_link", "en_US", []ycloud.WhatsappMessageTemplateComponentParameter{*ycloud.NewWhatsappMessageTemplateComponentParameter()}) // WhatsappGroupInviteLinkMessageRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -802,7 +802,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -812,7 +812,7 @@ Other parameters are passed through a pointer to a apiSendInviteLinkMessageReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **whatsappGroupInviteLinkMessageRequest** | [**WhatsappGroupInviteLinkMessageRequest**](WhatsappGroupInviteLinkMessageRequest.md) |  | 
+ **whatsappGroupInviteLinkMessageRequest** | [**WhatsappGroupInviteLinkMessageRequest**](WhatsappGroupInviteLinkMessageRequest.md) |  |
 
 ### Return type
 
@@ -855,7 +855,7 @@ import (
 func main() {
     businessPhoneNumber := "+16315551111" // string | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     groupId := "120363345678901234@g.us" // string | WhatsApp group ID.
-    whatsappGroupUpdateSettingsRequest := *ycloud.NewWhatsappGroupUpdateSettingsRequest() // WhatsappGroupUpdateSettingsRequest | 
+    whatsappGroupUpdateSettingsRequest := *ycloud.NewWhatsappGroupUpdateSettingsRequest() // WhatsappGroupUpdateSettingsRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -875,8 +875,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**groupId** | **string** | WhatsApp group ID. | 
+**businessPhoneNumber** | **string** | The WhatsApp business phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**groupId** | **string** | WhatsApp group ID. |
 
 ### Other Parameters
 
@@ -887,7 +887,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappGroupUpdateSettingsRequest** | [**WhatsappGroupUpdateSettingsRequest**](WhatsappGroupUpdateSettingsRequest.md) |  | 
+ **whatsappGroupUpdateSettingsRequest** | [**WhatsappGroupUpdateSettingsRequest**](WhatsappGroupUpdateSettingsRequest.md) |  |
 
 ### Return type
 
