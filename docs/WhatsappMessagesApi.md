@@ -51,7 +51,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the object. | 
+**id** | **string** | ID of the object. |
 
 ### Other Parameters
 
@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", "+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
+    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -126,7 +126,7 @@ Other parameters are passed through a pointer to a apiSendRequest struct via the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md) |  | 
+ **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md) |  |
 
 ### Return type
 
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", "+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest | 
+    whatsappMessageSendRequest := *ycloud.NewWhatsappMessageSendRequest("+16315551111", ycloud.WhatsappMessageType("template")) // WhatsappMessageSendRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -192,7 +192,7 @@ Other parameters are passed through a pointer to a apiSendDirectlyRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md) |  | 
+ **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md) |  |
 
 ### Return type
 

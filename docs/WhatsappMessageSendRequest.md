@@ -4,30 +4,32 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**Type** | [**WhatsappMessageType**](WhatsappMessageType.md) |  | 
-**Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional] 
-**Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional] 
-**Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional] 
-**Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional] 
-**Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional] 
-**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) | Required when &#x60;type&#x60; is &#x60;contacts&#x60;. | [optional] 
-**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
-**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional] 
-**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
-**FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional] 
-**FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional] 
+**From** | **string** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+**To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided. | [optional]
+**Recipient** | Pointer to **string** | The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided. | [optional]
+**CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional]
+**Type** | [**WhatsappMessageType**](WhatsappMessageType.md) |  |
+**Template** | Pointer to [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  | [optional]
+**Text** | Pointer to [**WhatsappMessageText**](WhatsappMessageText.md) |  | [optional]
+**Image** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Video** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Audio** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Document** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Sticker** | Pointer to [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  | [optional]
+**Location** | Pointer to [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  | [optional]
+**Interactive** | Pointer to [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  | [optional]
+**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) | Required when &#x60;type&#x60; is &#x60;contacts&#x60;. | [optional]
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional]
+**Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional]
+**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional]
+**FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional]
+**FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional]
 
 ## Methods
 
 ### NewWhatsappMessageSendRequest
 
-`func NewWhatsappMessageSendRequest(from string, to string, type_ WhatsappMessageType, ) *WhatsappMessageSendRequest`
+`func NewWhatsappMessageSendRequest(from string, type_ WhatsappMessageType, ) *WhatsappMessageSendRequest`
 
 NewWhatsappMessageSendRequest instantiates a new WhatsappMessageSendRequest object
 This constructor will assign default values to properties that have it defined,
@@ -81,6 +83,61 @@ and a boolean to check if the value has been set.
 
 SetTo sets To field to given value.
 
+### HasTo
+
+`func (o *WhatsappMessageSendRequest) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
+
+### GetRecipient
+
+`func (o *WhatsappMessageSendRequest) GetRecipient() string`
+
+GetRecipient returns the Recipient field if non-nil, zero value otherwise.
+
+### GetRecipientOk
+
+`func (o *WhatsappMessageSendRequest) GetRecipientOk() (*string, bool)`
+
+GetRecipientOk returns a tuple with the Recipient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipient
+
+`func (o *WhatsappMessageSendRequest) SetRecipient(v string)`
+
+SetRecipient sets Recipient field to given value.
+
+### HasRecipient
+
+`func (o *WhatsappMessageSendRequest) HasRecipient() bool`
+
+HasRecipient returns a boolean if a field has been set.
+
+### GetCustomerProfile
+
+`func (o *WhatsappMessageSendRequest) GetCustomerProfile() WhatsappProfile`
+
+GetCustomerProfile returns the CustomerProfile field if non-nil, zero value otherwise.
+
+### GetCustomerProfileOk
+
+`func (o *WhatsappMessageSendRequest) GetCustomerProfileOk() (*WhatsappProfile, bool)`
+
+GetCustomerProfileOk returns a tuple with the CustomerProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerProfile
+
+`func (o *WhatsappMessageSendRequest) SetCustomerProfile(v WhatsappProfile)`
+
+SetCustomerProfile sets CustomerProfile field to given value.
+
+### HasCustomerProfile
+
+`func (o *WhatsappMessageSendRequest) HasCustomerProfile() bool`
+
+HasCustomerProfile returns a boolean if a field has been set.
 
 ### GetType
 

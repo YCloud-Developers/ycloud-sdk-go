@@ -4,31 +4,32 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID for the object. | 
-**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional] 
-**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
-**From** | Pointer to **string** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional] 
-**To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**GroupId** | Pointer to **string** | WhatsApp group ID. Included when the inbound message was sent in a group. | [optional] 
-**SendTime** | Pointer to **time.Time** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**Type** | Pointer to [**WhatsappInboundMessageType**](WhatsappInboundMessageType.md) |  | [optional] 
-**Text** | Pointer to [**WhatsappInboundMessageText**](WhatsappInboundMessageText.md) |  | [optional] 
-**Image** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional] 
-**Video** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional] 
-**Audio** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional] 
-**Document** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional] 
-**Sticker** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional] 
-**Interactive** | Pointer to [**WhatsappInboundMessageInteractive**](WhatsappInboundMessageInteractive.md) |  | [optional] 
-**Location** | Pointer to [**WhatsappInboundMessageLocation**](WhatsappInboundMessageLocation.md) |  | [optional] 
-**Button** | Pointer to [**WhatsappInboundMessageButton**](WhatsappInboundMessageButton.md) |  | [optional] 
-**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional] 
-**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional] 
-**Order** | Pointer to [**WhatsappInboundMessageOrder**](WhatsappInboundMessageOrder.md) |  | [optional] 
-**System** | Pointer to [**WhatsappInboundMessageSystem**](WhatsappInboundMessageSystem.md) |  | [optional] 
-**Errors** | Pointer to [**[]WhatsappInboundMessageError**](WhatsappInboundMessageError.md) |  | [optional] 
-**Context** | Pointer to [**WhatsappInboundMessageContext**](WhatsappInboundMessageContext.md) |  | [optional] 
-**Referral** | Pointer to [**WhatsappInboundMessageReferral**](WhatsappInboundMessageReferral.md) |  | [optional] 
+**Id** | **string** | Unique ID for the object. |
+**Wamid** | Pointer to **string** | The original message ID on WhatsApp&#39;s platform. | [optional]
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional]
+**From** | Pointer to **string** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**FromUserId** | Pointer to **string** | The customer&#39;s WhatsApp Business-scoped user ID (BSUID). | [optional]
+**FromParentUserId** | Pointer to **string** | The customer&#39;s parent WhatsApp Business-scoped user ID. | [optional]
+**CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional]
+**To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**SendTime** | Pointer to **time.Time** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**Type** | Pointer to [**WhatsappInboundMessageType**](WhatsappInboundMessageType.md) |  | [optional]
+**Text** | Pointer to [**WhatsappInboundMessageText**](WhatsappInboundMessageText.md) |  | [optional]
+**Image** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional]
+**Video** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional]
+**Audio** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional]
+**Document** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional]
+**Sticker** | Pointer to [**WhatsappInboundMessageMedia**](WhatsappInboundMessageMedia.md) |  | [optional]
+**Interactive** | Pointer to [**WhatsappInboundMessageInteractive**](WhatsappInboundMessageInteractive.md) |  | [optional]
+**Location** | Pointer to [**WhatsappInboundMessageLocation**](WhatsappInboundMessageLocation.md) |  | [optional]
+**Button** | Pointer to [**WhatsappInboundMessageButton**](WhatsappInboundMessageButton.md) |  | [optional]
+**Contacts** | Pointer to [**[]WhatsappMessageContact**](WhatsappMessageContact.md) |  | [optional]
+**Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional]
+**Order** | Pointer to [**WhatsappInboundMessageOrder**](WhatsappInboundMessageOrder.md) |  | [optional]
+**System** | Pointer to [**WhatsappInboundMessageSystem**](WhatsappInboundMessageSystem.md) |  | [optional]
+**Errors** | Pointer to [**[]WhatsappInboundMessageError**](WhatsappInboundMessageError.md) |  | [optional]
+**Context** | Pointer to [**WhatsappInboundMessageContext**](WhatsappInboundMessageContext.md) |  | [optional]
+**Referral** | Pointer to [**WhatsappInboundMessageReferral**](WhatsappInboundMessageReferral.md) |  | [optional]
 
 ## Methods
 
@@ -144,6 +145,56 @@ SetFrom sets From field to given value.
 
 HasFrom returns a boolean if a field has been set.
 
+### GetFromUserId
+
+`func (o *WhatsappInboundMessage) GetFromUserId() string`
+
+GetFromUserId returns the FromUserId field if non-nil, zero value otherwise.
+
+### GetFromUserIdOk
+
+`func (o *WhatsappInboundMessage) GetFromUserIdOk() (*string, bool)`
+
+GetFromUserIdOk returns a tuple with the FromUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromUserId
+
+`func (o *WhatsappInboundMessage) SetFromUserId(v string)`
+
+SetFromUserId sets FromUserId field to given value.
+
+### HasFromUserId
+
+`func (o *WhatsappInboundMessage) HasFromUserId() bool`
+
+HasFromUserId returns a boolean if a field has been set.
+
+### GetFromParentUserId
+
+`func (o *WhatsappInboundMessage) GetFromParentUserId() string`
+
+GetFromParentUserId returns the FromParentUserId field if non-nil, zero value otherwise.
+
+### GetFromParentUserIdOk
+
+`func (o *WhatsappInboundMessage) GetFromParentUserIdOk() (*string, bool)`
+
+GetFromParentUserIdOk returns a tuple with the FromParentUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromParentUserId
+
+`func (o *WhatsappInboundMessage) SetFromParentUserId(v string)`
+
+SetFromParentUserId sets FromParentUserId field to given value.
+
+### HasFromParentUserId
+
+`func (o *WhatsappInboundMessage) HasFromParentUserId() bool`
+
+HasFromParentUserId returns a boolean if a field has been set.
+
 ### GetCustomerProfile
 
 `func (o *WhatsappInboundMessage) GetCustomerProfile() WhatsappProfile`
@@ -193,31 +244,6 @@ SetTo sets To field to given value.
 `func (o *WhatsappInboundMessage) HasTo() bool`
 
 HasTo returns a boolean if a field has been set.
-
-### GetGroupId
-
-`func (o *WhatsappInboundMessage) GetGroupId() string`
-
-GetGroupId returns the GroupId field if non-nil, zero value otherwise.
-
-### GetGroupIdOk
-
-`func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool)`
-
-GetGroupIdOk returns a tuple with the GroupId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGroupId
-
-`func (o *WhatsappInboundMessage) SetGroupId(v string)`
-
-SetGroupId sets GroupId field to given value.
-
-### HasGroupId
-
-`func (o *WhatsappInboundMessage) HasGroupId() bool`
-
-HasGroupId returns a boolean if a field has been set.
 
 ### GetSendTime
 

@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
-**TemplateName** | **string** | The name of the approved WhatsApp template. | 
-**LanguageCode** | **string** | The template language code. | 
-**Parameters** | [**[]WhatsappMessageTemplateComponentParameter**](WhatsappMessageTemplateComponentParameter.md) | Template body parameters in template variable order. Must include one group invite link parameter with &#x60;type&#x3D;group_id&#x60; and &#x60;group_id&#x3D;&lt;groupId&gt;&#x60;. | 
+**To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided. | [optional]
+**Recipient** | Pointer to **string** | The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided. | [optional]
+**TemplateName** | **string** | The name of the approved WhatsApp template. |
+**LanguageCode** | **string** | The template language code. |
+**Parameters** | [**[]WhatsappMessageTemplateComponentParameter**](WhatsappMessageTemplateComponentParameter.md) | Template body parameters in template variable order. Must include one group invite link parameter with &#x60;type&#x3D;group_id&#x60; and &#x60;group_id&#x3D;&lt;groupId&gt;&#x60;. |
 
 ## Methods
 
 ### NewWhatsappGroupInviteLinkMessageRequest
 
-`func NewWhatsappGroupInviteLinkMessageRequest(to string, templateName string, languageCode string, parameters []WhatsappMessageTemplateComponentParameter, ) *WhatsappGroupInviteLinkMessageRequest`
+`func NewWhatsappGroupInviteLinkMessageRequest(templateName string, languageCode string, parameters []WhatsappMessageTemplateComponentParameter, ) *WhatsappGroupInviteLinkMessageRequest`
 
 NewWhatsappGroupInviteLinkMessageRequest instantiates a new WhatsappGroupInviteLinkMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +48,36 @@ and a boolean to check if the value has been set.
 
 SetTo sets To field to given value.
 
+### HasTo
+
+`func (o *WhatsappGroupInviteLinkMessageRequest) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
+
+### GetRecipient
+
+`func (o *WhatsappGroupInviteLinkMessageRequest) GetRecipient() string`
+
+GetRecipient returns the Recipient field if non-nil, zero value otherwise.
+
+### GetRecipientOk
+
+`func (o *WhatsappGroupInviteLinkMessageRequest) GetRecipientOk() (*string, bool)`
+
+GetRecipientOk returns a tuple with the Recipient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipient
+
+`func (o *WhatsappGroupInviteLinkMessageRequest) SetRecipient(v string)`
+
+SetRecipient sets Recipient field to given value.
+
+### HasRecipient
+
+`func (o *WhatsappGroupInviteLinkMessageRequest) HasRecipient() bool`
+
+HasRecipient returns a boolean if a field has been set.
 
 ### GetTemplateName
 

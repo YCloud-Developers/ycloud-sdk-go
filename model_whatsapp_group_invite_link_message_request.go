@@ -15,10 +15,12 @@ import (
 	"encoding/json"
 )
 
-// WhatsappGroupInviteLinkMessageRequest struct for WhatsappGroupInviteLinkMessageRequest
+// WhatsappGroupInviteLinkMessageRequest Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
 type WhatsappGroupInviteLinkMessageRequest struct {
-	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-	To string `json:"to"`
+	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when `recipient` is not provided.
+	To *string `json:"to,omitempty"`
+	// The recipient's WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when `to` is not provided.
+	Recipient *string `json:"recipient,omitempty"`
 	// The name of the approved WhatsApp template.
 	TemplateName string `json:"templateName"`
 	// The template language code.
@@ -31,9 +33,8 @@ type WhatsappGroupInviteLinkMessageRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWhatsappGroupInviteLinkMessageRequest(to string, templateName string, languageCode string, parameters []WhatsappMessageTemplateComponentParameter) *WhatsappGroupInviteLinkMessageRequest {
+func NewWhatsappGroupInviteLinkMessageRequest(templateName string, languageCode string, parameters []WhatsappMessageTemplateComponentParameter) *WhatsappGroupInviteLinkMessageRequest {
 	this := WhatsappGroupInviteLinkMessageRequest{}
-	this.To = to
 	this.TemplateName = templateName
 	this.LanguageCode = languageCode
 	this.Parameters = parameters
@@ -48,28 +49,68 @@ func NewWhatsappGroupInviteLinkMessageRequestWithDefaults() *WhatsappGroupInvite
 	return &this
 }
 
-// GetTo returns the To field value
+// GetTo returns the To field value if set, zero value otherwise.
 func (o *WhatsappGroupInviteLinkMessageRequest) GetTo() string {
-	if o == nil {
+	if o == nil || o.To == nil {
 		var ret string
 		return ret
 	}
-
-	return o.To
+	return *o.To
 }
 
-// GetToOk returns a tuple with the To field value
+// GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WhatsappGroupInviteLinkMessageRequest) GetToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.To == nil {
 		return nil, false
 	}
-	return &o.To, true
+	return o.To, true
 }
 
-// SetTo sets field value
+// HasTo returns a boolean if a field has been set.
+func (o *WhatsappGroupInviteLinkMessageRequest) HasTo() bool {
+	if o != nil && o.To != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTo gets a reference to the given string and assigns it to the To field.
 func (o *WhatsappGroupInviteLinkMessageRequest) SetTo(v string) {
-	o.To = v
+	o.To = &v
+}
+
+// GetRecipient returns the Recipient field value if set, zero value otherwise.
+func (o *WhatsappGroupInviteLinkMessageRequest) GetRecipient() string {
+	if o == nil || o.Recipient == nil {
+		var ret string
+		return ret
+	}
+	return *o.Recipient
+}
+
+// GetRecipientOk returns a tuple with the Recipient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappGroupInviteLinkMessageRequest) GetRecipientOk() (*string, bool) {
+	if o == nil || o.Recipient == nil {
+		return nil, false
+	}
+	return o.Recipient, true
+}
+
+// HasRecipient returns a boolean if a field has been set.
+func (o *WhatsappGroupInviteLinkMessageRequest) HasRecipient() bool {
+	if o != nil && o.Recipient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecipient gets a reference to the given string and assigns it to the Recipient field.
+func (o *WhatsappGroupInviteLinkMessageRequest) SetRecipient(v string) {
+	o.Recipient = &v
 }
 
 // GetTemplateName returns the TemplateName field value
@@ -146,8 +187,11 @@ func (o *WhatsappGroupInviteLinkMessageRequest) SetParameters(v []WhatsappMessag
 
 func (o WhatsappGroupInviteLinkMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.To != nil {
 		toSerialize["to"] = o.To
+	}
+	if o.Recipient != nil {
+		toSerialize["recipient"] = o.Recipient
 	}
 	if true {
 		toSerialize["templateName"] = o.TemplateName

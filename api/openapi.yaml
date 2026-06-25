@@ -6617,11 +6617,11 @@ components:
         participants:
         - waId: "16315551111"
           parentUserId: US.parent123
-          userId: US.abc123
+          userId: US.1234
           username: John
         - waId: "16315551111"
           parentUserId: US.parent123
-          userId: US.abc123
+          userId: US.1234
           username: John
       properties:
         groupId:
@@ -6708,8 +6708,11 @@ components:
           type: string
       type: object
     WhatsappGroupInviteLinkMessageRequest:
+      description: "Provide exactly one of `to` or `recipient`. If both are provided,\
+        \ `to` takes precedence and `recipient` is ignored."
       example:
         templateName: group_invite_link
+        recipient: US.1234
         to: +16315551111
         languageCode: en_US
         parameters:
@@ -7266,8 +7269,13 @@ components:
       properties:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
-            \ format."
+            \ format. Required when `recipient` is not provided."
           example: +16315551111
+          type: string
+        recipient:
+          description: The recipient's WhatsApp Business-scoped user ID (BSUID) or
+            parent BSUID. Required when `to` is not provided.
+          example: US.1234
           type: string
         templateName:
           description: The name of the approved WhatsApp template.
@@ -7287,7 +7295,6 @@ components:
       - languageCode
       - parameters
       - templateName
-      - to
       type: object
     WhatsappGroupJoinApprovalMode:
       description: "WhatsApp group join approval mode.\n- `approval_required`: New\
@@ -7305,7 +7312,7 @@ components:
         waId: "16315551111"
         parentUserId: US.parent123
         creationTimestamp: 1739321024
-        userId: US.abc123
+        userId: US.1234
         username: John
       properties:
         joinRequestId:
@@ -7318,7 +7325,7 @@ components:
           type: string
         userId:
           description: Business-scoped user ID.
-          example: US.abc123
+          example: US.1234
           type: string
         parentUserId:
           description: Parent business-scoped user ID.
@@ -7419,13 +7426,13 @@ components:
           waId: "16315551111"
           parentUserId: US.parent123
           creationTimestamp: 1739321024
-          userId: US.abc123
+          userId: US.1234
           username: John
         - joinRequestId: join-request-id
           waId: "16315551111"
           parentUserId: US.parent123
           creationTimestamp: 1739321024
-          userId: US.abc123
+          userId: US.1234
           username: John
         paging:
           before: eyJvIjoiYmVmb3JlIn0
@@ -7500,7 +7507,7 @@ components:
       example:
         waId: "16315551111"
         parentUserId: US.parent123
-        userId: US.abc123
+        userId: US.1234
         username: John
       properties:
         waId:
@@ -7509,7 +7516,7 @@ components:
           type: string
         userId:
           description: Business-scoped user ID.
-          example: US.abc123
+          example: US.1234
           type: string
         parentUserId:
           description: Parent business-scoped user ID.
@@ -7524,7 +7531,7 @@ components:
       description: Participant identifier for a group removal request. Provide exactly
         one of `user` or `fromUserId`.
       example:
-        fromUserId: US.abc123
+        fromUserId: US.1234
         user: "16315551111"
       properties:
         user:
@@ -7534,22 +7541,22 @@ components:
         fromUserId:
           description: Business-scoped user ID to remove. Also accepts `userId` as
             an alias.
-          example: US.abc123
+          example: US.1234
           pattern: "^[A-Z]{2}\\.[A-Za-z0-9]{1,128}$"
           type: string
       type: object
     WhatsappGroupRemoveParticipantsRequest:
       example:
         participants:
-        - fromUserId: US.abc123
+        - fromUserId: US.1234
           user: "16315551111"
-        - fromUserId: US.abc123
+        - fromUserId: US.1234
           user: "16315551111"
-        - fromUserId: US.abc123
+        - fromUserId: US.1234
           user: "16315551111"
-        - fromUserId: US.abc123
+        - fromUserId: US.1234
           user: "16315551111"
-        - fromUserId: US.abc123
+        - fromUserId: US.1234
           user: "16315551111"
       properties:
         participants:
@@ -7634,7 +7641,7 @@ components:
           type: string
         recipientUserId:
           description: Business-scoped user ID for a single participant event.
-          example: US.abc123
+          example: US.1234
           type: string
         parentRecipientUserId:
           description: Parent business-scoped user ID for a single participant event.
@@ -7773,7 +7780,7 @@ components:
           type: string
         recipientUserId:
           description: Business-scoped user ID of the recipient participant.
-          example: US.abc123
+          example: US.1234
           type: string
         parentRecipientUserId:
           description: Parent business-scoped user ID of the recipient participant.
@@ -7795,7 +7802,7 @@ components:
       properties:
         input:
           description: The original participant input.
-          example: US.abc123
+          example: US.1234
           type: string
         waId:
           description: WhatsApp user ID.
@@ -7803,7 +7810,7 @@ components:
           type: string
         recipientUserId:
           description: Business-scoped user ID.
-          example: US.abc123
+          example: US.1234
           type: string
         parentRecipientUserId:
           description: Parent business-scoped user ID.
@@ -7901,7 +7908,7 @@ components:
           type: string
         recipientUserId:
           description: Business-scoped user ID.
-          example: US.abc123
+          example: US.1234
           type: string
         parentRecipientUserId:
           description: Parent business-scoped user ID.
@@ -8044,17 +8051,20 @@ components:
             \ formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format."
           example: +16315551111
           type: string
+        fromUserId:
+          description: The customer's WhatsApp Business-scoped user ID (BSUID).
+          example: US.1234
+          type: string
+        fromParentUserId:
+          description: The customer's parent WhatsApp Business-scoped user ID.
+          example: US.parent123
+          type: string
         customerProfile:
           $ref: '#/components/schemas/WhatsappProfile'
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
           example: +16315551111
-          type: string
-        groupId:
-          description: WhatsApp group ID. Included when the inbound message was sent
-            in a group.
-          example: 120363345678901234@g.us
           type: string
         sendTime:
           description: "The time at which this message is sent, formatted in [RFC\
@@ -14469,9 +14479,11 @@ components:
           caption: caption
           id: id
         type: null
+        toUserId: US.1234
         pricingCategory: null
         wabaId: whatsapp-business-account-id
         regionCode: US
+        parentRecipientUserId: US.ENT.1234
         context:
           message_id: wamid.BgNODYxN...
         from: +16315551111
@@ -14500,6 +14512,9 @@ components:
         reaction:
           emoji: emoji
           message_id: wamid.BgNODYxN...
+        customerProfile:
+          name: John
+          username: john_doe
         sticker:
           filename: filename
           link: link
@@ -14509,6 +14524,7 @@ components:
         externalId: externalId
         updateTime: 2022-06-01T12:00:00Z
         sendTime: 2022-06-01T12:00:00Z
+        recipientUserId: US.1234
         createTime: 2022-06-01T12:00:00Z
         whatsappApiError:
           error_user_title: Message Cannot Be Submitted
@@ -14519,6 +14535,8 @@ components:
           fbtrace_id: AVGjJ7ia2zJkrHG
           error_user_msg: This message template cannot be created.
           error_data: "{}"
+        recipient: US.1234
+        toParentUserId: US.ENT.1234
         location:
           address: address
           latitude: 1.4658129805029452
@@ -14639,6 +14657,29 @@ components:
             \ format."
           example: +16315551111
           type: string
+        recipient:
+          description: The recipient value submitted in the request when a BSUID or
+            parent BSUID was used.
+          example: US.1234
+          type: string
+        recipientUserId:
+          description: The recipient's WhatsApp Business-scoped user ID (BSUID).
+          example: US.1234
+          type: string
+        toUserId:
+          description: Alias of `recipientUserId` kept for compatibility.
+          example: US.1234
+          type: string
+        parentRecipientUserId:
+          description: The recipient's parent WhatsApp Business-scoped user ID.
+          example: US.ENT.1234
+          type: string
+        toParentUserId:
+          description: Alias of `parentRecipientUserId` kept for compatibility.
+          example: US.ENT.1234
+          type: string
+        customerProfile:
+          $ref: '#/components/schemas/WhatsappProfile'
         conversation:
           $ref: '#/components/schemas/WhatsappConversation'
         type:
@@ -14755,7 +14796,6 @@ components:
       required:
       - from
       - id
-      - to
       - wabaId
       type: object
     WhatsappMessageContact:
@@ -17315,6 +17355,8 @@ components:
       - canceled
       type: string
     WhatsappMessageSendRequest:
+      description: "Provide exactly one of `to` or `recipient`. If both are provided,\
+        \ `to` takes precedence and `recipient` is ignored."
       example:
         template:
           components:
@@ -22880,6 +22922,9 @@ components:
         reaction:
           emoji: emoji
           message_id: wamid.BgNODYxN...
+        customerProfile:
+          name: John
+          username: john_doe
         document:
           filename: filename
           link: link
@@ -23364,6 +23409,7 @@ components:
           id: id
         type: null
         filterUnsubscribed: true
+        recipient: US.1234
         context:
           message_id: wamid.BgNODYxN...
         from: +16315551111
@@ -23479,9 +23525,16 @@ components:
           type: string
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
-            \ format."
+            \ format. Required when `recipient` is not provided."
           example: +16315551111
           type: string
+        recipient:
+          description: The recipient's WhatsApp Business-scoped user ID (BSUID) or
+            parent BSUID. Required when `to` is not provided.
+          example: US.1234
+          type: string
+        customerProfile:
+          $ref: '#/components/schemas/WhatsappProfile'
         type:
           $ref: '#/components/schemas/WhatsappMessageType'
         template:
@@ -23532,11 +23585,13 @@ components:
           type: boolean
       required:
       - from
-      - to
       - type
       type: object
     WhatsappCallingConnectRequest:
+      description: "Provide exactly one of `to` or `recipient`. If both are provided,\
+        \ `to` takes precedence and `recipient` is ignored."
       example:
+        recipient: US.1234
         from: +6283138205150
         sdpType: offer
         to: +6281361905133
@@ -23564,8 +23619,13 @@ components:
           type: string
         to:
           description: "The callee's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
-            \ format."
+            \ format. Required when `recipient` is not provided."
           example: +6281361905133
+          type: string
+        recipient:
+          description: The callee's WhatsApp Business-scoped user ID (BSUID) or parent
+            BSUID. Required when `to` is not provided.
+          example: US.1234
           type: string
         sdpType:
           description: "The SDP type, must be \"offer\" for connection requests."
@@ -23600,7 +23660,6 @@ components:
       - from
       - sdp
       - sdpType
-      - to
       type: object
     WhatsappCallingRequest:
       properties:
@@ -35284,10 +35343,17 @@ components:
       type: string
     WhatsappProfile:
       description: Represents the profile of a WhatsApp account.
+      example:
+        name: John
+        username: john_doe
       properties:
         name:
           description: Name of the WhatsApp account.
           example: John
+          type: string
+        username:
+          description: WhatsApp username.
+          example: john_doe
           type: string
       type: object
     WhatsappReviewDecision:

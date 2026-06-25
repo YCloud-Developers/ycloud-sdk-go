@@ -19,6 +19,8 @@ import (
 type WhatsappProfile struct {
 	// Name of the WhatsApp account.
 	Name *string `json:"name,omitempty"`
+	// WhatsApp username.
+	Username *string `json:"username,omitempty"`
 }
 
 // NewWhatsappProfile instantiates a new WhatsappProfile object
@@ -70,10 +72,45 @@ func (o *WhatsappProfile) SetName(v string) {
 	o.Name = &v
 }
 
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *WhatsappProfile) GetUsername() string {
+	if o == nil || o.Username == nil {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappProfile) GetUsernameOk() (*string, bool) {
+	if o == nil || o.Username == nil {
+		return nil, false
+	}
+	return o.Username, true
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *WhatsappProfile) HasUsername() bool {
+	if o != nil && o.Username != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *WhatsappProfile) SetUsername(v string) {
+	o.Username = &v
+}
+
 func (o WhatsappProfile) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
+	}
+	if o.Username != nil {
+		toSerialize["username"] = o.Username
 	}
 	return json.Marshal(toSerialize)
 }
