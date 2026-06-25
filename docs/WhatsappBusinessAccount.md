@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **AuthIntlRateEligibilityCountries** | Pointer to [**[]WhatsappAuthIntlRateEligibilityCountry**](WhatsappAuthIntlRateEligibilityCountry.md) | Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). | [optional] 
 **PrimaryBusinessLocation** | Pointer to **string** | Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
 **WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
+**RemovedReason** | Pointer to **string** | Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received. | [optional] 
+**RemovedInitiatedBy** | Pointer to **string** | Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received. | [optional] 
+**RemovedTime** | Pointer to **time.Time** | The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;. | [optional] 
 
 ## Methods
 
@@ -647,6 +650,81 @@ SetWhatsappBusinessManagerMessagingLimit sets WhatsappBusinessManagerMessagingLi
 `func (o *WhatsappBusinessAccount) HasWhatsappBusinessManagerMessagingLimit() bool`
 
 HasWhatsappBusinessManagerMessagingLimit returns a boolean if a field has been set.
+
+### GetRemovedReason
+
+`func (o *WhatsappBusinessAccount) GetRemovedReason() string`
+
+GetRemovedReason returns the RemovedReason field if non-nil, zero value otherwise.
+
+### GetRemovedReasonOk
+
+`func (o *WhatsappBusinessAccount) GetRemovedReasonOk() (*string, bool)`
+
+GetRemovedReasonOk returns a tuple with the RemovedReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemovedReason
+
+`func (o *WhatsappBusinessAccount) SetRemovedReason(v string)`
+
+SetRemovedReason sets RemovedReason field to given value.
+
+### HasRemovedReason
+
+`func (o *WhatsappBusinessAccount) HasRemovedReason() bool`
+
+HasRemovedReason returns a boolean if a field has been set.
+
+### GetRemovedInitiatedBy
+
+`func (o *WhatsappBusinessAccount) GetRemovedInitiatedBy() string`
+
+GetRemovedInitiatedBy returns the RemovedInitiatedBy field if non-nil, zero value otherwise.
+
+### GetRemovedInitiatedByOk
+
+`func (o *WhatsappBusinessAccount) GetRemovedInitiatedByOk() (*string, bool)`
+
+GetRemovedInitiatedByOk returns a tuple with the RemovedInitiatedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemovedInitiatedBy
+
+`func (o *WhatsappBusinessAccount) SetRemovedInitiatedBy(v string)`
+
+SetRemovedInitiatedBy sets RemovedInitiatedBy field to given value.
+
+### HasRemovedInitiatedBy
+
+`func (o *WhatsappBusinessAccount) HasRemovedInitiatedBy() bool`
+
+HasRemovedInitiatedBy returns a boolean if a field has been set.
+
+### GetRemovedTime
+
+`func (o *WhatsappBusinessAccount) GetRemovedTime() time.Time`
+
+GetRemovedTime returns the RemovedTime field if non-nil, zero value otherwise.
+
+### GetRemovedTimeOk
+
+`func (o *WhatsappBusinessAccount) GetRemovedTimeOk() (*time.Time, bool)`
+
+GetRemovedTimeOk returns a tuple with the RemovedTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemovedTime
+
+`func (o *WhatsappBusinessAccount) SetRemovedTime(v time.Time)`
+
+SetRemovedTime sets RemovedTime field to given value.
+
+### HasRemovedTime
+
+`func (o *WhatsappBusinessAccount) HasRemovedTime() bool`
+
+HasRemovedTime returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

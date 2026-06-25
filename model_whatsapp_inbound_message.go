@@ -29,6 +29,8 @@ type WhatsappInboundMessage struct {
 	CustomerProfile *WhatsappProfile `json:"customerProfile,omitempty"`
 	// The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	To *string `json:"to,omitempty"`
+	// WhatsApp group ID. Included when the inbound message was sent in a group.
+	GroupId *string `json:"groupId,omitempty"`
 	// The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	SendTime *time.Time `json:"sendTime,omitempty"`
 	Type *WhatsappInboundMessageType `json:"type,omitempty"`
@@ -250,6 +252,38 @@ func (o *WhatsappInboundMessage) HasTo() bool {
 // SetTo gets a reference to the given string and assigns it to the To field.
 func (o *WhatsappInboundMessage) SetTo(v string) {
 	o.To = &v
+}
+
+// GetGroupId returns the GroupId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetGroupId() string {
+	if o == nil || o.GroupId == nil {
+		var ret string
+		return ret
+	}
+	return *o.GroupId
+}
+
+// GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool) {
+	if o == nil || o.GroupId == nil {
+		return nil, false
+	}
+	return o.GroupId, true
+}
+
+// HasGroupId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasGroupId() bool {
+	if o != nil && o.GroupId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupId gets a reference to the given string and assigns it to the GroupId field.
+func (o *WhatsappInboundMessage) SetGroupId(v string) {
+	o.GroupId = &v
 }
 
 // GetSendTime returns the SendTime field value if set, zero value otherwise.
@@ -847,6 +881,9 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	}
 	if o.To != nil {
 		toSerialize["to"] = o.To
+	}
+	if o.GroupId != nil {
+		toSerialize["groupId"] = o.GroupId
 	}
 	if o.SendTime != nil {
 		toSerialize["sendTime"] = o.SendTime

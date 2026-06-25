@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Required when card action is url button. Must be \&quot;cta_url\&quot;. | [optional]
-**Parameters** | Pointer to [**WhatsappMessageInteractiveActionCardActionParameters**](WhatsappMessageInteractiveActionCardActionParameters.md) |  | [optional]
-**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionCardActionButton**](WhatsappMessageInteractiveActionCardActionButton.md) | Required when card action is quick reply button. | [optional]
+**Name** | Pointer to **string** | Required when card action is url button. Must be \&quot;cta_url\&quot;. | [optional] 
+**Parameters** | Pointer to [**WhatsappMessageInteractiveActionCardActionParameters**](WhatsappMessageInteractiveActionCardActionParameters.md) |  | [optional] 
+**Buttons** | Pointer to [**[]WhatsappMessageInteractiveActionCardActionButton**](WhatsappMessageInteractiveActionCardActionButton.md) | Required when card action is quick reply button. | [optional] 
 
 ## Methods
 

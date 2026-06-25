@@ -4,17 +4,94 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteBusinessUsername**](WhatsappPhoneNumbersApi.md#DeleteBusinessUsername) | **Delete** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username
 [**List**](WhatsappPhoneNumbersApi.md#List) | **Get** /whatsapp/phoneNumbers | List phone numbers
 [**Register**](WhatsappPhoneNumbersApi.md#Register) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
+[**RetrieveBusinessUsername**](WhatsappPhoneNumbersApi.md#RetrieveBusinessUsername) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Retrieve a phone number business username
+[**RetrieveBusinessUsernameSuggestions**](WhatsappPhoneNumbersApi.md#RetrieveBusinessUsernameSuggestions) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername/suggestions | Retrieve phone number business username suggestions
 [**RetrieveCommerceSettings**](WhatsappPhoneNumbersApi.md#RetrieveCommerceSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Retrieve commerce settings
 [**RetrieveProfile**](WhatsappPhoneNumbersApi.md#RetrieveProfile) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a phone number profile
 [**RetrieveSettings**](WhatsappPhoneNumbersApi.md#RetrieveSettings) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings
 [**SaveSettings**](WhatsappPhoneNumbersApi.md#SaveSettings) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings
+[**UpdateBusinessUsername**](WhatsappPhoneNumbersApi.md#UpdateBusinessUsername) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Update a phone number business username
 [**UpdateCommerceSettings**](WhatsappPhoneNumbersApi.md#UpdateCommerceSettings) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
 [**UpdateDisplayName**](WhatsappPhoneNumbersApi.md#UpdateDisplayName) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName | Update a phone number display name
 [**UpdateProfile**](WhatsappPhoneNumbersApi.md#UpdateProfile) | **Patch** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
 
+
+
+## DeleteBusinessUsername
+
+> WhatsappBusinessUsernameDeleteResult DeleteBusinessUsername(ctx, wabaId, phoneNumber).Execute()
+
+Delete a phone number business username
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.DeleteBusinessUsername(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.DeleteBusinessUsername``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteBusinessUsername`: WhatsappBusinessUsernameDeleteResult
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.DeleteBusinessUsername`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteBusinessUsernameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappBusinessUsernameDeleteResult**](WhatsappBusinessUsernameDeleteResult.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## List
@@ -220,6 +297,152 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RetrieveBusinessUsername
+
+> WhatsappBusinessUsername RetrieveBusinessUsername(ctx, wabaId, phoneNumber).Execute()
+
+Retrieve a phone number business username
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveBusinessUsername(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.RetrieveBusinessUsername``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RetrieveBusinessUsername`: WhatsappBusinessUsername
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.RetrieveBusinessUsername`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRetrieveBusinessUsernameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappBusinessUsername**](WhatsappBusinessUsername.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RetrieveBusinessUsernameSuggestions
+
+> WhatsappBusinessUsernameSuggestions RetrieveBusinessUsernameSuggestions(ctx, wabaId, phoneNumber).Execute()
+
+Retrieve phone number business username suggestions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveBusinessUsernameSuggestions(context.Background(), wabaId, phoneNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.RetrieveBusinessUsernameSuggestions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RetrieveBusinessUsernameSuggestions`: WhatsappBusinessUsernameSuggestions
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.RetrieveBusinessUsernameSuggestions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRetrieveBusinessUsernameSuggestionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WhatsappBusinessUsernameSuggestions**](WhatsappBusinessUsernameSuggestions.md)
 
 ### Authorization
 
@@ -514,6 +737,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateBusinessUsername
+
+> WhatsappBusinessUsername UpdateBusinessUsername(ctx, wabaId, phoneNumber).WhatsappBusinessUsernameUpdateRequest(whatsappBusinessUsernameUpdateRequest).Execute()
+
+Update a phone number business username
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    whatsappBusinessUsernameUpdateRequest := *ycloud.NewWhatsappBusinessUsernameUpdateRequest("acme.support") // WhatsappBusinessUsernameUpdateRequest | 
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.UpdateBusinessUsername(context.Background(), wabaId, phoneNumber).WhatsappBusinessUsernameUpdateRequest(whatsappBusinessUsernameUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.UpdateBusinessUsername``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateBusinessUsername`: WhatsappBusinessUsername
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.UpdateBusinessUsername`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. | 
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateBusinessUsernameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **whatsappBusinessUsernameUpdateRequest** | [**WhatsappBusinessUsernameUpdateRequest**](WhatsappBusinessUsernameUpdateRequest.md) |  | 
+
+### Return type
+
+[**WhatsappBusinessUsername**](WhatsappBusinessUsername.md)
 
 ### Authorization
 

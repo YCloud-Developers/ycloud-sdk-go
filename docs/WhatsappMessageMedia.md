@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence. | [optional]
-**Link** | Pointer to **string** | **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence and &#x60;link&#x60; will be ignored. | [optional]
-**Caption** | Pointer to **string** | Describes the specified &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages. | [optional]
-**Filename** | Pointer to **string** | Describes the filename for the specific document. Use only with &#x60;document&#x60; media. | [optional]
+**Id** | Pointer to **string** | **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence. | [optional] 
+**Link** | Pointer to **string** | **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence and &#x60;link&#x60; will be ignored. | [optional] 
+**Caption** | Pointer to **string** | Describes the specified &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages. | [optional] 
+**Filename** | Pointer to **string** | Describes the filename for the specific document. Use only with &#x60;document&#x60; media. | [optional] 
 
 ## Methods
 

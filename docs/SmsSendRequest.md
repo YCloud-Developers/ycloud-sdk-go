@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
-**Text** | **string** | The text of this message. |
-**SenderId** | Pointer to **string** | [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used. | [optional]
-**Signature** | Pointer to **string** | This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;Brand&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【Brand】Your verification code is 123456&#x60;. | [optional]
-**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional]
-**CallbackUrl** | Pointer to **string** | Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead. | [optional]
+**To** | **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**Text** | **string** | The text of this message. | 
+**SenderId** | Pointer to **string** | [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used. | [optional] 
+**Signature** | Pointer to **string** | This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;Brand&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【Brand】Your verification code is 123456&#x60;. | [optional] 
+**ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional] 
+**CallbackUrl** | Pointer to **string** | Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead. | [optional] 
 
 ## Methods
 

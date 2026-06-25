@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Receipt** | Pointer to **string** | Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters. | [optional]
-**Notes** | Pointer to **map[string]string** | The object can be key value pairs with maximum 15 keys and each value limits to 256 characters. | [optional]
+**Receipt** | Pointer to **string** | Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters. | [optional] 
+**Notes** | Pointer to **map[string]string** | The object can be key value pairs with maximum 15 keys and each value limits to 256 characters. | [optional] 
 
 ## Methods
 

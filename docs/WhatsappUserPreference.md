@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional]
-**BusinessPhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
-**BusinessPhoneId** | Pointer to **string** | Phone number ID. | [optional]
-**ContactName** | Pointer to **string** | WhatsApp user name. | [optional]
-**ContactPhoneNumber** | Pointer to **string** | WhatsApp user phone number. Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
-**Detail** | Pointer to **string** | Description of marketing message preference. | [optional]
-**Category** | Pointer to **string** |  | [optional]
-**Value** | Pointer to **string** | Marketing message preference. | [optional]
-**Timestamp** | Pointer to **string** | Unix timestamp indicating when the webhook was triggered. | [optional]
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
+**BusinessPhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
+**BusinessPhoneId** | Pointer to **string** | Phone number ID. | [optional] 
+**ContactName** | Pointer to **string** | WhatsApp user name. | [optional] 
+**ContactPhoneNumber** | Pointer to **string** | WhatsApp user phone number. Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
+**Detail** | Pointer to **string** | Description of marketing message preference. | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **string** | Marketing message preference. | [optional] 
+**Timestamp** | Pointer to **string** | Unix timestamp indicating when the webhook was triggered. | [optional] 
 
 ## Methods
 

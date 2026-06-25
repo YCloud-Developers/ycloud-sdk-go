@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **PhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional] 
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
+**BusinessUsername** | Pointer to **string** | Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;. | [optional] 
+**BusinessUsernameStatus** | Pointer to [**WhatsappBusinessUsernameStatus**](WhatsappBusinessUsernameStatus.md) |  | [optional] 
+**RequestedBusinessUsername** | Pointer to **string** | Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending. | [optional] 
+**BusinessUsernameUpdatedAt** | Pointer to **time.Time** | The time when the Business Username state was last updated. | [optional] 
 **QualityRating** | Pointer to [**WhatsappPhoneNumberQualityRating**](WhatsappPhoneNumberQualityRating.md) |  | [optional] 
 **MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
 **WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
@@ -22,6 +26,7 @@ Name | Type | Description | Notes
 **RequestedVerifiedName** | Pointer to **string** | Last requested verified name. | [optional] 
 **RejectionReason** | Pointer to **string** | Rejection reason. | [optional] 
 **QualityUpdateEvent** | Pointer to [**WhatsappPhoneNumberQualityUpdateEventEnum**](WhatsappPhoneNumberQualityUpdateEventEnum.md) |  | [optional] 
+**UpdateEvent** | Pointer to **string** | Account update event that triggered this phone number status change. | [optional] 
 
 ## Methods
 
@@ -141,6 +146,106 @@ SetWabaId sets WabaId field to given value.
 `func (o *WhatsappPhoneNumber) HasWabaId() bool`
 
 HasWabaId returns a boolean if a field has been set.
+
+### GetBusinessUsername
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsername() string`
+
+GetBusinessUsername returns the BusinessUsername field if non-nil, zero value otherwise.
+
+### GetBusinessUsernameOk
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameOk() (*string, bool)`
+
+GetBusinessUsernameOk returns a tuple with the BusinessUsername field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUsername
+
+`func (o *WhatsappPhoneNumber) SetBusinessUsername(v string)`
+
+SetBusinessUsername sets BusinessUsername field to given value.
+
+### HasBusinessUsername
+
+`func (o *WhatsappPhoneNumber) HasBusinessUsername() bool`
+
+HasBusinessUsername returns a boolean if a field has been set.
+
+### GetBusinessUsernameStatus
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameStatus() WhatsappBusinessUsernameStatus`
+
+GetBusinessUsernameStatus returns the BusinessUsernameStatus field if non-nil, zero value otherwise.
+
+### GetBusinessUsernameStatusOk
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameStatusOk() (*WhatsappBusinessUsernameStatus, bool)`
+
+GetBusinessUsernameStatusOk returns a tuple with the BusinessUsernameStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUsernameStatus
+
+`func (o *WhatsappPhoneNumber) SetBusinessUsernameStatus(v WhatsappBusinessUsernameStatus)`
+
+SetBusinessUsernameStatus sets BusinessUsernameStatus field to given value.
+
+### HasBusinessUsernameStatus
+
+`func (o *WhatsappPhoneNumber) HasBusinessUsernameStatus() bool`
+
+HasBusinessUsernameStatus returns a boolean if a field has been set.
+
+### GetRequestedBusinessUsername
+
+`func (o *WhatsappPhoneNumber) GetRequestedBusinessUsername() string`
+
+GetRequestedBusinessUsername returns the RequestedBusinessUsername field if non-nil, zero value otherwise.
+
+### GetRequestedBusinessUsernameOk
+
+`func (o *WhatsappPhoneNumber) GetRequestedBusinessUsernameOk() (*string, bool)`
+
+GetRequestedBusinessUsernameOk returns a tuple with the RequestedBusinessUsername field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedBusinessUsername
+
+`func (o *WhatsappPhoneNumber) SetRequestedBusinessUsername(v string)`
+
+SetRequestedBusinessUsername sets RequestedBusinessUsername field to given value.
+
+### HasRequestedBusinessUsername
+
+`func (o *WhatsappPhoneNumber) HasRequestedBusinessUsername() bool`
+
+HasRequestedBusinessUsername returns a boolean if a field has been set.
+
+### GetBusinessUsernameUpdatedAt
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameUpdatedAt() time.Time`
+
+GetBusinessUsernameUpdatedAt returns the BusinessUsernameUpdatedAt field if non-nil, zero value otherwise.
+
+### GetBusinessUsernameUpdatedAtOk
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameUpdatedAtOk() (*time.Time, bool)`
+
+GetBusinessUsernameUpdatedAtOk returns a tuple with the BusinessUsernameUpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUsernameUpdatedAt
+
+`func (o *WhatsappPhoneNumber) SetBusinessUsernameUpdatedAt(v time.Time)`
+
+SetBusinessUsernameUpdatedAt sets BusinessUsernameUpdatedAt field to given value.
+
+### HasBusinessUsernameUpdatedAt
+
+`func (o *WhatsappPhoneNumber) HasBusinessUsernameUpdatedAt() bool`
+
+HasBusinessUsernameUpdatedAt returns a boolean if a field has been set.
 
 ### GetQualityRating
 
@@ -491,6 +596,31 @@ SetQualityUpdateEvent sets QualityUpdateEvent field to given value.
 `func (o *WhatsappPhoneNumber) HasQualityUpdateEvent() bool`
 
 HasQualityUpdateEvent returns a boolean if a field has been set.
+
+### GetUpdateEvent
+
+`func (o *WhatsappPhoneNumber) GetUpdateEvent() string`
+
+GetUpdateEvent returns the UpdateEvent field if non-nil, zero value otherwise.
+
+### GetUpdateEventOk
+
+`func (o *WhatsappPhoneNumber) GetUpdateEventOk() (*string, bool)`
+
+GetUpdateEventOk returns a tuple with the UpdateEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdateEvent
+
+`func (o *WhatsappPhoneNumber) SetUpdateEvent(v string)`
+
+SetUpdateEvent sets UpdateEvent field to given value.
+
+### HasUpdateEvent
+
+`func (o *WhatsappPhoneNumber) HasUpdateEvent() bool`
+
+HasUpdateEvent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

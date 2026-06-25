@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **From** | Pointer to **string** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
 **CustomerProfile** | Pointer to [**WhatsappProfile**](WhatsappProfile.md) |  | [optional] 
 **To** | Pointer to **string** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
+**GroupId** | Pointer to **string** | WhatsApp group ID. Included when the inbound message was sent in a group. | [optional] 
 **SendTime** | Pointer to **time.Time** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
 **Type** | Pointer to [**WhatsappInboundMessageType**](WhatsappInboundMessageType.md) |  | [optional] 
 **Text** | Pointer to [**WhatsappInboundMessageText**](WhatsappInboundMessageText.md) |  | [optional] 
@@ -192,6 +193,31 @@ SetTo sets To field to given value.
 `func (o *WhatsappInboundMessage) HasTo() bool`
 
 HasTo returns a boolean if a field has been set.
+
+### GetGroupId
+
+`func (o *WhatsappInboundMessage) GetGroupId() string`
+
+GetGroupId returns the GroupId field if non-nil, zero value otherwise.
+
+### GetGroupIdOk
+
+`func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool)`
+
+GetGroupIdOk returns a tuple with the GroupId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroupId
+
+`func (o *WhatsappInboundMessage) SetGroupId(v string)`
+
+SetGroupId sets GroupId field to given value.
+
+### HasGroupId
+
+`func (o *WhatsappInboundMessage) HasGroupId() bool`
+
+HasGroupId returns a boolean if a field has been set.
 
 ### GetSendTime
 

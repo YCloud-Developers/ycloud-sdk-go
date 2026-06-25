@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **string** | Max 160 chars, and up to 2 line breaks. | [optional]
+**Text** | Pointer to **string** | Max 160 chars, and up to 2 line breaks. | [optional] 
 
 ## Methods
 

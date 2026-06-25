@@ -420,7 +420,7 @@ func (r ContactsApiListRequest) IncludeTotal(includeTotal bool) ContactsApiListR
 	return r
 }
 
-// Comma-separated list of tags&#39; id.
+// Comma-separated list of tag names. If any tag does not exist, the request fails with a parameter error.
 func (r ContactsApiListRequest) FilterTags(filterTags string) ContactsApiListRequest {
 	r.filterTags = &filterTags
 	return r
