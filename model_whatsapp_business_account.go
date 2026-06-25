@@ -13,6 +13,7 @@ package ycloud
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // WhatsappBusinessAccount Represents a specific [WhatsApp Business Account (WABA)](https://developers.facebook.com/docs/whatsapp/overview/business-accounts).
@@ -60,6 +61,12 @@ type WhatsappBusinessAccount struct {
 	PrimaryBusinessLocation *string `json:"primaryBusinessLocation,omitempty"`
 	// The owning business portfolio's messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - `TIER_NOT_SET`: The business phone number has not been used to send a message yet. - `TIER_50`: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - `TIER_2K`: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - `TIER_10K`: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - `TIER_100K`: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - `TIER_UNLIMITED`: The business phone number has higher throughput with unlimited business-initiated conversations.
 	WhatsappBusinessManagerMessagingLimit *string `json:"whatsappBusinessManagerMessagingLimit,omitempty"`
+	// Raw reason from the WhatsApp Business Account deletion event. Known values include: - `ACCOUNT_DISCONNECTED`: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - `BUSINESS_DOWNGRADE`: The phone number was registered with the consumer WhatsApp app. - `CHANGE_NUMBER`: The WhatsApp phone number was changed. - `COMPANION_INACTIVITY`: A companion device was inactive for approximately 30 days. - `PRIMARY_INACTIVITY`: A primary device was inactive for approximately 30 days. - `USER_RE_REGISTERED`: WhatsApp was re-registered on a new device.  Unknown values are returned as received.
+	RemovedReason *string `json:"removedReason,omitempty"`
+	// Raw initiator from the WhatsApp Business Account deletion event. Known values include: - `USER`: The removal was initiated by the WhatsApp user. - `SYSTEM`: The removal was initiated by the Meta system.  Unknown values are returned as received.
+	RemovedInitiatedBy *string `json:"removedInitiatedBy,omitempty"`
+	// The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2026-05-19T12:00:00.000Z`.
+	RemovedTime *time.Time `json:"removedTime,omitempty"`
 }
 
 // NewWhatsappBusinessAccount instantiates a new WhatsappBusinessAccount object
@@ -847,6 +854,102 @@ func (o *WhatsappBusinessAccount) SetWhatsappBusinessManagerMessagingLimit(v str
 	o.WhatsappBusinessManagerMessagingLimit = &v
 }
 
+// GetRemovedReason returns the RemovedReason field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetRemovedReason() string {
+	if o == nil || o.RemovedReason == nil {
+		var ret string
+		return ret
+	}
+	return *o.RemovedReason
+}
+
+// GetRemovedReasonOk returns a tuple with the RemovedReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetRemovedReasonOk() (*string, bool) {
+	if o == nil || o.RemovedReason == nil {
+		return nil, false
+	}
+	return o.RemovedReason, true
+}
+
+// HasRemovedReason returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasRemovedReason() bool {
+	if o != nil && o.RemovedReason != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemovedReason gets a reference to the given string and assigns it to the RemovedReason field.
+func (o *WhatsappBusinessAccount) SetRemovedReason(v string) {
+	o.RemovedReason = &v
+}
+
+// GetRemovedInitiatedBy returns the RemovedInitiatedBy field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetRemovedInitiatedBy() string {
+	if o == nil || o.RemovedInitiatedBy == nil {
+		var ret string
+		return ret
+	}
+	return *o.RemovedInitiatedBy
+}
+
+// GetRemovedInitiatedByOk returns a tuple with the RemovedInitiatedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetRemovedInitiatedByOk() (*string, bool) {
+	if o == nil || o.RemovedInitiatedBy == nil {
+		return nil, false
+	}
+	return o.RemovedInitiatedBy, true
+}
+
+// HasRemovedInitiatedBy returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasRemovedInitiatedBy() bool {
+	if o != nil && o.RemovedInitiatedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemovedInitiatedBy gets a reference to the given string and assigns it to the RemovedInitiatedBy field.
+func (o *WhatsappBusinessAccount) SetRemovedInitiatedBy(v string) {
+	o.RemovedInitiatedBy = &v
+}
+
+// GetRemovedTime returns the RemovedTime field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetRemovedTime() time.Time {
+	if o == nil || o.RemovedTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.RemovedTime
+}
+
+// GetRemovedTimeOk returns a tuple with the RemovedTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetRemovedTimeOk() (*time.Time, bool) {
+	if o == nil || o.RemovedTime == nil {
+		return nil, false
+	}
+	return o.RemovedTime, true
+}
+
+// HasRemovedTime returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasRemovedTime() bool {
+	if o != nil && o.RemovedTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemovedTime gets a reference to the given time.Time and assigns it to the RemovedTime field.
+func (o *WhatsappBusinessAccount) SetRemovedTime(v time.Time) {
+	o.RemovedTime = &v
+}
+
 func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -920,6 +1023,15 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappBusinessManagerMessagingLimit != nil {
 		toSerialize["whatsappBusinessManagerMessagingLimit"] = o.WhatsappBusinessManagerMessagingLimit
+	}
+	if o.RemovedReason != nil {
+		toSerialize["removedReason"] = o.RemovedReason
+	}
+	if o.RemovedInitiatedBy != nil {
+		toSerialize["removedInitiatedBy"] = o.RemovedInitiatedBy
+	}
+	if o.RemovedTime != nil {
+		toSerialize["removedTime"] = o.RemovedTime
 	}
 	return json.Marshal(toSerialize)
 }

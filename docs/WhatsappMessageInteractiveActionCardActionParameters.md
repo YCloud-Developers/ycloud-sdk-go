@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayText** | Pointer to **string** | Text of the CTA URL button. Maximum length: 20 bytes. | [optional]
-**Url** | Pointer to **string** | URL of the CTA URL button. | [optional]
+**DisplayText** | Pointer to **string** | Text of the CTA URL button. Maximum length: 20 bytes. | [optional] 
+**Url** | Pointer to **string** | URL of the CTA URL button. | [optional] 
 
 ## Methods
 

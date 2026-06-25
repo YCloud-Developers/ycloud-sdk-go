@@ -32,6 +32,7 @@ type Event struct {
 	WhatsappBusinessAccount *WhatsappBusinessAccount `json:"whatsappBusinessAccount,omitempty"`
 	WhatsappInboundMessage *WhatsappInboundMessage `json:"whatsappInboundMessage,omitempty"`
 	WhatsappMessage *WhatsappMessage `json:"whatsappMessage,omitempty"`
+	WhatsappGroup *WhatsappGroupWebhook `json:"whatsappGroup,omitempty"`
 	WhatsappPhoneNumber *WhatsappPhoneNumber `json:"whatsappPhoneNumber,omitempty"`
 	WhatsappPayment *WhatsappPayment `json:"whatsappPayment,omitempty"`
 	WhatsappTemplate *WhatsappTemplate `json:"whatsappTemplate,omitempty"`
@@ -384,6 +385,38 @@ func (o *Event) SetWhatsappMessage(v WhatsappMessage) {
 	o.WhatsappMessage = &v
 }
 
+// GetWhatsappGroup returns the WhatsappGroup field value if set, zero value otherwise.
+func (o *Event) GetWhatsappGroup() WhatsappGroupWebhook {
+	if o == nil || o.WhatsappGroup == nil {
+		var ret WhatsappGroupWebhook
+		return ret
+	}
+	return *o.WhatsappGroup
+}
+
+// GetWhatsappGroupOk returns a tuple with the WhatsappGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetWhatsappGroupOk() (*WhatsappGroupWebhook, bool) {
+	if o == nil || o.WhatsappGroup == nil {
+		return nil, false
+	}
+	return o.WhatsappGroup, true
+}
+
+// HasWhatsappGroup returns a boolean if a field has been set.
+func (o *Event) HasWhatsappGroup() bool {
+	if o != nil && o.WhatsappGroup != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWhatsappGroup gets a reference to the given WhatsappGroupWebhook and assigns it to the WhatsappGroup field.
+func (o *Event) SetWhatsappGroup(v WhatsappGroupWebhook) {
+	o.WhatsappGroup = &v
+}
+
 // GetWhatsappPhoneNumber returns the WhatsappPhoneNumber field value if set, zero value otherwise.
 func (o *Event) GetWhatsappPhoneNumber() WhatsappPhoneNumber {
 	if o == nil || o.WhatsappPhoneNumber == nil {
@@ -706,6 +739,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappMessage != nil {
 		toSerialize["whatsappMessage"] = o.WhatsappMessage
+	}
+	if o.WhatsappGroup != nil {
+		toSerialize["whatsappGroup"] = o.WhatsappGroup
 	}
 	if o.WhatsappPhoneNumber != nil {
 		toSerialize["whatsappPhoneNumber"] = o.WhatsappPhoneNumber

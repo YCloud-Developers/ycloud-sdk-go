@@ -30,11 +30,16 @@ const (
 	EVENTTYPE_WHATSAPP_BUSINESS_ACCOUNT_UPDATED EventType = "whatsapp.business_account.updated"
 	EVENTTYPE_WHATSAPP_INBOUND_MESSAGE_RECEIVED EventType = "whatsapp.inbound_message.received"
 	EVENTTYPE_WHATSAPP_MESSAGE_UPDATED EventType = "whatsapp.message.updated"
+	EVENTTYPE_WHATSAPP_GROUP_LIFECYCLE_UPDATE EventType = "whatsapp.group.lifecycle_update"
+	EVENTTYPE_WHATSAPP_GROUP_PARTICIPANTS_UPDATE EventType = "whatsapp.group.participants_update"
+	EVENTTYPE_WHATSAPP_GROUP_SETTINGS_UPDATE EventType = "whatsapp.group.settings_update"
+	EVENTTYPE_WHATSAPP_GROUP_STATUS_UPDATE EventType = "whatsapp.group.status_update"
 	EVENTTYPE_WHATSAPP_SMB_HISTORY EventType = "whatsapp.smb.history"
 	EVENTTYPE_WHATSAPP_SMB_MESSAGE_CREATED EventType = "whatsapp.smb.message.created"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_DELETED EventType = "whatsapp.phone_number.deleted"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_NAME_UPDATED EventType = "whatsapp.phone_number.name_updated"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED EventType = "whatsapp.phone_number.quality_updated"
+	EVENTTYPE_WHATSAPP_PHONE_NUMBER_BUSINESS_USERNAME_UPDATED EventType = "whatsapp.phone_number.business_username_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_CATEGORY_UPDATED EventType = "whatsapp.template.category_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_QUALITY_UPDATED EventType = "whatsapp.template.quality_updated"
 	EVENTTYPE_WHATSAPP_TEMPLATE_REVIEWED EventType = "whatsapp.template.reviewed"
@@ -62,11 +67,16 @@ var AllowedEventTypeEnumValues = []EventType{
 	"whatsapp.business_account.updated",
 	"whatsapp.inbound_message.received",
 	"whatsapp.message.updated",
+	"whatsapp.group.lifecycle_update",
+	"whatsapp.group.participants_update",
+	"whatsapp.group.settings_update",
+	"whatsapp.group.status_update",
 	"whatsapp.smb.history",
 	"whatsapp.smb.message.created",
 	"whatsapp.phone_number.deleted",
 	"whatsapp.phone_number.name_updated",
 	"whatsapp.phone_number.quality_updated",
+	"whatsapp.phone_number.business_username_updated",
 	"whatsapp.template.category_updated",
 	"whatsapp.template.quality_updated",
 	"whatsapp.template.reviewed",

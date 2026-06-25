@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardIndex** | Pointer to **float32** | Card index. Unique index for each card (0-9). | [optional]
-**Type** | Pointer to **string** | Must be \&quot;cta_url\&quot;. | [optional]
-**Header** | Pointer to [**WhatsappMessageInteractiveActionCardHeader**](WhatsappMessageInteractiveActionCardHeader.md) |  | [optional]
-**Body** | Pointer to [**WhatsappMessageInteractiveActionCardBody**](WhatsappMessageInteractiveActionCardBody.md) |  | [optional]
-**Action** | Pointer to [**WhatsappMessageInteractiveActionCardAction**](WhatsappMessageInteractiveActionCardAction.md) |  | [optional]
+**CardIndex** | Pointer to **float32** | Card index. Unique index for each card (0-9). | [optional] 
+**Type** | Pointer to **string** | Must be \&quot;cta_url\&quot;. | [optional] 
+**Header** | Pointer to [**WhatsappMessageInteractiveActionCardHeader**](WhatsappMessageInteractiveActionCardHeader.md) |  | [optional] 
+**Body** | Pointer to [**WhatsappMessageInteractiveActionCardBody**](WhatsappMessageInteractiveActionCardBody.md) |  | [optional] 
+**Action** | Pointer to [**WhatsappMessageInteractiveActionCardAction**](WhatsappMessageInteractiveActionCardAction.md) |  | [optional] 
 
 ## Methods
 

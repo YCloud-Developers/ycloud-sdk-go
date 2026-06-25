@@ -13,6 +13,7 @@ package ycloud
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // WhatsappPhoneNumber See [WhatsApp Business Phone Number](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
@@ -25,6 +26,13 @@ type WhatsappPhoneNumber struct {
 	DisplayPhoneNumber *string `json:"displayPhoneNumber,omitempty"`
 	// WhatsApp Business Account ID.
 	WabaId *string `json:"wabaId,omitempty"`
+	// Active Business Username for this phone number. The value is a plain username without `@`.
+	BusinessUsername *string `json:"businessUsername,omitempty"`
+	BusinessUsernameStatus *WhatsappBusinessUsernameStatus `json:"businessUsernameStatus,omitempty"`
+	// Last requested Business Username that is still under review. This value can coexist with an active `businessUsername` while the new request is pending.
+	RequestedBusinessUsername *string `json:"requestedBusinessUsername,omitempty"`
+	// The time when the Business Username state was last updated.
+	BusinessUsernameUpdatedAt *time.Time `json:"businessUsernameUpdatedAt,omitempty"`
 	QualityRating *WhatsappPhoneNumberQualityRating `json:"qualityRating,omitempty"`
 	// Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.
 	MessagingLimit *string `json:"messagingLimit,omitempty"`
@@ -46,6 +54,8 @@ type WhatsappPhoneNumber struct {
 	// Rejection reason.
 	RejectionReason *string `json:"rejectionReason,omitempty"`
 	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
+	// Account update event that triggered this phone number status change.
+	UpdateEvent *string `json:"updateEvent,omitempty"`
 }
 
 // NewWhatsappPhoneNumber instantiates a new WhatsappPhoneNumber object
@@ -191,6 +201,134 @@ func (o *WhatsappPhoneNumber) HasWabaId() bool {
 // SetWabaId gets a reference to the given string and assigns it to the WabaId field.
 func (o *WhatsappPhoneNumber) SetWabaId(v string) {
 	o.WabaId = &v
+}
+
+// GetBusinessUsername returns the BusinessUsername field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetBusinessUsername() string {
+	if o == nil || o.BusinessUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.BusinessUsername
+}
+
+// GetBusinessUsernameOk returns a tuple with the BusinessUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameOk() (*string, bool) {
+	if o == nil || o.BusinessUsername == nil {
+		return nil, false
+	}
+	return o.BusinessUsername, true
+}
+
+// HasBusinessUsername returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasBusinessUsername() bool {
+	if o != nil && o.BusinessUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessUsername gets a reference to the given string and assigns it to the BusinessUsername field.
+func (o *WhatsappPhoneNumber) SetBusinessUsername(v string) {
+	o.BusinessUsername = &v
+}
+
+// GetBusinessUsernameStatus returns the BusinessUsernameStatus field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameStatus() WhatsappBusinessUsernameStatus {
+	if o == nil || o.BusinessUsernameStatus == nil {
+		var ret WhatsappBusinessUsernameStatus
+		return ret
+	}
+	return *o.BusinessUsernameStatus
+}
+
+// GetBusinessUsernameStatusOk returns a tuple with the BusinessUsernameStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameStatusOk() (*WhatsappBusinessUsernameStatus, bool) {
+	if o == nil || o.BusinessUsernameStatus == nil {
+		return nil, false
+	}
+	return o.BusinessUsernameStatus, true
+}
+
+// HasBusinessUsernameStatus returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasBusinessUsernameStatus() bool {
+	if o != nil && o.BusinessUsernameStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessUsernameStatus gets a reference to the given WhatsappBusinessUsernameStatus and assigns it to the BusinessUsernameStatus field.
+func (o *WhatsappPhoneNumber) SetBusinessUsernameStatus(v WhatsappBusinessUsernameStatus) {
+	o.BusinessUsernameStatus = &v
+}
+
+// GetRequestedBusinessUsername returns the RequestedBusinessUsername field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetRequestedBusinessUsername() string {
+	if o == nil || o.RequestedBusinessUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.RequestedBusinessUsername
+}
+
+// GetRequestedBusinessUsernameOk returns a tuple with the RequestedBusinessUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetRequestedBusinessUsernameOk() (*string, bool) {
+	if o == nil || o.RequestedBusinessUsername == nil {
+		return nil, false
+	}
+	return o.RequestedBusinessUsername, true
+}
+
+// HasRequestedBusinessUsername returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasRequestedBusinessUsername() bool {
+	if o != nil && o.RequestedBusinessUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestedBusinessUsername gets a reference to the given string and assigns it to the RequestedBusinessUsername field.
+func (o *WhatsappPhoneNumber) SetRequestedBusinessUsername(v string) {
+	o.RequestedBusinessUsername = &v
+}
+
+// GetBusinessUsernameUpdatedAt returns the BusinessUsernameUpdatedAt field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameUpdatedAt() time.Time {
+	if o == nil || o.BusinessUsernameUpdatedAt == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.BusinessUsernameUpdatedAt
+}
+
+// GetBusinessUsernameUpdatedAtOk returns a tuple with the BusinessUsernameUpdatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameUpdatedAtOk() (*time.Time, bool) {
+	if o == nil || o.BusinessUsernameUpdatedAt == nil {
+		return nil, false
+	}
+	return o.BusinessUsernameUpdatedAt, true
+}
+
+// HasBusinessUsernameUpdatedAt returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasBusinessUsernameUpdatedAt() bool {
+	if o != nil && o.BusinessUsernameUpdatedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessUsernameUpdatedAt gets a reference to the given time.Time and assigns it to the BusinessUsernameUpdatedAt field.
+func (o *WhatsappPhoneNumber) SetBusinessUsernameUpdatedAt(v time.Time) {
+	o.BusinessUsernameUpdatedAt = &v
 }
 
 // GetQualityRating returns the QualityRating field value if set, zero value otherwise.
@@ -641,6 +779,38 @@ func (o *WhatsappPhoneNumber) SetQualityUpdateEvent(v WhatsappPhoneNumberQuality
 	o.QualityUpdateEvent = &v
 }
 
+// GetUpdateEvent returns the UpdateEvent field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetUpdateEvent() string {
+	if o == nil || o.UpdateEvent == nil {
+		var ret string
+		return ret
+	}
+	return *o.UpdateEvent
+}
+
+// GetUpdateEventOk returns a tuple with the UpdateEvent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetUpdateEventOk() (*string, bool) {
+	if o == nil || o.UpdateEvent == nil {
+		return nil, false
+	}
+	return o.UpdateEvent, true
+}
+
+// HasUpdateEvent returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasUpdateEvent() bool {
+	if o != nil && o.UpdateEvent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdateEvent gets a reference to the given string and assigns it to the UpdateEvent field.
+func (o *WhatsappPhoneNumber) SetUpdateEvent(v string) {
+	o.UpdateEvent = &v
+}
+
 func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -654,6 +824,18 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.WabaId != nil {
 		toSerialize["wabaId"] = o.WabaId
+	}
+	if o.BusinessUsername != nil {
+		toSerialize["businessUsername"] = o.BusinessUsername
+	}
+	if o.BusinessUsernameStatus != nil {
+		toSerialize["businessUsernameStatus"] = o.BusinessUsernameStatus
+	}
+	if o.RequestedBusinessUsername != nil {
+		toSerialize["requestedBusinessUsername"] = o.RequestedBusinessUsername
+	}
+	if o.BusinessUsernameUpdatedAt != nil {
+		toSerialize["businessUsernameUpdatedAt"] = o.BusinessUsernameUpdatedAt
 	}
 	if o.QualityRating != nil {
 		toSerialize["qualityRating"] = o.QualityRating
@@ -696,6 +878,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.QualityUpdateEvent != nil {
 		toSerialize["qualityUpdateEvent"] = o.QualityUpdateEvent
+	}
+	if o.UpdateEvent != nil {
+		toSerialize["updateEvent"] = o.UpdateEvent
 	}
 	return json.Marshal(toSerialize)
 }

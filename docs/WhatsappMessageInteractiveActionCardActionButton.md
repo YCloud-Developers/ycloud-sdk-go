@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Must be \&quot;quick_reply\&quot;. | [optional]
-**QuickReply** | Pointer to [**WhatsappMessageInteractiveActionCardActionButtonQuickReply**](WhatsappMessageInteractiveActionCardActionButtonQuickReply.md) |  | [optional]
+**Type** | Pointer to **string** | Must be \&quot;quick_reply\&quot;. | [optional] 
+**QuickReply** | Pointer to [**WhatsappMessageInteractiveActionCardActionButtonQuickReply**](WhatsappMessageInteractiveActionCardActionButtonQuickReply.md) |  | [optional] 
 
 ## Methods
 
