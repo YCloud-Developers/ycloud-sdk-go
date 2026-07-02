@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **Errors** | Pointer to [**[]WhatsappInboundMessageError**](WhatsappInboundMessageError.md) |  | [optional]
 **Context** | Pointer to [**WhatsappInboundMessageContext**](WhatsappInboundMessageContext.md) |  | [optional]
 **Referral** | Pointer to [**WhatsappInboundMessageReferral**](WhatsappInboundMessageReferral.md) |  | [optional]
+**GroupId** | Pointer to **string** | WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group. | [optional]
 
 ## Methods
 
@@ -695,7 +696,30 @@ SetReferral sets Referral field to given value.
 
 HasReferral returns a boolean if a field has been set.
 
+### GetGroupId
+
+`func (o *WhatsappInboundMessage) GetGroupId() string`
+
+GetGroupId returns the GroupId field if non-nil, zero value otherwise.
+
+### GetGroupIdOk
+
+`func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool)`
+
+GetGroupIdOk returns a tuple with the GroupId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroupId
+
+`func (o *WhatsappInboundMessage) SetGroupId(v string)`
+
+SetGroupId sets GroupId field to given value.
+
+### HasGroupId
+
+`func (o *WhatsappInboundMessage) HasGroupId() bool`
+
+HasGroupId returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

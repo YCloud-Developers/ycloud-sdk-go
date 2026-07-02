@@ -22,8 +22,11 @@ Name | Type | Description | Notes
 **Reaction** | Pointer to [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  | [optional]
 **Context** | Pointer to [**WhatsappMessageContext**](WhatsappMessageContext.md) |  | [optional]
 **ExternalId** | Pointer to **string** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. | [optional]
-**FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional]
-**FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. | [optional]
+**Category** | Pointer to **string** | **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages. | [optional]
+**TtlSeconds** | Pointer to **int32** | **Optional.** Message time-to-live in seconds for Direct Send &#x60;utility&#x60; or &#x60;authentication&#x60; messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used. | [optional]
+**UseDirectSend** | Pointer to **bool** | **Optional.** Whether to send the message through Direct Send. Defaults to &#x60;false&#x60;.  Set this to &#x60;true&#x60; to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages | [optional] [default to false]
+**FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
+**FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
 
 ## Methods
 
@@ -484,6 +487,81 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
+### GetCategory
+
+`func (o *WhatsappMessageSendRequest) GetCategory() string`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *WhatsappMessageSendRequest) GetCategoryOk() (*string, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *WhatsappMessageSendRequest) SetCategory(v string)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *WhatsappMessageSendRequest) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
+
+### GetTtlSeconds
+
+`func (o *WhatsappMessageSendRequest) GetTtlSeconds() int32`
+
+GetTtlSeconds returns the TtlSeconds field if non-nil, zero value otherwise.
+
+### GetTtlSecondsOk
+
+`func (o *WhatsappMessageSendRequest) GetTtlSecondsOk() (*int32, bool)`
+
+GetTtlSecondsOk returns a tuple with the TtlSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTtlSeconds
+
+`func (o *WhatsappMessageSendRequest) SetTtlSeconds(v int32)`
+
+SetTtlSeconds sets TtlSeconds field to given value.
+
+### HasTtlSeconds
+
+`func (o *WhatsappMessageSendRequest) HasTtlSeconds() bool`
+
+HasTtlSeconds returns a boolean if a field has been set.
+
+### GetUseDirectSend
+
+`func (o *WhatsappMessageSendRequest) GetUseDirectSend() bool`
+
+GetUseDirectSend returns the UseDirectSend field if non-nil, zero value otherwise.
+
+### GetUseDirectSendOk
+
+`func (o *WhatsappMessageSendRequest) GetUseDirectSendOk() (*bool, bool)`
+
+GetUseDirectSendOk returns a tuple with the UseDirectSend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseDirectSend
+
+`func (o *WhatsappMessageSendRequest) SetUseDirectSend(v bool)`
+
+SetUseDirectSend sets UseDirectSend field to given value.
+
+### HasUseDirectSend
+
+`func (o *WhatsappMessageSendRequest) HasUseDirectSend() bool`
+
+HasUseDirectSend returns a boolean if a field has been set.
+
 ### GetFilterUnsubscribed
 
 `func (o *WhatsappMessageSendRequest) GetFilterUnsubscribed() bool`
@@ -536,5 +614,3 @@ HasFilterBlocked returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
