@@ -52,6 +52,8 @@ type WhatsappInboundMessage struct {
 	Errors []WhatsappInboundMessageError `json:"errors,omitempty"`
 	Context *WhatsappInboundMessageContext `json:"context,omitempty"`
 	Referral *WhatsappInboundMessageReferral `json:"referral,omitempty"`
+	// WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group.
+	GroupId *string `json:"groupId,omitempty"`
 }
 
 // NewWhatsappInboundMessage instantiates a new WhatsappInboundMessage object
@@ -896,6 +898,38 @@ func (o *WhatsappInboundMessage) SetReferral(v WhatsappInboundMessageReferral) {
 	o.Referral = &v
 }
 
+// GetGroupId returns the GroupId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessage) GetGroupId() string {
+	if o == nil || o.GroupId == nil {
+		var ret string
+		return ret
+	}
+	return *o.GroupId
+}
+
+// GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessage) GetGroupIdOk() (*string, bool) {
+	if o == nil || o.GroupId == nil {
+		return nil, false
+	}
+	return o.GroupId, true
+}
+
+// HasGroupId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessage) HasGroupId() bool {
+	if o != nil && o.GroupId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupId gets a reference to the given string and assigns it to the GroupId field.
+func (o *WhatsappInboundMessage) SetGroupId(v string) {
+	o.GroupId = &v
+}
+
 func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -976,6 +1010,9 @@ func (o WhatsappInboundMessage) MarshalJSON() ([]byte, error) {
 	if o.Referral != nil {
 		toSerialize["referral"] = o.Referral
 	}
+	if o.GroupId != nil {
+		toSerialize["groupId"] = o.GroupId
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -1014,5 +1051,3 @@ func (v *NullableWhatsappInboundMessage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

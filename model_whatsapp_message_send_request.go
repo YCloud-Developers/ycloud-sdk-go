@@ -40,9 +40,15 @@ type WhatsappMessageSendRequest struct {
 	Context *WhatsappMessageContext `json:"context,omitempty"`
 	// A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
 	ExternalId *string `json:"externalId,omitempty"`
-	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
+	// **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are `utility` and `authentication`.  Use `utility` for business-initiated utility messages. Messages sent with `utility` are charged at utility rates.  Use `authentication` for business-initiated authentication messages. Messages sent with `authentication` are charged at authentication rates. Authentication Direct Send only supports `text` messages.
+	Category *string `json:"category,omitempty"`
+	// **Optional.** Message time-to-live in seconds for Direct Send `utility` or `authentication` messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used.
+	TtlSeconds *int32 `json:"ttlSeconds,omitempty"`
+	// **Optional.** Whether to send the message through Direct Send. Defaults to `false`.  Set this to `true` to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages
+	UseDirectSend *bool `json:"useDirectSend,omitempty"`
+	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.
 	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`
-	// **Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.
+	// **Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.
 	FilterBlocked *bool `json:"filterBlocked,omitempty"`
 }
 
@@ -54,6 +60,8 @@ func NewWhatsappMessageSendRequest(from string, type_ WhatsappMessageType) *What
 	this := WhatsappMessageSendRequest{}
 	this.From = from
 	this.Type = type_
+	var useDirectSend bool = false
+	this.UseDirectSend = &useDirectSend
 	return &this
 }
 
@@ -62,6 +70,8 @@ func NewWhatsappMessageSendRequest(from string, type_ WhatsappMessageType) *What
 // but it doesn't guarantee that properties required by API are set
 func NewWhatsappMessageSendRequestWithDefaults() *WhatsappMessageSendRequest {
 	this := WhatsappMessageSendRequest{}
+	var useDirectSend bool = false
+	this.UseDirectSend = &useDirectSend
 	return &this
 }
 
@@ -625,6 +635,102 @@ func (o *WhatsappMessageSendRequest) SetExternalId(v string) {
 	o.ExternalId = &v
 }
 
+// GetCategory returns the Category field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetCategory() string {
+	if o == nil || o.Category == nil {
+		var ret string
+		return ret
+	}
+	return *o.Category
+}
+
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetCategoryOk() (*string, bool) {
+	if o == nil || o.Category == nil {
+		return nil, false
+	}
+	return o.Category, true
+}
+
+// HasCategory returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasCategory() bool {
+	if o != nil && o.Category != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given string and assigns it to the Category field.
+func (o *WhatsappMessageSendRequest) SetCategory(v string) {
+	o.Category = &v
+}
+
+// GetTtlSeconds returns the TtlSeconds field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetTtlSeconds() int32 {
+	if o == nil || o.TtlSeconds == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TtlSeconds
+}
+
+// GetTtlSecondsOk returns a tuple with the TtlSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetTtlSecondsOk() (*int32, bool) {
+	if o == nil || o.TtlSeconds == nil {
+		return nil, false
+	}
+	return o.TtlSeconds, true
+}
+
+// HasTtlSeconds returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasTtlSeconds() bool {
+	if o != nil && o.TtlSeconds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTtlSeconds gets a reference to the given int32 and assigns it to the TtlSeconds field.
+func (o *WhatsappMessageSendRequest) SetTtlSeconds(v int32) {
+	o.TtlSeconds = &v
+}
+
+// GetUseDirectSend returns the UseDirectSend field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetUseDirectSend() bool {
+	if o == nil || o.UseDirectSend == nil {
+		var ret bool
+		return ret
+	}
+	return *o.UseDirectSend
+}
+
+// GetUseDirectSendOk returns a tuple with the UseDirectSend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetUseDirectSendOk() (*bool, bool) {
+	if o == nil || o.UseDirectSend == nil {
+		return nil, false
+	}
+	return o.UseDirectSend, true
+}
+
+// HasUseDirectSend returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasUseDirectSend() bool {
+	if o != nil && o.UseDirectSend != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUseDirectSend gets a reference to the given bool and assigns it to the UseDirectSend field.
+func (o *WhatsappMessageSendRequest) SetUseDirectSend(v bool) {
+	o.UseDirectSend = &v
+}
+
 // GetFilterUnsubscribed returns the FilterUnsubscribed field value if set, zero value otherwise.
 func (o *WhatsappMessageSendRequest) GetFilterUnsubscribed() bool {
 	if o == nil || o.FilterUnsubscribed == nil {
@@ -745,6 +851,15 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	if o.ExternalId != nil {
 		toSerialize["externalId"] = o.ExternalId
 	}
+	if o.Category != nil {
+		toSerialize["category"] = o.Category
+	}
+	if o.TtlSeconds != nil {
+		toSerialize["ttlSeconds"] = o.TtlSeconds
+	}
+	if o.UseDirectSend != nil {
+		toSerialize["useDirectSend"] = o.UseDirectSend
+	}
 	if o.FilterUnsubscribed != nil {
 		toSerialize["filterUnsubscribed"] = o.FilterUnsubscribed
 	}
@@ -789,5 +904,3 @@ func (v *NullableWhatsappMessageSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

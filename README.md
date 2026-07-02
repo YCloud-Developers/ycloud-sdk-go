@@ -5,7 +5,7 @@ The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikip
 ## Overview
 
 - API version: v2
-- Package version: 1.16.1
+- Package version: 1.16.2
 
 ## Installation
 
@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**Create**](docs/ContactsApi.md#create) | **Post** /contact/contacts | Create a contact
 *ContactsApi* | [**Delete**](docs/ContactsApi.md#delete) | **Delete** /contact/contacts/{id} | Delete a contact
 *ContactsApi* | [**List**](docs/ContactsApi.md#list) | **Get** /contact/contacts | List contacts
+*ContactsApi* | [**NotesList**](docs/ContactsApi.md#noteslist) | **Get** /contact/contacts/{id}/notes | List contact notes
 *ContactsApi* | [**Retrieve**](docs/ContactsApi.md#retrieve) | **Get** /contact/contacts/{id} | Retrieve a contact
 *ContactsApi* | [**Update**](docs/ContactsApi.md#update) | **Patch** /contact/contacts/{id} | Update a contact
 *CustomEventsApi* | [**CreateDefinition**](docs/CustomEventsApi.md#createdefinition) | **Post** /event/definitions | Create an event definition
@@ -129,6 +130,7 @@ Class | Method | HTTP request | Description
  - [ContactCreated](docs/ContactCreated.md)
  - [ContactCustomAttribute](docs/ContactCustomAttribute.md)
  - [ContactDeleted](docs/ContactDeleted.md)
+ - [ContactNote](docs/ContactNote.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactSourceType](docs/ContactSourceType.md)
  - [ContactUnsubscribeCreated](docs/ContactUnsubscribeCreated.md)
