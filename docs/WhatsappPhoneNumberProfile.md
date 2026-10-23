@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**About** | Pointer to **string** | The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. | [optional] 
-**VerifiedName** | Pointer to **string** | The verified name | [optional] 
-**NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
-**NewName** | Pointer to **string** | The modified name | [optional] 
-**NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
-**Address** | Pointer to **string** | Address of the business. Character limit 256. | [optional] 
-**Description** | Pointer to **string** | Description of the business. Character limit 512. | [optional] 
-**Email** | Pointer to **string** | The contact email address (in valid email format) of the business. Character limit 128. | [optional] 
-**ProfilePictureUrl** | Pointer to **string** | URL of the profile picture used to upload to Meta. | [optional] 
-**Vertical** | Pointer to [**WhatsappPhoneNumberProfileVertical**](WhatsappPhoneNumberProfileVertical.md) |  | [optional] 
-**Websites** | Pointer to **[]string** | The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 255 characters each. | [optional] 
+**About** | Pointer to **string** | The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. | [optional]
+**YcloudName** | Pointer to **string** | Optional remark name assigned to this phone number in YCloud. It is populated by the profile GET API and omitted when no remark name is set. | [optional] [readonly]
+**VerifiedName** | Pointer to **string** | The verified name | [optional]
+**NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional]
+**NewName** | Pointer to **string** | The modified name | [optional]
+**NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional]
+**Address** | Pointer to **string** | Address of the business. Character limit 256. | [optional]
+**Description** | Pointer to **string** | Description of the business. Character limit 512. | [optional]
+**Email** | Pointer to **string** | The contact email address (in valid email format) of the business. Character limit 128. | [optional]
+**ProfilePictureUrl** | Pointer to **string** | URL of the profile picture used to upload to Meta. | [optional]
+**Vertical** | Pointer to [**WhatsappPhoneNumberProfileVertical**](WhatsappPhoneNumberProfileVertical.md) |  | [optional]
+**Websites** | Pointer to **[]string** | The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 255 characters each. | [optional]
 
 ## Methods
 
@@ -59,6 +60,31 @@ SetAbout sets About field to given value.
 `func (o *WhatsappPhoneNumberProfile) HasAbout() bool`
 
 HasAbout returns a boolean if a field has been set.
+
+### GetYcloudName
+
+`func (o *WhatsappPhoneNumberProfile) GetYcloudName() string`
+
+GetYcloudName returns the YcloudName field if non-nil, zero value otherwise.
+
+### GetYcloudNameOk
+
+`func (o *WhatsappPhoneNumberProfile) GetYcloudNameOk() (*string, bool)`
+
+GetYcloudNameOk returns a tuple with the YcloudName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYcloudName
+
+`func (o *WhatsappPhoneNumberProfile) SetYcloudName(v string)`
+
+SetYcloudName sets YcloudName field to given value.
+
+### HasYcloudName
+
+`func (o *WhatsappPhoneNumberProfile) HasYcloudName() bool`
+
+HasYcloudName returns a boolean if a field has been set.
 
 ### GetVerifiedName
 
@@ -312,5 +338,3 @@ HasWebsites returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

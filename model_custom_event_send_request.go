@@ -16,16 +16,18 @@ import (
 	"time"
 )
 
-// CustomEventSendRequest Contains the properties of the custom event data to be sent.
+// CustomEventSendRequest Contains the properties of the custom event data to be sent. For events defined with `objectType` as `CONTACT`, provide one of `objectId`, `contactPhoneNumber`, or `contactUsername` to identify the contact. Only one identifier is used per event. If multiple identifiers are provided, a numeric `objectId` takes precedence, followed by a non-blank `contactPhoneNumber`, then `contactUsername`. Contact identifier requirements and precedence are validated by the server.
 type CustomEventSendRequest struct {
 	// Name of the event. One of the custom event names you previously defined.
 	EventName string `json:"eventName"`
 	// The time at which the event occurred, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`, if not provided, the current time will be used.
 	OccurTime *time.Time `json:"occurTime,omitempty"`
-	// ID of the object that the event is associated with. For events defined with `objectType` as `CONTACT`, the `objectId` should be a `contact` ID. Alternatively, you can use the `contactPhoneNumber` field to specify the contact.
+	// ID of the object that the event is associated with. For events defined with `objectType` as `CONTACT`, provide the numeric ID of an existing contact in your account. A numeric `objectId` takes precedence over `contactPhoneNumber` and `contactUsername`. If that contact is not found, the request fails without trying another identifier.
 	ObjectId *string `json:"objectId,omitempty"`
-	// The phone number of the contact for events defined with `objectType` as `CONTACT`.
+	// The contact's phone number in E.164 format for events defined with `objectType` as `CONTACT`. Used when no numeric `objectId` is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over `contactUsername`.
 	ContactPhoneNumber *string `json:"contactPhoneNumber,omitempty"`
+	// The Meta username of an existing contact in your account for events defined with `objectType` as `CONTACT`. Provide the username saved on the contact, without the leading `@`. Used when neither a numeric `objectId` nor a non-blank `contactPhoneNumber` is provided. If no matching contact exists, the request fails. A username does not automatically create a contact.
+	ContactUsername *string `json:"contactUsername,omitempty"`
 	// The properties of the custom event.
 	Properties map[string]map[string]interface{} `json:"properties,omitempty"`
 }
@@ -168,6 +170,38 @@ func (o *CustomEventSendRequest) SetContactPhoneNumber(v string) {
 	o.ContactPhoneNumber = &v
 }
 
+// GetContactUsername returns the ContactUsername field value if set, zero value otherwise.
+func (o *CustomEventSendRequest) GetContactUsername() string {
+	if o == nil || o.ContactUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.ContactUsername
+}
+
+// GetContactUsernameOk returns a tuple with the ContactUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEventSendRequest) GetContactUsernameOk() (*string, bool) {
+	if o == nil || o.ContactUsername == nil {
+		return nil, false
+	}
+	return o.ContactUsername, true
+}
+
+// HasContactUsername returns a boolean if a field has been set.
+func (o *CustomEventSendRequest) HasContactUsername() bool {
+	if o != nil && o.ContactUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactUsername gets a reference to the given string and assigns it to the ContactUsername field.
+func (o *CustomEventSendRequest) SetContactUsername(v string) {
+	o.ContactUsername = &v
+}
+
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *CustomEventSendRequest) GetProperties() map[string]map[string]interface{} {
 	if o == nil || o.Properties == nil {
@@ -214,6 +248,9 @@ func (o CustomEventSendRequest) MarshalJSON() ([]byte, error) {
 	if o.ContactPhoneNumber != nil {
 		toSerialize["contactPhoneNumber"] = o.ContactPhoneNumber
 	}
+	if o.ContactUsername != nil {
+		toSerialize["contactUsername"] = o.ContactUsername
+	}
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
@@ -255,5 +292,3 @@ func (v *NullableCustomEventSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

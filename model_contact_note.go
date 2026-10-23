@@ -18,7 +18,7 @@ import (
 
 // ContactNote Represents an internal note attached to a contact.
 type ContactNote struct {
-	// Unique ID for the contact note.
+	// Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration.
 	Id string `json:"id"`
 	// Unique ID of the contact that owns this note.
 	ContactId string `json:"contactId"`

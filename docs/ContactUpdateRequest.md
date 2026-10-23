@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nickname** | Pointer to **string** | Contact&#39;s nickname. Maximum length: 250 characters. | [optional] 
-**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
-**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional] 
-**Tags** | Pointer to **[]string** | Contact&#39;s tags. Maximum items: 50. | [optional] 
-**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. If present (i.e., not &#x60;null&#x60;), all previous attributes of this contact will be replaced. | [optional] 
-**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
+**RemarkName** | Pointer to **string** | Contact&#39;s remark name. Maximum length: 250 characters. | [optional]
+**Nickname** | Pointer to **string** | Deprecated compatibility alias for &#x60;remarkName&#x60;. When &#x60;remarkName&#x60; is absent, this value is saved as the contact&#39;s remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters. | [optional]
+**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional]
+**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional]
+**Tags** | Pointer to **[]string** | Contact&#39;s tags. Maximum items: 50. | [optional]
+**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. If present (i.e., not &#x60;null&#x60;), all previous attributes of this contact will be replaced. | [optional]
+**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional]
+**Notes** | Pointer to [**[]ContactNoteMutationInput**](ContactNoteMutationInput.md) | Optional incremental note mutations. An empty array changes nothing. Items without &#x60;id&#x60; create notes; items with &#x60;id&#x60; update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint. | [optional]
 
 ## Methods
 
@@ -30,6 +32,31 @@ will change when the set of required properties is changed
 NewContactUpdateRequestWithDefaults instantiates a new ContactUpdateRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetRemarkName
+
+`func (o *ContactUpdateRequest) GetRemarkName() string`
+
+GetRemarkName returns the RemarkName field if non-nil, zero value otherwise.
+
+### GetRemarkNameOk
+
+`func (o *ContactUpdateRequest) GetRemarkNameOk() (*string, bool)`
+
+GetRemarkNameOk returns a tuple with the RemarkName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemarkName
+
+`func (o *ContactUpdateRequest) SetRemarkName(v string)`
+
+SetRemarkName sets RemarkName field to given value.
+
+### HasRemarkName
+
+`func (o *ContactUpdateRequest) HasRemarkName() bool`
+
+HasRemarkName returns a boolean if a field has been set.
 
 ### GetNickname
 
@@ -206,7 +233,30 @@ SetOwnerEmail sets OwnerEmail field to given value.
 
 HasOwnerEmail returns a boolean if a field has been set.
 
+### GetNotes
+
+`func (o *ContactUpdateRequest) GetNotes() []ContactNoteMutationInput`
+
+GetNotes returns the Notes field if non-nil, zero value otherwise.
+
+### GetNotesOk
+
+`func (o *ContactUpdateRequest) GetNotesOk() (*[]ContactNoteMutationInput, bool)`
+
+GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotes
+
+`func (o *ContactUpdateRequest) SetNotes(v []ContactNoteMutationInput)`
+
+SetNotes sets Notes field to given value.
+
+### HasNotes
+
+`func (o *ContactUpdateRequest) HasNotes() bool`
+
+HasNotes returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

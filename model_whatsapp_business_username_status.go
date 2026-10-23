@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// WhatsappBusinessUsernameStatus Business Username state for a WhatsApp business phone number. - `not_set`: No active or pending Business Username exists. - `active`: A Business Username is active. - `pending_review`: A requested Business Username is under Meta review. If an active username exists while a new request is pending, `businessUsernameStatus` is `pending_review`, `businessUsername` contains the still-active username, and `requestedBusinessUsername` contains the pending request.
+// WhatsappBusinessUsernameStatus Business Username state for a WhatsApp business phone number. - `not_set`: No active or pending Business Username exists. - `active`: A Business Username is active. - `reserved`: A requested Business Username is reserved by Meta and may still be under review. - `pending_review`: Legacy compatibility value for an under-review request. New writes use `reserved`. If an active username exists while a new request is reserved or under review, `businessUsernameStatus` is `reserved`, `businessUsername` contains the still-active username, and `requestedBusinessUsername` contains the requested username.
 type WhatsappBusinessUsernameStatus string
 
 // List of WhatsappBusinessUsernameStatus
@@ -24,6 +24,7 @@ const (
 	WHATSAPPBUSINESSUSERNAMESTATUS_NOT_SET WhatsappBusinessUsernameStatus = "not_set"
 	WHATSAPPBUSINESSUSERNAMESTATUS_ACTIVE WhatsappBusinessUsernameStatus = "active"
 	WHATSAPPBUSINESSUSERNAMESTATUS_PENDING_REVIEW WhatsappBusinessUsernameStatus = "pending_review"
+	WHATSAPPBUSINESSUSERNAMESTATUS_RESERVED WhatsappBusinessUsernameStatus = "reserved"
 )
 
 // All allowed values of WhatsappBusinessUsernameStatus enum
@@ -31,6 +32,7 @@ var AllowedWhatsappBusinessUsernameStatusEnumValues = []WhatsappBusinessUsername
 	"not_set",
 	"active",
 	"pending_review",
+	"reserved",
 }
 
 func (v *WhatsappBusinessUsernameStatus) UnmarshalJSON(src []byte) error {
@@ -105,4 +107,3 @@ func (v *NullableWhatsappBusinessUsernameStatus) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

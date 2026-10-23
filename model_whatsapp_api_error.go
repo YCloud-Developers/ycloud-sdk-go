@@ -23,6 +23,8 @@ type WhatsappApiError struct {
 	Code string `json:"code"`
 	// Error type.
 	Type *string `json:"type,omitempty"`
+	// Whether the error is transient.
+	IsTransient *bool `json:"is_transient,omitempty"`
 	// Additional code about the error.
 	ErrorSubcode *string `json:"error_subcode,omitempty"`
 	// The message to display to the user. The language of the message is based on the locale of the API request.
@@ -132,6 +134,38 @@ func (o *WhatsappApiError) HasType() bool {
 // SetType gets a reference to the given string and assigns it to the Type field.
 func (o *WhatsappApiError) SetType(v string) {
 	o.Type = &v
+}
+
+// GetIsTransient returns the IsTransient field value if set, zero value otherwise.
+func (o *WhatsappApiError) GetIsTransient() bool {
+	if o == nil || o.IsTransient == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsTransient
+}
+
+// GetIsTransientOk returns a tuple with the IsTransient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappApiError) GetIsTransientOk() (*bool, bool) {
+	if o == nil || o.IsTransient == nil {
+		return nil, false
+	}
+	return o.IsTransient, true
+}
+
+// HasIsTransient returns a boolean if a field has been set.
+func (o *WhatsappApiError) HasIsTransient() bool {
+	if o != nil && o.IsTransient != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsTransient gets a reference to the given bool and assigns it to the IsTransient field.
+func (o *WhatsappApiError) SetIsTransient(v bool) {
+	o.IsTransient = &v
 }
 
 // GetErrorSubcode returns the ErrorSubcode field value if set, zero value otherwise.
@@ -305,6 +339,9 @@ func (o WhatsappApiError) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
+	if o.IsTransient != nil {
+		toSerialize["is_transient"] = o.IsTransient
+	}
 	if o.ErrorSubcode != nil {
 		toSerialize["error_subcode"] = o.ErrorSubcode
 	}
@@ -358,5 +395,3 @@ func (v *NullableWhatsappApiError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

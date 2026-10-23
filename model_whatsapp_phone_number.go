@@ -40,6 +40,8 @@ type WhatsappPhoneNumber struct {
 	WhatsappBusinessManagerMessagingLimit *string `json:"whatsappBusinessManagerMessagingLimit,omitempty"`
 	// Verified name.
 	VerifiedName *string `json:"verifiedName,omitempty"`
+	// Optional remark name assigned to this phone number in YCloud. It is populated by the phone-number list, retrieve, and profile GET APIs, and omitted when no remark name is set.
+	YcloudName *string `json:"ycloudName,omitempty"`
 	// The modified name
 	NewName *string `json:"newName,omitempty"`
 	CodeVerificationStatus *WhatsappPhoneNumberCodeVerificationStatus `json:"codeVerificationStatus,omitempty"`
@@ -56,6 +58,8 @@ type WhatsappPhoneNumber struct {
 	QualityUpdateEvent *WhatsappPhoneNumberQualityUpdateEventEnum `json:"qualityUpdateEvent,omitempty"`
 	// Account update event that triggered this phone number status change.
 	UpdateEvent *string `json:"updateEvent,omitempty"`
+	// Current Meta throughput level of the WhatsApp phone number. - `STANDARD`: Default Cloud API throughput level, currently up to 80 messages per second. - `HIGH`: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta's current Cloud API throughput rules. - `NOT_APPLICABLE`: Throughput level is not applicable to this phone number.
+	ThroughputLevel *string `json:"throughputLevel,omitempty"`
 }
 
 // NewWhatsappPhoneNumber instantiates a new WhatsappPhoneNumber object
@@ -459,6 +463,38 @@ func (o *WhatsappPhoneNumber) SetVerifiedName(v string) {
 	o.VerifiedName = &v
 }
 
+// GetYcloudName returns the YcloudName field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetYcloudName() string {
+	if o == nil || o.YcloudName == nil {
+		var ret string
+		return ret
+	}
+	return *o.YcloudName
+}
+
+// GetYcloudNameOk returns a tuple with the YcloudName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetYcloudNameOk() (*string, bool) {
+	if o == nil || o.YcloudName == nil {
+		return nil, false
+	}
+	return o.YcloudName, true
+}
+
+// HasYcloudName returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasYcloudName() bool {
+	if o != nil && o.YcloudName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetYcloudName gets a reference to the given string and assigns it to the YcloudName field.
+func (o *WhatsappPhoneNumber) SetYcloudName(v string) {
+	o.YcloudName = &v
+}
+
 // GetNewName returns the NewName field value if set, zero value otherwise.
 func (o *WhatsappPhoneNumber) GetNewName() string {
 	if o == nil || o.NewName == nil {
@@ -811,6 +847,38 @@ func (o *WhatsappPhoneNumber) SetUpdateEvent(v string) {
 	o.UpdateEvent = &v
 }
 
+// GetThroughputLevel returns the ThroughputLevel field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetThroughputLevel() string {
+	if o == nil || o.ThroughputLevel == nil {
+		var ret string
+		return ret
+	}
+	return *o.ThroughputLevel
+}
+
+// GetThroughputLevelOk returns a tuple with the ThroughputLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetThroughputLevelOk() (*string, bool) {
+	if o == nil || o.ThroughputLevel == nil {
+		return nil, false
+	}
+	return o.ThroughputLevel, true
+}
+
+// HasThroughputLevel returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasThroughputLevel() bool {
+	if o != nil && o.ThroughputLevel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetThroughputLevel gets a reference to the given string and assigns it to the ThroughputLevel field.
+func (o *WhatsappPhoneNumber) SetThroughputLevel(v string) {
+	o.ThroughputLevel = &v
+}
+
 func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -849,6 +917,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	if o.VerifiedName != nil {
 		toSerialize["verifiedName"] = o.VerifiedName
 	}
+	if o.YcloudName != nil {
+		toSerialize["ycloudName"] = o.YcloudName
+	}
 	if o.NewName != nil {
 		toSerialize["newName"] = o.NewName
 	}
@@ -881,6 +952,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.UpdateEvent != nil {
 		toSerialize["updateEvent"] = o.UpdateEvent
+	}
+	if o.ThroughputLevel != nil {
+		toSerialize["throughputLevel"] = o.ThroughputLevel
 	}
 	return json.Marshal(toSerialize)
 }
@@ -920,5 +994,3 @@ func (v *NullableWhatsappPhoneNumber) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

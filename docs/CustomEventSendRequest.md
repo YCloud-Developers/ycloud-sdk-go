@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventName** | **string** | Name of the event. One of the custom event names you previously defined. | 
-**OccurTime** | Pointer to **time.Time** | The time at which the event occurred, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;, if not provided, the current time will be used. | [optional] 
-**ObjectId** | Pointer to **string** | ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, the &#x60;objectId&#x60; should be a &#x60;contact&#x60; ID. Alternatively, you can use the &#x60;contactPhoneNumber&#x60; field to specify the contact. | [optional] 
-**ContactPhoneNumber** | Pointer to **string** | The phone number of the contact for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. | [optional] 
-**Properties** | Pointer to **map[string]map[string]interface{}** | The properties of the custom event. | [optional] 
+**EventName** | **string** | Name of the event. One of the custom event names you previously defined. |
+**OccurTime** | Pointer to **time.Time** | The time at which the event occurred, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;, if not provided, the current time will be used. | [optional]
+**ObjectId** | Pointer to **string** | ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, provide the numeric ID of an existing contact in your account. A numeric &#x60;objectId&#x60; takes precedence over &#x60;contactPhoneNumber&#x60; and &#x60;contactUsername&#x60;. If that contact is not found, the request fails without trying another identifier. | [optional]
+**ContactPhoneNumber** | Pointer to **string** | The contact&#39;s phone number in E.164 format for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Used when no numeric &#x60;objectId&#x60; is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over &#x60;contactUsername&#x60;. | [optional]
+**ContactUsername** | Pointer to **string** | The Meta username of an existing contact in your account for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Provide the username saved on the contact, without the leading &#x60;@&#x60;. Used when neither a numeric &#x60;objectId&#x60; nor a non-blank &#x60;contactPhoneNumber&#x60; is provided. If no matching contact exists, the request fails. A username does not automatically create a contact. | [optional]
+**Properties** | Pointer to **map[string]map[string]interface{}** | The properties of the custom event. | [optional]
 
 ## Methods
 
@@ -124,6 +125,31 @@ SetContactPhoneNumber sets ContactPhoneNumber field to given value.
 
 HasContactPhoneNumber returns a boolean if a field has been set.
 
+### GetContactUsername
+
+`func (o *CustomEventSendRequest) GetContactUsername() string`
+
+GetContactUsername returns the ContactUsername field if non-nil, zero value otherwise.
+
+### GetContactUsernameOk
+
+`func (o *CustomEventSendRequest) GetContactUsernameOk() (*string, bool)`
+
+GetContactUsernameOk returns a tuple with the ContactUsername field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactUsername
+
+`func (o *CustomEventSendRequest) SetContactUsername(v string)`
+
+SetContactUsername sets ContactUsername field to given value.
+
+### HasContactUsername
+
+`func (o *CustomEventSendRequest) HasContactUsername() bool`
+
+HasContactUsername returns a boolean if a field has been set.
+
 ### GetProperties
 
 `func (o *CustomEventSendRequest) GetProperties() map[string]map[string]interface{}`
@@ -151,5 +177,3 @@ HasProperties returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

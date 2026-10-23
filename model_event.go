@@ -25,6 +25,10 @@ type Event struct {
 	ApiVersion string `json:"apiVersion"`
 	// The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	CreateTime time.Time `json:"createTime"`
+	// Included when `type` is `whatsapp.smb.history` and the event was generated from a Meta history chunk. Identifies the chunk's synchronization phase.
+	Phase *int32 `json:"phase,omitempty"`
+	// Included when `type` is `whatsapp.smb.history` and the event was generated from a Meta history chunk. Reports the chunk's synchronization progress.
+	Progress *int32 `json:"progress,omitempty"`
 	EmailDelivery *EmailDelivery `json:"emailDelivery,omitempty"`
 	Sms *Sms `json:"sms,omitempty"`
 	SmsInbound *SmsInbound `json:"smsInbound,omitempty"`
@@ -39,9 +43,12 @@ type Event struct {
 	ContactAttributesChanged *ContactAttributesChanged `json:"contactAttributesChanged,omitempty"`
 	ContactCreated *ContactCreated `json:"contactCreated,omitempty"`
 	ContactDeleted *ContactDeleted `json:"contactDeleted,omitempty"`
+	ContactNote *ContactNoteWebhookPayload `json:"contactNote,omitempty"`
 	ContactUnsubscribeCreated *ContactUnsubscribeCreated `json:"contactUnsubscribeCreated,omitempty"`
 	ContactUnsubscribeDeleted *ContactUnsubscribeDeleted `json:"contactUnsubscribeDeleted,omitempty"`
 	WhatsappUserPreference *WhatsappUserPreference `json:"whatsappUserPreference,omitempty"`
+	CallingRecording *CallingMediaUpdated `json:"callingRecording,omitempty"`
+	CallingTranscription *CallingMediaUpdated `json:"callingTranscription,omitempty"`
 }
 
 // NewEvent instantiates a new Event object
@@ -159,6 +166,70 @@ func (o *Event) GetCreateTimeOk() (*time.Time, bool) {
 // SetCreateTime sets field value
 func (o *Event) SetCreateTime(v time.Time) {
 	o.CreateTime = v
+}
+
+// GetPhase returns the Phase field value if set, zero value otherwise.
+func (o *Event) GetPhase() int32 {
+	if o == nil || o.Phase == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Phase
+}
+
+// GetPhaseOk returns a tuple with the Phase field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetPhaseOk() (*int32, bool) {
+	if o == nil || o.Phase == nil {
+		return nil, false
+	}
+	return o.Phase, true
+}
+
+// HasPhase returns a boolean if a field has been set.
+func (o *Event) HasPhase() bool {
+	if o != nil && o.Phase != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPhase gets a reference to the given int32 and assigns it to the Phase field.
+func (o *Event) SetPhase(v int32) {
+	o.Phase = &v
+}
+
+// GetProgress returns the Progress field value if set, zero value otherwise.
+func (o *Event) GetProgress() int32 {
+	if o == nil || o.Progress == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Progress
+}
+
+// GetProgressOk returns a tuple with the Progress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetProgressOk() (*int32, bool) {
+	if o == nil || o.Progress == nil {
+		return nil, false
+	}
+	return o.Progress, true
+}
+
+// HasProgress returns a boolean if a field has been set.
+func (o *Event) HasProgress() bool {
+	if o != nil && o.Progress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProgress gets a reference to the given int32 and assigns it to the Progress field.
+func (o *Event) SetProgress(v int32) {
+	o.Progress = &v
 }
 
 // GetEmailDelivery returns the EmailDelivery field value if set, zero value otherwise.
@@ -609,6 +680,38 @@ func (o *Event) SetContactDeleted(v ContactDeleted) {
 	o.ContactDeleted = &v
 }
 
+// GetContactNote returns the ContactNote field value if set, zero value otherwise.
+func (o *Event) GetContactNote() ContactNoteWebhookPayload {
+	if o == nil || o.ContactNote == nil {
+		var ret ContactNoteWebhookPayload
+		return ret
+	}
+	return *o.ContactNote
+}
+
+// GetContactNoteOk returns a tuple with the ContactNote field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetContactNoteOk() (*ContactNoteWebhookPayload, bool) {
+	if o == nil || o.ContactNote == nil {
+		return nil, false
+	}
+	return o.ContactNote, true
+}
+
+// HasContactNote returns a boolean if a field has been set.
+func (o *Event) HasContactNote() bool {
+	if o != nil && o.ContactNote != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContactNote gets a reference to the given ContactNoteWebhookPayload and assigns it to the ContactNote field.
+func (o *Event) SetContactNote(v ContactNoteWebhookPayload) {
+	o.ContactNote = &v
+}
+
 // GetContactUnsubscribeCreated returns the ContactUnsubscribeCreated field value if set, zero value otherwise.
 func (o *Event) GetContactUnsubscribeCreated() ContactUnsubscribeCreated {
 	if o == nil || o.ContactUnsubscribeCreated == nil {
@@ -705,6 +808,70 @@ func (o *Event) SetWhatsappUserPreference(v WhatsappUserPreference) {
 	o.WhatsappUserPreference = &v
 }
 
+// GetCallingRecording returns the CallingRecording field value if set, zero value otherwise.
+func (o *Event) GetCallingRecording() CallingMediaUpdated {
+	if o == nil || o.CallingRecording == nil {
+		var ret CallingMediaUpdated
+		return ret
+	}
+	return *o.CallingRecording
+}
+
+// GetCallingRecordingOk returns a tuple with the CallingRecording field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetCallingRecordingOk() (*CallingMediaUpdated, bool) {
+	if o == nil || o.CallingRecording == nil {
+		return nil, false
+	}
+	return o.CallingRecording, true
+}
+
+// HasCallingRecording returns a boolean if a field has been set.
+func (o *Event) HasCallingRecording() bool {
+	if o != nil && o.CallingRecording != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallingRecording gets a reference to the given CallingMediaUpdated and assigns it to the CallingRecording field.
+func (o *Event) SetCallingRecording(v CallingMediaUpdated) {
+	o.CallingRecording = &v
+}
+
+// GetCallingTranscription returns the CallingTranscription field value if set, zero value otherwise.
+func (o *Event) GetCallingTranscription() CallingMediaUpdated {
+	if o == nil || o.CallingTranscription == nil {
+		var ret CallingMediaUpdated
+		return ret
+	}
+	return *o.CallingTranscription
+}
+
+// GetCallingTranscriptionOk returns a tuple with the CallingTranscription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Event) GetCallingTranscriptionOk() (*CallingMediaUpdated, bool) {
+	if o == nil || o.CallingTranscription == nil {
+		return nil, false
+	}
+	return o.CallingTranscription, true
+}
+
+// HasCallingTranscription returns a boolean if a field has been set.
+func (o *Event) HasCallingTranscription() bool {
+	if o != nil && o.CallingTranscription != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallingTranscription gets a reference to the given CallingMediaUpdated and assigns it to the CallingTranscription field.
+func (o *Event) SetCallingTranscription(v CallingMediaUpdated) {
+	o.CallingTranscription = &v
+}
+
 func (o Event) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -718,6 +885,12 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["createTime"] = o.CreateTime
+	}
+	if o.Phase != nil {
+		toSerialize["phase"] = o.Phase
+	}
+	if o.Progress != nil {
+		toSerialize["progress"] = o.Progress
 	}
 	if o.EmailDelivery != nil {
 		toSerialize["emailDelivery"] = o.EmailDelivery
@@ -761,6 +934,9 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	if o.ContactDeleted != nil {
 		toSerialize["contactDeleted"] = o.ContactDeleted
 	}
+	if o.ContactNote != nil {
+		toSerialize["contactNote"] = o.ContactNote
+	}
 	if o.ContactUnsubscribeCreated != nil {
 		toSerialize["contactUnsubscribeCreated"] = o.ContactUnsubscribeCreated
 	}
@@ -769,6 +945,12 @@ func (o Event) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappUserPreference != nil {
 		toSerialize["whatsappUserPreference"] = o.WhatsappUserPreference
+	}
+	if o.CallingRecording != nil {
+		toSerialize["callingRecording"] = o.CallingRecording
+	}
+	if o.CallingTranscription != nil {
+		toSerialize["callingTranscription"] = o.CallingTranscription
 	}
 	return json.Marshal(toSerialize)
 }
@@ -808,5 +990,3 @@ func (v *NullableEvent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

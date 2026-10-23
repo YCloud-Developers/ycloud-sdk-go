@@ -141,30 +141,31 @@ func (a *WhatsappInboundMessagesApiService) MarkAsReadExecute(r WhatsappInboundM
 	return localVarHTTPResponse, nil
 }
 
-type WhatsappInboundMessagesApiTypingIndicatorRequest struct {
+type WhatsappInboundMessagesApiTypingRequest struct {
 	ctx context.Context
 	ApiService *WhatsappInboundMessagesApiService
 	id string
 }
 
-func (r WhatsappInboundMessagesApiTypingIndicatorRequest) Execute() (*http.Response, error) {
-	return r.ApiService.TypingIndicatorExecute(r)
+func (r WhatsappInboundMessagesApiTypingRequest) Execute() (*WhatsappInboundMessageTypingResponse, *http.Response, error) {
+	return r.ApiService.TypingExecute(r)
 }
 
 /*
-TypingIndicator Mark message as read and display a typing indicator
+Typing Mark message as read and display a typing indicator with a JSON response
 
-When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response.
-Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.
+Marks an inbound message as read and displays a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp. The typing indicator is dismissed once you respond, or after 25 seconds, whichever comes first.
 
-Marking a message as read will also mark earlier messages in the conversation as read.
+Marking a message as read also marks earlier messages in the conversation as read. Repeating this request sends another typing-indicator request and refreshes the indicator; this endpoint does not provide an idempotency key.
+
+A successful request returns `WhatsappInboundMessageTypingResponse`. Errors reuse the standard `ErrorResponse`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp's platform) is also acceptable.
- @return WhatsappInboundMessagesApiTypingIndicatorRequest
+ @return WhatsappInboundMessagesApiTypingRequest
 */
-func (a *WhatsappInboundMessagesApiService) TypingIndicator(ctx context.Context, id string) WhatsappInboundMessagesApiTypingIndicatorRequest {
-	return WhatsappInboundMessagesApiTypingIndicatorRequest{
+func (a *WhatsappInboundMessagesApiService) Typing(ctx context.Context, id string) WhatsappInboundMessagesApiTypingRequest {
+	return WhatsappInboundMessagesApiTypingRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -172,19 +173,21 @@ func (a *WhatsappInboundMessagesApiService) TypingIndicator(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *WhatsappInboundMessagesApiService) TypingIndicatorExecute(r WhatsappInboundMessagesApiTypingIndicatorRequest) (*http.Response, error) {
+//  @return WhatsappInboundMessageTypingResponse
+func (a *WhatsappInboundMessagesApiService) TypingExecute(r WhatsappInboundMessagesApiTypingRequest) (*WhatsappInboundMessageTypingResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *WhatsappInboundMessageTypingResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappInboundMessagesApiService.TypingIndicator")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappInboundMessagesApiService.Typing")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/whatsapp/inboundMessages/{id}/typingIndicator"
+	localVarPath := localBasePath + "/whatsapp/inboundMessages/{id}/typing"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -224,19 +227,19 @@ func (a *WhatsappInboundMessagesApiService) TypingIndicatorExecute(r WhatsappInb
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -244,17 +247,76 @@ func (a *WhatsappInboundMessagesApiService) TypingIndicatorExecute(r WhatsappInb
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }

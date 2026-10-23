@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Contact ID | 
-**NickName** | Pointer to **string** | Contact&#39;s nickname. | [optional] 
-**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**UpdateTime** | Pointer to **time.Time** | The time at which the contact was last updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
+**Id** | **string** | Contact ID |
+**RemarkName** | Pointer to **string** | The business-managed remark name from the deleted contact snapshot. | [optional]
+**NickName** | Pointer to **string** | Contact&#39;s nickname. | [optional]
+**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**UpdateTime** | Pointer to **time.Time** | The time at which the contact was last updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
 
 ## Methods
 
@@ -47,6 +48,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetRemarkName
+
+`func (o *ContactDeleted) GetRemarkName() string`
+
+GetRemarkName returns the RemarkName field if non-nil, zero value otherwise.
+
+### GetRemarkNameOk
+
+`func (o *ContactDeleted) GetRemarkNameOk() (*string, bool)`
+
+GetRemarkNameOk returns a tuple with the RemarkName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemarkName
+
+`func (o *ContactDeleted) SetRemarkName(v string)`
+
+SetRemarkName sets RemarkName field to given value.
+
+### HasRemarkName
+
+`func (o *ContactDeleted) HasRemarkName() bool`
+
+HasRemarkName returns a boolean if a field has been set.
 
 ### GetNickName
 
@@ -125,5 +151,3 @@ HasUpdateTime returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

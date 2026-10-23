@@ -17,7 +17,7 @@ import (
 
 // WhatsappMessageMedia Use for `image`, `gif`, `video`, `audio`, `document`, or `sticker` messages. See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
 type WhatsappMessageMedia struct {
-	// **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.
+	// **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.
 	Id *string `json:"id,omitempty"`
 	// **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence and `link` will be ignored.
 	Link *string `json:"link,omitempty"`
@@ -224,5 +224,3 @@ func (v *NullableWhatsappMessageMedia) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

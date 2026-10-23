@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Accept**](WhatsappCallingApi.md#Accept) | **Post** /whatsapp/calls/accept | Accept a call
 [**Connect**](WhatsappCallingApi.md#Connect) | **Post** /whatsapp/calls/connect | Connect a call
+[**DownloadMedia**](WhatsappCallingApi.md#DownloadMedia) | **Get** /whatsapp/calls/media/{mediaAssetId} | Download call media
 [**PreAccept**](WhatsappCallingApi.md#PreAccept) | **Post** /whatsapp/calls/preAccept | Pre-accept a call
 [**Reject**](WhatsappCallingApi.md#Reject) | **Post** /whatsapp/calls/reject | Reject a call
 [**Terminate**](WhatsappCallingApi.md#Terminate) | **Post** /whatsapp/calls/terminate | Terminate a call
@@ -198,6 +199,76 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DownloadMedia
+
+> *os.File DownloadMedia(ctx, mediaAssetId).Execute()
+
+Download call media
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    mediaAssetId := "66b1f0c2e4b05c2d8f1a3b47" // string | YCloud call media asset ID received in a recording or transcription webhook.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappCallingApi.DownloadMedia(context.Background(), mediaAssetId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappCallingApi.DownloadMedia``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DownloadMedia`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappCallingApi.DownloadMedia`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mediaAssetId** | **string** | YCloud call media asset ID received in a recording or transcription webhook. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDownloadMediaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: audio/ogg, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

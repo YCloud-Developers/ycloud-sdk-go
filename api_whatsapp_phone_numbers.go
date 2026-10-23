@@ -39,7 +39,7 @@ func (r WhatsappPhoneNumbersApiDeleteBusinessUsernameRequest) Execute() (*Whatsa
 DeleteBusinessUsername Delete a phone number business username
 
 Deletes the active Business Username for a WhatsApp business phone number.
-This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned `businessUsernameStatus` remains `pending_review`; otherwise it becomes `not_set`.
+This operation removes the currently active Business Username. It does not cancel or remove a reserved Business Username request. If a reserved request still exists after deletion, the returned `businessUsernameStatus` remains `reserved`; otherwise it becomes `not_set`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
@@ -130,6 +130,164 @@ func (a *WhatsappPhoneNumbersApiService) DeleteBusinessUsernameExecute(r Whatsap
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type WhatsappPhoneNumbersApiDeleteContactBookEntryRequest struct {
+	ctx context.Context
+	ApiService *WhatsappPhoneNumbersApiService
+	wabaId string
+	phoneNumber string
+	bsuid string
+}
+
+func (r WhatsappPhoneNumbersApiDeleteContactBookEntryRequest) Execute() (*WhatsappContactBookEntryDeleteResult, *http.Response, error) {
+	return r.ApiService.DeleteContactBookEntryExecute(r)
+}
+
+/*
+DeleteContactBookEntry Delete a Meta contact book entry
+
+Deletes the Meta contact book entry that associates a WhatsApp business phone number with a customer's WhatsApp Business-scoped user ID (BSUID).
+
+Only standard BSUIDs such as `US.11815799212886844830` are supported. Parent BSUIDs such as `US.ENT.11815799212886844830` are not supported. The BSUID must be scoped to the same Meta business portfolio as the phone number. The specified WABA must belong to the authenticated YCloud account and be available, and the phone number must be bound to that WABA in YCloud. Use the YCloud account API key in the `X-API-Key` header. Developer App API keys are not supported and return HTTP 403.
+
+An HTTP 200 response always has `success=true`. `deleted=true` means Meta reports that it deleted a matching contact book entry. `deleted=false` means Meta processed the request but found no matching entry to delete. This operation does not delete or modify YCloud Contact, message, or BSUID business records, and it does not bypass Meta's 30-day caching behavior. A later WhatsApp interaction between the same business phone number and customer may cause Meta to create the entry again.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading `+` as `%2B`.
+ @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.` are not supported.
+ @return WhatsappPhoneNumbersApiDeleteContactBookEntryRequest
+*/
+func (a *WhatsappPhoneNumbersApiService) DeleteContactBookEntry(ctx context.Context, wabaId string, phoneNumber string, bsuid string) WhatsappPhoneNumbersApiDeleteContactBookEntryRequest {
+	return WhatsappPhoneNumbersApiDeleteContactBookEntryRequest{
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
+		phoneNumber: phoneNumber,
+		bsuid: bsuid,
+	}
+}
+
+// Execute executes the request
+//  @return WhatsappContactBookEntryDeleteResult
+func (a *WhatsappPhoneNumbersApiService) DeleteContactBookEntryExecute(r WhatsappPhoneNumbersApiDeleteContactBookEntryRequest) (*WhatsappContactBookEntryDeleteResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappContactBookEntryDeleteResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappPhoneNumbersApiService.DeleteContactBookEntry")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"phoneNumber"+"}", url.PathEscape(parameterToString(r.phoneNumber, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"bsuid"+"}", url.PathEscape(parameterToString(r.bsuid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
@@ -1095,6 +1253,13 @@ type WhatsappPhoneNumbersApiRetrieveSettingsRequest struct {
 	ApiService *WhatsappPhoneNumbersApiService
 	wabaId string
 	phoneNumber string
+	type_ *string
+}
+
+// Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response.
+func (r WhatsappPhoneNumbersApiRetrieveSettingsRequest) Type_(type_ string) WhatsappPhoneNumbersApiRetrieveSettingsRequest {
+	r.type_ = &type_
+	return r
 }
 
 func (r WhatsappPhoneNumbersApiRetrieveSettingsRequest) Execute() (*WhatsappPhoneNumberSettings, *http.Response, error) {
@@ -1143,6 +1308,9 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveSettingsExecute(r WhatsappPhone
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.type_ != nil {
+		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1196,6 +1364,16 @@ func (a *WhatsappPhoneNumbersApiService) RetrieveSettingsExecute(r WhatsappPhone
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1241,7 +1419,11 @@ func (r WhatsappPhoneNumbersApiSaveSettingsRequest) Execute() (*WhatsappPhoneNum
 /*
 SaveSettings Save phone number settings
 
-Saves phone number specific settings.
+Saves phone number specific settings. Send `calling`, `capture`, or both.
+When both are supplied, the service independently attempts both saves after shared
+authorization and phone-number validation. A failure in either branch does not prevent
+the other branch from being attempted. If either branch fails, the existing error response
+is returned and the other setting may already have been saved.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param wabaId WhatsApp Business Account ID.
@@ -1338,6 +1520,16 @@ func (a *WhatsappPhoneNumbersApiService) SaveSettingsExecute(r WhatsappPhoneNumb
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1383,7 +1575,7 @@ func (r WhatsappPhoneNumbersApiUpdateBusinessUsernameRequest) Execute() (*Whatsa
 UpdateBusinessUsername Update a phone number business username
 
 Requests a Business Username update for a WhatsApp business phone number.
-The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually `pending_review`; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.
+The requested username may require Meta review before it becomes active. If Meta accepts or reserves the request for review, the response status is usually `reserved`; `pending_review` is kept only as a legacy compatibility value. If Meta returns an error, YCloud returns the error and does not change the stored Business Username state.
 
 The `username` value is a plain username without `@`. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
 

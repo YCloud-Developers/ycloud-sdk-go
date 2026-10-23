@@ -4,33 +4,35 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | WhatApp Business Account ID. | [optional] 
-**Name** | Pointer to **string** | User-friendly name to differentiate WhatsApp Business Accounts. | [optional] 
-**Currency** | Pointer to **string** | The currency in which the payment transactions for the WhatsApp Business Account will be processed. | [optional] 
-**MessageTemplateNamespace** | Pointer to **string** | Namespace string for the message templates that belong to the WhatsApp Business Account. | [optional] 
-**AccountReviewStatus** | Pointer to [**WhatsappBusinessAccountReviewStatus**](WhatsappBusinessAccountReviewStatus.md) |  | [optional] 
-**BusinessId** | Pointer to **string** | Business Portfolio ID. | [optional] 
-**BusinessName** | Pointer to **string** | Business Portfolio Name. | [optional] 
-**BusinessStatus** | Pointer to **string** | Business Portfolio Status,Default:APPROVED | [optional] 
-**BusinessVerificationStatus** | Pointer to [**MetaBusinessAccountVerificationStatus**](MetaBusinessAccountVerificationStatus.md) |  | [optional] 
-**Country** | Pointer to **string** | Country of the WhatsApp Business Account&#39;s owning Meta Business account. | [optional] 
-**OwnershipType** | Pointer to **string** | Ownership type of the WhatsApp Business Account. | [optional] 
-**PaymentMethodAttached** | Pointer to **bool** | Whether we have attached a payment method to the WhatsApp Business Account. | [optional] 
-**PrimaryFundingId** | Pointer to **string** | Primary funding ID for the WhatsApp Business Account paid service. | [optional] 
-**PurchaseOrderNumber** | Pointer to **string** | The purchase order number supplied by the business for payment management purposes. | [optional] 
-**TimezoneId** | Pointer to **string** | The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids). | [optional] 
-**Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional] 
-**UpdateEvent** | Pointer to [**WhatsappBusinessAccountUpdateEventEnum**](WhatsappBusinessAccountUpdateEventEnum.md) |  | [optional] 
-**BanState** | Pointer to [**WhatsappBusinessAccountBanState**](WhatsappBusinessAccountBanState.md) |  | [optional] 
-**BanDate** | Pointer to **string** | The date when the WABA is banned. | [optional] 
-**ViolationType** | Pointer to **string** | Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations). | [optional] 
-**Restrictions** | Pointer to [**[]WhatsappBusinessAccountRestrictionInfo**](WhatsappBusinessAccountRestrictionInfo.md) | Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement). | [optional] 
-**AuthIntlRateEligibilityCountries** | Pointer to [**[]WhatsappAuthIntlRateEligibilityCountry**](WhatsappAuthIntlRateEligibilityCountry.md) | Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). | [optional] 
-**PrimaryBusinessLocation** | Pointer to **string** | Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
-**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
-**RemovedReason** | Pointer to **string** | Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received. | [optional] 
-**RemovedInitiatedBy** | Pointer to **string** | Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received. | [optional] 
-**RemovedTime** | Pointer to **time.Time** | The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;. | [optional] 
+**Id** | Pointer to **string** | WhatApp Business Account ID. | [optional]
+**Name** | Pointer to **string** | User-friendly name to differentiate WhatsApp Business Accounts. | [optional]
+**Currency** | Pointer to **string** | The currency in which the payment transactions for the WhatsApp Business Account will be processed. | [optional]
+**MessageTemplateNamespace** | Pointer to **string** | Namespace string for the message templates that belong to the WhatsApp Business Account. | [optional]
+**AccountReviewStatus** | Pointer to [**WhatsappBusinessAccountReviewStatus**](WhatsappBusinessAccountReviewStatus.md) |  | [optional]
+**BusinessId** | Pointer to **string** | Business Portfolio ID. | [optional]
+**BusinessName** | Pointer to **string** | Business Portfolio Name. | [optional]
+**BusinessStatus** | Pointer to **string** | Business Portfolio Status,Default:APPROVED | [optional]
+**BusinessVerificationStatus** | Pointer to [**MetaBusinessAccountVerificationStatus**](MetaBusinessAccountVerificationStatus.md) |  | [optional]
+**Country** | Pointer to **string** | Country of the WhatsApp Business Account&#39;s owning Meta Business account. | [optional]
+**OwnershipType** | Pointer to **string** | Ownership type of the WhatsApp Business Account. | [optional]
+**PaymentMethodAttached** | Pointer to **bool** | Whether we have attached a payment method to the WhatsApp Business Account. | [optional]
+**PrimaryFundingId** | Pointer to **string** | Primary funding ID for the WhatsApp Business Account paid service. | [optional]
+**PurchaseOrderNumber** | Pointer to **string** | The purchase order number supplied by the business for payment management purposes. | [optional]
+**TimezoneId** | Pointer to **string** | The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids). | [optional]
+**Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional]
+**UpdateEvent** | Pointer to [**WhatsappBusinessAccountUpdateEventEnum**](WhatsappBusinessAccountUpdateEventEnum.md) |  | [optional]
+**BanState** | Pointer to [**WhatsappBusinessAccountBanState**](WhatsappBusinessAccountBanState.md) |  | [optional]
+**BanDate** | Pointer to **string** | The date when the WABA is banned. | [optional]
+**ViolationType** | Pointer to **string** | Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations). | [optional]
+**Restrictions** | Pointer to [**[]WhatsappBusinessAccountRestrictionInfo**](WhatsappBusinessAccountRestrictionInfo.md) | Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement). | [optional]
+**MaxPhoneNumbersPerBusiness** | Pointer to **int32** | Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the Business Portfolio phone-number registration limit. | [optional]
+**MaxPhoneNumbersPerWaba** | Pointer to **int32** | Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the WABA phone-number registration limit. | [optional]
+**AuthIntlRateEligibilityCountries** | Pointer to [**[]WhatsappAuthIntlRateEligibilityCountry**](WhatsappAuthIntlRateEligibilityCountry.md) | Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). | [optional]
+**PrimaryBusinessLocation** | Pointer to **string** | Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional]
+**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional]
+**RemovedReason** | Pointer to **string** | Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received. | [optional]
+**RemovedInitiatedBy** | Pointer to **string** | Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received. | [optional]
+**RemovedTime** | Pointer to **time.Time** | The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;. | [optional]
 
 ## Methods
 
@@ -576,6 +578,56 @@ SetRestrictions sets Restrictions field to given value.
 
 HasRestrictions returns a boolean if a field has been set.
 
+### GetMaxPhoneNumbersPerBusiness
+
+`func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerBusiness() int32`
+
+GetMaxPhoneNumbersPerBusiness returns the MaxPhoneNumbersPerBusiness field if non-nil, zero value otherwise.
+
+### GetMaxPhoneNumbersPerBusinessOk
+
+`func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerBusinessOk() (*int32, bool)`
+
+GetMaxPhoneNumbersPerBusinessOk returns a tuple with the MaxPhoneNumbersPerBusiness field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxPhoneNumbersPerBusiness
+
+`func (o *WhatsappBusinessAccount) SetMaxPhoneNumbersPerBusiness(v int32)`
+
+SetMaxPhoneNumbersPerBusiness sets MaxPhoneNumbersPerBusiness field to given value.
+
+### HasMaxPhoneNumbersPerBusiness
+
+`func (o *WhatsappBusinessAccount) HasMaxPhoneNumbersPerBusiness() bool`
+
+HasMaxPhoneNumbersPerBusiness returns a boolean if a field has been set.
+
+### GetMaxPhoneNumbersPerWaba
+
+`func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerWaba() int32`
+
+GetMaxPhoneNumbersPerWaba returns the MaxPhoneNumbersPerWaba field if non-nil, zero value otherwise.
+
+### GetMaxPhoneNumbersPerWabaOk
+
+`func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerWabaOk() (*int32, bool)`
+
+GetMaxPhoneNumbersPerWabaOk returns a tuple with the MaxPhoneNumbersPerWaba field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxPhoneNumbersPerWaba
+
+`func (o *WhatsappBusinessAccount) SetMaxPhoneNumbersPerWaba(v int32)`
+
+SetMaxPhoneNumbersPerWaba sets MaxPhoneNumbersPerWaba field to given value.
+
+### HasMaxPhoneNumbersPerWaba
+
+`func (o *WhatsappBusinessAccount) HasMaxPhoneNumbersPerWaba() bool`
+
+HasMaxPhoneNumbersPerWaba returns a boolean if a field has been set.
+
 ### GetAuthIntlRateEligibilityCountries
 
 `func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountries() []WhatsappAuthIntlRateEligibilityCountry`
@@ -728,5 +780,3 @@ HasRemovedTime returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

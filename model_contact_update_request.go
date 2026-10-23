@@ -17,7 +17,10 @@ import (
 
 // ContactUpdateRequest Contains the properties of the contact to be updated.
 type ContactUpdateRequest struct {
-	// Contact's nickname. Maximum length: 250 characters.
+	// Contact's remark name. Maximum length: 250 characters.
+	RemarkName *string `json:"remarkName,omitempty"`
+	// Deprecated compatibility alias for `remarkName`. When `remarkName` is absent, this value is saved as the contact's remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters.
+	// Deprecated
 	Nickname *string `json:"nickname,omitempty"`
 	// Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
@@ -31,6 +34,8 @@ type ContactUpdateRequest struct {
 	CustomAttributes []ContactCustomAttribute `json:"customAttributes,omitempty"`
 	// The email address of the contact's owner.
 	OwnerEmail *string `json:"ownerEmail,omitempty"`
+	// Optional incremental note mutations. An empty array changes nothing. Items without `id` create notes; items with `id` update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint.
+	Notes []ContactNoteMutationInput `json:"notes,omitempty"`
 }
 
 // NewContactUpdateRequest instantiates a new ContactUpdateRequest object
@@ -50,7 +55,40 @@ func NewContactUpdateRequestWithDefaults() *ContactUpdateRequest {
 	return &this
 }
 
+// GetRemarkName returns the RemarkName field value if set, zero value otherwise.
+func (o *ContactUpdateRequest) GetRemarkName() string {
+	if o == nil || o.RemarkName == nil {
+		var ret string
+		return ret
+	}
+	return *o.RemarkName
+}
+
+// GetRemarkNameOk returns a tuple with the RemarkName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactUpdateRequest) GetRemarkNameOk() (*string, bool) {
+	if o == nil || o.RemarkName == nil {
+		return nil, false
+	}
+	return o.RemarkName, true
+}
+
+// HasRemarkName returns a boolean if a field has been set.
+func (o *ContactUpdateRequest) HasRemarkName() bool {
+	if o != nil && o.RemarkName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemarkName gets a reference to the given string and assigns it to the RemarkName field.
+func (o *ContactUpdateRequest) SetRemarkName(v string) {
+	o.RemarkName = &v
+}
+
 // GetNickname returns the Nickname field value if set, zero value otherwise.
+// Deprecated
 func (o *ContactUpdateRequest) GetNickname() string {
 	if o == nil || o.Nickname == nil {
 		var ret string
@@ -61,6 +99,7 @@ func (o *ContactUpdateRequest) GetNickname() string {
 
 // GetNicknameOk returns a tuple with the Nickname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *ContactUpdateRequest) GetNicknameOk() (*string, bool) {
 	if o == nil || o.Nickname == nil {
 		return nil, false
@@ -78,6 +117,7 @@ func (o *ContactUpdateRequest) HasNickname() bool {
 }
 
 // SetNickname gets a reference to the given string and assigns it to the Nickname field.
+// Deprecated
 func (o *ContactUpdateRequest) SetNickname(v string) {
 	o.Nickname = &v
 }
@@ -274,8 +314,43 @@ func (o *ContactUpdateRequest) SetOwnerEmail(v string) {
 	o.OwnerEmail = &v
 }
 
+// GetNotes returns the Notes field value if set, zero value otherwise.
+func (o *ContactUpdateRequest) GetNotes() []ContactNoteMutationInput {
+	if o == nil || o.Notes == nil {
+		var ret []ContactNoteMutationInput
+		return ret
+	}
+	return o.Notes
+}
+
+// GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactUpdateRequest) GetNotesOk() ([]ContactNoteMutationInput, bool) {
+	if o == nil || o.Notes == nil {
+		return nil, false
+	}
+	return o.Notes, true
+}
+
+// HasNotes returns a boolean if a field has been set.
+func (o *ContactUpdateRequest) HasNotes() bool {
+	if o != nil && o.Notes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNotes gets a reference to the given []ContactNoteMutationInput and assigns it to the Notes field.
+func (o *ContactUpdateRequest) SetNotes(v []ContactNoteMutationInput) {
+	o.Notes = v
+}
+
 func (o ContactUpdateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.RemarkName != nil {
+		toSerialize["remarkName"] = o.RemarkName
+	}
 	if o.Nickname != nil {
 		toSerialize["nickname"] = o.Nickname
 	}
@@ -296,6 +371,9 @@ func (o ContactUpdateRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.OwnerEmail != nil {
 		toSerialize["ownerEmail"] = o.OwnerEmail
+	}
+	if o.Notes != nil {
+		toSerialize["notes"] = o.Notes
 	}
 	return json.Marshal(toSerialize)
 }
@@ -335,5 +413,3 @@ func (v *NullableContactUpdateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -15,10 +15,11 @@ import (
 	"encoding/json"
 )
 
-// ContactPage Represents a given page of contacts.
+// ContactPage Represents a given page of contacts. In cursor mode, `offset` is `0`, items are ordered by contact ID in ascending order, and `cursor` is returned only when another page exists. When `includeTotal=true`, `total` is the complete filtered count and is not reduced by the cursor position.
 type ContactPage struct {
 	// An array containing contact objects.
 	Items []Contact `json:"items,omitempty"`
+	Cursor *ContactPageCursor `json:"cursor,omitempty"`
 	// The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.
 	Offset int32 `json:"offset"`
 	// A limit on the number of items to be returned, between 1 and 100, defaults to 10.
@@ -79,6 +80,38 @@ func (o *ContactPage) HasItems() bool {
 // SetItems gets a reference to the given []Contact and assigns it to the Items field.
 func (o *ContactPage) SetItems(v []Contact) {
 	o.Items = v
+}
+
+// GetCursor returns the Cursor field value if set, zero value otherwise.
+func (o *ContactPage) GetCursor() ContactPageCursor {
+	if o == nil || o.Cursor == nil {
+		var ret ContactPageCursor
+		return ret
+	}
+	return *o.Cursor
+}
+
+// GetCursorOk returns a tuple with the Cursor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactPage) GetCursorOk() (*ContactPageCursor, bool) {
+	if o == nil || o.Cursor == nil {
+		return nil, false
+	}
+	return o.Cursor, true
+}
+
+// HasCursor returns a boolean if a field has been set.
+func (o *ContactPage) HasCursor() bool {
+	if o != nil && o.Cursor != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCursor gets a reference to the given ContactPageCursor and assigns it to the Cursor field.
+func (o *ContactPage) SetCursor(v ContactPageCursor) {
+	o.Cursor = &v
 }
 
 // GetOffset returns the Offset field value
@@ -190,6 +223,9 @@ func (o ContactPage) MarshalJSON() ([]byte, error) {
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+	if o.Cursor != nil {
+		toSerialize["cursor"] = o.Cursor
+	}
 	if true {
 		toSerialize["offset"] = o.Offset
 	}
@@ -240,5 +276,3 @@ func (v *NullableContactPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

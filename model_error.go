@@ -30,6 +30,7 @@ type Error struct {
 	// Each API request has an associated request ID. It conveys the response header `YCloud-Request-ID` used for the convenience of the consumer.
 	RequestId *string `json:"requestId,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
+	MetaBusinessAgentApiError *MetaBusinessAgentApiError `json:"metaBusinessAgentApiError,omitempty"`
 }
 
 // NewError instantiates a new Error object
@@ -259,6 +260,38 @@ func (o *Error) SetWhatsappApiError(v WhatsappApiError) {
 	o.WhatsappApiError = &v
 }
 
+// GetMetaBusinessAgentApiError returns the MetaBusinessAgentApiError field value if set, zero value otherwise.
+func (o *Error) GetMetaBusinessAgentApiError() MetaBusinessAgentApiError {
+	if o == nil || o.MetaBusinessAgentApiError == nil {
+		var ret MetaBusinessAgentApiError
+		return ret
+	}
+	return *o.MetaBusinessAgentApiError
+}
+
+// GetMetaBusinessAgentApiErrorOk returns a tuple with the MetaBusinessAgentApiError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Error) GetMetaBusinessAgentApiErrorOk() (*MetaBusinessAgentApiError, bool) {
+	if o == nil || o.MetaBusinessAgentApiError == nil {
+		return nil, false
+	}
+	return o.MetaBusinessAgentApiError, true
+}
+
+// HasMetaBusinessAgentApiError returns a boolean if a field has been set.
+func (o *Error) HasMetaBusinessAgentApiError() bool {
+	if o != nil && o.MetaBusinessAgentApiError != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMetaBusinessAgentApiError gets a reference to the given MetaBusinessAgentApiError and assigns it to the MetaBusinessAgentApiError field.
+func (o *Error) SetMetaBusinessAgentApiError(v MetaBusinessAgentApiError) {
+	o.MetaBusinessAgentApiError = &v
+}
+
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -281,6 +314,9 @@ func (o Error) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError
+	}
+	if o.MetaBusinessAgentApiError != nil {
+		toSerialize["metaBusinessAgentApiError"] = o.MetaBusinessAgentApiError
 	}
 	return json.Marshal(toSerialize)
 }
@@ -320,5 +356,3 @@ func (v *NullableError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

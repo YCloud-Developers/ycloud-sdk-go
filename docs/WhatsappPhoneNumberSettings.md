@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Calling** | Pointer to [**WhatsappPhoneNumberSettingsCalling**](WhatsappPhoneNumberSettingsCalling.md) |  | [optional] 
+**Calling** | Pointer to [**WhatsappPhoneNumberSettingsCalling**](WhatsappPhoneNumberSettingsCalling.md) |  | [optional]
+**Capture** | Pointer to [**CallingCaptureSettings**](CallingCaptureSettings.md) |  | [optional]
 
 ## Methods
 
@@ -50,7 +51,30 @@ SetCalling sets Calling field to given value.
 
 HasCalling returns a boolean if a field has been set.
 
+### GetCapture
+
+`func (o *WhatsappPhoneNumberSettings) GetCapture() CallingCaptureSettings`
+
+GetCapture returns the Capture field if non-nil, zero value otherwise.
+
+### GetCaptureOk
+
+`func (o *WhatsappPhoneNumberSettings) GetCaptureOk() (*CallingCaptureSettings, bool)`
+
+GetCaptureOk returns a tuple with the Capture field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCapture
+
+`func (o *WhatsappPhoneNumberSettings) SetCapture(v CallingCaptureSettings)`
+
+SetCapture sets Capture field to given value.
+
+### HasCapture
+
+`func (o *WhatsappPhoneNumberSettings) HasCapture() bool`
+
+HasCapture returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

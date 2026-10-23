@@ -5,7 +5,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**MarkAsRead**](WhatsappInboundMessagesApi.md#MarkAsRead) | **Post** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read
-[**TypingIndicator**](WhatsappInboundMessagesApi.md#TypingIndicator) | **Post** /whatsapp/inboundMessages/{id}/typingIndicator | Mark message as read and display a typing indicator
+[**Typing**](WhatsappInboundMessagesApi.md#Typing) | **Post** /whatsapp/inboundMessages/{id}/typing | Mark message as read and display a typing indicator with a JSON response
 
 
 
@@ -48,7 +48,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. | 
+**id** | **string** | ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. |
 
 ### Other Parameters
 
@@ -77,11 +77,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TypingIndicator
+## Typing
 
-> TypingIndicator(ctx, id).Execute()
+> WhatsappInboundMessageTypingResponse Typing(ctx, id).Execute()
 
-Mark message as read and display a typing indicator
+Mark message as read and display a typing indicator with a JSON response
 
 
 
@@ -102,11 +102,13 @@ func main() {
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.WhatsappInboundMessagesApi.TypingIndicator(context.Background(), id).Execute()
+    resp, r, err := apiClient.WhatsappInboundMessagesApi.Typing(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappInboundMessagesApi.TypingIndicator``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappInboundMessagesApi.Typing``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `Typing`: WhatsappInboundMessageTypingResponse
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappInboundMessagesApi.Typing`: %v\n", resp)
 }
 ```
 
@@ -116,11 +118,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. | 
+**id** | **string** | ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. |
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTypingIndicatorRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTypingRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -129,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**WhatsappInboundMessageTypingResponse**](WhatsappInboundMessageTypingResponse.md)
 
 ### Authorization
 
@@ -143,4 +145,3 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
-

@@ -4,27 +4,32 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID for the event. | 
-**Type** | [**EventType**](EventType.md) |  | 
-**ApiVersion** | **string** | The API version used to render this event. | 
-**CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | 
-**EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional] 
-**Sms** | Pointer to [**Sms**](Sms.md) |  | [optional] 
-**SmsInbound** | Pointer to [**SmsInbound**](SmsInbound.md) |  | [optional] 
-**Voice** | Pointer to [**Voice**](Voice.md) |  | [optional] 
-**WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional] 
-**WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional] 
-**WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional] 
-**WhatsappGroup** | Pointer to [**WhatsappGroupWebhook**](WhatsappGroupWebhook.md) |  | [optional] 
-**WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional] 
-**WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional] 
-**WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional] 
-**ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional] 
-**ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional] 
-**ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional] 
-**ContactUnsubscribeCreated** | Pointer to [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  | [optional] 
-**ContactUnsubscribeDeleted** | Pointer to [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  | [optional] 
-**WhatsappUserPreference** | Pointer to [**WhatsappUserPreference**](WhatsappUserPreference.md) |  | [optional] 
+**Id** | **string** | Unique ID for the event. |
+**Type** | [**EventType**](EventType.md) |  |
+**ApiVersion** | **string** | The API version used to render this event. |
+**CreateTime** | **time.Time** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |
+**Phase** | Pointer to **int32** | Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Identifies the chunk&#39;s synchronization phase. | [optional]
+**Progress** | Pointer to **int32** | Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Reports the chunk&#39;s synchronization progress. | [optional]
+**EmailDelivery** | Pointer to [**EmailDelivery**](EmailDelivery.md) |  | [optional]
+**Sms** | Pointer to [**Sms**](Sms.md) |  | [optional]
+**SmsInbound** | Pointer to [**SmsInbound**](SmsInbound.md) |  | [optional]
+**Voice** | Pointer to [**Voice**](Voice.md) |  | [optional]
+**WhatsappBusinessAccount** | Pointer to [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  | [optional]
+**WhatsappInboundMessage** | Pointer to [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  | [optional]
+**WhatsappMessage** | Pointer to [**WhatsappMessage**](WhatsappMessage.md) |  | [optional]
+**WhatsappGroup** | Pointer to [**WhatsappGroupWebhook**](WhatsappGroupWebhook.md) |  | [optional]
+**WhatsappPhoneNumber** | Pointer to [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  | [optional]
+**WhatsappPayment** | Pointer to [**WhatsappPayment**](WhatsappPayment.md) |  | [optional]
+**WhatsappTemplate** | Pointer to [**WhatsappTemplate**](WhatsappTemplate.md) |  | [optional]
+**ContactAttributesChanged** | Pointer to [**ContactAttributesChanged**](ContactAttributesChanged.md) |  | [optional]
+**ContactCreated** | Pointer to [**ContactCreated**](ContactCreated.md) |  | [optional]
+**ContactDeleted** | Pointer to [**ContactDeleted**](ContactDeleted.md) |  | [optional]
+**ContactNote** | Pointer to [**ContactNoteWebhookPayload**](ContactNoteWebhookPayload.md) |  | [optional]
+**ContactUnsubscribeCreated** | Pointer to [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  | [optional]
+**ContactUnsubscribeDeleted** | Pointer to [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  | [optional]
+**WhatsappUserPreference** | Pointer to [**WhatsappUserPreference**](WhatsappUserPreference.md) |  | [optional]
+**CallingRecording** | Pointer to [**CallingMediaUpdated**](CallingMediaUpdated.md) |  | [optional]
+**CallingTranscription** | Pointer to [**CallingMediaUpdated**](CallingMediaUpdated.md) |  | [optional]
 
 ## Methods
 
@@ -124,6 +129,56 @@ and a boolean to check if the value has been set.
 
 SetCreateTime sets CreateTime field to given value.
 
+
+### GetPhase
+
+`func (o *Event) GetPhase() int32`
+
+GetPhase returns the Phase field if non-nil, zero value otherwise.
+
+### GetPhaseOk
+
+`func (o *Event) GetPhaseOk() (*int32, bool)`
+
+GetPhaseOk returns a tuple with the Phase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhase
+
+`func (o *Event) SetPhase(v int32)`
+
+SetPhase sets Phase field to given value.
+
+### HasPhase
+
+`func (o *Event) HasPhase() bool`
+
+HasPhase returns a boolean if a field has been set.
+
+### GetProgress
+
+`func (o *Event) GetProgress() int32`
+
+GetProgress returns the Progress field if non-nil, zero value otherwise.
+
+### GetProgressOk
+
+`func (o *Event) GetProgressOk() (*int32, bool)`
+
+GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProgress
+
+`func (o *Event) SetProgress(v int32)`
+
+SetProgress sets Progress field to given value.
+
+### HasProgress
+
+`func (o *Event) HasProgress() bool`
+
+HasProgress returns a boolean if a field has been set.
 
 ### GetEmailDelivery
 
@@ -475,6 +530,31 @@ SetContactDeleted sets ContactDeleted field to given value.
 
 HasContactDeleted returns a boolean if a field has been set.
 
+### GetContactNote
+
+`func (o *Event) GetContactNote() ContactNoteWebhookPayload`
+
+GetContactNote returns the ContactNote field if non-nil, zero value otherwise.
+
+### GetContactNoteOk
+
+`func (o *Event) GetContactNoteOk() (*ContactNoteWebhookPayload, bool)`
+
+GetContactNoteOk returns a tuple with the ContactNote field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactNote
+
+`func (o *Event) SetContactNote(v ContactNoteWebhookPayload)`
+
+SetContactNote sets ContactNote field to given value.
+
+### HasContactNote
+
+`func (o *Event) HasContactNote() bool`
+
+HasContactNote returns a boolean if a field has been set.
+
 ### GetContactUnsubscribeCreated
 
 `func (o *Event) GetContactUnsubscribeCreated() ContactUnsubscribeCreated`
@@ -550,7 +630,55 @@ SetWhatsappUserPreference sets WhatsappUserPreference field to given value.
 
 HasWhatsappUserPreference returns a boolean if a field has been set.
 
+### GetCallingRecording
+
+`func (o *Event) GetCallingRecording() CallingMediaUpdated`
+
+GetCallingRecording returns the CallingRecording field if non-nil, zero value otherwise.
+
+### GetCallingRecordingOk
+
+`func (o *Event) GetCallingRecordingOk() (*CallingMediaUpdated, bool)`
+
+GetCallingRecordingOk returns a tuple with the CallingRecording field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallingRecording
+
+`func (o *Event) SetCallingRecording(v CallingMediaUpdated)`
+
+SetCallingRecording sets CallingRecording field to given value.
+
+### HasCallingRecording
+
+`func (o *Event) HasCallingRecording() bool`
+
+HasCallingRecording returns a boolean if a field has been set.
+
+### GetCallingTranscription
+
+`func (o *Event) GetCallingTranscription() CallingMediaUpdated`
+
+GetCallingTranscription returns the CallingTranscription field if non-nil, zero value otherwise.
+
+### GetCallingTranscriptionOk
+
+`func (o *Event) GetCallingTranscriptionOk() (*CallingMediaUpdated, bool)`
+
+GetCallingTranscriptionOk returns a tuple with the CallingTranscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallingTranscription
+
+`func (o *Event) SetCallingTranscription(v CallingMediaUpdated)`
+
+SetCallingTranscription sets CallingTranscription field to given value.
+
+### HasCallingTranscription
+
+`func (o *Event) HasCallingTranscription() bool`
+
+HasCallingTranscription returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -4,21 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID for the object. | 
-**Nickname** | Pointer to **string** | Contact&#39;s nickname. | [optional] 
-**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
-**CountryName** | Pointer to **string** | Full country name. | [optional] 
-**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional] 
-**LastSeen** | Pointer to **time.Time** | The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**LastMessageToPhoneNumber** | Pointer to **string** | The business phone number that the contact last sent a message to. | [optional] 
-**Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional] 
-**CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional] 
-**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
-**SourceType** | Pointer to [**ContactSourceType**](ContactSourceType.md) |  | [optional] 
-**SourceId** | Pointer to **string** | Source identifier. A unique identifier related to the contact creation source. | [optional] 
-**SourceUrl** | Pointer to **string** | Source URL. The source link address where the contact was created. | [optional] 
+**Id** | **string** | Unique ID for the object. |
+**RemarkName** | Pointer to **string** | The business-managed remark name for the contact. | [optional]
+**Nickname** | Pointer to **string** | The read-only nickname obtained from WhatsApp. | [optional]
+**MetaUsername** | Pointer to **string** | The read-only Meta username associated with the contact, without the leading &#x60;@&#x60;. | [optional]
+**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional]
+**CountryName** | Pointer to **string** | Full country name. | [optional]
+**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional]
+**LastSeen** | Pointer to **time.Time** | The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**LastMessageToPhoneNumber** | Pointer to **string** | The business phone number that the contact last sent a message to. | [optional]
+**Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional]
+**CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**CustomAttributes** | Pointer to [**[]ContactCustomAttribute**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. | [optional]
+**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional]
+**SourceType** | Pointer to [**ContactSourceType**](ContactSourceType.md) |  | [optional]
+**SourceId** | Pointer to **string** | Source identifier. A unique identifier related to the contact creation source. | [optional]
+**SourceUrl** | Pointer to **string** | Source URL. The source link address where the contact was created. | [optional]
 
 ## Methods
 
@@ -59,6 +61,31 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetRemarkName
+
+`func (o *Contact) GetRemarkName() string`
+
+GetRemarkName returns the RemarkName field if non-nil, zero value otherwise.
+
+### GetRemarkNameOk
+
+`func (o *Contact) GetRemarkNameOk() (*string, bool)`
+
+GetRemarkNameOk returns a tuple with the RemarkName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemarkName
+
+`func (o *Contact) SetRemarkName(v string)`
+
+SetRemarkName sets RemarkName field to given value.
+
+### HasRemarkName
+
+`func (o *Contact) HasRemarkName() bool`
+
+HasRemarkName returns a boolean if a field has been set.
+
 ### GetNickname
 
 `func (o *Contact) GetNickname() string`
@@ -83,6 +110,31 @@ SetNickname sets Nickname field to given value.
 `func (o *Contact) HasNickname() bool`
 
 HasNickname returns a boolean if a field has been set.
+
+### GetMetaUsername
+
+`func (o *Contact) GetMetaUsername() string`
+
+GetMetaUsername returns the MetaUsername field if non-nil, zero value otherwise.
+
+### GetMetaUsernameOk
+
+`func (o *Contact) GetMetaUsernameOk() (*string, bool)`
+
+GetMetaUsernameOk returns a tuple with the MetaUsername field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetaUsername
+
+`func (o *Contact) SetMetaUsername(v string)`
+
+SetMetaUsername sets MetaUsername field to given value.
+
+### HasMetaUsername
+
+`func (o *Contact) HasMetaUsername() bool`
+
+HasMetaUsername returns a boolean if a field has been set.
 
 ### GetCountryCode
 
@@ -411,5 +463,3 @@ HasSourceUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

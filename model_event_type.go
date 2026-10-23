@@ -35,7 +35,7 @@ const (
 	EVENTTYPE_WHATSAPP_GROUP_SETTINGS_UPDATE EventType = "whatsapp.group.settings_update"
 	EVENTTYPE_WHATSAPP_GROUP_STATUS_UPDATE EventType = "whatsapp.group.status_update"
 	EVENTTYPE_WHATSAPP_SMB_HISTORY EventType = "whatsapp.smb.history"
-	EVENTTYPE_WHATSAPP_SMB_MESSAGE_CREATED EventType = "whatsapp.smb.message.created"
+	EVENTTYPE_WHATSAPP_SMB_MESSAGE_ECHOES EventType = "whatsapp.smb.message.echoes"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_DELETED EventType = "whatsapp.phone_number.deleted"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_NAME_UPDATED EventType = "whatsapp.phone_number.name_updated"
 	EVENTTYPE_WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED EventType = "whatsapp.phone_number.quality_updated"
@@ -46,11 +46,16 @@ const (
 	EVENTTYPE_WHATSAPP_CALL_CONNECT EventType = "whatsapp.call.connect"
 	EVENTTYPE_WHATSAPP_CALL_TERMINATE EventType = "whatsapp.call.terminate"
 	EVENTTYPE_WHATSAPP_CALL_STATUS_UPDATED EventType = "whatsapp.call.status.updated"
+	EVENTTYPE_WHATSAPP_CALL_RECORDING_UPDATED EventType = "whatsapp.call.recording.updated"
+	EVENTTYPE_WHATSAPP_CALL_TRANSCRIPTION_UPDATED EventType = "whatsapp.call.transcription.updated"
 	EVENTTYPE_WHATSAPP_FLOW_STATUS_CHANGE EventType = "whatsapp.flow.status_change"
 	EVENTTYPE_WHATSAPP_PAYMENT_UPDATED EventType = "whatsapp.payment.updated"
 	EVENTTYPE_CONTACT_ATTRIBUTES_CHANGED EventType = "contact.attributes_changed"
 	EVENTTYPE_CONTACT_CREATED EventType = "contact.created"
 	EVENTTYPE_CONTACT_DELETED EventType = "contact.deleted"
+	EVENTTYPE_CONTACT_NOTE_CREATED EventType = "contact.note.created"
+	EVENTTYPE_CONTACT_NOTE_UPDATED EventType = "contact.note.updated"
+	EVENTTYPE_CONTACT_NOTE_DELETED EventType = "contact.note.deleted"
 	EVENTTYPE_CONTACT_UNSUBSCRIBE_CREATED EventType = "contact.unsubscribe.created"
 	EVENTTYPE_CONTACT_UNSUBSCRIBE_DELETED EventType = "contact.unsubscribe.deleted"
 	EVENTTYPE_WHATSAPP_USER_PREFERENCES EventType = "whatsapp.user.preferences"
@@ -72,7 +77,7 @@ var AllowedEventTypeEnumValues = []EventType{
 	"whatsapp.group.settings_update",
 	"whatsapp.group.status_update",
 	"whatsapp.smb.history",
-	"whatsapp.smb.message.created",
+	"whatsapp.smb.message.echoes",
 	"whatsapp.phone_number.deleted",
 	"whatsapp.phone_number.name_updated",
 	"whatsapp.phone_number.quality_updated",
@@ -83,11 +88,16 @@ var AllowedEventTypeEnumValues = []EventType{
 	"whatsapp.call.connect",
 	"whatsapp.call.terminate",
 	"whatsapp.call.status.updated",
+	"whatsapp.call.recording.updated",
+	"whatsapp.call.transcription.updated",
 	"whatsapp.flow.status_change",
 	"whatsapp.payment.updated",
 	"contact.attributes_changed",
 	"contact.created",
 	"contact.deleted",
+	"contact.note.created",
+	"contact.note.updated",
+	"contact.note.deleted",
 	"contact.unsubscribe.created",
 	"contact.unsubscribe.deleted",
 	"whatsapp.user.preferences",
@@ -165,4 +175,3 @@ func (v *NullableEventType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

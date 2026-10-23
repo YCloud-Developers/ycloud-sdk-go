@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**List**](WhatsappBusinessAccountsApi.md#List) | **Get** /whatsapp/businessAccounts | List WABAs
 [**Retrieve**](WhatsappBusinessAccountsApi.md#Retrieve) | **Get** /whatsapp/businessAccounts/{id} | Retrieve a WABA
+[**RetrieveAutomaticCreativeOptimizations**](WhatsappBusinessAccountsApi.md#RetrieveAutomaticCreativeOptimizations) | **Get** /whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations | Retrieve WABA automatic creative optimizations
+[**UpdateAutomaticCreativeOptimizations**](WhatsappBusinessAccountsApi.md#UpdateAutomaticCreativeOptimizations) | **Patch** /whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations | Update WABA automatic creative optimizations
 
 
 
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterAccountReviewStatus** | **string** | WhatsApp Business Account review status. | 
+ **filterAccountReviewStatus** | **string** | WhatsApp Business Account review status. |
 
 ### Return type
 
@@ -122,7 +124,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WhatsApp Business Account ID. | 
+**id** | **string** | WhatsApp Business Account ID. |
 
 ### Other Parameters
 
@@ -150,3 +152,144 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
+
+## RetrieveAutomaticCreativeOptimizations
+
+> WhatsappAutomaticCreativeOptimizationRetrieveResponse RetrieveAutomaticCreativeOptimizations(ctx, wabaId).Execute()
+
+Retrieve WABA automatic creative optimizations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappBusinessAccountsApi.RetrieveAutomaticCreativeOptimizations(context.Background(), wabaId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappBusinessAccountsApi.RetrieveAutomaticCreativeOptimizations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RetrieveAutomaticCreativeOptimizations`: WhatsappAutomaticCreativeOptimizationRetrieveResponse
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappBusinessAccountsApi.RetrieveAutomaticCreativeOptimizations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRetrieveAutomaticCreativeOptimizationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**WhatsappAutomaticCreativeOptimizationRetrieveResponse**](WhatsappAutomaticCreativeOptimizationRetrieveResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateAutomaticCreativeOptimizations
+
+> WhatsappAutomaticCreativeOptimizationUpdateResponse UpdateAutomaticCreativeOptimizations(ctx, wabaId).WhatsappAutomaticCreativeOptimizationUpdateRequest(whatsappAutomaticCreativeOptimizationUpdateRequest).Execute()
+
+Update WABA automatic creative optimizations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    whatsappAutomaticCreativeOptimizationUpdateRequest := *ycloud.NewWhatsappAutomaticCreativeOptimizationUpdateRequest(*ycloud.NewWhatsappAutomaticCreativeOptimizationUpdateRequestCreativeOptimizationFeatures()) // WhatsappAutomaticCreativeOptimizationUpdateRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappBusinessAccountsApi.UpdateAutomaticCreativeOptimizations(context.Background(), wabaId).WhatsappAutomaticCreativeOptimizationUpdateRequest(whatsappAutomaticCreativeOptimizationUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappBusinessAccountsApi.UpdateAutomaticCreativeOptimizations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateAutomaticCreativeOptimizations`: WhatsappAutomaticCreativeOptimizationUpdateResponse
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappBusinessAccountsApi.UpdateAutomaticCreativeOptimizations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateAutomaticCreativeOptimizationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **whatsappAutomaticCreativeOptimizationUpdateRequest** | [**WhatsappAutomaticCreativeOptimizationUpdateRequest**](WhatsappAutomaticCreativeOptimizationUpdateRequest.md) |  |
+
+### Return type
+
+[**WhatsappAutomaticCreativeOptimizationUpdateResponse**](WhatsappAutomaticCreativeOptimizationUpdateResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
