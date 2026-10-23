@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// WhatsappCallingConnectRequest Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
+// WhatsappCallingConnectRequest Provide at least one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
 type WhatsappCallingConnectRequest struct {
 	// The caller's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 	From string `json:"from"`
@@ -240,5 +240,3 @@ func (v *NullableWhatsappCallingConnectRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

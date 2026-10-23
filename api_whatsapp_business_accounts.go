@@ -302,3 +302,290 @@ func (a *WhatsappBusinessAccountsApiService) RetrieveExecute(r WhatsappBusinessA
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
+type WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest struct {
+	ctx context.Context
+	ApiService *WhatsappBusinessAccountsApiService
+	wabaId string
+}
+
+func (r WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest) Execute() (*WhatsappAutomaticCreativeOptimizationRetrieveResponse, *http.Response, error) {
+	return r.ApiService.RetrieveAutomaticCreativeOptimizationsExecute(r)
+}
+
+/*
+RetrieveAutomaticCreativeOptimizations Retrieve WABA automatic creative optimizations
+
+Retrieves current automatic creative optimization feature enrollment for a WhatsApp Business Account from Meta.
+
+This endpoint does not persist feature enrollment locally. If Meta returns `degrees_of_freedom_spec.data[0].creative_features_spec[0]` as an object, its string fields are returned as `creativeOptimizationFeatures` without feature-key filtering, status-value validation, or case normalization. If Meta returns success without a valid `creative_features_spec[0]` object, `creativeOptimizationFeatures` is returned as an empty object.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @return WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest
+*/
+func (a *WhatsappBusinessAccountsApiService) RetrieveAutomaticCreativeOptimizations(ctx context.Context, wabaId string) WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest {
+	return WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest{
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
+	}
+}
+
+// Execute executes the request
+//  @return WhatsappAutomaticCreativeOptimizationRetrieveResponse
+func (a *WhatsappBusinessAccountsApiService) RetrieveAutomaticCreativeOptimizationsExecute(r WhatsappBusinessAccountsApiRetrieveAutomaticCreativeOptimizationsRequest) (*WhatsappAutomaticCreativeOptimizationRetrieveResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappAutomaticCreativeOptimizationRetrieveResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappBusinessAccountsApiService.RetrieveAutomaticCreativeOptimizations")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest struct {
+	ctx context.Context
+	ApiService *WhatsappBusinessAccountsApiService
+	wabaId string
+	whatsappAutomaticCreativeOptimizationUpdateRequest *WhatsappAutomaticCreativeOptimizationUpdateRequest
+}
+
+func (r WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest) WhatsappAutomaticCreativeOptimizationUpdateRequest(whatsappAutomaticCreativeOptimizationUpdateRequest WhatsappAutomaticCreativeOptimizationUpdateRequest) WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest {
+	r.whatsappAutomaticCreativeOptimizationUpdateRequest = &whatsappAutomaticCreativeOptimizationUpdateRequest
+	return r
+}
+
+func (r WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest) Execute() (*WhatsappAutomaticCreativeOptimizationUpdateResponse, *http.Response, error) {
+	return r.ApiService.UpdateAutomaticCreativeOptimizationsExecute(r)
+}
+
+/*
+UpdateAutomaticCreativeOptimizations Update WABA automatic creative optimizations
+
+Partially updates automatic creative optimization feature enrollment for a WhatsApp Business Account.
+
+Only submitted feature keys are updated. This endpoint does not persist feature enrollment locally and does not check whether the WABA has completed Meta MM Lite / ACO onboarding before forwarding the request to Meta.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param wabaId WhatsApp Business Account ID.
+ @return WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest
+*/
+func (a *WhatsappBusinessAccountsApiService) UpdateAutomaticCreativeOptimizations(ctx context.Context, wabaId string) WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest {
+	return WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest{
+		ApiService: a,
+		ctx: ctx,
+		wabaId: wabaId,
+	}
+}
+
+// Execute executes the request
+//  @return WhatsappAutomaticCreativeOptimizationUpdateResponse
+func (a *WhatsappBusinessAccountsApiService) UpdateAutomaticCreativeOptimizationsExecute(r WhatsappBusinessAccountsApiUpdateAutomaticCreativeOptimizationsRequest) (*WhatsappAutomaticCreativeOptimizationUpdateResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhatsappAutomaticCreativeOptimizationUpdateResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WhatsappBusinessAccountsApiService.UpdateAutomaticCreativeOptimizations")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations"
+	localVarPath = strings.Replace(localVarPath, "{"+"wabaId"+"}", url.PathEscape(parameterToString(r.wabaId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.whatsappAutomaticCreativeOptimizationUpdateRequest == nil {
+		return localVarReturnValue, nil, reportError("whatsappAutomaticCreativeOptimizationUpdateRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.whatsappAutomaticCreativeOptimizationUpdateRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **Category** | Pointer to **string** | **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages. | [optional]
 **TtlSeconds** | Pointer to **int32** | **Optional.** Message time-to-live in seconds for Direct Send &#x60;utility&#x60; or &#x60;authentication&#x60; messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used. | [optional]
 **UseDirectSend** | Pointer to **bool** | **Optional.** Whether to send the message through Direct Send. Defaults to &#x60;false&#x60;.  Set this to &#x60;true&#x60; to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages | [optional] [default to false]
+**TemplateName** | Pointer to **string** | **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60; or asynchronous &#x60;POST /v2/whatsapp/messages&#x60;.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send. | [optional]
 **FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
 **FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
 
@@ -561,6 +562,31 @@ SetUseDirectSend sets UseDirectSend field to given value.
 `func (o *WhatsappMessageSendRequest) HasUseDirectSend() bool`
 
 HasUseDirectSend returns a boolean if a field has been set.
+
+### GetTemplateName
+
+`func (o *WhatsappMessageSendRequest) GetTemplateName() string`
+
+GetTemplateName returns the TemplateName field if non-nil, zero value otherwise.
+
+### GetTemplateNameOk
+
+`func (o *WhatsappMessageSendRequest) GetTemplateNameOk() (*string, bool)`
+
+GetTemplateNameOk returns a tuple with the TemplateName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateName
+
+`func (o *WhatsappMessageSendRequest) SetTemplateName(v string)`
+
+SetTemplateName sets TemplateName field to given value.
+
+### HasTemplateName
+
+`func (o *WhatsappMessageSendRequest) HasTemplateName() bool`
+
+HasTemplateName returns a boolean if a field has been set.
 
 ### GetFilterUnsubscribed
 

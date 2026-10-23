@@ -689,7 +689,7 @@ func (r CustomEventsApiSendEventRequest) Execute() (*http.Response, error) {
 /*
 SendEvent Send an event
 
-Sends an event.
+Sends an occurrence of a previously defined custom event. For contact events, identify the contact using one of a contact ID, phone number, or Meta username.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return CustomEventsApiSendEventRequest

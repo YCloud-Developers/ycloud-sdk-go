@@ -34,6 +34,8 @@ type WhatsappTemplate struct {
 	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
 	// Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.
 	Components []WhatsappTemplateComponent `json:"components,omitempty"`
+	// Whether Meta CTA URL click tracking is disabled. Historical `null` values are returned as `true`.
+	CtaUrlLinkTrackingOptedOut *bool `json:"ctaUrlLinkTrackingOptedOut,omitempty"`
 	Status *WhatsappTemplateStatus `json:"status,omitempty"`
 	QualityRating *WhatsappTemplateQualityRating `json:"qualityRating,omitempty"`
 	// The reason why the template is rejected.
@@ -332,6 +334,38 @@ func (o *WhatsappTemplate) SetComponents(v []WhatsappTemplateComponent) {
 	o.Components = v
 }
 
+// GetCtaUrlLinkTrackingOptedOut returns the CtaUrlLinkTrackingOptedOut field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetCtaUrlLinkTrackingOptedOut() bool {
+	if o == nil || o.CtaUrlLinkTrackingOptedOut == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CtaUrlLinkTrackingOptedOut
+}
+
+// GetCtaUrlLinkTrackingOptedOutOk returns a tuple with the CtaUrlLinkTrackingOptedOut field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetCtaUrlLinkTrackingOptedOutOk() (*bool, bool) {
+	if o == nil || o.CtaUrlLinkTrackingOptedOut == nil {
+		return nil, false
+	}
+	return o.CtaUrlLinkTrackingOptedOut, true
+}
+
+// HasCtaUrlLinkTrackingOptedOut returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasCtaUrlLinkTrackingOptedOut() bool {
+	if o != nil && o.CtaUrlLinkTrackingOptedOut != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCtaUrlLinkTrackingOptedOut gets a reference to the given bool and assigns it to the CtaUrlLinkTrackingOptedOut field.
+func (o *WhatsappTemplate) SetCtaUrlLinkTrackingOptedOut(v bool) {
+	o.CtaUrlLinkTrackingOptedOut = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *WhatsappTemplate) GetStatus() WhatsappTemplateStatus {
 	if o == nil || o.Status == nil {
@@ -617,6 +651,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	if o.Components != nil {
 		toSerialize["components"] = o.Components
 	}
+	if o.CtaUrlLinkTrackingOptedOut != nil {
+		toSerialize["ctaUrlLinkTrackingOptedOut"] = o.CtaUrlLinkTrackingOptedOut
+	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
@@ -679,5 +716,3 @@ func (v *NullableWhatsappTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

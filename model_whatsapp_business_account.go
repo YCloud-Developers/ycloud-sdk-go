@@ -55,6 +55,10 @@ type WhatsappBusinessAccount struct {
 	ViolationType *string `json:"violationType,omitempty"`
 	// Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).
 	Restrictions []WhatsappBusinessAccountRestrictionInfo `json:"restrictions,omitempty"`
+	// Included in a `whatsapp.business_account.updated` webhook with `updateEvent=BUSINESS_CAPABILITY_UPDATE` when Meta reports the Business Portfolio phone-number registration limit.
+	MaxPhoneNumbersPerBusiness *int32 `json:"maxPhoneNumbersPerBusiness,omitempty"`
+	// Included in a `whatsapp.business_account.updated` webhook with `updateEvent=BUSINESS_CAPABILITY_UPDATE` when Meta reports the WABA phone-number registration limit.
+	MaxPhoneNumbersPerWaba *int32 `json:"maxPhoneNumbersPerWaba,omitempty"`
 	// Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code `ID`) - July 1, 2024 – India (country calling code +91, country code `IN`)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
 	AuthIntlRateEligibilityCountries []WhatsappAuthIntlRateEligibilityCountry `json:"authIntlRateEligibilityCountries,omitempty"`
 	// Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
@@ -758,6 +762,70 @@ func (o *WhatsappBusinessAccount) SetRestrictions(v []WhatsappBusinessAccountRes
 	o.Restrictions = v
 }
 
+// GetMaxPhoneNumbersPerBusiness returns the MaxPhoneNumbersPerBusiness field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerBusiness() int32 {
+	if o == nil || o.MaxPhoneNumbersPerBusiness == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MaxPhoneNumbersPerBusiness
+}
+
+// GetMaxPhoneNumbersPerBusinessOk returns a tuple with the MaxPhoneNumbersPerBusiness field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerBusinessOk() (*int32, bool) {
+	if o == nil || o.MaxPhoneNumbersPerBusiness == nil {
+		return nil, false
+	}
+	return o.MaxPhoneNumbersPerBusiness, true
+}
+
+// HasMaxPhoneNumbersPerBusiness returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasMaxPhoneNumbersPerBusiness() bool {
+	if o != nil && o.MaxPhoneNumbersPerBusiness != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxPhoneNumbersPerBusiness gets a reference to the given int32 and assigns it to the MaxPhoneNumbersPerBusiness field.
+func (o *WhatsappBusinessAccount) SetMaxPhoneNumbersPerBusiness(v int32) {
+	o.MaxPhoneNumbersPerBusiness = &v
+}
+
+// GetMaxPhoneNumbersPerWaba returns the MaxPhoneNumbersPerWaba field value if set, zero value otherwise.
+func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerWaba() int32 {
+	if o == nil || o.MaxPhoneNumbersPerWaba == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MaxPhoneNumbersPerWaba
+}
+
+// GetMaxPhoneNumbersPerWabaOk returns a tuple with the MaxPhoneNumbersPerWaba field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappBusinessAccount) GetMaxPhoneNumbersPerWabaOk() (*int32, bool) {
+	if o == nil || o.MaxPhoneNumbersPerWaba == nil {
+		return nil, false
+	}
+	return o.MaxPhoneNumbersPerWaba, true
+}
+
+// HasMaxPhoneNumbersPerWaba returns a boolean if a field has been set.
+func (o *WhatsappBusinessAccount) HasMaxPhoneNumbersPerWaba() bool {
+	if o != nil && o.MaxPhoneNumbersPerWaba != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxPhoneNumbersPerWaba gets a reference to the given int32 and assigns it to the MaxPhoneNumbersPerWaba field.
+func (o *WhatsappBusinessAccount) SetMaxPhoneNumbersPerWaba(v int32) {
+	o.MaxPhoneNumbersPerWaba = &v
+}
+
 // GetAuthIntlRateEligibilityCountries returns the AuthIntlRateEligibilityCountries field value if set, zero value otherwise.
 func (o *WhatsappBusinessAccount) GetAuthIntlRateEligibilityCountries() []WhatsappAuthIntlRateEligibilityCountry {
 	if o == nil || o.AuthIntlRateEligibilityCountries == nil {
@@ -1015,6 +1083,12 @@ func (o WhatsappBusinessAccount) MarshalJSON() ([]byte, error) {
 	if o.Restrictions != nil {
 		toSerialize["restrictions"] = o.Restrictions
 	}
+	if o.MaxPhoneNumbersPerBusiness != nil {
+		toSerialize["maxPhoneNumbersPerBusiness"] = o.MaxPhoneNumbersPerBusiness
+	}
+	if o.MaxPhoneNumbersPerWaba != nil {
+		toSerialize["maxPhoneNumbersPerWaba"] = o.MaxPhoneNumbersPerWaba
+	}
 	if o.AuthIntlRateEligibilityCountries != nil {
 		toSerialize["authIntlRateEligibilityCountries"] = o.AuthIntlRateEligibilityCountries
 	}
@@ -1071,5 +1145,3 @@ func (v *NullableWhatsappBusinessAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

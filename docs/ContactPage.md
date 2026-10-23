@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Contact**](Contact.md) | An array containing contact objects. | [optional] 
-**Offset** | **int32** | The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10. | 
-**Limit** | **int32** | A limit on the number of items to be returned, between 1 and 100, defaults to 10. | 
-**Length** | **int32** | The actual number of items in the page. | 
-**Total** | Pointer to **int32** | The total number of items. This field is returned only when the request parameter &#x60;includeTotal&#x60; is set to &#x60;true&#x60;. | [optional] 
+**Items** | Pointer to [**[]Contact**](Contact.md) | An array containing contact objects. | [optional]
+**Cursor** | Pointer to [**ContactPageCursor**](ContactPageCursor.md) |  | [optional]
+**Offset** | **int32** | The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10. |
+**Limit** | **int32** | A limit on the number of items to be returned, between 1 and 100, defaults to 10. |
+**Length** | **int32** | The actual number of items in the page. |
+**Total** | Pointer to **int32** | The total number of items. This field is returned only when the request parameter &#x60;includeTotal&#x60; is set to &#x60;true&#x60;. | [optional]
 
 ## Methods
 
@@ -53,6 +54,31 @@ SetItems sets Items field to given value.
 `func (o *ContactPage) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
+
+### GetCursor
+
+`func (o *ContactPage) GetCursor() ContactPageCursor`
+
+GetCursor returns the Cursor field if non-nil, zero value otherwise.
+
+### GetCursorOk
+
+`func (o *ContactPage) GetCursorOk() (*ContactPageCursor, bool)`
+
+GetCursorOk returns a tuple with the Cursor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCursor
+
+`func (o *ContactPage) SetCursor(v ContactPageCursor)`
+
+SetCursor sets Cursor field to given value.
+
+### HasCursor
+
+`func (o *ContactPage) HasCursor() bool`
+
+HasCursor returns a boolean if a field has been set.
 
 ### GetOffset
 
@@ -141,5 +167,3 @@ HasTotal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

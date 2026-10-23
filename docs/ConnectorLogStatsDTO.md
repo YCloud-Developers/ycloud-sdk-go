@@ -1,0 +1,80 @@
+# ConnectorLogStatsDTO
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Data** | Pointer to [**[]LogEntryDTO**](LogEntryDTO.md) |  | [optional]
+**Stats** | Pointer to [**StatsDTO**](StatsDTO.md) |  | [optional]
+
+## Methods
+
+### NewConnectorLogStatsDTO
+
+`func NewConnectorLogStatsDTO() *ConnectorLogStatsDTO`
+
+NewConnectorLogStatsDTO instantiates a new ConnectorLogStatsDTO object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewConnectorLogStatsDTOWithDefaults
+
+`func NewConnectorLogStatsDTOWithDefaults() *ConnectorLogStatsDTO`
+
+NewConnectorLogStatsDTOWithDefaults instantiates a new ConnectorLogStatsDTO object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetData
+
+`func (o *ConnectorLogStatsDTO) GetData() []LogEntryDTO`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *ConnectorLogStatsDTO) GetDataOk() (*[]LogEntryDTO, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *ConnectorLogStatsDTO) SetData(v []LogEntryDTO)`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *ConnectorLogStatsDTO) HasData() bool`
+
+HasData returns a boolean if a field has been set.
+
+### GetStats
+
+`func (o *ConnectorLogStatsDTO) GetStats() StatsDTO`
+
+GetStats returns the Stats field if non-nil, zero value otherwise.
+
+### GetStatsOk
+
+`func (o *ConnectorLogStatsDTO) GetStatsOk() (*StatsDTO, bool)`
+
+GetStatsOk returns a tuple with the Stats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStats
+
+`func (o *ConnectorLogStatsDTO) SetStats(v StatsDTO)`
+
+SetStats sets Stats field to given value.
+
+### HasStats
+
+`func (o *ConnectorLogStatsDTO) HasStats() bool`
+
+HasStats returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

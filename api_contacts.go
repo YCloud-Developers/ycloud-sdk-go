@@ -246,6 +246,15 @@ func (a *ContactsApiService) CreateExecute(r ContactsApiCreateRequest) (*Contact
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -277,7 +286,7 @@ Delete Delete a contact
 Deletes a contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
+ @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with `+` (for example, `+16315551111`), or a Meta username without the leading `@`. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID.
  @return ContactsApiDeleteRequest
 */
 func (a *ContactsApiService) Delete(ctx context.Context, id string) ContactsApiDeleteRequest {
@@ -396,6 +405,7 @@ type ContactsApiListRequest struct {
 	page *int32
 	limit *int32
 	includeTotal *bool
+	pageAfter *string
 	filterTags *string
 	filterCountryCode *string
 	filterPhoneNumber *string
@@ -417,6 +427,12 @@ func (r ContactsApiListRequest) Limit(limit int32) ContactsApiListRequest {
 // Return results inside an object that contains the total result count or not.
 func (r ContactsApiListRequest) IncludeTotal(includeTotal bool) ContactsApiListRequest {
 	r.includeTotal = &includeTotal
+	return r
+}
+
+// Contact ID cursor for forward pagination. Use &#x60;0&#x60; to start a new cursor traversal. For each subsequent page, pass the exact &#x60;cursor.after&#x60; value from the previous response. The value must be a non-negative decimal integer in the signed 64-bit range (&#x60;0&#x60; through &#x60;9223372036854775807&#x60;). It cannot be combined with &#x60;page&#x60;, &#x60;pageBefore&#x60;, &#x60;offset&#x60;, or &#x60;sort&#x60;.
+func (r ContactsApiListRequest) PageAfter(pageAfter string) ContactsApiListRequest {
+	r.pageAfter = &pageAfter
 	return r
 }
 
@@ -452,6 +468,10 @@ func (r ContactsApiListRequest) Execute() (*ContactPage, *http.Response, error) 
 List List contacts
 
 Returns a paginated list of contacts.
+
+Omit `pageAfter` to use the existing page-based pagination. To use forward cursor pagination, set `pageAfter=0` for the first page, then pass the exact `cursor.after` value returned by the previous response. Cursor results are ordered by contact ID in ascending order.
+
+Do not combine `pageAfter` with `page`, `pageBefore`, `offset`, or `sort`. Keep all filters unchanged while following a cursor. Concurrent contact inserts, deletions, or filter-field updates use weak consistency; restart a full traversal with `pageAfter=0` when a fresh snapshot is required.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ContactsApiListRequest
@@ -492,6 +512,9 @@ func (a *ContactsApiService) ListExecute(r ContactsApiListRequest) (*ContactPage
 	}
 	if r.includeTotal != nil {
 		localVarQueryParams.Add("includeTotal", parameterToString(*r.includeTotal, ""))
+	}
+	if r.pageAfter != nil {
+		localVarQueryParams.Add("pageAfter", parameterToString(*r.pageAfter, ""))
 	}
 	if r.filterTags != nil {
 		localVarQueryParams.Add("filter.tags", parameterToString(*r.filterTags, ""))
@@ -558,6 +581,15 @@ func (a *ContactsApiService) ListExecute(r ContactsApiListRequest) (*ContactPage
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -573,58 +605,211 @@ func (a *ContactsApiService) ListExecute(r ContactsApiListRequest) (*ContactPage
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContactsApiNotesListRequest struct {
+type ContactsApiNoteCreateRequest struct {
 	ctx context.Context
 	ApiService *ContactsApiService
-	id string
+	contactIdentifier string
+	contactNoteWriteRequest *ContactNoteWriteRequest
 }
 
-func (r ContactsApiNotesListRequest) Execute() ([]ContactNote, *http.Response, error) {
-	return r.ApiService.NotesListExecute(r)
+func (r ContactsApiNoteCreateRequest) ContactNoteWriteRequest(contactNoteWriteRequest ContactNoteWriteRequest) ContactsApiNoteCreateRequest {
+	r.contactNoteWriteRequest = &contactNoteWriteRequest
+	return r
+}
+
+func (r ContactsApiNoteCreateRequest) Execute() (*ContactNote, *http.Response, error) {
+	return r.ApiService.NoteCreateExecute(r)
 }
 
 /*
-NotesList List contact notes
+NoteCreate Create a contact note
 
-Returns all notes for a contact, ordered by creation time descending.
-The `{id}` path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as `+16315551111`. If a numeric contact ID is not found, the same value is retried as a phone number with a leading `+`, so `861...` can match a stored `+861...` phone number.
-Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+Creates one note for the contact and returns the created note.
+Leading and trailing whitespace is removed before storage. This operation does not use a client idempotency key; repeating the request creates another note with a different ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
- @return ContactsApiNotesListRequest
+ @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading `@`, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with `+`. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists.
+ @return ContactsApiNoteCreateRequest
 */
-func (a *ContactsApiService) NotesList(ctx context.Context, id string) ContactsApiNotesListRequest {
-	return ContactsApiNotesListRequest{
+func (a *ContactsApiService) NoteCreate(ctx context.Context, contactIdentifier string) ContactsApiNoteCreateRequest {
+	return ContactsApiNoteCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		id: id,
+		contactIdentifier: contactIdentifier,
 	}
 }
 
 // Execute executes the request
-//  @return []ContactNote
-func (a *ContactsApiService) NotesListExecute(r ContactsApiNotesListRequest) ([]ContactNote, *http.Response, error) {
+//  @return ContactNote
+func (a *ContactsApiService) NoteCreateExecute(r ContactsApiNoteCreateRequest) (*ContactNote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ContactNote
+		localVarReturnValue  *ContactNote
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.NotesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.NoteCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/contact/contacts/{id}/notes"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath := localBasePath + "/contact/contacts/{contactIdentifier}/notes"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactIdentifier"+"}", url.PathEscape(parameterToString(r.contactIdentifier, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if strlen(r.id) > 255 {
-		return localVarReturnValue, nil, reportError("id must have less than 255 elements")
+	if strlen(r.contactIdentifier) > 255 {
+		return localVarReturnValue, nil, reportError("contactIdentifier must have less than 255 elements")
+	}
+	if r.contactNoteWriteRequest == nil {
+		return localVarReturnValue, nil, reportError("contactNoteWriteRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.contactNoteWriteRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ContactsApiNoteDeleteRequest struct {
+	ctx context.Context
+	ApiService *ContactsApiService
+	noteId string
+}
+
+func (r ContactsApiNoteDeleteRequest) Execute() (*ContactNote, *http.Response, error) {
+	return r.ApiService.NoteDeleteExecute(r)
+}
+
+/*
+NoteDelete Delete a contact note
+
+Deletes one note in the current tenant by note ID and returns its snapshot before deletion.
+Deleting the same note again returns `404`; the operation does not use a client idempotency key.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param noteId The 24-character ObjectId of the contact note.
+ @return ContactsApiNoteDeleteRequest
+*/
+func (a *ContactsApiService) NoteDelete(ctx context.Context, noteId string) ContactsApiNoteDeleteRequest {
+	return ContactsApiNoteDeleteRequest{
+		ApiService: a,
+		ctx: ctx,
+		noteId: noteId,
+	}
+}
+
+// Execute executes the request
+//  @return ContactNote
+func (a *ContactsApiService) NoteDeleteExecute(r ContactsApiNoteDeleteRequest) (*ContactNote, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ContactNote
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.NoteDelete")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/contact/notes/{noteId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"noteId"+"}", url.PathEscape(parameterToString(r.noteId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if strlen(r.noteId) < 24 {
+		return localVarReturnValue, nil, reportError("noteId must have at least 24 elements")
+	}
+	if strlen(r.noteId) > 24 {
+		return localVarReturnValue, nil, reportError("noteId must have less than 24 elements")
 	}
 
 	// to determine the Content-Type header
@@ -680,6 +865,311 @@ func (a *ContactsApiService) NotesListExecute(r ContactsApiNotesListRequest) ([]
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ContactsApiNoteUpdateRequest struct {
+	ctx context.Context
+	ApiService *ContactsApiService
+	noteId string
+	contactNoteWriteRequest *ContactNoteWriteRequest
+}
+
+func (r ContactsApiNoteUpdateRequest) ContactNoteWriteRequest(contactNoteWriteRequest ContactNoteWriteRequest) ContactsApiNoteUpdateRequest {
+	r.contactNoteWriteRequest = &contactNoteWriteRequest
+	return r
+}
+
+func (r ContactsApiNoteUpdateRequest) Execute() (*ContactNote, *http.Response, error) {
+	return r.ApiService.NoteUpdateExecute(r)
+}
+
+/*
+NoteUpdate Update a contact note
+
+Updates one note in the current tenant by note ID and returns the updated note.
+Repeating the same request leaves the stored content unchanged, but an accepted update may still produce another `contact.note.updated` event.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param noteId The 24-character ObjectId of the contact note.
+ @return ContactsApiNoteUpdateRequest
+*/
+func (a *ContactsApiService) NoteUpdate(ctx context.Context, noteId string) ContactsApiNoteUpdateRequest {
+	return ContactsApiNoteUpdateRequest{
+		ApiService: a,
+		ctx: ctx,
+		noteId: noteId,
+	}
+}
+
+// Execute executes the request
+//  @return ContactNote
+func (a *ContactsApiService) NoteUpdateExecute(r ContactsApiNoteUpdateRequest) (*ContactNote, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ContactNote
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.NoteUpdate")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/contact/notes/{noteId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"noteId"+"}", url.PathEscape(parameterToString(r.noteId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if strlen(r.noteId) < 24 {
+		return localVarReturnValue, nil, reportError("noteId must have at least 24 elements")
+	}
+	if strlen(r.noteId) > 24 {
+		return localVarReturnValue, nil, reportError("noteId must have less than 24 elements")
+	}
+	if r.contactNoteWriteRequest == nil {
+		return localVarReturnValue, nil, reportError("contactNoteWriteRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.contactNoteWriteRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ContactsApiNotesListRequest struct {
+	ctx context.Context
+	ApiService *ContactsApiService
+	contactIdentifier string
+}
+
+func (r ContactsApiNotesListRequest) Execute() ([]ContactNote, *http.Response, error) {
+	return r.ApiService.NotesListExecute(r)
+}
+
+/*
+NotesList List contact notes
+
+Returns all notes for a contact, ordered by creation time descending.
+The `{contactIdentifier}` path parameter supports a contact ID, a phone number in E.164 format starting with `+`, or a Meta username without the leading `@`. Ambiguous numeric values are resolved as Meta usernames first and fall back to contact IDs only when no matching Meta username exists.
+Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading `@`, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with `+`. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists.
+ @return ContactsApiNotesListRequest
+*/
+func (a *ContactsApiService) NotesList(ctx context.Context, contactIdentifier string) ContactsApiNotesListRequest {
+	return ContactsApiNotesListRequest{
+		ApiService: a,
+		ctx: ctx,
+		contactIdentifier: contactIdentifier,
+	}
+}
+
+// Execute executes the request
+//  @return []ContactNote
+func (a *ContactsApiService) NotesListExecute(r ContactsApiNotesListRequest) ([]ContactNote, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ContactNote
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.NotesList")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/contact/contacts/{contactIdentifier}/notes"
+	localVarPath = strings.Replace(localVarPath, "{"+"contactIdentifier"+"}", url.PathEscape(parameterToString(r.contactIdentifier, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if strlen(r.contactIdentifier) > 255 {
+		return localVarReturnValue, nil, reportError("contactIdentifier must have less than 255 elements")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -720,7 +1210,7 @@ Retrieve Retrieve a contact
 Retrieves a contact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
+ @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with `+` (for example, `+16315551111`), or a Meta username without the leading `@`. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID.
  @return ContactsApiRetrieveRequest
 */
 func (a *ContactsApiService) Retrieve(ctx context.Context, id string) ContactsApiRetrieveRequest {
@@ -852,10 +1342,13 @@ func (r ContactsApiUpdateRequest) Execute() (*Contact, *http.Response, error) {
 /*
 Update Update a contact
 
-Updates a contact.
+Updates a contact. If every supplied persisted contact field already has
+the requested value, the contact is not updated and no
+`contact.attributes_changed` event is emitted. Note mutations in the
+same request are still applied.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
+ @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with `+` (for example, `+16315551111`), or a Meta username without the leading `@`. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID.
  @return ContactsApiUpdateRequest
 */
 func (a *ContactsApiService) Update(ctx context.Context, id string) ContactsApiUpdateRequest {
@@ -945,6 +1438,16 @@ func (a *ContactsApiService) UpdateExecute(r ContactsApiUpdateRequest) (*Contact
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse

@@ -4,29 +4,31 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Phone number ID. | [optional] 
-**PhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional] 
-**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional] 
-**BusinessUsername** | Pointer to **string** | Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;. | [optional] 
-**BusinessUsernameStatus** | Pointer to [**WhatsappBusinessUsernameStatus**](WhatsappBusinessUsernameStatus.md) |  | [optional] 
-**RequestedBusinessUsername** | Pointer to **string** | Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending. | [optional] 
-**BusinessUsernameUpdatedAt** | Pointer to **time.Time** | The time when the Business Username state was last updated. | [optional] 
-**QualityRating** | Pointer to [**WhatsappPhoneNumberQualityRating**](WhatsappPhoneNumberQualityRating.md) |  | [optional] 
-**MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional] 
-**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional] 
-**VerifiedName** | Pointer to **string** | Verified name. | [optional] 
-**NewName** | Pointer to **string** | The modified name | [optional] 
-**CodeVerificationStatus** | Pointer to [**WhatsappPhoneNumberCodeVerificationStatus**](WhatsappPhoneNumberCodeVerificationStatus.md) |  | [optional] 
-**IsOfficialBusinessAccount** | Pointer to **bool** | Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information. | [optional] 
-**Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional] 
-**NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
-**NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional] 
-**Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional] 
-**RequestedVerifiedName** | Pointer to **string** | Last requested verified name. | [optional] 
-**RejectionReason** | Pointer to **string** | Rejection reason. | [optional] 
-**QualityUpdateEvent** | Pointer to [**WhatsappPhoneNumberQualityUpdateEventEnum**](WhatsappPhoneNumberQualityUpdateEventEnum.md) |  | [optional] 
-**UpdateEvent** | Pointer to **string** | Account update event that triggered this phone number status change. | [optional] 
+**Id** | Pointer to **string** | Phone number ID. | [optional]
+**PhoneNumber** | Pointer to **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional]
+**WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional]
+**BusinessUsername** | Pointer to **string** | Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;. | [optional]
+**BusinessUsernameStatus** | Pointer to [**WhatsappBusinessUsernameStatus**](WhatsappBusinessUsernameStatus.md) |  | [optional]
+**RequestedBusinessUsername** | Pointer to **string** | Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending. | [optional]
+**BusinessUsernameUpdatedAt** | Pointer to **time.Time** | The time when the Business Username state was last updated. | [optional]
+**QualityRating** | Pointer to [**WhatsappPhoneNumberQualityRating**](WhatsappPhoneNumberQualityRating.md) |  | [optional]
+**MessagingLimit** | Pointer to **string** | Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period. | [optional]
+**WhatsappBusinessManagerMessagingLimit** | Pointer to **string** | The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations. | [optional]
+**VerifiedName** | Pointer to **string** | Verified name. | [optional]
+**YcloudName** | Pointer to **string** | Optional remark name assigned to this phone number in YCloud. It is populated by the phone-number list, retrieve, and profile GET APIs, and omitted when no remark name is set. | [optional] [readonly]
+**NewName** | Pointer to **string** | The modified name | [optional]
+**CodeVerificationStatus** | Pointer to [**WhatsappPhoneNumberCodeVerificationStatus**](WhatsappPhoneNumberCodeVerificationStatus.md) |  | [optional]
+**IsOfficialBusinessAccount** | Pointer to **bool** | Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information. | [optional]
+**Status** | Pointer to [**WhatsappPhoneNumberStatus**](WhatsappPhoneNumberStatus.md) |  | [optional]
+**NameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional]
+**NewNameStatus** | Pointer to [**WhatsappPhoneNumberNameStatus**](WhatsappPhoneNumberNameStatus.md) |  | [optional]
+**Decision** | Pointer to [**WhatsappReviewDecision**](WhatsappReviewDecision.md) |  | [optional]
+**RequestedVerifiedName** | Pointer to **string** | Last requested verified name. | [optional]
+**RejectionReason** | Pointer to **string** | Rejection reason. | [optional]
+**QualityUpdateEvent** | Pointer to [**WhatsappPhoneNumberQualityUpdateEventEnum**](WhatsappPhoneNumberQualityUpdateEventEnum.md) |  | [optional]
+**UpdateEvent** | Pointer to **string** | Account update event that triggered this phone number status change. | [optional]
+**ThroughputLevel** | Pointer to **string** | Current Meta throughput level of the WhatsApp phone number. - &#x60;STANDARD&#x60;: Default Cloud API throughput level, currently up to 80 messages per second. - &#x60;HIGH&#x60;: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta&#39;s current Cloud API throughput rules. - &#x60;NOT_APPLICABLE&#x60;: Throughput level is not applicable to this phone number. | [optional]
 
 ## Methods
 
@@ -347,6 +349,31 @@ SetVerifiedName sets VerifiedName field to given value.
 
 HasVerifiedName returns a boolean if a field has been set.
 
+### GetYcloudName
+
+`func (o *WhatsappPhoneNumber) GetYcloudName() string`
+
+GetYcloudName returns the YcloudName field if non-nil, zero value otherwise.
+
+### GetYcloudNameOk
+
+`func (o *WhatsappPhoneNumber) GetYcloudNameOk() (*string, bool)`
+
+GetYcloudNameOk returns a tuple with the YcloudName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYcloudName
+
+`func (o *WhatsappPhoneNumber) SetYcloudName(v string)`
+
+SetYcloudName sets YcloudName field to given value.
+
+### HasYcloudName
+
+`func (o *WhatsappPhoneNumber) HasYcloudName() bool`
+
+HasYcloudName returns a boolean if a field has been set.
+
 ### GetNewName
 
 `func (o *WhatsappPhoneNumber) GetNewName() string`
@@ -622,7 +649,30 @@ SetUpdateEvent sets UpdateEvent field to given value.
 
 HasUpdateEvent returns a boolean if a field has been set.
 
+### GetThroughputLevel
+
+`func (o *WhatsappPhoneNumber) GetThroughputLevel() string`
+
+GetThroughputLevel returns the ThroughputLevel field if non-nil, zero value otherwise.
+
+### GetThroughputLevelOk
+
+`func (o *WhatsappPhoneNumber) GetThroughputLevelOk() (*string, bool)`
+
+GetThroughputLevelOk returns a tuple with the ThroughputLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThroughputLevel
+
+`func (o *WhatsappPhoneNumber) SetThroughputLevel(v string)`
+
+SetThroughputLevel sets ThroughputLevel field to given value.
+
+### HasThroughputLevel
+
+`func (o *WhatsappPhoneNumber) HasThroughputLevel() bool`
+
+HasThroughputLevel returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

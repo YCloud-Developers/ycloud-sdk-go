@@ -18,6 +18,7 @@ import (
 // WhatsappPhoneNumberSettings WhatsApp business phone number settings.
 type WhatsappPhoneNumberSettings struct {
 	Calling *WhatsappPhoneNumberSettingsCalling `json:"calling,omitempty"`
+	Capture *CallingCaptureSettings `json:"capture,omitempty"`
 }
 
 // NewWhatsappPhoneNumberSettings instantiates a new WhatsappPhoneNumberSettings object
@@ -69,10 +70,45 @@ func (o *WhatsappPhoneNumberSettings) SetCalling(v WhatsappPhoneNumberSettingsCa
 	o.Calling = &v
 }
 
+// GetCapture returns the Capture field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberSettings) GetCapture() CallingCaptureSettings {
+	if o == nil || o.Capture == nil {
+		var ret CallingCaptureSettings
+		return ret
+	}
+	return *o.Capture
+}
+
+// GetCaptureOk returns a tuple with the Capture field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberSettings) GetCaptureOk() (*CallingCaptureSettings, bool) {
+	if o == nil || o.Capture == nil {
+		return nil, false
+	}
+	return o.Capture, true
+}
+
+// HasCapture returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberSettings) HasCapture() bool {
+	if o != nil && o.Capture != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCapture gets a reference to the given CallingCaptureSettings and assigns it to the Capture field.
+func (o *WhatsappPhoneNumberSettings) SetCapture(v CallingCaptureSettings) {
+	o.Capture = &v
+}
+
 func (o WhatsappPhoneNumberSettings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Calling != nil {
 		toSerialize["calling"] = o.Calling
+	}
+	if o.Capture != nil {
+		toSerialize["capture"] = o.Capture
 	}
 	return json.Marshal(toSerialize)
 }
@@ -112,5 +148,3 @@ func (v *NullableWhatsappPhoneNumberSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

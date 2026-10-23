@@ -16,10 +16,12 @@ import (
 	"time"
 )
 
-// ContactAttributesChanged Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values.
+// ContactAttributesChanged Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values. This event is emitted only when at least one persisted contact field actually changes; note-only and contact no-op updates do not emit it.
 type ContactAttributesChanged struct {
 	// The ID of the contact whose attributes were changed.
 	Id string `json:"id"`
+	// The contact's phone number in E.164 format.
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// The time at which the contact attributes were updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	UpdateTime time.Time `json:"updateTime"`
 	// An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.
@@ -68,6 +70,38 @@ func (o *ContactAttributesChanged) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *ContactAttributesChanged) SetId(v string) {
 	o.Id = v
+}
+
+// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
+func (o *ContactAttributesChanged) GetPhoneNumber() string {
+	if o == nil || o.PhoneNumber == nil {
+		var ret string
+		return ret
+	}
+	return *o.PhoneNumber
+}
+
+// GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactAttributesChanged) GetPhoneNumberOk() (*string, bool) {
+	if o == nil || o.PhoneNumber == nil {
+		return nil, false
+	}
+	return o.PhoneNumber, true
+}
+
+// HasPhoneNumber returns a boolean if a field has been set.
+func (o *ContactAttributesChanged) HasPhoneNumber() bool {
+	if o != nil && o.PhoneNumber != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPhoneNumber gets a reference to the given string and assigns it to the PhoneNumber field.
+func (o *ContactAttributesChanged) SetPhoneNumber(v string) {
+	o.PhoneNumber = &v
 }
 
 // GetUpdateTime returns the UpdateTime field value
@@ -123,6 +157,9 @@ func (o ContactAttributesChanged) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
+	if o.PhoneNumber != nil {
+		toSerialize["phoneNumber"] = o.PhoneNumber
+	}
 	if true {
 		toSerialize["updateTime"] = o.UpdateTime
 	}
@@ -167,5 +204,3 @@ func (v *NullableContactAttributesChanged) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

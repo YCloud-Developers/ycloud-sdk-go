@@ -20,6 +20,8 @@ import (
 type ContactDeleted struct {
 	// Contact ID
 	Id string `json:"id"`
+	// The business-managed remark name from the deleted contact snapshot.
+	RemarkName *string `json:"remarkName,omitempty"`
 	// Contact's nickname.
 	NickName *string `json:"nickName,omitempty"`
 	// Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -68,6 +70,38 @@ func (o *ContactDeleted) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *ContactDeleted) SetId(v string) {
 	o.Id = v
+}
+
+// GetRemarkName returns the RemarkName field value if set, zero value otherwise.
+func (o *ContactDeleted) GetRemarkName() string {
+	if o == nil || o.RemarkName == nil {
+		var ret string
+		return ret
+	}
+	return *o.RemarkName
+}
+
+// GetRemarkNameOk returns a tuple with the RemarkName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContactDeleted) GetRemarkNameOk() (*string, bool) {
+	if o == nil || o.RemarkName == nil {
+		return nil, false
+	}
+	return o.RemarkName, true
+}
+
+// HasRemarkName returns a boolean if a field has been set.
+func (o *ContactDeleted) HasRemarkName() bool {
+	if o != nil && o.RemarkName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemarkName gets a reference to the given string and assigns it to the RemarkName field.
+func (o *ContactDeleted) SetRemarkName(v string) {
+	o.RemarkName = &v
 }
 
 // GetNickName returns the NickName field value if set, zero value otherwise.
@@ -171,6 +205,9 @@ func (o ContactDeleted) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
+	if o.RemarkName != nil {
+		toSerialize["remarkName"] = o.RemarkName
+	}
 	if o.NickName != nil {
 		toSerialize["nickName"] = o.NickName
 	}
@@ -218,5 +255,3 @@ func (v *NullableContactDeleted) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

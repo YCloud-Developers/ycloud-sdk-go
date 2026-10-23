@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The ID of the contact whose attributes were changed. | 
-**UpdateTime** | **time.Time** | The time at which the contact attributes were updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | 
-**ChangedAttributes** | [**map[string]ContactAttributeChange**](ContactAttributeChange.md) | An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions. | 
+**Id** | **string** | The ID of the contact whose attributes were changed. |
+**PhoneNumber** | Pointer to **string** | The contact&#39;s phone number in E.164 format. | [optional]
+**UpdateTime** | **time.Time** | The time at which the contact attributes were updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |
+**ChangedAttributes** | [**map[string]ContactAttributeChange**](ContactAttributeChange.md) | An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions. |
 
 ## Methods
 
@@ -46,6 +47,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetPhoneNumber
+
+`func (o *ContactAttributesChanged) GetPhoneNumber() string`
+
+GetPhoneNumber returns the PhoneNumber field if non-nil, zero value otherwise.
+
+### GetPhoneNumberOk
+
+`func (o *ContactAttributesChanged) GetPhoneNumberOk() (*string, bool)`
+
+GetPhoneNumberOk returns a tuple with the PhoneNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhoneNumber
+
+`func (o *ContactAttributesChanged) SetPhoneNumber(v string)`
+
+SetPhoneNumber sets PhoneNumber field to given value.
+
+### HasPhoneNumber
+
+`func (o *ContactAttributesChanged) HasPhoneNumber() bool`
+
+HasPhoneNumber returns a boolean if a field has been set.
 
 ### GetUpdateTime
 
@@ -89,5 +115,3 @@ SetChangedAttributes sets ChangedAttributes field to given value.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

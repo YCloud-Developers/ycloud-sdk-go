@@ -19,6 +19,8 @@ import (
 type WhatsappPhoneNumberProfile struct {
 	// The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons.
 	About *string `json:"about,omitempty"`
+	// Optional remark name assigned to this phone number in YCloud. It is populated by the profile GET API and omitted when no remark name is set.
+	YcloudName *string `json:"ycloudName,omitempty"`
 	// The verified name
 	VerifiedName *string `json:"verifiedName,omitempty"`
 	NameStatus *WhatsappPhoneNumberNameStatus `json:"nameStatus,omitempty"`
@@ -85,6 +87,38 @@ func (o *WhatsappPhoneNumberProfile) HasAbout() bool {
 // SetAbout gets a reference to the given string and assigns it to the About field.
 func (o *WhatsappPhoneNumberProfile) SetAbout(v string) {
 	o.About = &v
+}
+
+// GetYcloudName returns the YcloudName field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumberProfile) GetYcloudName() string {
+	if o == nil || o.YcloudName == nil {
+		var ret string
+		return ret
+	}
+	return *o.YcloudName
+}
+
+// GetYcloudNameOk returns a tuple with the YcloudName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumberProfile) GetYcloudNameOk() (*string, bool) {
+	if o == nil || o.YcloudName == nil {
+		return nil, false
+	}
+	return o.YcloudName, true
+}
+
+// HasYcloudName returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumberProfile) HasYcloudName() bool {
+	if o != nil && o.YcloudName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetYcloudName gets a reference to the given string and assigns it to the YcloudName field.
+func (o *WhatsappPhoneNumberProfile) SetYcloudName(v string) {
+	o.YcloudName = &v
 }
 
 // GetVerifiedName returns the VerifiedName field value if set, zero value otherwise.
@@ -412,6 +446,9 @@ func (o WhatsappPhoneNumberProfile) MarshalJSON() ([]byte, error) {
 	if o.About != nil {
 		toSerialize["about"] = o.About
 	}
+	if o.YcloudName != nil {
+		toSerialize["ycloudName"] = o.YcloudName
+	}
 	if o.VerifiedName != nil {
 		toSerialize["verifiedName"] = o.VerifiedName
 	}
@@ -480,5 +517,3 @@ func (v *NullableWhatsappPhoneNumberProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

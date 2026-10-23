@@ -4,24 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID for the object. | 
-**NickName** | Pointer to **string** | Contact&#39;s nickname. | [optional] 
-**RealName** | Pointer to **string** | Contact&#39;s real name. | [optional] 
-**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] 
-**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] 
-**CountryName** | Pointer to **string** | Full country name. | [optional] 
-**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional] 
-**SourceType** | Pointer to **string** | The source type where the contact was created. | [optional] 
-**SourceId** | Pointer to **string** | The source ID where the contact was created. | [optional] 
-**SourceUrl** | Pointer to **string** | The source URL where the contact was created. | [optional] 
-**LastSeen** | Pointer to **time.Time** | The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**LastConnectedNumber** | Pointer to **string** | The business phone number that the contact last connected to. | [optional] 
-**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional] 
-**Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional] 
-**CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**UpdateTime** | Pointer to **time.Time** | The time at which the contact was last updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional] 
-**Blocked** | Pointer to **bool** | Whether the contact is blocked. | [optional] 
-**CustomAttributes** | Pointer to **map[string]map[string]interface{}** | Contact&#39;s custom attributes as key-value pairs. | [optional] 
+**Id** | **string** | Unique ID for the object. |
+**RemarkName** | Pointer to **string** | The business-managed remark name for the contact. | [optional]
+**NickName** | Pointer to **string** | Contact&#39;s nickname. | [optional]
+**RealName** | Pointer to **string** | Contact&#39;s real name. | [optional]
+**PhoneNumber** | Pointer to **string** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional]
+**CountryCode** | Pointer to **string** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional]
+**CountryName** | Pointer to **string** | Full country name. | [optional]
+**Email** | Pointer to **string** | The contact&#39;s email address. If present, the email address must be unique. | [optional]
+**SourceType** | Pointer to **string** | The source type where the contact was created. | [optional]
+**SourceId** | Pointer to **string** | The source ID where the contact was created. | [optional]
+**SourceUrl** | Pointer to **string** | The source URL where the contact was created. | [optional]
+**LastSeen** | Pointer to **time.Time** | The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**LastConnectedNumber** | Pointer to **string** | The business phone number that the contact last connected to. | [optional]
+**OwnerEmail** | Pointer to **string** | The email address of the contact&#39;s owner. | [optional]
+**Tags** | Pointer to **[]string** | Contact&#39;s tags. | [optional]
+**CreateTime** | Pointer to **time.Time** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**UpdateTime** | Pointer to **time.Time** | The time at which the contact was last updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
+**Blocked** | Pointer to **bool** | Whether the contact is blocked. | [optional]
+**CustomAttributes** | Pointer to **map[string]map[string]interface{}** | Contact&#39;s custom attributes as key-value pairs. | [optional]
 
 ## Methods
 
@@ -61,6 +62,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetRemarkName
+
+`func (o *ContactCreated) GetRemarkName() string`
+
+GetRemarkName returns the RemarkName field if non-nil, zero value otherwise.
+
+### GetRemarkNameOk
+
+`func (o *ContactCreated) GetRemarkNameOk() (*string, bool)`
+
+GetRemarkNameOk returns a tuple with the RemarkName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemarkName
+
+`func (o *ContactCreated) SetRemarkName(v string)`
+
+SetRemarkName sets RemarkName field to given value.
+
+### HasRemarkName
+
+`func (o *ContactCreated) HasRemarkName() bool`
+
+HasRemarkName returns a boolean if a field has been set.
 
 ### GetNickName
 
@@ -489,5 +515,3 @@ HasCustomAttributes returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

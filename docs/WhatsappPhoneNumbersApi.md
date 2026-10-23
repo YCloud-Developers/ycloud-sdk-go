@@ -5,6 +5,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteBusinessUsername**](WhatsappPhoneNumbersApi.md#DeleteBusinessUsername) | **Delete** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username
+[**DeleteContactBookEntry**](WhatsappPhoneNumbersApi.md#DeleteContactBookEntry) | **Delete** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Delete a Meta contact book entry
 [**List**](WhatsappPhoneNumbersApi.md#List) | **Get** /whatsapp/phoneNumbers | List phone numbers
 [**Register**](WhatsappPhoneNumbersApi.md#Register) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
@@ -63,8 +64,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -79,6 +80,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappBusinessUsernameDeleteResult**](WhatsappBusinessUsernameDeleteResult.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteContactBookEntry
+
+> WhatsappContactBookEntryDeleteResult DeleteContactBookEntry(ctx, wabaId, phoneNumber, bsuid).Execute()
+
+Delete a Meta contact book entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading `+` as `%2B`.
+    bsuid := "US.11815799212886844830" // string | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.` are not supported.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.DeleteContactBookEntry(context.Background(), wabaId, phoneNumber, bsuid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.DeleteContactBookEntry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteContactBookEntry`: WhatsappContactBookEntryDeleteResult
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.DeleteContactBookEntry`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. |
+**bsuid** | **string** | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteContactBookEntryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**WhatsappContactBookEntryDeleteResult**](WhatsappContactBookEntryDeleteResult.md)
 
 ### Authorization
 
@@ -146,7 +223,7 @@ Name | Type | Description  | Notes
  **page** | **int32** | Page number of the results to be returned, 1-based. | [default to 1]
  **limit** | **int32** | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [default to 10]
  **includeTotal** | **bool** | Return results inside an object that contains the total result count or not. | [default to false]
- **filterWabaId** | **string** | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. | 
+ **filterWabaId** | **string** | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. |
 
 ### Return type
 
@@ -208,8 +285,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number ID. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number ID. |
 
 ### Other Parameters
 
@@ -281,8 +358,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -354,8 +431,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -427,8 +504,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -500,8 +577,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -573,8 +650,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -606,7 +683,7 @@ Name | Type | Description  | Notes
 
 ## RetrieveSettings
 
-> WhatsappPhoneNumberSettings RetrieveSettings(ctx, wabaId, phoneNumber).Execute()
+> WhatsappPhoneNumberSettings RetrieveSettings(ctx, wabaId, phoneNumber).Type_(type_).Execute()
 
 Retrieve phone number settings
 
@@ -627,10 +704,11 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     phoneNumber := "+6283138205170" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    type_ := "type__example" // string | Set to `capture` to retrieve only Calling recording and transcription capture settings. Omit it or set it to `calling` to retrieve the existing Calling settings response. (optional)
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveSettings(context.Background(), wabaId, phoneNumber).Execute()
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.RetrieveSettings(context.Background(), wabaId, phoneNumber).Type_(type_).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.RetrieveSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -646,8 +724,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -658,6 +736,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **type_** | **string** | Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. |
 
 ### Return type
 
@@ -720,8 +799,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -732,7 +811,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappPhoneNumberSettings** | [**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md) | Phone number settings to save. | 
+ **whatsappPhoneNumberSettings** | [**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md) | Phone number settings to save. |
 
 ### Return type
 
@@ -775,7 +854,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappBusinessUsernameUpdateRequest := *ycloud.NewWhatsappBusinessUsernameUpdateRequest("acme.support") // WhatsappBusinessUsernameUpdateRequest | 
+    whatsappBusinessUsernameUpdateRequest := *ycloud.NewWhatsappBusinessUsernameUpdateRequest("acme.support") // WhatsappBusinessUsernameUpdateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -795,8 +874,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -807,7 +886,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappBusinessUsernameUpdateRequest** | [**WhatsappBusinessUsernameUpdateRequest**](WhatsappBusinessUsernameUpdateRequest.md) |  | 
+ **whatsappBusinessUsernameUpdateRequest** | [**WhatsappBusinessUsernameUpdateRequest**](WhatsappBusinessUsernameUpdateRequest.md) |  |
 
 ### Return type
 
@@ -850,7 +929,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappCommerceSettingsUpdateRequest := *ycloud.NewWhatsappCommerceSettingsUpdateRequest() // WhatsappCommerceSettingsUpdateRequest | 
+    whatsappCommerceSettingsUpdateRequest := *ycloud.NewWhatsappCommerceSettingsUpdateRequest() // WhatsappCommerceSettingsUpdateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -870,8 +949,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -882,7 +961,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappCommerceSettingsUpdateRequest** | [**WhatsappCommerceSettingsUpdateRequest**](WhatsappCommerceSettingsUpdateRequest.md) |  | 
+ **whatsappCommerceSettingsUpdateRequest** | [**WhatsappCommerceSettingsUpdateRequest**](WhatsappCommerceSettingsUpdateRequest.md) |  |
 
 ### Return type
 
@@ -925,7 +1004,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappPhoneNameUpdateRequest := *ycloud.NewWhatsappPhoneNameUpdateRequest() // WhatsappPhoneNameUpdateRequest | 
+    whatsappPhoneNameUpdateRequest := *ycloud.NewWhatsappPhoneNameUpdateRequest() // WhatsappPhoneNameUpdateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -945,8 +1024,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -957,7 +1036,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappPhoneNameUpdateRequest** | [**WhatsappPhoneNameUpdateRequest**](WhatsappPhoneNameUpdateRequest.md) |  | 
+ **whatsappPhoneNameUpdateRequest** | [**WhatsappPhoneNameUpdateRequest**](WhatsappPhoneNameUpdateRequest.md) |  |
 
 ### Return type
 
@@ -1000,7 +1079,7 @@ import (
 func main() {
     wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
     phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    whatsappPhoneNumberProfileUpdateRequest := *ycloud.NewWhatsappPhoneNumberProfileUpdateRequest() // WhatsappPhoneNumberProfileUpdateRequest | 
+    whatsappPhoneNumberProfileUpdateRequest := *ycloud.NewWhatsappPhoneNumberProfileUpdateRequest() // WhatsappPhoneNumberProfileUpdateRequest |
 
     configuration := ycloud.NewConfiguration()
     apiClient := ycloud.NewAPIClient(configuration)
@@ -1020,8 +1099,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wabaId** | **string** | WhatsApp Business Account ID. | 
-**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | 
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
 
 ### Other Parameters
 
@@ -1032,7 +1111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **whatsappPhoneNumberProfileUpdateRequest** | [**WhatsappPhoneNumberProfileUpdateRequest**](WhatsappPhoneNumberProfileUpdateRequest.md) |  | 
+ **whatsappPhoneNumberProfileUpdateRequest** | [**WhatsappPhoneNumberProfileUpdateRequest**](WhatsappPhoneNumberProfileUpdateRequest.md) |  |
 
 ### Return type
 
@@ -1050,4 +1129,3 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
-

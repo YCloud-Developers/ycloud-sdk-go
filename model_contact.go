@@ -20,8 +20,12 @@ import (
 type Contact struct {
 	// Unique ID for the object.
 	Id string `json:"id"`
-	// Contact's nickname.
+	// The business-managed remark name for the contact.
+	RemarkName *string `json:"remarkName,omitempty"`
+	// The read-only nickname obtained from WhatsApp.
 	Nickname *string `json:"nickname,omitempty"`
+	// The read-only Meta username associated with the contact, without the leading `@`.
+	MetaUsername *string `json:"metaUsername,omitempty"`
 	// Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 	CountryCode *string `json:"countryCode,omitempty"`
 	// Full country name.
@@ -91,6 +95,38 @@ func (o *Contact) SetId(v string) {
 	o.Id = v
 }
 
+// GetRemarkName returns the RemarkName field value if set, zero value otherwise.
+func (o *Contact) GetRemarkName() string {
+	if o == nil || o.RemarkName == nil {
+		var ret string
+		return ret
+	}
+	return *o.RemarkName
+}
+
+// GetRemarkNameOk returns a tuple with the RemarkName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetRemarkNameOk() (*string, bool) {
+	if o == nil || o.RemarkName == nil {
+		return nil, false
+	}
+	return o.RemarkName, true
+}
+
+// HasRemarkName returns a boolean if a field has been set.
+func (o *Contact) HasRemarkName() bool {
+	if o != nil && o.RemarkName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRemarkName gets a reference to the given string and assigns it to the RemarkName field.
+func (o *Contact) SetRemarkName(v string) {
+	o.RemarkName = &v
+}
+
 // GetNickname returns the Nickname field value if set, zero value otherwise.
 func (o *Contact) GetNickname() string {
 	if o == nil || o.Nickname == nil {
@@ -121,6 +157,38 @@ func (o *Contact) HasNickname() bool {
 // SetNickname gets a reference to the given string and assigns it to the Nickname field.
 func (o *Contact) SetNickname(v string) {
 	o.Nickname = &v
+}
+
+// GetMetaUsername returns the MetaUsername field value if set, zero value otherwise.
+func (o *Contact) GetMetaUsername() string {
+	if o == nil || o.MetaUsername == nil {
+		var ret string
+		return ret
+	}
+	return *o.MetaUsername
+}
+
+// GetMetaUsernameOk returns a tuple with the MetaUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Contact) GetMetaUsernameOk() (*string, bool) {
+	if o == nil || o.MetaUsername == nil {
+		return nil, false
+	}
+	return o.MetaUsername, true
+}
+
+// HasMetaUsername returns a boolean if a field has been set.
+func (o *Contact) HasMetaUsername() bool {
+	if o != nil && o.MetaUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMetaUsername gets a reference to the given string and assigns it to the MetaUsername field.
+func (o *Contact) SetMetaUsername(v string) {
+	o.MetaUsername = &v
 }
 
 // GetCountryCode returns the CountryCode field value if set, zero value otherwise.
@@ -544,8 +612,14 @@ func (o Contact) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
+	if o.RemarkName != nil {
+		toSerialize["remarkName"] = o.RemarkName
+	}
 	if o.Nickname != nil {
 		toSerialize["nickname"] = o.Nickname
+	}
+	if o.MetaUsername != nil {
+		toSerialize["metaUsername"] = o.MetaUsername
 	}
 	if o.CountryCode != nil {
 		toSerialize["countryCode"] = o.CountryCode
@@ -624,5 +698,3 @@ func (v *NullableContact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

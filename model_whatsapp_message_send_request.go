@@ -46,6 +46,8 @@ type WhatsappMessageSendRequest struct {
 	TtlSeconds *int32 `json:"ttlSeconds,omitempty"`
 	// **Optional.** Whether to send the message through Direct Send. Defaults to `false`.  Set this to `true` to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages
 	UseDirectSend *bool `json:"useDirectSend,omitempty"`
+	// **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous `POST /v2/whatsapp/messages/sendDirectly` or asynchronous `POST /v2/whatsapp/messages`.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send.
+	TemplateName *string `json:"templateName,omitempty"`
 	// **Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.
 	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`
 	// **Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.
@@ -731,6 +733,38 @@ func (o *WhatsappMessageSendRequest) SetUseDirectSend(v bool) {
 	o.UseDirectSend = &v
 }
 
+// GetTemplateName returns the TemplateName field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetTemplateName() string {
+	if o == nil || o.TemplateName == nil {
+		var ret string
+		return ret
+	}
+	return *o.TemplateName
+}
+
+// GetTemplateNameOk returns a tuple with the TemplateName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetTemplateNameOk() (*string, bool) {
+	if o == nil || o.TemplateName == nil {
+		return nil, false
+	}
+	return o.TemplateName, true
+}
+
+// HasTemplateName returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasTemplateName() bool {
+	if o != nil && o.TemplateName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateName gets a reference to the given string and assigns it to the TemplateName field.
+func (o *WhatsappMessageSendRequest) SetTemplateName(v string) {
+	o.TemplateName = &v
+}
+
 // GetFilterUnsubscribed returns the FilterUnsubscribed field value if set, zero value otherwise.
 func (o *WhatsappMessageSendRequest) GetFilterUnsubscribed() bool {
 	if o == nil || o.FilterUnsubscribed == nil {
@@ -859,6 +893,9 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.UseDirectSend != nil {
 		toSerialize["useDirectSend"] = o.UseDirectSend
+	}
+	if o.TemplateName != nil {
+		toSerialize["templateName"] = o.TemplateName
 	}
 	if o.FilterUnsubscribed != nil {
 		toSerialize["filterUnsubscribed"] = o.FilterUnsubscribed

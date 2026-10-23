@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// WhatsappBusinessUsernameDeleteResult Business Username deletion result. Deleting the active username does not cancel a pending Business Username request. If a pending request still exists, the returned `businessUsernameStatus` is `pending_review`; otherwise it is `not_set`.
+// WhatsappBusinessUsernameDeleteResult Business Username deletion result. Deleting the active username does not cancel a reserved Business Username request. If a reserved request still exists, the returned `businessUsernameStatus` is `reserved`; otherwise it is `not_set`.
 type WhatsappBusinessUsernameDeleteResult struct {
 	// Whether the delete request was accepted.
 	Success *bool `json:"success,omitempty"`
@@ -298,5 +298,3 @@ func (v *NullableWhatsappBusinessUsernameDeleteResult) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
