@@ -48,6 +48,7 @@ type WhatsappTemplate struct {
 	// The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.
 	DisableDate *string `json:"disableDate,omitempty"`
 	WhatsappApiError *WhatsappApiError `json:"whatsappApiError,omitempty"`
+	BidSpec *WhatsappTemplateBidSpecResponse `json:"bidSpec,omitempty"`
 }
 
 // NewWhatsappTemplate instantiates a new WhatsappTemplate object
@@ -622,6 +623,38 @@ func (o *WhatsappTemplate) SetWhatsappApiError(v WhatsappApiError) {
 	o.WhatsappApiError = &v
 }
 
+// GetBidSpec returns the BidSpec field value if set, zero value otherwise.
+func (o *WhatsappTemplate) GetBidSpec() WhatsappTemplateBidSpecResponse {
+	if o == nil || o.BidSpec == nil {
+		var ret WhatsappTemplateBidSpecResponse
+		return ret
+	}
+	return *o.BidSpec
+}
+
+// GetBidSpecOk returns a tuple with the BidSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplate) GetBidSpecOk() (*WhatsappTemplateBidSpecResponse, bool) {
+	if o == nil || o.BidSpec == nil {
+		return nil, false
+	}
+	return o.BidSpec, true
+}
+
+// HasBidSpec returns a boolean if a field has been set.
+func (o *WhatsappTemplate) HasBidSpec() bool {
+	if o != nil && o.BidSpec != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBidSpec gets a reference to the given WhatsappTemplateBidSpecResponse and assigns it to the BidSpec field.
+func (o *WhatsappTemplate) SetBidSpec(v WhatsappTemplateBidSpecResponse) {
+	o.BidSpec = &v
+}
+
 func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.OfficialTemplateId != nil {
@@ -677,6 +710,9 @@ func (o WhatsappTemplate) MarshalJSON() ([]byte, error) {
 	}
 	if o.WhatsappApiError != nil {
 		toSerialize["whatsappApiError"] = o.WhatsappApiError
+	}
+	if o.BidSpec != nil {
+		toSerialize["bidSpec"] = o.BidSpec
 	}
 	return json.Marshal(toSerialize)
 }

@@ -6,19 +6,34 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BudgetReplace**](MetaBusinessAgentApi.md#BudgetReplace) | **Put** /metaBusinessAgents/{entityId}/budgets | Replace Meta Business Agent budgets
 [**BudgetRetrieve**](MetaBusinessAgentApi.md#BudgetRetrieve) | **Get** /metaBusinessAgents/{entityId}/budgets | Retrieve Meta Business Agent budgets
+[**BusinessAgentCreateAllowlistEntry**](MetaBusinessAgentApi.md#BusinessAgentCreateAllowlistEntry) | **Post** /metaBusinessAgents/{entityId}/allowListEntries | Create Allowlist Entry
 [**BusinessAgentCreateConnector**](MetaBusinessAgentApi.md#BusinessAgentCreateConnector) | **Post** /metaBusinessAgents/{entityId}/connectors | Create Connector
 [**BusinessAgentCreateConnectorTool**](MetaBusinessAgentApi.md#BusinessAgentCreateConnectorTool) | **Post** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools | Create Connector Tool
+[**BusinessAgentCreateFaq**](MetaBusinessAgentApi.md#BusinessAgentCreateFaq) | **Post** /metaBusinessAgents/{entityId}/faqs | Create Faq
+[**BusinessAgentCreateWebsite**](MetaBusinessAgentApi.md#BusinessAgentCreateWebsite) | **Post** /metaBusinessAgents/{entityId}/websites | Create Website
+[**BusinessAgentDeleteAllowlistEntry**](MetaBusinessAgentApi.md#BusinessAgentDeleteAllowlistEntry) | **Delete** /metaBusinessAgents/{entityId}/allowListEntries/{entryId} | Delete Allowlist Entry
 [**BusinessAgentDeleteConnector**](MetaBusinessAgentApi.md#BusinessAgentDeleteConnector) | **Delete** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Delete Connector
 [**BusinessAgentDeleteConnectorTool**](MetaBusinessAgentApi.md#BusinessAgentDeleteConnectorTool) | **Delete** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Delete Connector Tool
+[**BusinessAgentDeleteFaq**](MetaBusinessAgentApi.md#BusinessAgentDeleteFaq) | **Delete** /metaBusinessAgents/{entityId}/faqs/{faqId} | Delete Faq
+[**BusinessAgentDeleteWebsite**](MetaBusinessAgentApi.md#BusinessAgentDeleteWebsite) | **Delete** /metaBusinessAgents/{entityId}/websites/{websiteId} | Delete Website
+[**BusinessAgentGetAgentEventStatus**](MetaBusinessAgentApi.md#BusinessAgentGetAgentEventStatus) | **Get** /metaBusinessAgents/{entityId}/events/{agentEventId} | Get Agent Event Status
 [**BusinessAgentGetConnector**](MetaBusinessAgentApi.md#BusinessAgentGetConnector) | **Get** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Get Connector
 [**BusinessAgentGetConnectorTool**](MetaBusinessAgentApi.md#BusinessAgentGetConnectorTool) | **Get** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Get Connector Tool
+[**BusinessAgentGetFaq**](MetaBusinessAgentApi.md#BusinessAgentGetFaq) | **Get** /metaBusinessAgents/{entityId}/faqs/{faqId} | Get Faq
+[**BusinessAgentGetWebsite**](MetaBusinessAgentApi.md#BusinessAgentGetWebsite) | **Get** /metaBusinessAgents/{entityId}/websites/{websiteId} | Get Website
+[**BusinessAgentListAllowlist**](MetaBusinessAgentApi.md#BusinessAgentListAllowlist) | **Get** /metaBusinessAgents/{entityId}/allowListEntries | List Allowlist
 [**BusinessAgentListConnectorLogs**](MetaBusinessAgentApi.md#BusinessAgentListConnectorLogs) | **Get** /metaBusinessAgents/{entityId}/connectors/{connectorId}/logs | List Connector Logs
 [**BusinessAgentListConnectorTools**](MetaBusinessAgentApi.md#BusinessAgentListConnectorTools) | **Get** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools | List Connector Tools
 [**BusinessAgentListConnectors**](MetaBusinessAgentApi.md#BusinessAgentListConnectors) | **Get** /metaBusinessAgents/{entityId}/connectors | List Connectors
+[**BusinessAgentListFaqs**](MetaBusinessAgentApi.md#BusinessAgentListFaqs) | **Get** /metaBusinessAgents/{entityId}/faqs | List Faqs
+[**BusinessAgentListWebsites**](MetaBusinessAgentApi.md#BusinessAgentListWebsites) | **Get** /metaBusinessAgents/{entityId}/websites | List Websites
 [**BusinessAgentRefreshConnectorMcpTools**](MetaBusinessAgentApi.md#BusinessAgentRefreshConnectorMcpTools) | **Post** /metaBusinessAgents/{entityId}/connectors/{connectorId}/refreshMCPTools | Refresh MCP Connector Tools
 [**BusinessAgentRunConnectorTool**](MetaBusinessAgentApi.md#BusinessAgentRunConnectorTool) | **Post** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId}/runs | Run Connector Tool
+[**BusinessAgentSubmitAgentEvent**](MetaBusinessAgentApi.md#BusinessAgentSubmitAgentEvent) | **Post** /metaBusinessAgents/{entityId}/events | Submit Agent Event
 [**BusinessAgentUpdateConnector**](MetaBusinessAgentApi.md#BusinessAgentUpdateConnector) | **Patch** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Update Connector
 [**BusinessAgentUpdateConnectorTool**](MetaBusinessAgentApi.md#BusinessAgentUpdateConnectorTool) | **Patch** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Update Connector Tool
+[**BusinessAgentUpdateFaq**](MetaBusinessAgentApi.md#BusinessAgentUpdateFaq) | **Patch** /metaBusinessAgents/{entityId}/faqs/{faqId} | Update Faq
+[**BusinessAgentUpdateWebsite**](MetaBusinessAgentApi.md#BusinessAgentUpdateWebsite) | **Patch** /metaBusinessAgents/{entityId}/websites/{websiteId} | Update Website
 [**BusinessAgentUpsertConnectorApiKey**](MetaBusinessAgentApi.md#BusinessAgentUpsertConnectorApiKey) | **Put** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/apiKey | Upsert Connector Api Key
 [**BusinessAgentUpsertConnectorCertificate**](MetaBusinessAgentApi.md#BusinessAgentUpsertConnectorCertificate) | **Put** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/certificate | Upsert Connector Certificate
 [**BusinessAgentUpsertConnectorOAuth**](MetaBusinessAgentApi.md#BusinessAgentUpsertConnectorOAuth) | **Put** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/oauth | Upsert Connector O Auth
@@ -163,6 +178,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentCreateAllowlistEntry
+
+> AgentAllowlistEntryDTO BusinessAgentCreateAllowlistEntry(ctx, entityId).PublicCreateAllowlistEntryRequest(publicCreateAllowlistEntryRequest).Execute()
+
+Create Allowlist Entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "entityId_example" // string | WhatsApp Business Phone Number ID that owns the Meta Business Agent.
+    publicCreateAllowlistEntryRequest := ycloud.PublicCreateAllowlistEntryRequest{PublicCreateAllowlistEntryRequestOneOf: ycloud.NewPublicCreateAllowlistEntryRequestOneOf("ConsumerPhoneNumber_example")} // PublicCreateAllowlistEntryRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentCreateAllowlistEntry(context.Background(), entityId).PublicCreateAllowlistEntryRequest(publicCreateAllowlistEntryRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentCreateAllowlistEntry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentCreateAllowlistEntry`: AgentAllowlistEntryDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentCreateAllowlistEntry`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | WhatsApp Business Phone Number ID that owns the Meta Business Agent. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentCreateAllowlistEntryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **publicCreateAllowlistEntryRequest** | [**PublicCreateAllowlistEntryRequest**](PublicCreateAllowlistEntryRequest.md) |  |
+
+### Return type
+
+[**AgentAllowlistEntryDTO**](AgentAllowlistEntryDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -317,6 +404,221 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## BusinessAgentCreateFaq
+
+> FaqDTO BusinessAgentCreateFaq(ctx, entityId).PublicCreateFaqRequest(publicCreateFaqRequest).Execute()
+
+Create Faq
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    publicCreateFaqRequest := *ycloud.NewPublicCreateFaqRequest("Question_example", "Answer_example") // PublicCreateFaqRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentCreateFaq(context.Background(), entityId).PublicCreateFaqRequest(publicCreateFaqRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentCreateFaq``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentCreateFaq`: FaqDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentCreateFaq`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentCreateFaqRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **publicCreateFaqRequest** | [**PublicCreateFaqRequest**](PublicCreateFaqRequest.md) |  |
+
+### Return type
+
+[**FaqDTO**](FaqDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentCreateWebsite
+
+> WebsiteDTO BusinessAgentCreateWebsite(ctx, entityId).PublicCreateWebsiteRequest(publicCreateWebsiteRequest).Execute()
+
+Create Website
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    publicCreateWebsiteRequest := *ycloud.NewPublicCreateWebsiteRequest("Url_example") // PublicCreateWebsiteRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentCreateWebsite(context.Background(), entityId).PublicCreateWebsiteRequest(publicCreateWebsiteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentCreateWebsite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentCreateWebsite`: WebsiteDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentCreateWebsite`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentCreateWebsiteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **publicCreateWebsiteRequest** | [**PublicCreateWebsiteRequest**](PublicCreateWebsiteRequest.md) |  |
+
+### Return type
+
+[**WebsiteDTO**](WebsiteDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentDeleteAllowlistEntry
+
+> BusinessAgentDeleteAllowlistEntry(ctx, entityId, entryId).Execute()
+
+Delete Allowlist Entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "entityId_example" // string | WhatsApp Business Phone Number ID that owns the Meta Business Agent.
+    entryId := "entryId_example" // string | Allowlist entry ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentDeleteAllowlistEntry(context.Background(), entityId, entryId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentDeleteAllowlistEntry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | WhatsApp Business Phone Number ID that owns the Meta Business Agent. |
+**entryId** | **string** | Allowlist entry ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentDeleteAllowlistEntryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## BusinessAgentDeleteConnector
 
 > BusinessAgentDeleteConnector(ctx, entityId, connectorId).Execute()
@@ -447,6 +749,221 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentDeleteFaq
+
+> BusinessAgentDeleteFaq(ctx, entityId, faqId).Execute()
+
+Delete Faq
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    faqId := "faqId_example" // string | FAQ resource ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentDeleteFaq(context.Background(), entityId, faqId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentDeleteFaq``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**faqId** | **string** | FAQ resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentDeleteFaqRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentDeleteWebsite
+
+> BusinessAgentDeleteWebsite(ctx, entityId, websiteId).Execute()
+
+Delete Website
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    websiteId := "websiteId_example" // string | Website resource ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentDeleteWebsite(context.Background(), entityId, websiteId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentDeleteWebsite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**websiteId** | **string** | Website resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentDeleteWebsiteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentGetAgentEventStatus
+
+> AgentEventStatusDTO BusinessAgentGetAgentEventStatus(ctx, entityId, agentEventId).Execute()
+
+Get Agent Event Status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "entityId_example" // string | WhatsApp Business Phone Number ID that owns the Meta Business Agent.
+    agentEventId := "agentEventId_example" // string | Agent event ID returned when the event was submitted.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentGetAgentEventStatus(context.Background(), entityId, agentEventId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentGetAgentEventStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentGetAgentEventStatus`: AgentEventStatusDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentGetAgentEventStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | WhatsApp Business Phone Number ID that owns the Meta Business Agent. |
+**agentEventId** | **string** | Agent event ID returned when the event was submitted. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentGetAgentEventStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**AgentEventStatusDTO**](AgentEventStatusDTO.md)
 
 ### Authorization
 
@@ -596,6 +1113,222 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConnectorToolDTO**](ConnectorToolDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentGetFaq
+
+> FaqDTO BusinessAgentGetFaq(ctx, entityId, faqId).Execute()
+
+Get Faq
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    faqId := "faqId_example" // string | FAQ resource ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentGetFaq(context.Background(), entityId, faqId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentGetFaq``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentGetFaq`: FaqDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentGetFaq`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**faqId** | **string** | FAQ resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentGetFaqRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**FaqDTO**](FaqDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentGetWebsite
+
+> WebsiteDTO BusinessAgentGetWebsite(ctx, entityId, websiteId).Execute()
+
+Get Website
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    websiteId := "websiteId_example" // string | Website resource ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentGetWebsite(context.Background(), entityId, websiteId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentGetWebsite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentGetWebsite`: WebsiteDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentGetWebsite`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**websiteId** | **string** | Website resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentGetWebsiteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**WebsiteDTO**](WebsiteDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentListAllowlist
+
+> []AgentAllowlistEntryDTO BusinessAgentListAllowlist(ctx, entityId).Execute()
+
+List Allowlist
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "entityId_example" // string | WhatsApp Business Phone Number ID that owns the Meta Business Agent.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentListAllowlist(context.Background(), entityId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentListAllowlist``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentListAllowlist`: []AgentAllowlistEntryDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentListAllowlist`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | WhatsApp Business Phone Number ID that owns the Meta Business Agent. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentListAllowlistRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]AgentAllowlistEntryDTO**](AgentAllowlistEntryDTO.md)
 
 ### Authorization
 
@@ -841,6 +1574,146 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## BusinessAgentListFaqs
+
+> []FaqDTO BusinessAgentListFaqs(ctx, entityId).Execute()
+
+List Faqs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentListFaqs(context.Background(), entityId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentListFaqs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentListFaqs`: []FaqDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentListFaqs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentListFaqsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]FaqDTO**](FaqDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentListWebsites
+
+> []WebsiteDTO BusinessAgentListWebsites(ctx, entityId).Execute()
+
+List Websites
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentListWebsites(context.Background(), entityId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentListWebsites``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentListWebsites`: []WebsiteDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentListWebsites`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentListWebsitesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]WebsiteDTO**](WebsiteDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## BusinessAgentRefreshConnectorMcpTools
 
 > ConnectorDTO BusinessAgentRefreshConnectorMcpTools(ctx, entityId, connectorId).Execute()
@@ -977,6 +1850,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConnectorToolRunResultDTO**](ConnectorToolRunResultDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentSubmitAgentEvent
+
+> AgentEventResultDTO BusinessAgentSubmitAgentEvent(ctx, entityId).PublicSubmitAgentEventRequest(publicSubmitAgentEventRequest).Execute()
+
+Submit Agent Event
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "entityId_example" // string | WhatsApp Business Phone Number ID that owns the Meta Business Agent.
+    publicSubmitAgentEventRequest := *ycloud.NewPublicSubmitAgentEventRequest("To_example", *ycloud.NewAgentEventDTO("Type_example", "Description_example", "Payload_example")) // PublicSubmitAgentEventRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentSubmitAgentEvent(context.Background(), entityId).PublicSubmitAgentEventRequest(publicSubmitAgentEventRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentSubmitAgentEvent``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentSubmitAgentEvent`: AgentEventResultDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentSubmitAgentEvent`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | WhatsApp Business Phone Number ID that owns the Meta Business Agent. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentSubmitAgentEventRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **publicSubmitAgentEventRequest** | [**PublicSubmitAgentEventRequest**](PublicSubmitAgentEventRequest.md) |  |
+
+### Return type
+
+[**AgentEventResultDTO**](AgentEventResultDTO.md)
 
 ### Authorization
 
@@ -1130,6 +2075,156 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConnectorToolDTO**](ConnectorToolDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentUpdateFaq
+
+> FaqDTO BusinessAgentUpdateFaq(ctx, entityId, faqId).PublicUpdateFaqRequest(publicUpdateFaqRequest).Execute()
+
+Update Faq
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    faqId := "faqId_example" // string | FAQ resource ID.
+    publicUpdateFaqRequest := *ycloud.NewPublicUpdateFaqRequest("Question_example", "Answer_example") // PublicUpdateFaqRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentUpdateFaq(context.Background(), entityId, faqId).PublicUpdateFaqRequest(publicUpdateFaqRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentUpdateFaq``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentUpdateFaq`: FaqDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentUpdateFaq`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**faqId** | **string** | FAQ resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentUpdateFaqRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **publicUpdateFaqRequest** | [**PublicUpdateFaqRequest**](PublicUpdateFaqRequest.md) |  |
+
+### Return type
+
+[**FaqDTO**](FaqDTO.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BusinessAgentUpdateWebsite
+
+> WebsiteDTO BusinessAgentUpdateWebsite(ctx, entityId, websiteId).PublicUpdateWebsiteRequest(publicUpdateWebsiteRequest).Execute()
+
+Update Website
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    entityId := "1249005978294267" // string | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID.
+    websiteId := "websiteId_example" // string | Website resource ID.
+    publicUpdateWebsiteRequest := *ycloud.NewPublicUpdateWebsiteRequest("Url_example") // PublicUpdateWebsiteRequest |
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.MetaBusinessAgentApi.BusinessAgentUpdateWebsite(context.Background(), entityId, websiteId).PublicUpdateWebsiteRequest(publicUpdateWebsiteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MetaBusinessAgentApi.BusinessAgentUpdateWebsite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BusinessAgentUpdateWebsite`: WebsiteDTO
+    fmt.Fprintf(os.Stdout, "Response from `MetaBusinessAgentApi.BusinessAgentUpdateWebsite`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entityId** | **string** | Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. |
+**websiteId** | **string** | Website resource ID. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBusinessAgentUpdateWebsiteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **publicUpdateWebsiteRequest** | [**PublicUpdateWebsiteRequest**](PublicUpdateWebsiteRequest.md) |  |
+
+### Return type
+
+[**WebsiteDTO**](WebsiteDTO.md)
 
 ### Authorization
 

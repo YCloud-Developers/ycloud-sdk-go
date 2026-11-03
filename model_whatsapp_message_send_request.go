@@ -52,6 +52,7 @@ type WhatsappMessageSendRequest struct {
 	FilterUnsubscribed *bool `json:"filterUnsubscribed,omitempty"`
 	// **Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.
 	FilterBlocked *bool `json:"filterBlocked,omitempty"`
+	BidSpec *WhatsappMessageBidSpec `json:"bidSpec,omitempty"`
 }
 
 // NewWhatsappMessageSendRequest instantiates a new WhatsappMessageSendRequest object
@@ -829,6 +830,38 @@ func (o *WhatsappMessageSendRequest) SetFilterBlocked(v bool) {
 	o.FilterBlocked = &v
 }
 
+// GetBidSpec returns the BidSpec field value if set, zero value otherwise.
+func (o *WhatsappMessageSendRequest) GetBidSpec() WhatsappMessageBidSpec {
+	if o == nil || o.BidSpec == nil {
+		var ret WhatsappMessageBidSpec
+		return ret
+	}
+	return *o.BidSpec
+}
+
+// GetBidSpecOk returns a tuple with the BidSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessageSendRequest) GetBidSpecOk() (*WhatsappMessageBidSpec, bool) {
+	if o == nil || o.BidSpec == nil {
+		return nil, false
+	}
+	return o.BidSpec, true
+}
+
+// HasBidSpec returns a boolean if a field has been set.
+func (o *WhatsappMessageSendRequest) HasBidSpec() bool {
+	if o != nil && o.BidSpec != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBidSpec gets a reference to the given WhatsappMessageBidSpec and assigns it to the BidSpec field.
+func (o *WhatsappMessageSendRequest) SetBidSpec(v WhatsappMessageBidSpec) {
+	o.BidSpec = &v
+}
+
 func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -902,6 +935,9 @@ func (o WhatsappMessageSendRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.FilterBlocked != nil {
 		toSerialize["filterBlocked"] = o.FilterBlocked
+	}
+	if o.BidSpec != nil {
+		toSerialize["bidSpec"] = o.BidSpec
 	}
 	return json.Marshal(toSerialize)
 }

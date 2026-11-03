@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **StatusUpdateEvent** | Pointer to [**WhatsappTemplateStatusUpdateEventEnum**](WhatsappTemplateStatusUpdateEventEnum.md) |  | [optional]
 **DisableDate** | Pointer to **string** | The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set. | [optional]
 **WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional]
+**BidSpec** | Pointer to [**WhatsappTemplateBidSpecResponse**](WhatsappTemplateBidSpecResponse.md) |  | [optional]
 
 ## Methods
 
@@ -476,6 +477,31 @@ SetWhatsappApiError sets WhatsappApiError field to given value.
 `func (o *WhatsappTemplate) HasWhatsappApiError() bool`
 
 HasWhatsappApiError returns a boolean if a field has been set.
+
+### GetBidSpec
+
+`func (o *WhatsappTemplate) GetBidSpec() WhatsappTemplateBidSpecResponse`
+
+GetBidSpec returns the BidSpec field if non-nil, zero value otherwise.
+
+### GetBidSpecOk
+
+`func (o *WhatsappTemplate) GetBidSpecOk() (*WhatsappTemplateBidSpecResponse, bool)`
+
+GetBidSpecOk returns a tuple with the BidSpec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBidSpec
+
+`func (o *WhatsappTemplate) SetBidSpec(v WhatsappTemplateBidSpecResponse)`
+
+SetBidSpec sets BidSpec field to given value.
+
+### HasBidSpec
+
+`func (o *WhatsappTemplate) HasBidSpec() bool`
+
+HasBidSpec returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

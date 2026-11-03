@@ -17,11 +17,21 @@ import (
 
 // WhatsappInboundMessageSystem When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user's identity has potentially changed on WhatsApp.
 type WhatsappInboundMessageSystem struct {
+	// Phone number supplied by Meta, without the leading `+`. It can be unchanged or omitted for a BSUID change.
+	WaId *string `json:"wa_id,omitempty"`
+	// New business-scoped user ID supplied by Meta.
+	UserId *string `json:"user_id,omitempty"`
+	// New Parent BSUID, only when enabled and supplied by Meta.
+	ParentUserId *string `json:"parent_user_id,omitempty"`
+	// Previous business-scoped user ID supplied by Meta.
+	PreviousUserId *string `json:"previous_user_id,omitempty"`
+	// Previous Parent BSUID, only when enabled and supplied by Meta.
+	PreviousParentUserId *string `json:"previous_parent_user_id,omitempty"`
 	// Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.
 	Body *string `json:"body,omitempty"`
 	// **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.
 	NewWaId *string `json:"new_wa_id,omitempty"`
-	// Supported types are: - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.
+	// Supported types are: - `user_changed_user_id`: notification that a user changed their BSUID. - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.
 	Type *string `json:"type,omitempty"`
 	// **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.
 	User *string `json:"user,omitempty"`
@@ -42,6 +52,166 @@ func NewWhatsappInboundMessageSystem() *WhatsappInboundMessageSystem {
 func NewWhatsappInboundMessageSystemWithDefaults() *WhatsappInboundMessageSystem {
 	this := WhatsappInboundMessageSystem{}
 	return &this
+}
+
+// GetWaId returns the WaId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageSystem) GetWaId() string {
+	if o == nil || o.WaId == nil {
+		var ret string
+		return ret
+	}
+	return *o.WaId
+}
+
+// GetWaIdOk returns a tuple with the WaId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageSystem) GetWaIdOk() (*string, bool) {
+	if o == nil || o.WaId == nil {
+		return nil, false
+	}
+	return o.WaId, true
+}
+
+// HasWaId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageSystem) HasWaId() bool {
+	if o != nil && o.WaId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWaId gets a reference to the given string and assigns it to the WaId field.
+func (o *WhatsappInboundMessageSystem) SetWaId(v string) {
+	o.WaId = &v
+}
+
+// GetUserId returns the UserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageSystem) GetUserId() string {
+	if o == nil || o.UserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageSystem) GetUserIdOk() (*string, bool) {
+	if o == nil || o.UserId == nil {
+		return nil, false
+	}
+	return o.UserId, true
+}
+
+// HasUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageSystem) HasUserId() bool {
+	if o != nil && o.UserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
+func (o *WhatsappInboundMessageSystem) SetUserId(v string) {
+	o.UserId = &v
+}
+
+// GetParentUserId returns the ParentUserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageSystem) GetParentUserId() string {
+	if o == nil || o.ParentUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ParentUserId
+}
+
+// GetParentUserIdOk returns a tuple with the ParentUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageSystem) GetParentUserIdOk() (*string, bool) {
+	if o == nil || o.ParentUserId == nil {
+		return nil, false
+	}
+	return o.ParentUserId, true
+}
+
+// HasParentUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageSystem) HasParentUserId() bool {
+	if o != nil && o.ParentUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetParentUserId gets a reference to the given string and assigns it to the ParentUserId field.
+func (o *WhatsappInboundMessageSystem) SetParentUserId(v string) {
+	o.ParentUserId = &v
+}
+
+// GetPreviousUserId returns the PreviousUserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageSystem) GetPreviousUserId() string {
+	if o == nil || o.PreviousUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.PreviousUserId
+}
+
+// GetPreviousUserIdOk returns a tuple with the PreviousUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageSystem) GetPreviousUserIdOk() (*string, bool) {
+	if o == nil || o.PreviousUserId == nil {
+		return nil, false
+	}
+	return o.PreviousUserId, true
+}
+
+// HasPreviousUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageSystem) HasPreviousUserId() bool {
+	if o != nil && o.PreviousUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPreviousUserId gets a reference to the given string and assigns it to the PreviousUserId field.
+func (o *WhatsappInboundMessageSystem) SetPreviousUserId(v string) {
+	o.PreviousUserId = &v
+}
+
+// GetPreviousParentUserId returns the PreviousParentUserId field value if set, zero value otherwise.
+func (o *WhatsappInboundMessageSystem) GetPreviousParentUserId() string {
+	if o == nil || o.PreviousParentUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.PreviousParentUserId
+}
+
+// GetPreviousParentUserIdOk returns a tuple with the PreviousParentUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappInboundMessageSystem) GetPreviousParentUserIdOk() (*string, bool) {
+	if o == nil || o.PreviousParentUserId == nil {
+		return nil, false
+	}
+	return o.PreviousParentUserId, true
+}
+
+// HasPreviousParentUserId returns a boolean if a field has been set.
+func (o *WhatsappInboundMessageSystem) HasPreviousParentUserId() bool {
+	if o != nil && o.PreviousParentUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPreviousParentUserId gets a reference to the given string and assigns it to the PreviousParentUserId field.
+func (o *WhatsappInboundMessageSystem) SetPreviousParentUserId(v string) {
+	o.PreviousParentUserId = &v
 }
 
 // GetBody returns the Body field value if set, zero value otherwise.
@@ -174,6 +344,21 @@ func (o *WhatsappInboundMessageSystem) SetUser(v string) {
 
 func (o WhatsappInboundMessageSystem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.WaId != nil {
+		toSerialize["wa_id"] = o.WaId
+	}
+	if o.UserId != nil {
+		toSerialize["user_id"] = o.UserId
+	}
+	if o.ParentUserId != nil {
+		toSerialize["parent_user_id"] = o.ParentUserId
+	}
+	if o.PreviousUserId != nil {
+		toSerialize["previous_user_id"] = o.PreviousUserId
+	}
+	if o.PreviousParentUserId != nil {
+		toSerialize["previous_parent_user_id"] = o.PreviousParentUserId
+	}
 	if o.Body != nil {
 		toSerialize["body"] = o.Body
 	}
@@ -224,5 +409,3 @@ func (v *NullableWhatsappInboundMessageSystem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

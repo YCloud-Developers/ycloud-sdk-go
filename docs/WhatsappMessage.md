@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **SendTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
 **DeliverTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
 **ReadTime** | Pointer to **time.Time** | The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. | [optional]
-**TotalPrice** | Pointer to **float64** | Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.** | [optional]
+**TotalPrice** | Pointer to **float64** | Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount. | [optional]
 **Currency** | Pointer to **string** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). | [optional]
 **RegionCode** | Pointer to **string** | The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number. | [optional]
 **PricingCategory** | Pointer to [**WhatsappPricingCategory**](WhatsappPricingCategory.md) |  | [optional]
@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **WhatsappApiError** | Pointer to [**WhatsappApiError**](WhatsappApiError.md) |  | [optional]
 **BizType** | Pointer to **string** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via the **WhatsApp** product. - &#x60;verify&#x60;: Indicates that the message is sent via the **Verify** product. | [optional]
 **VerificationId** | Pointer to **string** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. | [optional]
+**BidPricingFlag** | Pointer to **bool** | True when the message is identified as a Marketing Lite bidding message. Its pricingCategory is marketing_lite_bidding. | [optional] [readonly]
 
 ## Methods
 
@@ -1126,6 +1127,31 @@ SetVerificationId sets VerificationId field to given value.
 `func (o *WhatsappMessage) HasVerificationId() bool`
 
 HasVerificationId returns a boolean if a field has been set.
+
+### GetBidPricingFlag
+
+`func (o *WhatsappMessage) GetBidPricingFlag() bool`
+
+GetBidPricingFlag returns the BidPricingFlag field if non-nil, zero value otherwise.
+
+### GetBidPricingFlagOk
+
+`func (o *WhatsappMessage) GetBidPricingFlagOk() (*bool, bool)`
+
+GetBidPricingFlagOk returns a tuple with the BidPricingFlag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBidPricingFlag
+
+`func (o *WhatsappMessage) SetBidPricingFlag(v bool)`
+
+SetBidPricingFlag sets BidPricingFlag field to given value.
+
+### HasBidPricingFlag
+
+`func (o *WhatsappMessage) HasBidPricingFlag() bool`
+
+HasBidPricingFlag returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

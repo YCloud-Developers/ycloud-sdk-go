@@ -30,6 +30,7 @@ type WhatsappTemplateCreateRequest struct {
 	Components []WhatsappTemplateComponent `json:"components"`
 	// **Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights. If not provided or set to `null`, this value defaults to `true`, which means button click tracking is disabled by default.
 	CtaUrlLinkTrackingOptedOut *bool `json:"ctaUrlLinkTrackingOptedOut,omitempty"`
+	BidSpec *WhatsappTemplateBidSpec `json:"bidSpec,omitempty"`
 }
 
 // NewWhatsappTemplateCreateRequest instantiates a new WhatsappTemplateCreateRequest object
@@ -270,6 +271,38 @@ func (o *WhatsappTemplateCreateRequest) SetCtaUrlLinkTrackingOptedOut(v bool) {
 	o.CtaUrlLinkTrackingOptedOut = &v
 }
 
+// GetBidSpec returns the BidSpec field value if set, zero value otherwise.
+func (o *WhatsappTemplateCreateRequest) GetBidSpec() WhatsappTemplateBidSpec {
+	if o == nil || o.BidSpec == nil {
+		var ret WhatsappTemplateBidSpec
+		return ret
+	}
+	return *o.BidSpec
+}
+
+// GetBidSpecOk returns a tuple with the BidSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappTemplateCreateRequest) GetBidSpecOk() (*WhatsappTemplateBidSpec, bool) {
+	if o == nil || o.BidSpec == nil {
+		return nil, false
+	}
+	return o.BidSpec, true
+}
+
+// HasBidSpec returns a boolean if a field has been set.
+func (o *WhatsappTemplateCreateRequest) HasBidSpec() bool {
+	if o != nil && o.BidSpec != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBidSpec gets a reference to the given WhatsappTemplateBidSpec and assigns it to the BidSpec field.
+func (o *WhatsappTemplateCreateRequest) SetBidSpec(v WhatsappTemplateBidSpec) {
+	o.BidSpec = &v
+}
+
 func (o WhatsappTemplateCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -295,6 +328,9 @@ func (o WhatsappTemplateCreateRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.CtaUrlLinkTrackingOptedOut != nil {
 		toSerialize["ctaUrlLinkTrackingOptedOut"] = o.CtaUrlLinkTrackingOptedOut
+	}
+	if o.BidSpec != nil {
+		toSerialize["bidSpec"] = o.BidSpec
 	}
 	return json.Marshal(toSerialize)
 }
