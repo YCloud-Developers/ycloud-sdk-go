@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **TemplateName** | Pointer to **string** | **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60; or asynchronous &#x60;POST /v2/whatsapp/messages&#x60;.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send. | [optional]
 **FilterUnsubscribed** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
 **FilterBlocked** | Pointer to **bool** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;. | [optional]
+**BidSpec** | Pointer to [**WhatsappMessageBidSpec**](WhatsappMessageBidSpec.md) |  | [optional]
 
 ## Methods
 
@@ -637,6 +638,31 @@ SetFilterBlocked sets FilterBlocked field to given value.
 `func (o *WhatsappMessageSendRequest) HasFilterBlocked() bool`
 
 HasFilterBlocked returns a boolean if a field has been set.
+
+### GetBidSpec
+
+`func (o *WhatsappMessageSendRequest) GetBidSpec() WhatsappMessageBidSpec`
+
+GetBidSpec returns the BidSpec field if non-nil, zero value otherwise.
+
+### GetBidSpecOk
+
+`func (o *WhatsappMessageSendRequest) GetBidSpecOk() (*WhatsappMessageBidSpec, bool)`
+
+GetBidSpecOk returns a tuple with the BidSpec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBidSpec
+
+`func (o *WhatsappMessageSendRequest) SetBidSpec(v WhatsappMessageBidSpec)`
+
+SetBidSpec sets BidSpec field to given value.
+
+### HasBidSpec
+
+`func (o *WhatsappMessageSendRequest) HasBidSpec() bool`
+
+HasBidSpec returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

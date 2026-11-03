@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteBusinessUsername**](WhatsappPhoneNumbersApi.md#DeleteBusinessUsername) | **Delete** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username
 [**DeleteContactBookEntry**](WhatsappPhoneNumbersApi.md#DeleteContactBookEntry) | **Delete** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Delete a Meta contact book entry
+[**GetContactBookEntry**](WhatsappPhoneNumbersApi.md#GetContactBookEntry) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Check a Meta contact book entry
 [**List**](WhatsappPhoneNumbersApi.md#List) | **Get** /whatsapp/phoneNumbers | List phone numbers
 [**Register**](WhatsappPhoneNumbersApi.md#Register) | **Post** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number
 [**Retrieve**](WhatsappPhoneNumbersApi.md#Retrieve) | **Get** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
@@ -156,6 +157,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhatsappContactBookEntryDeleteResult**](WhatsappContactBookEntryDeleteResult.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetContactBookEntry
+
+> WhatsappContactBookEntryResult GetContactBookEntry(ctx, wabaId, phoneNumber, bsuid).Execute()
+
+Check a Meta contact book entry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    ycloud "github.com/ycloud-developers/ycloud-sdk-go"
+)
+
+func main() {
+    wabaId := "whatsapp-business-account-id" // string | WhatsApp Business Account ID.
+    phoneNumber := "+16315551111" // string | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading `+` as `%2B`.
+    bsuid := "US.11815799212886844830" // string | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.` are not supported.
+
+    configuration := ycloud.NewConfiguration()
+    apiClient := ycloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.WhatsappPhoneNumbersApi.GetContactBookEntry(context.Background(), wabaId, phoneNumber, bsuid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WhatsappPhoneNumbersApi.GetContactBookEntry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetContactBookEntry`: WhatsappContactBookEntryResult
+    fmt.Fprintf(os.Stdout, "Response from `WhatsappPhoneNumbersApi.GetContactBookEntry`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**wabaId** | **string** | WhatsApp Business Account ID. |
+**phoneNumber** | **string** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. |
+**bsuid** | **string** | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContactBookEntryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**WhatsappContactBookEntryResult**](WhatsappContactBookEntryResult.md)
 
 ### Authorization
 

@@ -70,7 +70,7 @@ type WhatsappMessage struct {
 	DeliverTime *time.Time `json:"deliverTime,omitempty"`
 	// The time at which this message `status` changed to `read`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.
 	ReadTime *time.Time `json:"readTime,omitempty"`
-	// Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**
+	// Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount.
 	TotalPrice *float64 `json:"totalPrice,omitempty"`
 	// Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *string `json:"currency,omitempty"`
@@ -84,6 +84,8 @@ type WhatsappMessage struct {
 	BizType *string `json:"bizType,omitempty"`
 	// The verification ID. Included only when `bizType` is `verify`.
 	VerificationId *string `json:"verificationId,omitempty"`
+	// True when the message is identified as a Marketing Lite bidding message. Its pricingCategory is marketing_lite_bidding.
+	BidPricingFlag *bool `json:"bidPricingFlag,omitempty"`
 }
 
 // NewWhatsappMessage instantiates a new WhatsappMessage object
@@ -1458,6 +1460,38 @@ func (o *WhatsappMessage) SetVerificationId(v string) {
 	o.VerificationId = &v
 }
 
+// GetBidPricingFlag returns the BidPricingFlag field value if set, zero value otherwise.
+func (o *WhatsappMessage) GetBidPricingFlag() bool {
+	if o == nil || o.BidPricingFlag == nil {
+		var ret bool
+		return ret
+	}
+	return *o.BidPricingFlag
+}
+
+// GetBidPricingFlagOk returns a tuple with the BidPricingFlag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappMessage) GetBidPricingFlagOk() (*bool, bool) {
+	if o == nil || o.BidPricingFlag == nil {
+		return nil, false
+	}
+	return o.BidPricingFlag, true
+}
+
+// HasBidPricingFlag returns a boolean if a field has been set.
+func (o *WhatsappMessage) HasBidPricingFlag() bool {
+	if o != nil && o.BidPricingFlag != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBidPricingFlag gets a reference to the given bool and assigns it to the BidPricingFlag field.
+func (o *WhatsappMessage) SetBidPricingFlag(v bool) {
+	o.BidPricingFlag = &v
+}
+
 func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1589,6 +1623,9 @@ func (o WhatsappMessage) MarshalJSON() ([]byte, error) {
 	if o.VerificationId != nil {
 		toSerialize["verificationId"] = o.VerificationId
 	}
+	if o.BidPricingFlag != nil {
+		toSerialize["bidPricingFlag"] = o.BidPricingFlag
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -1627,5 +1664,3 @@ func (v *NullableWhatsappMessage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

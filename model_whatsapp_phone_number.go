@@ -28,6 +28,8 @@ type WhatsappPhoneNumber struct {
 	WabaId *string `json:"wabaId,omitempty"`
 	// Active Business Username for this phone number. The value is a plain username without `@`.
 	BusinessUsername *string `json:"businessUsername,omitempty"`
+	// Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings.
+	BusinessUsernameContext *string `json:"businessUsernameContext,omitempty"`
 	BusinessUsernameStatus *WhatsappBusinessUsernameStatus `json:"businessUsernameStatus,omitempty"`
 	// Last requested Business Username that is still under review. This value can coexist with an active `businessUsername` while the new request is pending.
 	RequestedBusinessUsername *string `json:"requestedBusinessUsername,omitempty"`
@@ -237,6 +239,38 @@ func (o *WhatsappPhoneNumber) HasBusinessUsername() bool {
 // SetBusinessUsername gets a reference to the given string and assigns it to the BusinessUsername field.
 func (o *WhatsappPhoneNumber) SetBusinessUsername(v string) {
 	o.BusinessUsername = &v
+}
+
+// GetBusinessUsernameContext returns the BusinessUsernameContext field value if set, zero value otherwise.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameContext() string {
+	if o == nil || o.BusinessUsernameContext == nil {
+		var ret string
+		return ret
+	}
+	return *o.BusinessUsernameContext
+}
+
+// GetBusinessUsernameContextOk returns a tuple with the BusinessUsernameContext field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhatsappPhoneNumber) GetBusinessUsernameContextOk() (*string, bool) {
+	if o == nil || o.BusinessUsernameContext == nil {
+		return nil, false
+	}
+	return o.BusinessUsernameContext, true
+}
+
+// HasBusinessUsernameContext returns a boolean if a field has been set.
+func (o *WhatsappPhoneNumber) HasBusinessUsernameContext() bool {
+	if o != nil && o.BusinessUsernameContext != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessUsernameContext gets a reference to the given string and assigns it to the BusinessUsernameContext field.
+func (o *WhatsappPhoneNumber) SetBusinessUsernameContext(v string) {
+	o.BusinessUsernameContext = &v
 }
 
 // GetBusinessUsernameStatus returns the BusinessUsernameStatus field value if set, zero value otherwise.
@@ -895,6 +929,9 @@ func (o WhatsappPhoneNumber) MarshalJSON() ([]byte, error) {
 	}
 	if o.BusinessUsername != nil {
 		toSerialize["businessUsername"] = o.BusinessUsername
+	}
+	if o.BusinessUsernameContext != nil {
+		toSerialize["businessUsernameContext"] = o.BusinessUsernameContext
 	}
 	if o.BusinessUsernameStatus != nil {
 		toSerialize["businessUsernameStatus"] = o.BusinessUsernameStatus

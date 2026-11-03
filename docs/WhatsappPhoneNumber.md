@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **DisplayPhoneNumber** | Pointer to **string** | Display phone number. | [optional]
 **WabaId** | Pointer to **string** | WhatsApp Business Account ID. | [optional]
 **BusinessUsername** | Pointer to **string** | Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;. | [optional]
+**BusinessUsernameContext** | Pointer to **string** | Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings. | [optional]
 **BusinessUsernameStatus** | Pointer to [**WhatsappBusinessUsernameStatus**](WhatsappBusinessUsernameStatus.md) |  | [optional]
 **RequestedBusinessUsername** | Pointer to **string** | Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending. | [optional]
 **BusinessUsernameUpdatedAt** | Pointer to **time.Time** | The time when the Business Username state was last updated. | [optional]
@@ -173,6 +174,31 @@ SetBusinessUsername sets BusinessUsername field to given value.
 `func (o *WhatsappPhoneNumber) HasBusinessUsername() bool`
 
 HasBusinessUsername returns a boolean if a field has been set.
+
+### GetBusinessUsernameContext
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameContext() string`
+
+GetBusinessUsernameContext returns the BusinessUsernameContext field if non-nil, zero value otherwise.
+
+### GetBusinessUsernameContextOk
+
+`func (o *WhatsappPhoneNumber) GetBusinessUsernameContextOk() (*string, bool)`
+
+GetBusinessUsernameContextOk returns a tuple with the BusinessUsernameContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUsernameContext
+
+`func (o *WhatsappPhoneNumber) SetBusinessUsernameContext(v string)`
+
+SetBusinessUsernameContext sets BusinessUsernameContext field to given value.
+
+### HasBusinessUsernameContext
+
+`func (o *WhatsappPhoneNumber) HasBusinessUsernameContext() bool`
+
+HasBusinessUsernameContext returns a boolean if a field has been set.
 
 ### GetBusinessUsernameStatus
 

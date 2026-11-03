@@ -22,6 +22,7 @@ type WhatsappTemplateEditRequest struct {
 	MessageSendTtlSeconds *int32 `json:"messageSendTtlSeconds,omitempty"`
 	// **Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights. If not provided or set to `null`, this value defaults to `true`, which means button click tracking is disabled by default.
 	CtaUrlLinkTrackingOptedOut *bool `json:"ctaUrlLinkTrackingOptedOut,omitempty"`
+	BidSpec NullableWhatsappTemplateBidSpecUpdate `json:"bidSpec,omitempty"`
 }
 
 // NewWhatsappTemplateEditRequest instantiates a new WhatsappTemplateEditRequest object
@@ -130,6 +131,48 @@ func (o *WhatsappTemplateEditRequest) SetCtaUrlLinkTrackingOptedOut(v bool) {
 	o.CtaUrlLinkTrackingOptedOut = &v
 }
 
+// GetBidSpec returns the BidSpec field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WhatsappTemplateEditRequest) GetBidSpec() WhatsappTemplateBidSpecUpdate {
+	if o == nil || o.BidSpec.Get() == nil {
+		var ret WhatsappTemplateBidSpecUpdate
+		return ret
+	}
+	return *o.BidSpec.Get()
+}
+
+// GetBidSpecOk returns a tuple with the BidSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WhatsappTemplateEditRequest) GetBidSpecOk() (*WhatsappTemplateBidSpecUpdate, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BidSpec.Get(), o.BidSpec.IsSet()
+}
+
+// HasBidSpec returns a boolean if a field has been set.
+func (o *WhatsappTemplateEditRequest) HasBidSpec() bool {
+	if o != nil && o.BidSpec.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBidSpec gets a reference to the given NullableWhatsappTemplateBidSpecUpdate and assigns it to the BidSpec field.
+func (o *WhatsappTemplateEditRequest) SetBidSpec(v WhatsappTemplateBidSpecUpdate) {
+	o.BidSpec.Set(&v)
+}
+// SetBidSpecNil sets the value for BidSpec to be an explicit nil
+func (o *WhatsappTemplateEditRequest) SetBidSpecNil() {
+	o.BidSpec.Set(nil)
+}
+
+// UnsetBidSpec ensures that no value is present for BidSpec, not even an explicit nil
+func (o *WhatsappTemplateEditRequest) UnsetBidSpec() {
+	o.BidSpec.Unset()
+}
+
 func (o WhatsappTemplateEditRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -140,6 +183,9 @@ func (o WhatsappTemplateEditRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.CtaUrlLinkTrackingOptedOut != nil {
 		toSerialize["ctaUrlLinkTrackingOptedOut"] = o.CtaUrlLinkTrackingOptedOut
+	}
+	if o.BidSpec.IsSet() {
+		toSerialize["bidSpec"] = o.BidSpec.Get()
 	}
 	return json.Marshal(toSerialize)
 }

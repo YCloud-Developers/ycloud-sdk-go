@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// WhatsappPricingCategory WhatsApp pricing category. - `referral_conversion`: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - `authentication`: Indicates the conversation was billed at authentication rate. - `authentication_international`: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - `marketing`: Indicates the conversation was billed at authentication rate. - `marketing_lite`: Indicates the conversation was billed at marketing-lite rate. - `utility`: Indicates the conversation was billed at utility rate. - `service`: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+// WhatsappPricingCategory WhatsApp pricing category. - `referral_conversion`: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - `authentication`: Indicates the conversation was billed at authentication rate. - `authentication_international`: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - `marketing`: Indicates the conversation was billed at authentication rate. - `marketing_lite`: Indicates the conversation was billed at marketing-lite rate. - `utility`: Indicates the conversation was billed at utility rate. - `service`: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing). - `marketing_lite_bidding`: A marketing message billed through Marketing Lite bidding (Max Price).
 type WhatsappPricingCategory string
 
 // List of WhatsappPricingCategory
@@ -28,6 +28,7 @@ const (
 	WHATSAPPPRICINGCATEGORY_MARKETING_LITE WhatsappPricingCategory = "marketing_lite"
 	WHATSAPPPRICINGCATEGORY_UTILITY WhatsappPricingCategory = "utility"
 	WHATSAPPPRICINGCATEGORY_SERVICE WhatsappPricingCategory = "service"
+	WHATSAPPPRICINGCATEGORY_MARKETING_LITE_BIDDING WhatsappPricingCategory = "marketing_lite_bidding"
 )
 
 // All allowed values of WhatsappPricingCategory enum
@@ -39,6 +40,7 @@ var AllowedWhatsappPricingCategoryEnumValues = []WhatsappPricingCategory{
 	"marketing_lite",
 	"utility",
 	"service",
+	"marketing_lite_bidding",
 }
 
 func (v *WhatsappPricingCategory) UnmarshalJSON(src []byte) error {
@@ -113,4 +115,3 @@ func (v *NullableWhatsappPricingCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
